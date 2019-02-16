@@ -1,0 +1,13 @@
+.myChart {
+  /* Add shadows to create the "card" effect */
+  /* box-shadow: 0 4px 15px 0 rgba(82, 129, 82, 0.212); */
+  /* width: 100%; */
+  margin: 10 auto;
+}
+
+  
+.chartContainer {
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 400px;
+}

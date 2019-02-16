@@ -1,0 +1,47 @@
+.fileSelector {
+  /* width: 90%; */
+  margin: 0 auto;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* float: right; */
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + .fileLabel {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #16a084de;
+  display: inline-block;
+  cursor: pointer; /* "hand" cursor */
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.inputfile:focus + .fileLabel,
+.inputfile + .fileLabel:hover {
+    background-color: #119e82;
+}
+
+.inputfile:focus + .fileLabel {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + .fileLabel * {
+	pointer-events: none;
+}
+
+svg{
+  fill: white;
+}
