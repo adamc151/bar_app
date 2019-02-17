@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100vh;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.list {
+  width: 800px;
+  height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .map {
+    width: 100%;
+    height: 50%;
+  }
+
+  .list {
+    width: 100%;
+    height: 50%;
+  }
+}

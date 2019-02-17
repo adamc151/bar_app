@@ -1,8 +1,13 @@
 .accordionContainer {
   margin: auto;
-  width: 50%;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .accordionContainer {
+    width: 100%;
+  }
 }
 
 .openTabRadio, .closeTabRadio {
@@ -26,7 +31,7 @@ label {
 }
 
 .tab-content {
-  max-height: 220px;
+  /* max-height: 220px; */
   overflow: scroll;
   -webkit-transition: max-height .35s;
   -o-transition: max-height .35s;

@@ -20,14 +20,12 @@ export function fetchData(file) {
 }
 
 
-export function postData(name) {
+export function postData(obj) {
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_POST_REQUEST});
 
-    const response = await axios.post('/api/bar', {
-      name: name
-    });
+    const response = await axios.post('/api/bar', obj);
 
     console.log('response', response);
     return dispatch({type: DATA_POST_SUCCESS });

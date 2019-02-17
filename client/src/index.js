@@ -8,11 +8,16 @@ import {createStore, compose, applyMiddleware} from 'redux';
 import reducer from './state/reducers/reducer';
 import thunk from 'redux-thunk';
 
+// const store = createStore(
+//   reducer,
+//   compose(
+//   applyMiddleware(thunk),
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// );
+
 const store = createStore(
   reducer,
-  compose(
   applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
 
 ReactDOM.render(<Provider store={store}>

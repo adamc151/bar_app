@@ -11,7 +11,7 @@ class Accordian extends React.Component {
     if (!this.props.data) return null;
 
     return this.props.data.map((data, i) => {
-      return <AccordianItem key={i} index={i} data={data} />
+      return <AccordianItem key={i} index={i} data={data} onClick={this.props.onClick} />
     });
   }
 
