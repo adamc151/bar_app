@@ -1,0 +1,188 @@
+.accordionContainer {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .accordionContainer {
+    width: 100%;
+  }
+}
+
+.openTabRadio, .closeTabRadio {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+label {
+  position: relative;
+  display: block;
+  background: #16a085;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+}
+
+.blue label {
+  background: #2980b9;
+}
+
+.tab-content {
+  /* max-height: 220px; */
+  overflow: scroll;
+  -webkit-transition: max-height .35s;
+  -o-transition: max-height .35s;
+  transition: max-height .35s;
+  text-align: left;
+}
+
+.tab-content::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-contents-single{
+  border-left: 5px solid black;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.63)
+}
+
+
+.tab-content p {
+  margin: 1em;
+}
+
+.closeTabLabel {
+  display: none;
+  content: "+";
+  margin-bottom: 0px;
+}
+
+.openTabLabel {
+  margin-bottom: 0px;
+}
+
+.openTabLabel::after {
+  content: "+";
+}
+
+.closeTabLabel::after {
+  content: "-";
+}
+
+/* :checked */
+.openTabRadio:checked ~ .tab-content {
+  max-height: 300px;
+}
+
+.openTabRadio:checked ~ .openTabLabel {
+  display: none;
+}
+
+.openTabRadio:checked ~ .closeTabLabel {
+  display: block;
+}
+
+
+/* :checked */
+.closeTabRadio:checked ~ .tab-content {
+  max-height: 0;
+}
+
+.closeTabRadio:checked ~ .closeTabLabel {
+  display: none;
+}
+
+.closeTabRadio:checked ~ .openTabLabel {
+  display: block;
+}
+
+
+/* Icon */
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+
+.close_icon{
+  width: 15px;
+  /* margin-top: 15px; */
+}
+
+.close_icon:hover{
+  background-color: #16a085;
+}
+
+.redClass{
+  color: rgba(255, 30, 0, 0.801);
+  margin-left: 5px;
+}
+
+.greenClass{
+  color: #16a085;
+  margin-left: 5px;
+}
+
+.accordianItemWrapper {
+  display: grid;
+  grid-template-columns: 20% auto 20% 5%;
+  align-items: start;
+  padding: 4px;
+}
+
+.accordianItemWrapper:hover {
+    background-color: lightgrey;
+}
+
+.itemLocation, .itemAmount, .itemDate, .greenClass, .redClass {
+    text-align: start;
+    line-height: 2;
+}
+
+
+.close-button {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    line-height: 3;
+    display: inline-block;
+}
+
+.close-button::before, .close-button::after{
+  transform: rotate(-45deg);
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  display: block;
+  height: 2px;
+  width: 20px;
+  background-color: gray;
+}
+
+.close-button::after{
+  transform: rotate(-135deg);
+}
+
+.close-button:hover::before, .close-button:hover::after {
+  transition: all 0.25s ease-out;
+  transform: rotate(0deg);
+}
+
+.close-button:hover{
+  cursor: pointer;
+}
