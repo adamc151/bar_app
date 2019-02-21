@@ -4,7 +4,10 @@ import './SearchBar.css';
 export const SearchBar = (props) => {
 
   return (
-    <input className='searchbar' ref={props.getNode} onChange={props.onChange} />
+    <div className='container'>
+    <input className='searchbar' ref={props.getNode} onChange={props.onChange} placeHolder='Search' />
+    <span className='line' />
+    </div>
   )
 }
 

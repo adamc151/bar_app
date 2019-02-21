@@ -50,8 +50,10 @@ class MainContainer extends Component {
           <MyMap coordinates={dummyCoordinates} centerOn={this.state.clickedEntry}/>
         </div>
         <div className="list">
-          <Modal />
           <Accordian data={this.props.data} onClick={entry => this.setState({clickedEntry: dummyCoordinates[0]})} />
+          <div className='addEntryButton'>
+            <Modal />
+          </div>
         </div>
       </div>
     );
