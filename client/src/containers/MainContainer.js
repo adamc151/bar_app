@@ -3,8 +3,10 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../state/actions/actions';
 import Accordian from '../components/Accordian/Accordian';
-import MyMap from '../components/Map/map';
+// import MyMap from '../components/GoogleMap/map';
+// import MyMap from '../components/FreeMap/map';
 import Modal from '../components/Modal/Modal';
+import MyMap from '../components/GoogleMapWithSearch/map';
 import './MainContainer.css';
 
 
@@ -44,7 +46,7 @@ class MainContainer extends Component {
 
     return (
       <div className="wrapper">
-        <div className="map">
+        <div className="mapContainer">
           <MyMap coordinates={dummyCoordinates} centerOn={this.state.clickedEntry}/>
         </div>
         <div className="list">

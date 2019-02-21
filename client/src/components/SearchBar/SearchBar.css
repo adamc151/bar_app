@@ -1,0 +1,12 @@
+.pac-container {
+  /* border: none; */
+  box-shadow: none;
+}
+
+.searchbar {
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: lightgrey;
+  padding: 0px;
+}
