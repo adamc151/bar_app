@@ -1,4 +1,4 @@
-import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS } from '../actions/actions';
+import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP } from '../actions/actions';
 
 //the initial store (global app state)
 let initialState = {
@@ -24,6 +24,9 @@ export default function transactions(state = initialState, action) {
         case DATA_POST_SUCCESS:
             console.log('DATA_POST_SUCCESS Action');
             return { ...state };
+        case CENTER_MAP:
+            console.log('CENTER_MAP Action');
+            return { ...state, lat: action.payload.lat, lng: action.payload.lng };
         default:
         return state;
     }

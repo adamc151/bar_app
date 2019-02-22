@@ -1,0 +1,24 @@
+.accordionItemWrapper {
+  border-left: 5px solid black;
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.63)
+}
+
+.accordionItemWrapper:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.itemName {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.itemLocation {
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.itemDescription {
+}

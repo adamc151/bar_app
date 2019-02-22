@@ -1,17 +1,15 @@
 import React from 'react';
-import AccordianItem from './AccordianItem';
-import './Accordian.css';
+import AccordionItem from './AccordionItem';
+import './Accordion.css';
 
-
-class Accordian extends React.Component {
-
+class Accordion extends React.Component {
 
   renderList(){
     console.log('this.props.data', this.props.data);
     if (!this.props.data) return null;
 
     return this.props.data.map((data, i) => {
-      return <AccordianItem key={i} index={i} data={data} onClick={this.props.onClick} />
+      return <AccordionItem key={i} index={i} data={data} onClick={this.props.onClick} />
     });
   }
 
@@ -42,4 +40,4 @@ class Accordian extends React.Component {
 
 
 
-export default Accordian;
+export default Accordion;

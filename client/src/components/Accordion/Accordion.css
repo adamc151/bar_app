@@ -42,12 +42,7 @@ label {
   display: none;
 }
 
-.tab-contents-single{
-  border-left: 5px solid black;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.63)
-}
+
 
 
 .tab-content p {
@@ -132,22 +127,6 @@ label::after {
 .greenClass{
   color: #16a085;
   margin-left: 5px;
-}
-
-.accordianItemWrapper {
-  display: grid;
-  grid-template-columns: 20% auto 20% 5%;
-  align-items: start;
-  padding: 4px;
-}
-
-.accordianItemWrapper:hover {
-    background-color: lightgrey;
-}
-
-.itemLocation, .itemAmount, .itemDate, .greenClass, .redClass {
-    text-align: start;
-    line-height: 2;
 }
 
 
