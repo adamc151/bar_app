@@ -3,7 +3,6 @@ import './AccordionItem.css';
 
 
 export default function AccordionItem(props){
-
     const { name, description, city } = props.data;
 
     return (

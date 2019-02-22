@@ -27,7 +27,7 @@ class MainContainer extends Component {
           <MyMap centerOn={{ lat, lng }} centerMap={this.props.actions.centerMap} />
         </div>
         <div className="list">
-          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(51.509865, -0.118092)} />
+          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.lat, entry.location.lng)} />
           <div className='addEntryButton'>
             <Modal />
           </div>
