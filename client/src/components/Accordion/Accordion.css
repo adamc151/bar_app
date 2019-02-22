@@ -1,6 +1,13 @@
 .accordionContainer {
+  height: 100%;
   margin: auto;
-  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordionTab {
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 600px) {
@@ -30,7 +37,8 @@ label {
 }
 
 .tab-content {
-  /* max-height: 220px; */
+  height: 100%;
+  overflow: scroll;
   overflow: scroll;
   -webkit-transition: max-height .35s;
   -o-transition: max-height .35s;
@@ -40,13 +48,6 @@ label {
 
 .tab-content::-webkit-scrollbar {
   display: none;
-}
-
-.tab-contents-single{
-  border-left: 5px solid black;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.63)
 }
 
 
@@ -132,22 +133,6 @@ label::after {
 .greenClass{
   color: #16a085;
   margin-left: 5px;
-}
-
-.accordianItemWrapper {
-  display: grid;
-  grid-template-columns: 20% auto 20% 5%;
-  align-items: start;
-  padding: 4px;
-}
-
-.accordianItemWrapper:hover {
-    background-color: lightgrey;
-}
-
-.itemLocation, .itemAmount, .itemDate, .greenClass, .redClass {
-    text-align: start;
-    line-height: 2;
 }
 
 

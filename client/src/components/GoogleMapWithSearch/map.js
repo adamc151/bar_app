@@ -14,7 +14,6 @@ export class MyMap extends React.Component {
       latitude: 55,
       longitude: -5,
       zoom: 5,
-      isCurrentLocation: false,
       showingInfoWindow: false
     };
 
@@ -30,8 +29,7 @@ export class MyMap extends React.Component {
     if (props.centerOn) {
       return {
         latitude: props.centerOn.lat,
-        longitude: props.centerOn.long,
-        isCurrentLocation: false
+        longitude: props.centerOn.lng,
       };
     }
     // Return null if the state hasn't changed
@@ -54,9 +52,8 @@ export class MyMap extends React.Component {
     }
   }
 
-
   setLocation(position) {
-    this.setState({ isCurrentLocation: true, latitude: position.coords.latitude, longitude: position.coords.longitude, zoom: 15 });
+    this.props.centerMap(position.coords.latitude, position.coords.longitude);
   }
 
   findPlace(e) {
@@ -66,9 +63,6 @@ export class MyMap extends React.Component {
 
       // Create the search box and link it to the UI element.
       var searchBox = new google.maps.places.SearchBox(e.target);
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(e.target);
-
-      console.log('map.getBounds()', map.getBounds());
 
       // Bias the SearchBox results towards current map's viewport.
       map.addListener('bounds_changed', function() {
@@ -131,7 +125,6 @@ export class MyMap extends React.Component {
 
 
   onMarkerClick(props, marker, e){
-    console.log('onMarkerClick');
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -150,10 +143,9 @@ export class MyMap extends React.Component {
 
 
   render() {
-
     return (
       <Fragment>
-      <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} />
+      <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
       <div className='map'>
       <Map google={this.props.google} zoom={14}
             center={{
@@ -162,6 +154,7 @@ export class MyMap extends React.Component {
             }}
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}
+            disableDefaultUI={true}
       >
 
           <Marker onClick={this.onMarkerClick}
