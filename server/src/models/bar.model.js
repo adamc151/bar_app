@@ -1,6 +1,8 @@
 let mongoose = require('mongoose');
 const keys = require('../keys');
 
+console.log(process.env.NODE_VERSION);
+
 const server = keys.mongoDatabase;
 const database = 'bars';
 const PORT = keys.mongoPort;
@@ -30,7 +32,27 @@ let barsSchema = new mongoose.Schema({
     endTime:{
         type: String,
         require: true
-    }
+    },
+    address:{
+        type: String,
+        require: true
+    },
+    location: {
+        type: {
+          type: String, 
+          enum: ['Point'],
+          required: true
+        },
+        coordinates: {
+          type: [Number],
+          required: true
+        }
+    },
+    place_id:{
+        type: String,
+        require: true
+    },
 });
+
 
 module.exports = mongoose.model('Bar', barsSchema);

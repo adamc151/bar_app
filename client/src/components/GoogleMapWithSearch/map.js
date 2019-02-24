@@ -2,8 +2,13 @@ import React, {Fragment} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from '../SearchBar/SearchBar';
 import './map.css';
+const keys = require('../../keys');
 
-const API_KEY = 'AIzaSyDbgEJYukI5kbd_EijpPud_0EJna-YKa44';
+console.log('APIKEYEYE: ' + process.env.tom);
+
+console.log(process.env);
+
+const API_KEY = keys.googleAPIKey;
 
 export class MyMap extends React.Component {
 

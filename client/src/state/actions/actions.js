@@ -15,7 +15,8 @@ export function fetchData(file) {
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});
-    const values = await axios.get('/api/bars');
+    // const values = await axios.get('/api/bars');
+    const values = await axios.get('/api/locations', { params: { long: '53.7961272', lat: '-1.5440538999999944', miles: '5' } });
     return dispatch({type: DATA_FETCH_SUCCESS, payload: values.data});
   }
 
