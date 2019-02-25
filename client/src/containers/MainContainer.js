@@ -15,7 +15,9 @@ class MainContainer extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.fetchData();
+    const { lat, lng } = this.props;
+    const obj = {lat: lat, long: lng, miles: 5}
+    this.props.actions.fetchData(obj);
   }
 
   render() {

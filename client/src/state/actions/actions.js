@@ -11,12 +11,15 @@ export const CENTER_MAP = 'CENTER_MAP';
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
-export function fetchData(file) {
+export function fetchData(obj) {
+
+  const {lat, long, miles} = obj
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});
     // const values = await axios.get('/api/bars');
-    const values = await axios.get('/api/locations', { params: { long: '53.7961272', lat: '-1.5440538999999944', miles: '5' } });
+    const values = await axios.get('/api/locations', { params: { long: '53.7961272', lat: '-1.5440538999999944', miles: miles } });
+    // const values = await axios.get('/api/locations', { params: { long: long, lat: lat, miles: miles } });
     return dispatch({type: DATA_FETCH_SUCCESS, payload: values.data});
   }
 
