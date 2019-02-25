@@ -14,12 +14,15 @@ export const CENTER_MAP = 'CENTER_MAP';
 export function fetchData(obj) {
 
   const {lat, long, miles} = obj
+  console.log(lat);
+  console.log(long);
+  console.log(miles);
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});
     // const values = await axios.get('/api/bars');
-    const values = await axios.get('/api/locations', { params: { long: '53.7961272', lat: '-1.5440538999999944', miles: miles } });
-    // const values = await axios.get('/api/locations', { params: { long: long, lat: lat, miles: miles } });
+    // const values = await axios.get('/api/locations', { params: { long: '53.7961272', lat: '-1.5440538999999944', miles: miles } });
+    const values = await axios.get('/api/locations', { params: { long: long, lat: lat, miles: miles } });
     return dispatch({type: DATA_FETCH_SUCCESS, payload: values.data});
   }
 

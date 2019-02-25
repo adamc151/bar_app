@@ -15,9 +15,7 @@ class MainContainer extends Component {
   }
 
   componentDidMount() {
-    const { lat, lng } = this.props;
-    const obj = {lat: lat, long: lng, miles: 5}
-    this.props.actions.fetchData(obj);
+    // this.props.actions.fetchData(obj);
   }
 
   render() {
@@ -26,7 +24,7 @@ class MainContainer extends Component {
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng }} centerMap={this.props.actions.centerMap} />
+          <MyMap centerOn={{ lat, lng }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} />
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.lat, entry.location.lng)} />
