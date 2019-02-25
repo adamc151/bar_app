@@ -5,7 +5,12 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  
+  "location":{
+    "coordinates":[51.5229868,-0.10797760000002654],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 51.5229868,
     "lng": -0.10797760000002654
   },
@@ -18,7 +23,11 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  "location":{
+    "coordinates":[51.52218939999999,-0.045396799999934956],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 51.52218939999999,
     "lng": -0.045396799999934956
   },
@@ -31,7 +40,11 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  "location":{
+    "coordinates":[53.8007855,-1.5408460999999534],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 53.8007855,
     "lng": -1.5408460999999534
   },
@@ -44,7 +57,11 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  "location":{
+    "coordinates":[53.7961272,-1.5440538999999944],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 53.7961272,
     "lng": -1.5440538999999944
   },
@@ -57,7 +74,11 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  "location":{
+    "coordinates":[53.795552,-1.5411384000000226],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 53.795552,
     "lng": -1.5411384000000226
   },
@@ -70,7 +91,11 @@
   "description": "description goes here",
   "startTime": null,
   "endTime": null,
-  "location": {
+  "location":{
+    "coordinates":[51.505666,-0.12226729999997588],
+    "type":"Point"
+  },
+  "locationLL": {
     "lat": 51.505666,
     "lng": -0.12226729999997588
   },

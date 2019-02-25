@@ -2,8 +2,11 @@ import React, {Fragment} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from '../SearchBar/SearchBar';
 import './map.css';
+const keys = require('../../keys');
 
-const API_KEY = 'AIzaSyDbgEJYukI5kbd_EijpPud_0EJna-YKa44';
+console.log('APIKEYEYE: ' + process.env.GOOGLEAPIKEY);
+
+const API_KEY = keys.googleAPIKey;
 
 export class MyMap extends React.Component {
 
@@ -54,6 +57,10 @@ export class MyMap extends React.Component {
 
   setLocation(position) {
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
+
+    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: 5}
+    console.log('OBJBJBJ: ' +  position.coords.latitude);
+    this.props.fetchData(obj);
   }
 
   findPlace(e) {
