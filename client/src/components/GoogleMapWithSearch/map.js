@@ -4,9 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import './map.css';
 const keys = require('../../keys');
 
-console.log('APIKEYEYE: ' + process.env.tom);
-
-console.log(process.env);
+console.log('APIKEYEYE: ' + process.env.GOOGLEAPIKEY);
 
 const API_KEY = keys.googleAPIKey;
 
