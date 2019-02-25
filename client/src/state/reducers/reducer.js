@@ -3,7 +3,8 @@ import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SU
 //the initial store (global app state)
 let initialState = {
     data: [],
-    loading: false
+    loading: false,
+    toggle: false
 }
 
 
@@ -26,7 +27,7 @@ export default function transactions(state = initialState, action) {
             return { ...state };
         case CENTER_MAP:
             console.log('CENTER_MAP Action');
-            return { ...state, lat: action.payload.lat, lng: action.payload.lng };
+            return { ...state, lat: action.payload.lat, lng: action.payload.lng, toggle: !state.toggle };
         default:
         return state;
     }

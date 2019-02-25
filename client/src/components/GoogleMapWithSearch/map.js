@@ -29,6 +29,7 @@ export class MyMap extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
+    console.log('props', props);
     if (props.centerOn) {
       return {
         latitude: props.centerOn.lat,
@@ -80,7 +81,7 @@ export class MyMap extends React.Component {
       // Listen for the event fired when the user selects a prediction and retrieve
       // more details for that place.
 
-      searchBox.addListener('places_changed', function() {
+      searchBox.addListener('places_changed', () => {
         console.log('before PlacesService');
         var places = searchBox.getPlaces();
         console.log('places', places);
@@ -89,44 +90,58 @@ export class MyMap extends React.Component {
           return;
         }
 
+        if (!places[0].geometry) {
+          console.log("Returned place contains no geometry");
+          return;
+        }
+
+        var position = {
+          coords: {
+            latitude: places[0].geometry.location.lat(),
+            longitude: places[0].geometry.location.lng()
+          }
+        }
+
+        this.setLocation(position);
+
         // Clear out the old markers.
-        markers.forEach(function(marker) {
-          marker.setMap(null);
-        });
-        markers = [];
-
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function(place) {
-          if (!place.geometry) {
-            console.log("Returned place contains no geometry");
-            return;
-          }
-          var icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-          };
-
-          // Create a marker for each place.
-          markers.push(new google.maps.Marker({
-            map: map,
-            icon: icon,
-            title: place.name,
-            position: place.geometry.location
-          }));
-
-          if (place.geometry.viewport) {
-            // Only geocodes have viewport.
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-          }
-        });
-
-        map.fitBounds(bounds);
+        // markers.forEach(function(marker) {
+        //   marker.setMap(null);
+        // });
+        // markers = [];
+        //
+        // // For each place, get the icon, name and location.
+        // var bounds = new google.maps.LatLngBounds();
+        // places.forEach(function(place) {
+        //   if (!place.geometry) {
+        //     console.log("Returned place contains no geometry");
+        //     return;
+        //   }
+        //   var icon = {
+        //     url: place.icon,
+        //     size: new google.maps.Size(71, 71),
+        //     origin: new google.maps.Point(0, 0),
+        //     anchor: new google.maps.Point(17, 34),
+        //     scaledSize: new google.maps.Size(25, 25)
+        //   };
+        //
+        //   // Create a marker for each place.
+        //   markers.push(new google.maps.Marker({
+        //     map: map,
+        //     icon: icon,
+        //     title: place.name,
+        //     position: place.geometry.location
+        //   }));
+        //
+        //   if (place.geometry.viewport) {
+        //     // Only geocodes have viewport.
+        //     bounds.union(place.geometry.viewport);
+        //   } else {
+        //     bounds.extend(place.geometry.location);
+        //   }
+        // });
+        //
+        // map.fitBounds(bounds);
       });
   }
 
