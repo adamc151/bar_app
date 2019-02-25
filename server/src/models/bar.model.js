@@ -1,8 +1,6 @@
 let mongoose = require('mongoose');
 const keys = require('../keys');
 
-console.log(process.env.NODE_VERSION);
-
 const server = keys.mongoDatabase;
 const database = 'bars';
 const PORT = keys.mongoPort;
