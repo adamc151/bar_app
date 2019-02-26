@@ -1,4 +1,3 @@
 module.exports = {
-    // googleAPIKey: process.env.GOOGLEAPIKEY,
-    googleAPIKey: 'AIzaSyD2aklbHarXnNd6MESwu_-6CKcejaIYUdI'
+    googleAPIKey: process.env.REACT_APP_GOOGLEAPIKEY
 };
