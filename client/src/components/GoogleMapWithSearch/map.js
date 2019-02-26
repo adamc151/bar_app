@@ -4,8 +4,6 @@ import SearchBar from '../SearchBar/SearchBar';
 import './map.css';
 const keys = require('../../keys');
 
-console.log('APIKEYEYE: ' + process.env.GOOGLEAPIKEY);
-
 const API_KEY = keys.googleAPIKey;
 
 export class MyMap extends React.Component {
@@ -58,9 +56,7 @@ export class MyMap extends React.Component {
 
   setLocation(position) {
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
-
     const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: 5}
-    console.log('OBJBJBJ: ' +  position.coords.latitude);
     this.props.fetchData(obj);
   }
 
