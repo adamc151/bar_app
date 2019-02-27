@@ -161,11 +161,12 @@ export class MyMap extends React.Component {
 
 
   render() {
+    console.log('this.props.data', this.props.data);
     return (
       <Fragment>
       <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
       <div className='map'>
-      <Map google={this.props.google} zoom={14}
+      <Map google={this.props.google} zoom={17 - this.props.miles}
             center={{
               lat: this.state.latitude,
               lng: this.state.longitude
@@ -183,6 +184,10 @@ export class MyMap extends React.Component {
           <InfoWindow marker={this.state.activeMarker} onClose={this.onInfoWindowClose} visible={this.state.showingInfoWindow} >
             <h1>You Are Here!</h1>
           </InfoWindow>
+
+          {this.props.data.map(marker => {
+            return <Marker position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
+          })}
 
       </Map>
       </div>

@@ -14,7 +14,7 @@ export const SET_MILES = 'SET_MILES';
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
 export function fetchData(obj) {
 
-  const {lat, long, miles} = obj
+  const { lat, long, miles } = obj
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});

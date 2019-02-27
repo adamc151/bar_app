@@ -6,26 +6,31 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../../state/actions/actions';
 
 class HorizontalSlider extends Component {
-  constructor (props, context) {
-    super(props, context)
+  constructor (props) {
+    super(props)
+
     this.state = {
       value: 5
     }
+
+    this.handleChangeStart = this.handleChangeStart.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeComplete = this.handleChangeComplete.bind(this);
   }
 
-  handleChangeStart = () => {
+  handleChangeStart(){
     console.log('Change event started')
   };
 
-  handleChange = value => {
+  handleChange(value){
+    console.log('value', value);
     this.setState({
       value: value
     })
   };
 
-  handleChangeComplete = () => {
+  handleChangeComplete() {
     console.log('Change event completed')
-    console.log(this.state.value);
     this.props.actions.setMiles(this.state.value);
     const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.state.value}
     this.props.actions.fetchData(obj);
@@ -35,6 +40,7 @@ class HorizontalSlider extends Component {
 
   render () {
     const { value } = this.state
+
     return (
       <div className='slider'>
         <Slider
@@ -51,21 +57,11 @@ class HorizontalSlider extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//     return {
-//       loading: state.loading,
-//       data: state.data,
-//       lat: state.lat,
-//       lng: state.lng,
-//       toggle: state.toggle,
-//       miles: state.miles
-//     };
-//   }
 
 function mapDispatchToProps(dispatch) {
     return {
       actions: bindActionCreators(actions, dispatch)
     };
 }
-  
+
 export default connect(null, mapDispatchToProps)(HorizontalSlider);

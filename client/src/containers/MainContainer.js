@@ -5,6 +5,7 @@ import * as actions from '../state/actions/actions';
 import Accordion from '../components/Accordion/Accordion';
 import Modal from '../components/Modal/Modal';
 import MyMap from '../components/GoogleMapWithSearch/map';
+import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
 
 
@@ -24,12 +25,13 @@ class MainContainer extends Component {
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng, miles }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} />
+          <MyMap centerOn={{ lat, lng, miles }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles}/>
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
             <Modal centerOn={{ lat, lng, miles }} />
+            <HorizontalSlider centerOn={{ lat, lng, miles }} />
           </div>
         </div>
       </div>
