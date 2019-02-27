@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../../state/actions/actions';
 import Rodal from 'rodal';
+import HorizontalSlider from '../Slider/Slider';
+
 
 // include styles
 import 'rodal/lib/rodal.css';
@@ -36,9 +38,13 @@ class Modal extends React.Component {
     };
 
     render() {
+
+      const { lat, lng, miles } = this.props;
+
         return (
             <div>
                 <button onClick={this.show}>Add New Entry</button>
+                <HorizontalSlider centerOn={{ lat, lng, miles }}/>
                 <Rodal visible={this.state.visible} onClose={this.hide}>
                 <form onSubmit={this.handleSubmit}>
                   <div>name: <input ref={node => this.nameInput = node} onChange={event => this.setState({ name: event.target.value })} /></div>

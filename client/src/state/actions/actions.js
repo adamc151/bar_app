@@ -7,6 +7,7 @@ export const DATA_POST_REQUEST = 'DATA_POST_REQUEST';
 export const DATA_POST_SUCCESS = 'DATA_POST_SUCCESS';
 
 export const CENTER_MAP = 'CENTER_MAP';
+export const SET_MILES = 'SET_MILES';
 
 
 //ACTIONSSSS - these basically label the input argument
@@ -40,4 +41,8 @@ export function postData(obj) {
 
 export function centerMap(lat, lng) {
   return {type: CENTER_MAP, payload: { lat, lng }};
+}
+
+export function setMiles(miles) {
+  return {type: SET_MILES, payload: { miles }};
 }

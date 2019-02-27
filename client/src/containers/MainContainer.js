@@ -19,17 +19,17 @@ class MainContainer extends Component {
   }
 
   render() {
-    const { lat, lng } = this.props;
+    const { lat, lng, miles } = this.props;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} />
+          <MyMap centerOn={{ lat, lng, miles }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} />
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
-            <Modal />
+            <Modal centerOn={{ lat, lng, miles }} />
           </div>
         </div>
       </div>
@@ -43,7 +43,8 @@ function mapStateToProps(state) {
     data: state.data,
     lat: state.lat,
     lng: state.lng,
-    toggle: state.toggle
+    toggle: state.toggle,
+    miles: state.miles
   };
 }
 

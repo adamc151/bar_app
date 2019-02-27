@@ -56,7 +56,7 @@ export class MyMap extends React.Component {
 
   setLocation(position) {
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
-    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: 5}
+    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles}
     this.props.fetchData(obj);
   }
 
