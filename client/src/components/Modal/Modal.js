@@ -37,8 +37,6 @@ class Modal extends React.Component {
 
     render() {
 
-      const { lat, lng, miles } = this.props;
-
         return (
             <div>
                 <button onClick={this.show}>Add New Entry</button>
@@ -55,13 +53,11 @@ class Modal extends React.Component {
     }
 }
 
-
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(actions, dispatch)
   };
 }
-
 
 export default connect(
   null,

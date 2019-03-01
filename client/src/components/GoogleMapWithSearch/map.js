@@ -166,7 +166,8 @@ export class MyMap extends React.Component {
       <Fragment>
       <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
       <div className='map'>
-      <Map google={this.props.google} zoom={17 - this.props.miles}
+      {/* <Map google={this.props.google} zoom={17 - this.props.miles} */}
+      <Map google={this.props.google} zoom={14}
             center={{
               lat: this.state.latitude,
               lng: this.state.longitude
@@ -185,8 +186,8 @@ export class MyMap extends React.Component {
             <h1>You Are Here!</h1>
           </InfoWindow>
 
-          {this.props.data.map(marker => {
-            return <Marker position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
+          {this.props.data.map((marker, i) => {
+            return <Marker key={i} position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
           })}
 
       </Map>
@@ -195,7 +196,6 @@ export class MyMap extends React.Component {
     );
   }
 }
-
 
 export default GoogleApiWrapper({
   apiKey: API_KEY

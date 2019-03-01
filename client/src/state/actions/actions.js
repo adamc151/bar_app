@@ -24,7 +24,6 @@ export function fetchData(obj) {
 
 }
 
-
 export function postData(obj) {
 
   return async (dispatch, getState) => {
@@ -37,7 +36,6 @@ export function postData(obj) {
   }
 
 }
-
 
 export function centerMap(lat, lng) {
   return {type: CENTER_MAP, payload: { lat, lng }};

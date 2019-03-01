@@ -8,7 +8,6 @@ let initialState = {
     miles: 5
 }
 
-
 //REDUCERRRR
 //When an action is called...the reducer checks the action type then basically does all the work depending on which action
 export default function transactions(state = initialState, action) {

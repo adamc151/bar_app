@@ -19,24 +19,19 @@ class HorizontalSlider extends Component {
   }
 
   handleChangeStart(){
-    console.log('Change event started')
   };
 
   handleChange(value){
-    console.log('value', value);
     this.setState({
       value: value
     })
   };
 
   handleChangeComplete() {
-    console.log('Change event completed')
     this.props.actions.setMiles(this.state.value);
     const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.state.value}
     this.props.actions.fetchData(obj);
   };
-
-
 
   render () {
     const { value } = this.state
@@ -56,7 +51,6 @@ class HorizontalSlider extends Component {
     )
   }
 }
-
 
 function mapDispatchToProps(dispatch) {
     return {
