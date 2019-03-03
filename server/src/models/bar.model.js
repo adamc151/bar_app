@@ -9,6 +9,8 @@ const MONGO_DB = keys.mongoDatabase;
 
 const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
+console.log(url);
+
 mongoose.connect(url, {useNewUrlParser: true}).catch(err => {
     console.log(err);
 });
