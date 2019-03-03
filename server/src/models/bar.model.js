@@ -1,39 +1,42 @@
 let mongoose = require('mongoose');
 const keys = require('../keys');
 
-const server = keys.mongoDatabase;
-const database = 'bars';
-const PORT = keys.mongoPort;
-const password = keys.mongoPassword;
-const mongoString = `mongodb://${server}:${PORT}/${database}`;
-console.log(mongoString);
+const MONGO_USERNAME = keys.mongoUsername;
+const MONGO_PASSWORD = keys.mongoPassword;
+const MONGO_HOSTNAME = keys.mongoHostname;
+const MONGO_PORT = keys.mongoPort;
+const MONGO_DB = keys.mongoDatabase;
 
-mongoose.connect(mongoString);
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+
+mongoose.connect(url, {useNewUrlParser: true}).catch(err => {
+    console.log(err);
+});
 
 let barsSchema = new mongoose.Schema({
     name:{
         type: String,
-        require: true
+        required: true
     },
     description:{
         type: String,
-        require: true
+        required: true
     },
     city:{
         type: String,
-        require: true
+        required: true
     },
     startTime:{
         type: String,
-        require: true
+        required: true
     },
     endTime:{
         type: String,
-        require: true
+        required: true
     },
     address:{
         type: String,
-        require: true
+        required: true
     },
     location: {
         type: {
