@@ -56,7 +56,7 @@ export class MyMap extends React.Component {
 
   setLocation(position) {
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
-    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: 5}
+    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles}
     this.props.fetchData(obj);
   }
 
@@ -161,10 +161,12 @@ export class MyMap extends React.Component {
 
 
   render() {
+    console.log('this.props.data', this.props.data);
     return (
       <Fragment>
       <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
       <div className='map'>
+      {/* <Map google={this.props.google} zoom={17 - this.props.miles} */}
       <Map google={this.props.google} zoom={14}
             center={{
               lat: this.state.latitude,
@@ -184,13 +186,16 @@ export class MyMap extends React.Component {
             <h1>You Are Here!</h1>
           </InfoWindow>
 
+          {this.props.data.map((marker, i) => {
+            return <Marker key={i} position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
+          })}
+
       </Map>
       </div>
       </Fragment>
     );
   }
 }
-
 
 export default GoogleApiWrapper({
   apiKey: API_KEY

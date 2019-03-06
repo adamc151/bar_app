@@ -7,13 +7,14 @@ export const DATA_POST_REQUEST = 'DATA_POST_REQUEST';
 export const DATA_POST_SUCCESS = 'DATA_POST_SUCCESS';
 
 export const CENTER_MAP = 'CENTER_MAP';
+export const SET_MILES = 'SET_MILES';
 
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
 export function fetchData(obj) {
 
-  const {lat, long, miles} = obj
+  const { lat, long, miles } = obj
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});
@@ -22,7 +23,6 @@ export function fetchData(obj) {
   }
 
 }
-
 
 export function postData(obj) {
 
@@ -37,7 +37,10 @@ export function postData(obj) {
 
 }
 
-
 export function centerMap(lat, lng) {
   return {type: CENTER_MAP, payload: { lat, lng }};
+}
+
+export function setMiles(miles) {
+  return {type: SET_MILES, payload: { miles }};
 }

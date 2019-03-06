@@ -5,6 +5,7 @@ import * as actions from '../state/actions/actions';
 import Accordion from '../components/Accordion/Accordion';
 import Modal from '../components/Modal/Modal';
 import MyMap from '../components/GoogleMapWithSearch/map';
+import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
 
 
@@ -19,17 +20,18 @@ class MainContainer extends Component {
   }
 
   render() {
-    const { lat, lng } = this.props;
+    const { lat, lng, miles } = this.props;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} />
+          <MyMap centerOn={{ lat, lng, miles }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles}/>
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
-            <Modal />
+            <Modal centerOn={{ lat, lng, miles }} />
+            <HorizontalSlider centerOn={{ lat, lng, miles }} />
           </div>
         </div>
       </div>
@@ -43,7 +45,8 @@ function mapStateToProps(state) {
     data: state.data,
     lat: state.lat,
     lng: state.lng,
-    toggle: state.toggle
+    toggle: state.toggle,
+    miles: state.miles
   };
 }
 
@@ -52,7 +55,6 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(actions, dispatch)
   };
 }
-
 
 export default connect(
   mapStateToProps,
