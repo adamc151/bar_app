@@ -8,6 +8,7 @@ export const DATA_POST_SUCCESS = 'DATA_POST_SUCCESS';
 export const CENTER_MAP = 'CENTER_MAP';
 export const SET_MILES = 'SET_MILES';
 export const SET_TIME_FILTER = 'SET_TIME_FILTER';
+export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION';
 
 
 //ACTIONSSSS - these basically label the input argument
@@ -67,17 +68,17 @@ export function setTimeFilter(timeFilter) {
 }
 
 // export function nowFilter(data) {
-  
+
 //   var d = new Date();
 //   var h = d.getHours();
 //   var m = d.getMinutes();
 //   var time = parseInt(`${h}${m}`);
 
 //   var nowBlob = data.filter( (item) => {
-    
+
 //     var st = item.startTime.replace(':','');
 //     var et = item.endTime.replace(':','');
-    
+
 //     if( st < time && et > time ) {
 //         return item
 //     }
@@ -92,12 +93,12 @@ export function setTimeFilter(timeFilter) {
 //   var h = d.getHours();
 //   var m = d.getMinutes();
 //   var time = parseInt(`${h}${m}`);
-  
+
 //   var upcomingBlob = data.filter( (item) => {
 
 //     var st = item.startTime.replace(':','');
 //     var et = item.endTime.replace(':','');
-    
+
 //     if(st > time ) {
 //         return item
 //     }
@@ -107,7 +108,7 @@ export function setTimeFilter(timeFilter) {
 // }
 
 function nowFilter(data) {
-  
+
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -116,7 +117,7 @@ function nowFilter(data) {
   var time = parseInt(`${h}${m}`);
 
   var nowBlob = data.filter( (item) => {
-    
+
     var st = item.startTime.replace(':','');
     var et = item.endTime.replace(':','');
 
@@ -124,7 +125,7 @@ function nowFilter(data) {
     console.log(`start time: ${st}`);
     console.log(`end time: ${et}`);
     console.log(`now time: ${time}`);
-    
+
     if( st <= time && et > time ) {
         return item;
     }
@@ -140,8 +141,8 @@ function upcomingFilter(data) {
   var m = d.getMinutes();
   m < 10 ? m = `${0}${m}` : null ;
   var time = parseInt(`${h}${m}`);
-  
-  
+
+
   var upcomingBlob = data.filter( (item) => {
 
     var st = item.startTime.replace(':','');
@@ -150,11 +151,16 @@ function upcomingFilter(data) {
     console.log(`start time: ${st}`);
     console.log(`end time: ${et}`);
     console.log(`now time: ${time}`);
-    
+
     if( st > time && et > time ) {
         return item;
     }
   });
 
   return upcomingBlob;
+}
+
+
+export function setCurrentLocation(lat, lng) {
+  return {type: SET_CURRENT_LOCATION, payload: { lat, lng }};
 }
