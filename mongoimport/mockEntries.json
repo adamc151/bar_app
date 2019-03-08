@@ -2,9 +2,9 @@
   "name": "The Piano Works Farringdon",
   "address": "113-117 Farringdon Rd, London EC1R 3BX, UK",
   "city": "London",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "Free drinks when you wear a hat",
+  "startTime": "16:00",
+  "endTime": "20:00",
   
   "location":{
     "coordinates":[51.5229868,-0.10797760000002654],
@@ -16,9 +16,9 @@
   "name": "The Half Moon",
   "address": "213-223 Mile End Rd, Bethnal Green, London E1 4AA, UK",
   "city": "London",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "Buy 1 for double price, get the second free!",
+  "startTime": "16:30",
+  "endTime": "19:00",
   "location":{
     "coordinates":[51.52218939999999,-0.045396799999934956],
     "type":"Point"
@@ -29,9 +29,9 @@
   "name": "Belgrave Music Hall & Canteen",
   "address": "Cross Belgrave St, Leeds LS2 8JP, UK",
   "city": "Leeds",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "1 free shot if it's your birthday",
+  "startTime": "17:00",
+  "endTime": "21:00",
   "location":{
     "coordinates":[53.8007855,-1.5408460999999534],
     "type":"Point"
@@ -42,9 +42,9 @@
   "name": "The Alchemist",
   "address": "27 Albion St, Leeds LS1 6HW, UK",
   "city": "Leeds",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "Buy 1 get 1 free",
+  "startTime": "16:30",
+  "endTime": "19:00",
   "location":{
     "coordinates":[53.7961272,-1.5440538999999944],
     "type":"Point"
@@ -55,9 +55,9 @@
   "name": "Call Lane Social",
   "address": "38 Call Ln, Leeds LS1 6DT, UK",
   "city": "Leeds",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "Half price baby!",
+  "startTime": "15:00",
+  "endTime": "21:00",
   "location":{
     "coordinates":[53.795552,-1.5411384000000226],
     "type":"Point"
@@ -68,9 +68,9 @@
   "name": "Ps Tattershall Castle",
   "address": "Ps Tattershall Castle, Victoria Embankment, London SW1A 2HR, UK",
   "city": "London",
-  "description": "description goes here",
-  "startTime": null,
-  "endTime": null,
+  "description": "2-4-1 on cocktails",
+  "startTime": "19:00",
+  "endTime": "20:00",
   "location":{
     "coordinates":[51.505666,-0.12226729999997588],
     "type":"Point"
