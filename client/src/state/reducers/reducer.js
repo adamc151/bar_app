@@ -1,11 +1,12 @@
-import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES } from '../actions/actions';
+import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES, SET_TIME_FILTER } from '../actions/actions';
 
 //the initial store (global app state)
 let initialState = {
     data: [],
     loading: false,
     toggle: false,
-    miles: 5
+    miles: 5,
+    timeFilter: 'now'
 }
 
 //REDUCERRRR
@@ -30,7 +31,10 @@ export default function transactions(state = initialState, action) {
             return { ...state, lat: action.payload.lat, lng: action.payload.lng, toggle: !state.toggle };
         case SET_MILES:
             console.log('SET_MILES Action: ' + action.payload.miles);
-            return { ...state, miles: action.payload.miles };
+             return { ...state, miles: action.payload.miles };
+        case SET_TIME_FILTER:
+            console.log('SET_TIME_FILTER Action: ' + action.payload.timeFilter);
+             return { ...state, timeFilter: action.payload.timeFilter };
         default:
         return state;
     }
