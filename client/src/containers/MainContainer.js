@@ -33,7 +33,7 @@ class MainContainer extends Component {
           <div className='addEntryButton'>
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
             <FilterDropdown centerOn={{ lat, lng, miles }} />
-            <HorizontalSlider centerOn={{ lat, lng, miles }} />
+            <HorizontalSlider centerOn={{ lat, lng, miles, timeFilter }} />
             
           </div>
           
