@@ -5,23 +5,40 @@ export const DATA_FETCH_REQUEST = 'DATA_FETCH_REQUEST';
 export const DATA_FETCH_SUCCESS = 'DATA_FETCH_SUCCESS';
 export const DATA_POST_REQUEST = 'DATA_POST_REQUEST';
 export const DATA_POST_SUCCESS = 'DATA_POST_SUCCESS';
-
 export const CENTER_MAP = 'CENTER_MAP';
 export const SET_MILES = 'SET_MILES';
+export const SET_TIME_FILTER = 'SET_TIME_FILTER';
 
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
 export function fetchData(obj) {
 
-  const { lat, long, miles } = obj
+  const { lat, long, miles, timeFilter } = obj
 
   return async (dispatch, getState) => {
     dispatch({type: DATA_FETCH_REQUEST});
     const values = await axios.get('/api/locations', { params: { long: long, lat: lat, miles: miles } });
-    return dispatch({type: DATA_FETCH_SUCCESS, payload: values.data});
+    const filteredValues = await fetchAndFilter(timeFilter, values);
+    return dispatch({type: DATA_FETCH_SUCCESS, payload: filteredValues});
   }
 
+}
+
+function fetchAndFilter(timeFilter, values){
+
+    console.log(`time filter ${timeFilter}`);
+
+    switch(timeFilter){
+        case 'now':
+            return nowFilter(values.data);
+        case 'upcoming':
+            return upcomingFilter(values.data);
+        case 'all':
+            return values.data;
+        default:
+            return values.data;
+    }
 }
 
 export function postData(obj) {
@@ -43,4 +60,88 @@ export function centerMap(lat, lng) {
 
 export function setMiles(miles) {
   return {type: SET_MILES, payload: { miles }};
+}
+
+export function setTimeFilter(timeFilter) {
+  return {type: SET_TIME_FILTER, payload: { timeFilter }};
+}
+
+// export function nowFilter(data) {
+  
+//   var d = new Date();
+//   var h = d.getHours();
+//   var m = d.getMinutes();
+//   var time = parseInt(`${h}${m}`);
+
+//   var nowBlob = data.filter( (item) => {
+    
+//     var st = item.startTime.replace(':','');
+//     var et = item.endTime.replace(':','');
+    
+//     if( st < time && et > time ) {
+//         return item
+//     }
+//   });
+
+//   return {type: FILTER_NOW, payload: { nowBlob }};
+// }
+
+// export function upcomingFilter(data) {
+
+//   var d = new Date();
+//   var h = d.getHours();
+//   var m = d.getMinutes();
+//   var time = parseInt(`${h}${m}`);
+  
+//   var upcomingBlob = data.filter( (item) => {
+
+//     var st = item.startTime.replace(':','');
+//     var et = item.endTime.replace(':','');
+    
+//     if(st > time ) {
+//         return item
+//     }
+//   });
+
+//   return {type: FILTER_UPCOMING, payload: { upcomingBlob }};
+// }
+
+function nowFilter(data) {
+  
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var time = parseInt(`${h}${m}`);
+
+  var nowBlob = data.filter( (item) => {
+    
+    var st = item.startTime.replace(':','');
+    var et = item.endTime.replace(':','');
+    
+    if( st < time && et > time ) {
+        return item
+    }
+  });
+
+  return nowBlob;
+}
+
+function upcomingFilter(data) {
+
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var time = parseInt(`${h}${m}`);
+  
+  var upcomingBlob = data.filter( (item) => {
+
+    var st = item.startTime.replace(':','');
+    var et = item.endTime.replace(':','');
+    
+    if(st > time ) {
+        return item
+    }
+  });
+
+  return upcomingBlob;
 }

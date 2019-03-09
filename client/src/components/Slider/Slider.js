@@ -29,7 +29,7 @@ class HorizontalSlider extends Component {
 
   handleChangeComplete() {
     this.props.actions.setMiles(this.state.value);
-    const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.state.value}
+    const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.state.value, timeFilter: this.props.centerOn.timeFilter}
     this.props.actions.fetchData(obj);
   };
 

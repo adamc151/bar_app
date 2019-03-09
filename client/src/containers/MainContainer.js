@@ -7,6 +7,7 @@ import Modal from '../components/Modal/Modal';
 import MyMap from '../components/GoogleMapWithSearch/map';
 import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
+import FilterDropdown from '../components/FilterDropdown/FilterDropdown';
 
 
 class MainContainer extends Component {
@@ -20,19 +21,22 @@ class MainContainer extends Component {
   }
 
   render() {
-    const { lat, lng, miles } = this.props;
+    const { lat, lng, miles, timeFilter } = this.props;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng, miles }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles}/>
+          <MyMap centerOn={{ lat, lng, miles, timeFilter }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
-            <Modal centerOn={{ lat, lng, miles }} />
-            <HorizontalSlider centerOn={{ lat, lng, miles }} />
+            {/* <Modal centerOn={{ lat, lng, miles }} /> */}
+            <FilterDropdown centerOn={{ lat, lng, miles }} />
+            <HorizontalSlider centerOn={{ lat, lng, miles, timeFilter }} />
+            
           </div>
+          
         </div>
       </div>
     );
@@ -46,7 +50,8 @@ function mapStateToProps(state) {
     lat: state.lat,
     lng: state.lng,
     toggle: state.toggle,
-    miles: state.miles
+    miles: state.miles,
+    timeFilter: state.timeFilter
   };
 }
 
