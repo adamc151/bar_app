@@ -29,11 +29,20 @@
   right: 10px;
 }
 
-.filterContainer {
+.timeFilter {
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 120px;
+  width: 160px;
+}
+
+.milesFilter {
+  position: absolute;
+  top: 0px;
+  right: 160px;
+  width: 150px;
+  border-right: solid 1px rgba(126, 126, 126, 0.342);
+  
 }
 
 @media screen and (max-width: 1000px) {
