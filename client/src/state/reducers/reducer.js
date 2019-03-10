@@ -6,7 +6,7 @@ let initialState = {
     loading: false,
     toggle: false,
     miles: 5,
-    timeFilter: 'now'
+    timeFilter: 'Now'
 }
 
 //REDUCERRRR
