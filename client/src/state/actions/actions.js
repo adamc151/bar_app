@@ -119,7 +119,7 @@ function nowFilter(data) {
     var et = item.endTime.replace(':','');
     
     if( st < time && et > time ) {
-        return item
+        return item;
     }
   });
 
@@ -138,8 +138,8 @@ function upcomingFilter(data) {
     var st = item.startTime.replace(':','');
     var et = item.endTime.replace(':','');
     
-    if(st > time ) {
-        return item
+    if( st > time && et > time ) {
+        return item;
     }
   });
 

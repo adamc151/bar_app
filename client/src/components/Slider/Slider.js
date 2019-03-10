@@ -46,7 +46,7 @@ class HorizontalSlider extends Component {
           onChange={this.handleChange}
           onChangeComplete={this.handleChangeComplete}
         />
-        <div className='value'>{value}</div>
+        {/* <div className='value'>{value}</div> */}
       </div>
     )
   }

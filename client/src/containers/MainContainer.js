@@ -32,11 +32,12 @@ class MainContainer extends Component {
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
-            <FilterDropdown centerOn={{ lat, lng, miles }} />
-            <HorizontalSlider centerOn={{ lat, lng, miles, timeFilter }} />
             
           </div>
-          
+          <div className='filterContainer'>
+            <FilterDropdown centerOn={{ lat, lng, miles }} />
+            <HorizontalSlider centerOn={{ lat, lng, miles, timeFilter }} />
+          </div>
         </div>
       </div>
     );
