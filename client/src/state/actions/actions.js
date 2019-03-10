@@ -30,11 +30,11 @@ function fetchAndFilter(timeFilter, values){
     console.log(`time filter ${timeFilter}`);
 
     switch(timeFilter){
-        case 'now':
+        case 'Now':
             return nowFilter(values.data);
-        case 'upcoming':
+        case 'Upcoming':
             return upcomingFilter(values.data);
-        case 'all':
+        case 'All':
             return values.data;
         default:
             return values.data;

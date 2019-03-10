@@ -1,11 +1,11 @@
 import Dropdown from 'react-dropdown'
-import 'react-dropdown/style.css'
+import './FilterDropdown.css'
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../../state/actions/actions';
 
-const options = [ 'now', 'upcoming', 'all' ]
+const options = [ 'Now', 'Upcoming', 'All' ]
 
 
 class FilterDropdown extends Component {
@@ -13,7 +13,7 @@ class FilterDropdown extends Component {
     super(props)
 
     this.state = {
-        value: 'now'
+        value: 'Now'
       }
 
     this.handleChange = this.handleChange.bind(this);

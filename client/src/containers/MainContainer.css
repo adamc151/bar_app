@@ -33,7 +33,7 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 30%;
+  width: 120px;
 }
 
 @media screen and (max-width: 1000px) {
