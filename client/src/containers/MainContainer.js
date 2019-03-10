@@ -8,6 +8,7 @@ import MyMap from '../components/GoogleMapWithSearch/map';
 import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
 import FilterDropdown from '../components/FilterDropdown/FilterDropdown';
+import MilesDropdown from '../components/MilesDropdown/MilesDropdown';
 
 
 class MainContainer extends Component {
@@ -34,9 +35,11 @@ class MainContainer extends Component {
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
             
           </div>
-          <div className='filterContainer'>
+          <div className='timeFilter'>
             <FilterDropdown centerOn={{ lat, lng, miles }} />
-            <HorizontalSlider centerOn={{ lat, lng, miles, timeFilter }} />
+          </div>
+          <div className='milesFilter'>
+            <MilesDropdown centerOn={{ lat, lng, miles, timeFilter }} />
           </div>
         </div>
       </div>
