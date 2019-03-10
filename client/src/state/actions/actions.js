@@ -111,14 +111,21 @@ function nowFilter(data) {
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
+  m < 10 ? m = `${0}${m}` : null ;
+
   var time = parseInt(`${h}${m}`);
 
   var nowBlob = data.filter( (item) => {
     
     var st = item.startTime.replace(':','');
     var et = item.endTime.replace(':','');
+
+    console.log(`location name: ${item.name}`);
+    console.log(`start time: ${st}`);
+    console.log(`end time: ${et}`);
+    console.log(`now time: ${time}`);
     
-    if( st < time && et > time ) {
+    if( st <= time && et > time ) {
         return item;
     }
   });
@@ -131,12 +138,18 @@ function upcomingFilter(data) {
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
+  m < 10 ? m = `${0}${m}` : null ;
   var time = parseInt(`${h}${m}`);
+  
   
   var upcomingBlob = data.filter( (item) => {
 
     var st = item.startTime.replace(':','');
     var et = item.endTime.replace(':','');
+
+    console.log(`start time: ${st}`);
+    console.log(`end time: ${et}`);
+    console.log(`now time: ${time}`);
     
     if( st > time && et > time ) {
         return item;
