@@ -15,19 +15,7 @@ let barsSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    description:{
-        type: String,
-        require: true
-    },
     city:{
-        type: String,
-        require: true
-    },
-    startTime:{
-        type: String,
-        require: true
-    },
-    endTime:{
         type: String,
         require: true
     },
@@ -50,6 +38,35 @@ let barsSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    validated:{
+        type: Boolean,
+        require: true
+    },
+    deals:{
+        type: [{
+            startTime:{
+                type: String,
+                require: true
+            },
+            endTime:{
+                type: String,
+                require: true
+            },
+            weekdays:{
+                type: [Number],
+                required: true
+            },
+            description:{
+                type: String,
+                require: true
+            },
+            fullDescription:{
+                type: String,
+                require: true
+            }
+        }],
+        required: true
+    }
 });
 
 
