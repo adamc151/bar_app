@@ -22,11 +22,11 @@ class Accordion extends React.Component {
       <div className="accordionContainer">
         <div className="accordionTab">
 
-            {this.props.collapsable ? (<input id="openTab" type="radio" name="tabs1" className="openTabRadio" /> ) : null }
-            {this.props.collapsable ? (<input id="closeTab" type="radio" name="tabs1" className="closeTabRadio" /> ) : null }
+            {/* {this.props.collapsable ? (<input id="openTab" type="radio" name="tabs1" className="openTabRadio" /> ) : null }
+            {this.props.collapsable ? (<input id="closeTab" type="radio" name="tabs1" className="closeTabRadio" /> ) : null } */}
 
-            <label htmlFor="openTab" className="openTabLabel">Data Entries</label>
-            <label htmlFor="closeTab" className="closeTabLabel">Data Entries</label>
+            <label htmlFor="openTab" className="openTabLabel">-</label>
+            <label htmlFor="closeTab" className="closeTabLabel">-</label>
 
             <div className="tab-content">
               {this.renderList()}

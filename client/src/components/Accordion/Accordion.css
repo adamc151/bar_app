@@ -30,6 +30,7 @@ label {
   font-weight: bold;
   line-height: 3;
   cursor: pointer;
+  color: #16a085
 }
 
 .blue label {
@@ -117,7 +118,7 @@ label::after {
 }
 
 .close_icon{
-  width: 15px;
+  /* width: 15px; */
   /* margin-top: 15px; */
 }
 

@@ -18,7 +18,7 @@
 }
 
 .list {
-  width: 800px;
+  width: 1000px;
   height: 100%;
   position: relative;
 }
@@ -27,6 +27,13 @@
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.filterContainer {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30%;
 }
 
 @media screen and (max-width: 1000px) {
