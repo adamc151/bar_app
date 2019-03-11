@@ -69,7 +69,7 @@ export function setTimeFilter(timeFilter) {
 // export function nowFilter(data) {
   
 //   var d = new Date();
-//   var h = d.getHours();
+//   var h = d.getHours();  
 //   var m = d.getMinutes();
 //   var time = parseInt(`${h}${m}`);
 
