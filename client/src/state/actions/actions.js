@@ -66,46 +66,6 @@ export function setTimeFilter(timeFilter) {
   return {type: SET_TIME_FILTER, payload: { timeFilter }};
 }
 
-// export function nowFilter(data) {
-  
-//   var d = new Date();
-//   var h = d.getHours();  
-//   var m = d.getMinutes();
-//   var time = parseInt(`${h}${m}`);
-
-//   var nowBlob = data.filter( (item) => {
-    
-//     var st = item.startTime.replace(':','');
-//     var et = item.endTime.replace(':','');
-    
-//     if( st < time && et > time ) {
-//         return item
-//     }
-//   });
-
-//   return {type: FILTER_NOW, payload: { nowBlob }};
-// }
-
-// export function upcomingFilter(data) {
-
-//   var d = new Date();
-//   var h = d.getHours();
-//   var m = d.getMinutes();
-//   var time = parseInt(`${h}${m}`);
-  
-//   var upcomingBlob = data.filter( (item) => {
-
-//     var st = item.startTime.replace(':','');
-//     var et = item.endTime.replace(':','');
-    
-//     if(st > time ) {
-//         return item
-//     }
-//   });
-
-//   return {type: FILTER_UPCOMING, payload: { upcomingBlob }};
-// }
-
 function nowFilter(data) {
   
   var d = new Date();

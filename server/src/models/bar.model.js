@@ -52,7 +52,7 @@ let barsSchema = new mongoose.Schema({
                 type: String,
                 require: true
             },
-            weekdays:{
+            weekDays:{
                 type: [Number],
                 required: true
             },
