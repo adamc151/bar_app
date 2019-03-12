@@ -67,94 +67,71 @@ export function setTimeFilter(timeFilter) {
   return {type: SET_TIME_FILTER, payload: { timeFilter }};
 }
 
-// export function nowFilter(data) {
-
-//   var d = new Date();
-//   var h = d.getHours();
-//   var m = d.getMinutes();
-//   var time = parseInt(`${h}${m}`);
-
-//   var nowBlob = data.filter( (item) => {
-
-//     var st = item.startTime.replace(':','');
-//     var et = item.endTime.replace(':','');
-
-//     if( st < time && et > time ) {
-//         return item
-//     }
-//   });
-
-//   return {type: FILTER_NOW, payload: { nowBlob }};
-// }
-
-// export function upcomingFilter(data) {
-
-//   var d = new Date();
-//   var h = d.getHours();
-//   var m = d.getMinutes();
-//   var time = parseInt(`${h}${m}`);
-
-//   var upcomingBlob = data.filter( (item) => {
-
-//     var st = item.startTime.replace(':','');
-//     var et = item.endTime.replace(':','');
-
-//     if(st > time ) {
-//         return item
-//     }
-//   });
-
-//   return {type: FILTER_UPCOMING, payload: { upcomingBlob }};
-// }
-
 function nowFilter(data) {
 
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
+  var day = d.getDay();
   m < 10 ? m = `${0}${m}` : null ;
 
   var time = parseInt(`${h}${m}`);
 
   var nowBlob = data.filter( (item) => {
 
-    var st = item.startTime.replace(':','');
-    var et = item.endTime.replace(':','');
+    var dealsFiltered = [];
+    
+    item.deals.map((deal) => {
 
-    console.log(`location name: ${item.name}`);
-    console.log(`start time: ${st}`);
-    console.log(`end time: ${et}`);
-    console.log(`now time: ${time}`);
+      var st = deal.startTime.replace(':','');
+      var et = deal.endTime.replace(':','');
+      
+      if( st <= time && et > time && deal.weekDays.includes(day) ) {
+        dealsFiltered.push(deal);
+      }
+    });
 
-    if( st <= time && et > time ) {
-        return item;
+    item.deals = dealsFiltered;
+
+    if(item.deals[0]){
+      return item;
     }
+
   });
 
   return nowBlob;
 }
 
 function upcomingFilter(data) {
-
+  
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
+  var day = d.getDay();
   m < 10 ? m = `${0}${m}` : null ;
-  var time = parseInt(`${h}${m}`);
 
+  var time = parseInt(`${h}${m}`);
 
   var upcomingBlob = data.filter( (item) => {
 
-    var st = item.startTime.replace(':','');
-    var et = item.endTime.replace(':','');
+    var dealsFiltered = [];
+    
+    item.deals.map((deal) => {
 
-    console.log(`start time: ${st}`);
-    console.log(`end time: ${et}`);
-    console.log(`now time: ${time}`);
+      var st = deal.startTime.replace(':','');
+      var et = deal.endTime.replace(':','');
+      
+      if( st > time && et > time && deal.weekDays.includes(day) ) {
+        dealsFiltered.push(deal);
+      }
+    });
 
-    if( st > time && et > time ) {
-        return item;
+    item.deals = dealsFiltered;
+
+    if(item.deals[0]){
+      return item;
     }
+
   });
 
   return upcomingBlob;
