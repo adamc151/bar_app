@@ -2,7 +2,10 @@ import React, {Fragment} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from '../SearchBar/SearchBar';
 import './map.css';
+import currentLocation from './icons/currentLocation.png';
+
 const keys = require('../../keys');
+
 
 const API_KEY = keys.googleAPIKey;
 
@@ -19,24 +22,25 @@ export class MyMap extends React.Component {
     };
 
     this.getLocation = this.getLocation.bind(this);
-    this.setLocation = this.setLocation.bind(this);
+    this.centerMap = this.centerMap.bind(this);
+    this.setCurrentLocation = this.setCurrentLocation.bind(this);
     this.errorHandler = this.errorHandler.bind(this);
     this.findPlace = this.findPlace.bind(this);
     this.onMapClicked = this.onMapClicked.bind(this);
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
-  static getDerivedStateFromProps(props, state) {
-    console.log('props', props);
-    if (props.centerOn) {
-      return {
-        latitude: props.centerOn.lat,
-        longitude: props.centerOn.lng,
-      };
-    }
-    // Return null if the state hasn't changed
-    return null;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('props', props);
+  //   if (props.centerOn) {
+  //     return {
+  //       latitude: props.centerOn.lat,
+  //       longitude: props.centerOn.lng,
+  //     };
+  //   }
+  //   // Return null if the state hasn't changed
+  //   return null;
+  // }
 
   componentDidMount(){
     this.getLocation();
@@ -48,13 +52,20 @@ export class MyMap extends React.Component {
 
   getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.setLocation, this.errorHandler, {enableHighAccuracy: true, maximumAge: 10000});
+      navigator.geolocation.getCurrentPosition(this.setCurrentLocation, this.errorHandler, {enableHighAccuracy: true, maximumAge: 10000});
     } else {
       alert("Geolocation is not supported by this browser.");
     }
   }
 
-  setLocation(position) {
+  setCurrentLocation(position) {
+    this.props.setCurrentLocation(position.coords.latitude, position.coords.longitude);
+    this.props.centerMap(position.coords.latitude, position.coords.longitude);
+    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles}
+    this.props.fetchData(obj);
+  }
+
+  centerMap(position) {
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
     const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles, timeFilter: this.props.centerOn.timeFilter}
     this.props.fetchData(obj);
@@ -98,7 +109,7 @@ export class MyMap extends React.Component {
           }
         }
 
-        this.setLocation(position);
+        this.centerMap(position);
 
         // Clear out the old markers.
         // markers.forEach(function(marker) {
@@ -162,6 +173,7 @@ export class MyMap extends React.Component {
 
   render() {
     console.log('this.props.data', this.props.data);
+    const { google } = this.props;
     return (
       <Fragment>
       <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
@@ -169,8 +181,8 @@ export class MyMap extends React.Component {
       {/* <Map google={this.props.google} zoom={17 - this.props.miles} */}
       <Map google={this.props.google} zoom={14}
             center={{
-              lat: this.state.latitude,
-              lng: this.state.longitude
+              lat: this.props.centerOn.lat,
+              lng: this.props.centerOn.lng
             }}
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}
@@ -178,8 +190,15 @@ export class MyMap extends React.Component {
       >
 
           <Marker onClick={this.onMarkerClick}
-                  position={{lat: this.state.latitude,
-                  lng: this.state.longitude}}
+                  position={{
+                    lat: this.props.currentLocation.lat,
+                    lng: this.props.currentLocation.lng
+                  }}
+                  icon={{
+                    url: currentLocation,
+                    anchor: google.maps.Point(32,32),
+                    scaledSize: google.maps.Size(64,64)
+                  }}
           />
 
           <InfoWindow marker={this.state.activeMarker} onClose={this.onInfoWindowClose} visible={this.state.showingInfoWindow} >

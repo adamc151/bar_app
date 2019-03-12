@@ -22,18 +22,21 @@ class MainContainer extends Component {
   }
 
   render() {
-    const { lat, lng, miles, timeFilter } = this.props;
+
+    const { setCurrentLocation, centerMap, fetchData } = this.props.actions;
+    const { mapCentre, currentLocation, miles, timeFilter } = this.props;
+    const { lat, lng } = mapCentre;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap centerOn={{ lat, lng, miles, timeFilter }} centerMap={this.props.actions.centerMap} fetchData={this.props.actions.fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
+          <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
           <div className='addEntryButton'>
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
-            
+
           </div>
           <div className='timeFilter'>
             <FilterDropdown centerOn={{ lat, lng, miles }} />
@@ -51,8 +54,8 @@ function mapStateToProps(state) {
   return {
     loading: state.loading,
     data: state.data,
-    lat: state.lat,
-    lng: state.lng,
+    mapCentre: state.mapCentre,
+    currentLocation: state.currentLocation,
     toggle: state.toggle,
     miles: state.miles,
     timeFilter: state.timeFilter
