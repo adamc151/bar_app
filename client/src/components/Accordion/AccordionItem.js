@@ -10,7 +10,7 @@ export default function AccordionItem(props){
         { name && <div className="itemName">{name}</div> }
         { city && <div className="itemLocation">{city}</div> }
         { deals[0].description && <div className="itemDescription">{deals[0].description}</div> }
-        { deals[0].endTime && <div className="itemLocation">Ends at: {deals[0].endTime}</div> }
+        { deals[0].endTime && <div className="itemLocation">{deals[0].startTime} - {deals[0].endTime}</div> }
       </div>
     );
 
