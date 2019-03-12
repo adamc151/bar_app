@@ -16,6 +16,10 @@ class Modal extends React.Component {
         this.hide = this.hide.bind(this)
     }
 
+    static getDerivedStateFromProps(nextProps, prevState){
+      return { visible : nextProps.visible };
+    }
+
     show() {
         this.setState({ visible: true });
     }
@@ -39,7 +43,6 @@ class Modal extends React.Component {
 
         return (
             <div>
-                <button onClick={this.show}>Add New Entry</button>
                 <Rodal visible={this.state.visible} onClose={this.hide}>
                 <form onSubmit={this.handleSubmit}>
                   <div>name: <input ref={node => this.nameInput = node} onChange={event => this.setState({ name: event.target.value })} /></div>

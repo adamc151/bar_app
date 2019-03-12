@@ -1,0 +1,9 @@
+.PlaceInfoWrapper {
+    position: absolute;
+    left: 10%;
+    top: 80px;
+    width: 80%;
+    margin: auto;
+    z-index: 100;
+    background: white;
+}

@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from '../SearchBar/SearchBar';
+import Place from '../Place/Place';
 import './map.css';
 import currentLocation from './icons/currentLocation.png';
 
@@ -30,18 +31,6 @@ export class MyMap extends React.Component {
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('props', props);
-  //   if (props.centerOn) {
-  //     return {
-  //       latitude: props.centerOn.lat,
-  //       longitude: props.centerOn.lng,
-  //     };
-  //   }
-  //   // Return null if the state hasn't changed
-  //   return null;
-  // }
-
   componentDidMount(){
     this.getLocation();
   }
@@ -59,13 +48,18 @@ export class MyMap extends React.Component {
   }
 
   setCurrentLocation(position) {
+    this.setState({ searchedPlace: null, showingInfoWindow: false })
+    console.log('setCurrentLocation position', position);
     this.props.setCurrentLocation(position.coords.latitude, position.coords.longitude);
-    this.props.centerMap(position.coords.latitude, position.coords.longitude);
-    const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles}
-    this.props.fetchData(obj);
+    this.centerMap(position);
   }
 
-  centerMap(position) {
+  centerMap(position, searchedPlace = false) {
+
+    if(!searchedPlace){
+      this.setState({ searchedPlace: null })
+    }
+
     this.props.centerMap(position.coords.latitude, position.coords.longitude);
     const obj = {lat: position.coords.latitude, long: position.coords.longitude, miles: this.props.centerOn.miles, timeFilter: this.props.centerOn.timeFilter}
     this.props.fetchData(obj);
@@ -97,19 +91,33 @@ export class MyMap extends React.Component {
           return;
         }
 
-        if (!places[0].geometry) {
+        const place = places[0];
+
+        if (!place.geometry) {
           console.log("Returned place contains no geometry");
           return;
         }
 
         var position = {
           coords: {
-            latitude: places[0].geometry.location.lat(),
-            longitude: places[0].geometry.location.lng()
+            latitude: place.geometry.location.lat(),
+            longitude: place.geometry.location.lng()
           }
         }
 
-        this.centerMap(position);
+        this.setState({
+          showingInfoWindow: true,
+          searchedPlace: {
+            name: place.name,
+            address: place.formatted_address,
+            lat: place.geometry.location.lat(),
+            lng: place.geometry.location.lng(),
+            place_id: place.place_id,
+            photo: place.photos[0].getUrl()
+          }
+        })
+
+        this.centerMap(position, true);
 
         // Clear out the old markers.
         // markers.forEach(function(marker) {
@@ -154,6 +162,7 @@ export class MyMap extends React.Component {
 
 
   onMarkerClick(props, marker, e){
+    console.log('marker', marker);
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
@@ -172,45 +181,42 @@ export class MyMap extends React.Component {
 
 
   render() {
-    console.log('this.props.data', this.props.data);
+    console.log('this.props', this.props);
+    console.log('this.state.showingInfoWindow', this.state.showingInfoWindow);
+    const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.props.centerOn.miles, timeFilter: this.props.centerOn.timeFilter}
     const { google } = this.props;
+
     return (
       <Fragment>
-      <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
-      <div className='map'>
-      {/* <Map google={this.props.google} zoom={17 - this.props.miles} */}
-      <Map google={this.props.google} zoom={14}
-            center={{
-              lat: this.props.centerOn.lat,
-              lng: this.props.centerOn.lng
-            }}
+          <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
+          <div className='map'>
+
+          { this.state.showingInfoWindow && <Place onClick={() => this.setState({showingInfoWindow: false})} place={this.state.searchedPlace} onAdd={() => this.props.fetchData(obj)} />}
+
+          <Map
+            google={this.props.google} zoom={14}
+            center={{ lat: this.props.centerOn.lat, lng: this.props.centerOn.lng }}
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}
             disableDefaultUI={true}
-      >
+          >
 
-          <Marker onClick={this.onMarkerClick}
-                  position={{
-                    lat: this.props.currentLocation.lat,
-                    lng: this.props.currentLocation.lng
-                  }}
-                  icon={{
-                    url: currentLocation,
-                    anchor: google.maps.Point(32,32),
-                    scaledSize: google.maps.Size(64,64)
-                  }}
+          <Marker
+            position={{ lat: this.props.currentLocation.lat, lng: this.props.currentLocation.lng }}
+            icon={{ url: currentLocation, anchor: google.maps.Point(32,32), scaledSize: google.maps.Size(64,64) }}
           />
 
-          <InfoWindow marker={this.state.activeMarker} onClose={this.onInfoWindowClose} visible={this.state.showingInfoWindow} >
-            <h1>You Are Here!</h1>
-          </InfoWindow>
+          { this.state.searchedPlace &&
+            <Marker position={{ lat: this.state.searchedPlace.lat, lng: this.state.searchedPlace.lng }} ref = { node => this.searchedPlaceMarker = node } />
+          }
 
           {this.props.data.map((marker, i) => {
             return <Marker key={i} position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
           })}
 
-      </Map>
-      </div>
+          </Map>
+
+          </div>
       </Fragment>
     );
   }
