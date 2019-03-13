@@ -67,7 +67,6 @@ export class MyMap extends React.Component {
 
   findPlace(e) {
       const { google } = this.props;
-      console.log('this.map', this.map);
       var map = this.map;
 
       // Create the search box and link it to the UI element.
@@ -83,14 +82,10 @@ export class MyMap extends React.Component {
       // more details for that place.
 
       searchBox.addListener('places_changed', () => {
-        console.log('before PlacesService');
         var places = searchBox.getPlaces();
         console.log('places', places);
 
-        if (places.length === 0) {
-          return;
-        }
-
+        if (places.length === 0) return;
         const place = places[0];
 
         if (!place.geometry) {
@@ -105,17 +100,19 @@ export class MyMap extends React.Component {
           }
         }
 
-        this.setState({
-          showingInfoWindow: true,
-          searchedPlace: {
-            name: place.name,
-            address: place.formatted_address,
-            lat: place.geometry.location.lat(),
-            lng: place.geometry.location.lng(),
-            place_id: place.place_id,
-            photo: place.photos[0].getUrl()
-          }
-        })
+        if(place.types && place.types.includes('bar')){
+          this.setState({
+            showingInfoWindow: true,
+            searchedPlace: {
+              name: place.name,
+              address: place.formatted_address,
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+              place_id: place.place_id,
+              photo: place.photos && place.photos[0].getUrl()
+            }
+          })
+        }
 
         this.centerMap(position, true);
 
@@ -179,10 +176,12 @@ export class MyMap extends React.Component {
     }
   };
 
+  //this.map.panTo(location);
+
 
   render() {
     console.log('this.props', this.props);
-    console.log('this.state.showingInfoWindow', this.state.showingInfoWindow);
+    console.log('this.state', this.state);
     const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.props.centerOn.miles, timeFilter: this.props.centerOn.timeFilter}
     const { google } = this.props;
 
@@ -199,11 +198,12 @@ export class MyMap extends React.Component {
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}
             disableDefaultUI={true}
+            panControl={true}
           >
 
           <Marker
             position={{ lat: this.props.currentLocation.lat, lng: this.props.currentLocation.lng }}
-            icon={{ url: currentLocation, anchor: google.maps.Point(32,32), scaledSize: google.maps.Size(64,64) }}
+            icon={{ url: currentLocation, anchor: google.maps.Point(16,16), scaledSize: google.maps.Size(16,16) }}
           />
 
           { this.state.searchedPlace &&

@@ -47,15 +47,20 @@ class Place extends React.Component {
     };
 
     render() {
-        const { place = { name: '', address: '' } } = this.state;
+        const { place = { name: '', address: '', photo: '' } } = this.state;
 
         return (
             <div className="PlaceInfoWrapper">
-            <button onClick={this.close}>Close</button>
-            <div>{place.name}</div>
-            <div>{place.address}</div>
-            <div>Deal:</div>
-            <div><input ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
+            <button className='closeButton' onClick={this.close}>Close</button>
+            <div className='placeDetailsWrapper'>
+              <div className='placeDetails'>
+                <div className='placeDetailsName'>{place.name}</div>
+                <div className='placeDetailsAddress'>{place.address}</div>
+                <div>Deal:</div>
+                <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
+              </div>
+              { place.photo && <img className='placeImage' src={place.photo} /> }
+            </div>
             <button onClick={this.submit}>Add</button>
             </div>
         )

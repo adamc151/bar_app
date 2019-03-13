@@ -6,4 +6,45 @@
     margin: auto;
     z-index: 100;
     background: white;
+    padding: 20px;
+}
+
+.closeButton {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.placeDetailsWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    text-align: left;
+}
+
+.placeDetails {
+  width: 100%;
+  margin-right: 20px;
+}
+
+.placeImage {
+    height: auto;
+    min-width: 200px;
+    width: 25%;
+    align-self: center;
+}
+
+.placeDetailsName {
+  font-size: 30px;
+  line-height: 35px;
+}
+
+.placeDetailsAddress {
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.placeDetailsDescription {
+  width: 100%;
+  min-height: 50px;
 }
