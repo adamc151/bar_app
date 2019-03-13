@@ -30,7 +30,7 @@ class MainContainer extends Component {
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
+          <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles, timeFilter }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
         </div>
         <div className="list">
           <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
@@ -39,7 +39,7 @@ class MainContainer extends Component {
 
           </div>
           <div className='timeFilter'>
-            <FilterDropdown centerOn={{ lat, lng, miles }} />
+            <FilterDropdown centerOn={{ lat, lng, miles, timeFilter }} />
           </div>
           <div className='milesFilter'>
             <MilesDropdown centerOn={{ lat, lng, miles, timeFilter }} />

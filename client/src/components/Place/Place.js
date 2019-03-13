@@ -31,14 +31,21 @@ class Place extends React.Component {
         name: place.name,
         address: place.address,
         city: "",
-        description: this.state.description,
-        startTime: "16:30",
-        endTime: "19:00",
         location:{
           coordinates:[place.lat, place.lng],
           type:"Point"
         },
-        place_id: place.place_id
+        place_id: place.place_id,
+        validated: true,
+        deals: [
+          {
+            startTime: "16:30",
+            endTime: "19:00",
+            weekDays: [0,1,2,3,4,5,6],
+            description: this.state.description,
+            fullDescription: this.state.description,
+          }
+        ]
       };
 
       this.props.actions.postData(newPlace);
