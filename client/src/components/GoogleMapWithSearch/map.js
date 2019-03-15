@@ -177,6 +177,7 @@ export class MyMap extends React.Component {
   };
 
   //this.map.panTo(location);
+  // /animation={this.props.google.maps.Animation.DROP}
 
 
   render() {
@@ -190,7 +191,10 @@ export class MyMap extends React.Component {
           <SearchBar className='searchbar' getNode={node => this.searchBox = node} onChange={this.findPlace} onClickButton={this.getLocation} />
           <div className='map'>
 
-          { this.state.showingInfoWindow && <Place onClick={() => this.setState({showingInfoWindow: false})} place={this.state.searchedPlace} onAdd={() => this.props.fetchData(obj)} />}
+          { this.state.showingInfoWindow && <Place onClick={() => this.setState({showingInfoWindow: false})} place={this.state.searchedPlace} onAdd={() => {
+            console.log('onAdddd');
+            this.props.fetchData(obj)
+          }} />}
 
           <Map
             google={this.props.google} zoom={14}
@@ -207,7 +211,7 @@ export class MyMap extends React.Component {
           />
 
           { this.state.searchedPlace &&
-            <Marker position={{ lat: this.state.searchedPlace.lat, lng: this.state.searchedPlace.lng }} ref = { node => this.searchedPlaceMarker = node } />
+            <Marker position={{ lat: this.state.searchedPlace.lat, lng: this.state.searchedPlace.lng }}  ref = { node => this.searchedPlaceMarker = node } />
           }
 
           {this.props.data.map((marker, i) => {
