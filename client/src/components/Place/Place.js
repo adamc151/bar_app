@@ -11,6 +11,16 @@ class Place extends React.Component {
         this.state = { name: null, description: null, city: null, visible: false };
         this.close = this.close.bind(this);
         this.submit = this.submit.bind(this);
+
+        this.updateButtonMsg = this.updateButtonMsg.bind(this);
+        this.finalButtonMsg = this.finalButtonMsg.bind(this);
+        this.setInitialButtonState = this.setInitialButtonState.bind(this);
+
+
+        this.state = {
+          submitState: 'submit-button',
+          submitMessage: ''
+        };
     }
 
     static getDerivedStateFromProps(nextProps, prevState){
@@ -53,12 +63,33 @@ class Place extends React.Component {
       this.close();
     };
 
+
+    updateButtonMsg() {
+      console.log('updateButtonMsg');
+      this.setState({ submitState: 'submit-button animated', submitMessage: 'state-1'})
+      setTimeout(this.finalButtonMsg, 2000);
+    };
+
+    finalButtonMsg() {
+      console.log('finalButtonMsg');
+      this.setState({ submitState: 'submit-button animated', submitMessage: 'state-2'})
+      setTimeout(this.setInitialButtonState, 2000);
+    };
+
+    setInitialButtonState() {
+      console.log('setInitialButtonState');
+      this.submit();
+      this.setState({ submitState: 'submit-button', submitMessage: ''})
+    };
+
     render() {
         const { place = { name: '', address: '', photo: '' } } = this.state;
 
+        console.log('this.state.submitState', this.state.submitState);
+
         return (
             <div className="PlaceInfoWrapper">
-            <button className='closeButton' onClick={this.close}>Close</button>
+            <div onClick={this.close} type="button" className="closeButton" aria-label="Close">&times;</div>
             <div className='placeDetailsWrapper'>
               <div className='placeDetails'>
                 <div className='placeDetailsName'>{place.name}</div>
@@ -68,7 +99,11 @@ class Place extends React.Component {
               </div>
               { place.photo && <img className='placeImage' src={place.photo} /> }
             </div>
-            <button onClick={this.submit}>Add</button>
+            <button onClick={this.updateButtonMsg} className={this.state.submitState}>
+              <span className={'submit-pres-state ' + this.state.submitMessage}>Submit</span>
+              <span className='submit-sending-state'>...sending</span>
+              <span className='submit-done-state'>done</span>
+            </button>
             </div>
         )
     }

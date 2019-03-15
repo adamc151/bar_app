@@ -6,14 +6,45 @@
     margin: auto;
     z-index: 100;
     background: white;
+    box-sizing: border-box;
     padding: 20px;
+}
+
+
+.PlaceInfoWrapper:after {
+  content: " ";
+  position: absolute;
+  right: calc(50% - 30px);
+  bottom: -30px;
+  border-top: 30px solid white;
+  border-right: 30px solid transparent;
+  border-left: 30px solid transparent;
+  border-bottom: none;
 }
 
 .closeButton {
     position: absolute;
     right: 10px;
     top: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #000000;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    text-decoration: none;
 }
+
+.closeButton:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}
+
 
 .placeDetailsWrapper {
     display: flex;
@@ -48,3 +79,69 @@
   width: 100%;
   min-height: 50px;
 }
+
+
+/*Submit button */
+@keyframes short-press {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.submit-button {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .75em;
+  letter-spacing: 1px;
+  height: 38px;
+  width: 120px;
+  line-height: 38px;
+  overflow: hidden;
+  background: #4dbecf;
+  border-radius: 3px;
+  box-shadow: 0 15px 30px rgba(black,.1);
+  border: 0;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.submit-button:hover,  .submit-button:focus {
+  box-shadow: 0 5px 15px rgba(black,.1);
+}
+
+.animated {
+  animation: .75s short-press cubic-bezier(0.770, 0.000, 0.175, 1.000) forwards;
+}
+
+
+.submit-pres-state {
+    transition: all .7s cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    transition-delay: .75s;
+}
+
+
+.submit-button > span {
+    display: block;
+    color: white;
+    text-align: center;
+}
+
+.state-1 {
+      margin-top: -38px;
+}
+
+.state-2 {
+      margin-top: -76px;
+  }
