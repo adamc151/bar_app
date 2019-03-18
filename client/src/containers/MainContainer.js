@@ -33,7 +33,7 @@ class MainContainer extends Component {
           <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles, timeFilter }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
         </div>
         <div className="list">
-          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
+          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} currentLocation={this.props.currentLocation} />
           <div className='addEntryButton'>
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
 
