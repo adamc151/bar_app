@@ -54,7 +54,11 @@ router.get('/locations', (req,res) => {
     }
 
     // BarModel.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [53.7961272,-1.5440538999999944]}, $maxDistance: 5 * 1609.34 } } })
-    BarModel.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [req.query.lat, req.query.long]}, $maxDistance: req.query.miles * 1609.34 } } })
+
+    // const METERS_IN_MILES = 1609.34;
+    const METERS_IN_KM = 1250;
+
+    BarModel.find({ location: { $nearSphere: { $geometry: { type: "Point", coordinates: [req.query.lat, req.query.long]}, $maxDistance: req.query.miles * METERS_IN_KM } } })
         .then( doc => {
             res.json(doc);
         })

@@ -39,7 +39,7 @@ class MilesDropdown extends Component {
 
     return (
       <div className='filter-dropdown'>
-        <Dropdown options={options} onChange={this.handleChange} value={`${value} miles`} placeholder="Select an option" />
+        <Dropdown options={options} onChange={this.handleChange} value={`${value} km`} placeholder="Select an option" />
       </div>
     )
   }
