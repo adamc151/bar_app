@@ -100,6 +100,16 @@ export class MyMap extends React.Component {
           }
         }
 
+
+        const el = document.createElement('p');
+        el.innerHTML = place.adr_address;
+        let city = ''
+        try{
+          city = el.querySelector('.locality').innerText.trim();
+        }catch(err){
+          city = city;
+        }
+
         if(place.types && place.types.includes('bar')){
           this.setState({
             showingInfoWindow: true,
@@ -109,7 +119,9 @@ export class MyMap extends React.Component {
               lat: place.geometry.location.lat(),
               lng: place.geometry.location.lng(),
               place_id: place.place_id,
-              photo: place.photos && place.photos[0].getUrl()
+              photo: place.photos && place.photos[0].getUrl(),
+              website: place.website && place.website,
+              city: city
             }
           })
         }
@@ -197,7 +209,7 @@ export class MyMap extends React.Component {
           }} />}
 
           <Map
-            google={this.props.google} zoom={14}
+            google={this.props.google} zoom={15}
             center={{ lat: this.props.centerOn.lat, lng: this.props.centerOn.lng }}
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}

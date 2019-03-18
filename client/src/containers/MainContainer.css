@@ -42,8 +42,6 @@
   right: 160px;
   width: 150px;
   border-right: solid 1px rgba(255, 255, 255, 0.911);
-
-  
 }
 
 @media screen and (max-width: 1000px) {
@@ -59,5 +57,14 @@
   .list {
     width: 100%;
     height: 50%;
+  }
+
+  .timeFilter {
+    width: 50%;
+  }
+  
+  .milesFilter {
+    right: 50%;
+    width: 50%;
   }
 }

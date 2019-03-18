@@ -8,7 +8,7 @@ class Place extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: null, description: null, city: null, visible: false };
+        this.state = { name: null, description: null, city: null, visible: false, startTime: null, endTime: null, weekDays: null };
         this.close = this.close.bind(this);
         this.submit = this.submit.bind(this);
 
@@ -29,36 +29,42 @@ class Place extends React.Component {
 
     close(){
       this.descriptionInput.value = '';
+      this.startTimeInput.value = '';
+      this.endTimeInput.value = '';
       this.props.onClick();
     }
 
     submit() {
-      const { place } = this.state;
+      const { place, startTime, endTime, description } = this.state;
 
       if(!place) return;
 
       const newPlace = {
         name: place.name,
         address: place.address,
-        city: "",
+        city: place.city,
         location:{
           coordinates:[place.lat, place.lng],
           type:"Point"
         },
         place_id: place.place_id,
         validated: true,
+        website: place.website,
         deals: [
           {
-            startTime: "16:30",
-            endTime: "19:00",
+            startTime: startTime,
+            endTime: endTime,
             weekDays: [0,1,2,3,4,5,6],
-            description: this.state.description,
-            fullDescription: this.state.description,
+            description: description,
+            fullDescription: description,
           }
         ]
       };
 
+      // console.log(`ITEM TOM TOM: ${newPlace.website}`);
+
       this.props.actions.postData(newPlace);
+
       this.props.onAdd();
       this.close();
     };
@@ -66,6 +72,19 @@ class Place extends React.Component {
 
     updateButtonMsg() {
       console.log('updateButtonMsg');
+
+      const { startTime, endTime, description } = this.state;
+
+      if(!startTime || !endTime || !description){
+        alert("All fields must be populated");
+        return;
+      }
+
+      if(startTime >= endTime){
+        alert("Start time can't be after or the same as the end time");
+        return;
+      }
+
       this.setState({ submitState: 'submit-button animated', submitMessage: 'state-1'})
       setTimeout(this.finalButtonMsg, 2000);
     };
@@ -96,6 +115,11 @@ class Place extends React.Component {
                 <div className='placeDetailsAddress'>{place.address}</div>
                 <div>Deal:</div>
                 <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
+                <div>Start Time:</div>
+                <div><input type ="time" className='placeDetailsStartTime' ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
+                <div>End Time:</div>
+                <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
+                <div>Days of the week:</div>
               </div>
               { place.photo && <img className='placeImage' src={place.photo} /> }
             </div>
