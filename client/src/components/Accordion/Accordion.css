@@ -171,3 +171,24 @@ label::after {
 .close-button:hover{
   cursor: pointer;
 }
+
+/* Empty list default message styleing */
+
+.empty-display{
+  font-size: 20px;
+  text-align: center;
+}
+
+.empty-display-inner{
+  margin-top: 40px;
+  vertical-align: middle;
+}
+
+.empty-icon{
+  width: 90px;
+}
+
+.empty-text{
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
