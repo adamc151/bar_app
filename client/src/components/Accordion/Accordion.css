@@ -45,6 +45,7 @@ label {
   -o-transition: max-height .35s;
   transition: max-height .35s;
   text-align: left;
+  line-height: 100%;
 }
 
 .tab-content::-webkit-scrollbar {
@@ -170,4 +171,28 @@ label::after {
 
 .close-button:hover{
   cursor: pointer;
+}
+
+/* Empty list default message styleing */
+
+.empty-display{
+  font-size: 20px;
+  /* line-height: 50px; */
+  text-align: center;
+  /* border: 5px solid green; */
+}
+
+.empty-display-inner{
+  margin-top: 40px;
+  vertical-align: middle;
+
+}
+
+.empty-icon{
+  width: 90px;
+}
+
+.empty-text{
+  margin-top: 30px;
+  margin-bottom: 10px;
 }

@@ -1,16 +1,33 @@
 import React from 'react';
 import AccordionItem from './AccordionItem';
 import './Accordion.css';
+import sadFace from './sad.png';
+
 
 class Accordion extends React.Component {
 
   renderList(){
+    console.log('renered the listttttt');
     console.log('this.props.data', this.props.data);
     if (!this.props.data) return null;
 
     return this.props.data.map((data, i) => {
       return <AccordionItem key={i} index={i} data={data} onClick={this.props.onClick} />
     });
+  }
+
+  renderEmptyList(){
+    
+    console.log('no results, dislaying default message');
+
+    return(
+      <div className="empty-display">
+        <div className="empty-display-inner">
+          <img src={sadFace} className="empty-icon" alt="sadFace" /><br/>
+          <div className="empty-text">  No hapi hours available... </div>
+        </div>
+      </div>
+    )
   }
 
   componentWillReceiveProps(nextProps) {
@@ -29,7 +46,7 @@ class Accordion extends React.Component {
             <label htmlFor="closeTab" className="closeTabLabel">-</label>
 
             <div className="tab-content">
-              {this.renderList()}
+              {this.props.data[0] ? this.renderList() : this.renderEmptyList()}
             </div>
 
         </div>
