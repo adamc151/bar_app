@@ -176,15 +176,12 @@ label::after {
 
 .empty-display{
   font-size: 20px;
-  /* line-height: 50px; */
   text-align: center;
-  /* border: 5px solid green; */
 }
 
 .empty-display-inner{
   margin-top: 40px;
   vertical-align: middle;
-
 }
 
 .empty-icon{
