@@ -45,7 +45,6 @@ label {
   -o-transition: max-height .35s;
   transition: max-height .35s;
   text-align: left;
-  line-height: 100%;
 }
 
 .tab-content::-webkit-scrollbar {
@@ -193,6 +192,6 @@ label::after {
 }
 
 .empty-text{
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 10px;
 }
