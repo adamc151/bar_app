@@ -10,7 +10,7 @@ const keys = require('../../keys');
 
 const API_KEY = keys.googleAPIKey;
 
-console.log(`GOOGLE API KEY SDGKHSDGKFDKGJDFKGJFDKGJKDFJGKJDFKGJDF: ${API_KEY}`);
+console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
 
 export class MyMap extends React.Component {
 
