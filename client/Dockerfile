@@ -3,8 +3,8 @@ WORKDIR '/app'
 COPY ./package.json ./
 RUN npm install
 COPY . .
-# ARG api_key
-ENV REACT_APP_GOOGLEAPIKEY=AIzaSyCFJhN2rkfUFuWQ_-v66E8aziCQ13A339Q
+ARG api_key
+ENV REACT_APP_GOOGLEAPIKEY=${api_key}
 RUN npm run build
 
 FROM nginx
