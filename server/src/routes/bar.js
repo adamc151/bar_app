@@ -22,11 +22,11 @@ router.post('/bar', (req, res) =>{
 });
 
 router.get('/bar', (req,res) => {
-    if(!req.query.name){
-        return res.status(400).send('missing URL param: name');
+    if(!req.query.place_id){
+        return res.status(400).send('missing URL param: place_id');
     }
     BarModel.findOne({
-        name: req.query.name
+        place_id: req.query.place_id
     })
         .then( doc => {
             res.json(doc);
@@ -64,11 +64,11 @@ router.get('/locations', (req,res) => {
 });
 
 router.put('/bar', (req,res) => {
-    if(!req.query.name){
-        return res.status(400).send('missing URL param: name');
+    if(!req.query.place_id){
+        return res.status(400).send('missing URL param: place_id');
     }
     BarModel.findOneAndUpdate({
-        name: req.query.name
+        place_id: req.query.place_id
     }, req.body, { new:true })
         .then( doc => {
             res.json(doc);
@@ -79,11 +79,11 @@ router.put('/bar', (req,res) => {
 });
 
 router.delete('/bar', (req,res) => {
-    if(!req.query.name){
-        return res.status(400).send('missing URL param: name');
+    if(!req.query.place_id){
+        return res.status(400).send('missing URL param: place_id');
     }
     BarModel.findOneAndRemove({
-        name: req.query.name
+        place_id: req.query.place_id
     })
         .then( doc => {
             res.json(doc);

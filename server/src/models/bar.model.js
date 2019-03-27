@@ -36,7 +36,8 @@ let barsSchema = new mongoose.Schema({
     },
     place_id:{
         type: String,
-        require: true
+        require: true,
+        unique: true
     },
     website:{
         type: String,
