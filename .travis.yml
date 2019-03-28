@@ -8,15 +8,14 @@ before_install:
 script:
   - docker run stephengrider/react-test npm test -- --coverage
 
-stages:
-  - name: build
-    if: branch = master
-    - docker build --build-arg api_key="$GOOGLE_API_KEY" -t tombenjaminmorris/barapp-client ./client
-    - docker build -t tombenjaminmorris/barapp-nginx ./nginx
-    - docker build -t tombenjaminmorris/barapp-server ./server
-    # Log in to the docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    # Take those images and push them to docker hub
-    - docker push tombenjaminmorris/barapp-client
-    - docker push tombenjaminmorris/barapp-nginx
-    - docker push tombenjaminmorris/barapp-server
+after_success:
+  if: branch = master
+  - docker build --build-arg api_key="$GOOGLE_API_KEY" -t tombenjaminmorris/barapp-client ./client
+  - docker build -t tombenjaminmorris/barapp-nginx ./nginx
+  - docker build -t tombenjaminmorris/barapp-server ./server
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push tombenjaminmorris/barapp-client
+  - docker push tombenjaminmorris/barapp-nginx
+  - docker push tombenjaminmorris/barapp-server
