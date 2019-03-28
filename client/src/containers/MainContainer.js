@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../state/actions/actions';
 import Accordion from '../components/Accordion/Accordion';
 import Modal from '../components/Modal/Modal';
-import MyMap from '../components/GoogleMapWithSearch/map2';
+import MyMap from '../components/GoogleMapWithSearch/map';
 import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
 import FilterDropdown from '../components/FilterDropdown/FilterDropdown';
