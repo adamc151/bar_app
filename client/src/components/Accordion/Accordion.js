@@ -12,12 +12,12 @@ class Accordion extends React.Component {
     if (!this.props.data) return null;
 
     return this.props.data.map((data, i) => {
-      return <AccordionItem key={i} index={i} data={data} onClick={this.props.onClick} />
+      return <AccordionItem key={i} index={i} data={data} onClick={this.props.onClick} onHover={this.props.onHover} />
     });
   }
 
   renderEmptyList(){
-    
+
     console.log('no results, dislaying default message');
 
     return(

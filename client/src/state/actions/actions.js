@@ -9,6 +9,7 @@ export const CENTER_MAP = 'CENTER_MAP';
 export const SET_MILES = 'SET_MILES';
 export const SET_TIME_FILTER = 'SET_TIME_FILTER';
 export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION';
+export const SET_HOVER_COORDINATES = 'SET_HOVER_COORDINATES';
 
 
 //ACTIONSSSS - these basically label the input argument
@@ -59,6 +60,10 @@ export function centerMap(lat, lng) {
   return {type: CENTER_MAP, payload: { lat, lng }};
 }
 
+export function setHoverCoordinates(lat, lng) {
+  return {type: SET_HOVER_COORDINATES, payload: { lat, lng }};
+}
+
 export function setMiles(miles) {
   return {type: SET_MILES, payload: { miles }};
 }
@@ -80,12 +85,12 @@ function nowFilter(data) {
   var nowBlob = data.filter( (item) => {
 
     var dealsFiltered = [];
-    
+
     item.deals.map((deal) => {
 
       var st = deal.startTime.replace(':','');
       var et = deal.endTime.replace(':','');
-      
+
       if( st <= time && et > time && deal.weekDays.includes(day) ) {
         dealsFiltered.push(deal);
       }
@@ -103,7 +108,7 @@ function nowFilter(data) {
 }
 
 function upcomingFilter(data) {
-  
+
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -115,12 +120,12 @@ function upcomingFilter(data) {
   var upcomingBlob = data.filter( (item) => {
 
     var dealsFiltered = [];
-    
+
     item.deals.map((deal) => {
 
       var st = deal.startTime.replace(':','');
       var et = deal.endTime.replace(':','');
-      
+
       if( st > time && et > time && deal.weekDays.includes(day) ) {
         dealsFiltered.push(deal);
       }

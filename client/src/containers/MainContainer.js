@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as actions from '../state/actions/actions';
 import Accordion from '../components/Accordion/Accordion';
 import Modal from '../components/Modal/Modal';
-import MyMap from '../components/GoogleMapWithSearch/map';
+import MyMap from '../components/GoogleMapWithSearch/map2';
 import HorizontalSlider from '../components/Slider/Slider';
 import './MainContainer.css';
 import FilterDropdown from '../components/FilterDropdown/FilterDropdown';
@@ -15,6 +15,10 @@ class MainContainer extends Component {
 
   constructor(props){
     super(props)
+
+    this.state = {
+      toggle2: false
+    };
   }
 
   componentDidMount() {
@@ -24,16 +28,16 @@ class MainContainer extends Component {
   render() {
 
     const { setCurrentLocation, centerMap, fetchData } = this.props.actions;
-    const { mapCentre, currentLocation, miles, timeFilter } = this.props;
+    const { mapCentre, currentLocation, miles, timeFilter, hoverCoordinates } = this.props;
     const { lat, lng } = mapCentre;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
-          <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles, timeFilter }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter}/>
+          <MyMap currentLocation={currentLocation} setCurrentLocation={setCurrentLocation} centerOn={{ lat, lng, miles, timeFilter }} centerMap={centerMap} fetchData={fetchData} toggle={this.props.toggle} data={this.props.data} miles={miles} nowFilter={this.props.actions.nowFilter} setTimeFilter={this.props.actions.setTimeFilter} hoverCoordinates={hoverCoordinates} toggle2={this.state.toggle1} />
         </div>
         <div className="list">
-          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} />
+          <Accordion data={this.props.data} onClick={entry => this.props.actions.centerMap(entry.location.coordinates[0], entry.location.coordinates[1])} onHover={entry => this.props.actions.setHoverCoordinates(entry.location.coordinates[0], entry.location.coordinates[1]) }  />
           <div className='addEntryButton'>
             {/* <Modal centerOn={{ lat, lng, miles }} /> */}
 
@@ -58,7 +62,8 @@ function mapStateToProps(state) {
     currentLocation: state.currentLocation,
     toggle: state.toggle,
     miles: state.miles,
-    timeFilter: state.timeFilter
+    timeFilter: state.timeFilter,
+    hoverCoordinates: state.hoverCoordinates
   };
 }
 

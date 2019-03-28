@@ -1,16 +1,21 @@
 import React, {Fragment} from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 import SearchBar from '../SearchBar/SearchBar';
 import Place from '../Place/Place';
 import './map.css';
-import currentLocation from './icons/currentLocation.png';
+import GoogleMapReact from 'google-map-react';
 
 const keys = require('../../keys');
-
 
 const API_KEY = keys.googleAPIKey;
 
 console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
+
+
+const Marker = (props) => {
+  const {className, style, lat, lng } = props;
+
+  return (<div className={className} lat={lat} lng={lng} style={style} />);
+}
 
 export class MyMap extends React.Component {
 
@@ -33,9 +38,11 @@ export class MyMap extends React.Component {
     this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
+
   componentDidMount(){
     this.getLocation();
   }
+
 
   errorHandler(errorObj){
     alert(errorObj.code + ": " + errorObj.message);
@@ -72,7 +79,7 @@ export class MyMap extends React.Component {
       var map = this.map;
 
       // Create the search box and link it to the UI element.
-      var searchBox = new google.maps.places.SearchBox(e.target);
+      var searchBox = new window.google.maps.places.SearchBox(e.target);
 
       // Bias the SearchBox results towards current map's viewport.
       map.addListener('bounds_changed', function() {
@@ -129,45 +136,6 @@ export class MyMap extends React.Component {
         }
 
         this.centerMap(position, true);
-
-        // Clear out the old markers.
-        // markers.forEach(function(marker) {
-        //   marker.setMap(null);
-        // });
-        // markers = [];
-        //
-        // // For each place, get the icon, name and location.
-        // var bounds = new google.maps.LatLngBounds();
-        // places.forEach(function(place) {
-        //   if (!place.geometry) {
-        //     console.log("Returned place contains no geometry");
-        //     return;
-        //   }
-        //   var icon = {
-        //     url: place.icon,
-        //     size: new google.maps.Size(71, 71),
-        //     origin: new google.maps.Point(0, 0),
-        //     anchor: new google.maps.Point(17, 34),
-        //     scaledSize: new google.maps.Size(25, 25)
-        //   };
-        //
-        //   // Create a marker for each place.
-        //   markers.push(new google.maps.Marker({
-        //     map: map,
-        //     icon: icon,
-        //     title: place.name,
-        //     position: place.geometry.location
-        //   }));
-        //
-        //   if (place.geometry.viewport) {
-        //     // Only geocodes have viewport.
-        //     bounds.union(place.geometry.viewport);
-        //   } else {
-        //     bounds.extend(place.geometry.location);
-        //   }
-        // });
-        //
-        // map.fitBounds(bounds);
       });
   }
 
@@ -190,15 +158,12 @@ export class MyMap extends React.Component {
     }
   };
 
-  //this.map.panTo(location);
-  // /animation={this.props.google.maps.Animation.DROP}
-
 
   render() {
     console.log('this.props', this.props);
     console.log('this.state', this.state);
     const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: this.props.centerOn.miles, timeFilter: this.props.centerOn.timeFilter}
-    const { google } = this.props;
+    const { google, hoverCoordinates } = this.props;
 
     return (
       <Fragment>
@@ -210,29 +175,25 @@ export class MyMap extends React.Component {
             this.props.fetchData(obj)
           }} />}
 
-          <Map
-            google={this.props.google} zoom={15}
+          <GoogleMapReact
+            zoom={15}
+            bootstrapURLKeys={{ key: API_KEY, libraries: 'places' }}
             center={{ lat: this.props.centerOn.lat, lng: this.props.centerOn.lng }}
             onReady={(a, map) => this.map = map}
             onClick={this.onMapClicked}
             disableDefaultUI={true}
             panControl={true}
+            onGoogleApiLoaded={x => this.map = x.map}
           >
 
-          <Marker
-            position={{ lat: this.props.currentLocation.lat, lng: this.props.currentLocation.lng }}
-            icon={{ url: currentLocation, anchor: google.maps.Point(16,16), scaledSize: google.maps.Size(16,16) }}
-          />
-
-          { this.state.searchedPlace &&
-            <Marker position={{ lat: this.state.searchedPlace.lat, lng: this.state.searchedPlace.lng }}  ref = { node => this.searchedPlaceMarker = node } />
-          }
+          <Marker className='currentLocation' lat={this.props.currentLocation.lat} lng={this.props.currentLocation.lng} />
 
           {this.props.data.map((marker, i) => {
-            return <Marker key={i} position={{lat: marker.location.coordinates[0], lng: marker.location.coordinates[1] }} />
+              const animate = hoverCoordinates.lat === marker.location.coordinates[0] && hoverCoordinates.lng === marker.location.coordinates[1];
+              return <Marker className={animate ? 'hovered' : 'plainMarker'} key={i} lat={marker.location.coordinates[0]} lng={marker.location.coordinates[1]}   />
           })}
 
-          </Map>
+          </GoogleMapReact>
 
           </div>
       </Fragment>
@@ -240,6 +201,4 @@ export class MyMap extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: API_KEY
-})(MyMap)
+export default MyMap;

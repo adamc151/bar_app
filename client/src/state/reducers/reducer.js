@@ -1,4 +1,4 @@
-import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES, SET_TIME_FILTER, SET_CURRENT_LOCATION } from '../actions/actions';
+import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES, SET_TIME_FILTER, SET_CURRENT_LOCATION, SET_HOVER_COORDINATES } from '../actions/actions';
 
 //the initial store (global app state)
 let initialState = {
@@ -12,6 +12,10 @@ let initialState = {
       lng: null
     },
     mapCentre: {
+      lat: null,
+      lng: null
+    },
+    hoverCoordinates: {
       lat: null,
       lng: null
     }
@@ -46,6 +50,9 @@ export default function transactions(state = initialState, action) {
         case SET_CURRENT_LOCATION:
             console.log('SET_CURRENT_LOCATION Action');
             return { ...state, currentLocation: { lat: action.payload.lat, lng: action.payload.lng } };
+        case SET_HOVER_COORDINATES:
+            console.log('SET_HOVER_COORDINATES Action')
+            return { ...state, hoverCoordinates: { lat: action.payload.lat, lng: action.payload.lng } };
         default:
         return state;
     }

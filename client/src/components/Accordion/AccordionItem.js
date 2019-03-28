@@ -6,7 +6,7 @@ export default function AccordionItem(props){
     const { name, city, deals, website } = props.data;
 
     return (
-      <div className="accordionItemWrapper" onClick={() => props.onClick(props.data)}>
+      <div className="accordionItemWrapper" onClick={() => props.onClick(props.data)} onMouseEnter={() => { console.log('onmouseover'); props.onHover(props.data) }} >
         { name && <div className="itemName">{name}</div> }
         { city && <div className="itemLocation">{city}</div> }
         { deals[0].description && <div className="itemDescription">{deals[0].description}</div> }
