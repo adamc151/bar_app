@@ -23,6 +23,11 @@
 
 .list {
   height: calc(100% - 50px);
+  display: none;
+}
+
+.carousel {
+  height: calc(100% - 50px);
 }
 
 .addEntryButton {

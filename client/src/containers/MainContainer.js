@@ -9,6 +9,7 @@ import HorizontalSlider from "../components/Slider/Slider";
 import "./MainContainer.css";
 import FilterDropdown from "../components/FilterDropdown/FilterDropdown";
 import MilesDropdown from "../components/MilesDropdown/MilesDropdown";
+import Carousel from "../components/Carousel/Carousel";
 
 class MainContainer extends Component {
   constructor(props) {
@@ -77,6 +78,9 @@ class MainContainer extends Component {
                 )
               }
             />
+          </div>
+          <div className="carousel">
+            <Carousel data={this.props.data} />
           </div>
         </div>
       </div>
