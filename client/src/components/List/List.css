@@ -1,0 +1,42 @@
+.emptyListContainer {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.listContainer {
+  height: 100%;
+  overflow: scroll;
+  overflow: scroll;
+  -webkit-transition: max-height 0.35s;
+  -o-transition: max-height 0.35s;
+  transition: max-height 0.35s;
+  text-align: left;
+}
+
+.listContainer::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .listContainer {
+    width: 100%;
+  }
+}
+
+/* Empty list default message styleing */
+
+.empty-display {
+  font-size: 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 90px;
+}
+
+.empty-text {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}

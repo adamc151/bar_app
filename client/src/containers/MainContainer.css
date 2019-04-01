@@ -19,10 +19,19 @@
   flex-direction: column;
 }
 
-.list {
+.sideNav {
   width: 1000px;
   height: 100%;
   position: relative;
+}
+
+.sideNavHeader {
+  width: 100%;
+  height: 50px;
+}
+
+.list {
+  height: calc(100% - 50px);
 }
 
 .addEntryButton {
@@ -56,7 +65,7 @@
     height: 50%;
   }
 
-  .list {
+  .sideNav {
     width: 100%;
     height: 50%;
   }
