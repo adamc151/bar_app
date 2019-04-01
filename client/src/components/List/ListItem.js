@@ -2,15 +2,16 @@ import React from "react";
 import "./ListItem.css";
 
 export default function ListItem(props) {
-  const { name, city, deals, website } = props.data;
+  const { onHover = () => {}, onClick = () => {}, data } = props;
+  const { name, city, deals, website } = data;
 
   return (
     <div
       className="listItemWrapper"
-      onClick={() => props.onClick(props.data)}
+      onClick={() => onClick(props.data)}
       onMouseEnter={() => {
         console.log("onmouseover");
-        props.onHover(props.data);
+        onHover(props.data);
       }}
     >
       {name && <div className="itemName">{name}</div>}

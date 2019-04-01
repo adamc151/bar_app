@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import ListItem from "../List/ListItem";
 import "../List/ListItem.css";
+import "./Carousel.css"
 
 class Carousel extends React.Component {
   renderList() {

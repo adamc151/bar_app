@@ -14,15 +14,8 @@ import Carousel from "../components/Carousel/Carousel";
 class MainContainer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      toggle2: false
-    };
   }
 
-  componentDidMount() {
-    // this.props.actions.fetchData(obj);
-  }
 
   render() {
     const { setCurrentLocation, centerMap, fetchData } = this.props.actions;

@@ -23,10 +23,11 @@
 
 .list {
   height: calc(100% - 50px);
-  display: none;
+  display: block;
 }
 
 .carousel {
+  display: none;
   height: calc(100% - 50px);
 }
 
@@ -56,14 +57,24 @@
     flex-direction: column;
   }
 
+  .list {
+    display: none;
+  }
+
+  .carousel {
+    display: block;
+  }
+
   .mapContainer {
     width: 100%;
-    height: 50%;
+    height: 100%;
   }
 
   .sideNav {
     width: 100%;
-    height: 50%;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
   }
 
   .timeFilter {
