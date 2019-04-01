@@ -57,6 +57,7 @@ export function postData(obj) {
 }
 
 export function centerMap(lat, lng) {
+  console.log('centerMapcenterMapcenterMap', lat, lng);
   return {type: CENTER_MAP, payload: { lat, lng }};
 }
 

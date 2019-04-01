@@ -73,7 +73,15 @@ class MainContainer extends Component {
             />
           </div>
           <div className="carousel">
-            <Carousel data={this.props.data} />
+            <Carousel data={this.props.data} onSwipe={entry => {
+              console.log('entry', entry);
+              this.props.actions.centerMap(
+                entry.location.coordinates[0],
+                entry.location.coordinates[1]
+              );
+            }
+
+            } />
           </div>
         </div>
       </div>
