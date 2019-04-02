@@ -4,6 +4,16 @@ import ListItem from "../List/ListItem";
 import "../List/ListItem.css";
 import "./Carousel.css"
 
+const NextArrow = (props) => {
+  const { className, style, onClick } = props;
+  return <div className="nextArrow" onClick={onClick} />;
+}
+
+const PrevArrow = (props) => {
+  const { className, style, onClick } = props;
+  return <div className="prevArrow" onClick={onClick} />;
+}
+
 class Carousel extends React.Component {
 
   constructor(props) {
@@ -23,13 +33,15 @@ class Carousel extends React.Component {
 
     return this.props.data.map((data, i) => {
       return (
-        <ListItem
-          key={i}
-          index={i}
-          data={data}
-          onClick={this.props.onClick}
-          onHover={this.props.onHover}
-        />
+        <div className='carouselCard' >
+          <ListItem
+            key={i}
+            index={i}
+            data={data}
+            onClick={this.props.onClick}
+            onHover={this.props.onHover}
+          />
+        </div>
       );
     });
   }
@@ -41,8 +53,13 @@ class Carousel extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      afterChange: () => this.props.data[0] && this.props.onSwipe(this.props.data[this.state.slideIndex]),
-      beforeChange: (current, next) => this.setState({ slideIndex: next })
+      afterChange: () => this.props.onSwipe(this.props.data[this.state.slideIndex]),
+      beforeChange: (current, next) => this.setState({ slideIndex: next }),
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      className: "center",
+      centerMode: true,
+      centerPadding: "60px"
     };
     return <Slider {...settings} onSwipe={(x)=> { console.log('x', x); }}>{this.renderList()}</Slider>;
   }

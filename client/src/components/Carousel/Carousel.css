@@ -17,3 +17,41 @@
 .slick-prev::before {
   color: blue;
 }
+
+.nextArrow {
+  position: absolute;
+  right: 25px;
+  top: calc(50% - 5px);
+
+  display: inline-block;
+
+  padding: 10px;
+
+  box-shadow: 5px -5px 0 0 grey inset;
+  transform: rotate(225deg);
+  cursor: pointer;
+  z-index: 10;
+
+}
+
+.prevArrow {
+  position: absolute;
+  left: 25px;
+  top: calc(50% - 5px);
+
+  display: inline-block;
+
+  padding: 10px;
+
+  box-shadow: 5px -5px 0 0 grey inset;
+  transform: rotate(45deg);
+  cursor: pointer;
+  z-index: 10;
+}
+
+
+.carouselCard {
+  border: solid 1px #63b4cf2e;
+  border-radius: 5px;
+  width: 70%;
+}
