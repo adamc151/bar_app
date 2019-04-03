@@ -33,15 +33,14 @@ class Carousel extends React.Component {
 
     return this.props.data.map((data, i) => {
       return (
-        <div className='carouselCard' >
           <ListItem
             key={i}
             index={i}
             data={data}
-            onClick={this.props.onClick}
+            onClick={() => this.state.slideIndex != i && this.slick.slickGoTo(i)}
             onHover={this.props.onHover}
+            className='carouselCard'
           />
-        </div>
       );
     });
   }
@@ -49,19 +48,18 @@ class Carousel extends React.Component {
   render() {
     var settings = {
       dots: false,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       afterChange: () => this.props.onSwipe(this.props.data[this.state.slideIndex]),
       beforeChange: (current, next) => this.setState({ slideIndex: next }),
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
+      arrows: false,
       className: "center",
       centerMode: true,
       centerPadding: "60px"
     };
-    return <Slider {...settings} onSwipe={(x)=> { console.log('x', x); }}>{this.renderList()}</Slider>;
+    return <Slider ref={node => this.slick = node} {...settings} onSwipe={(x)=> { console.log('x', x); }}>{this.renderList()}</Slider>;
   }
 }
 

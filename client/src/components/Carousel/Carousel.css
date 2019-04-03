@@ -48,10 +48,3 @@
   cursor: pointer;
   z-index: 10;
 }
-
-
-.carouselCard {
-  border: solid 1px #63b4cf2e;
-  border-radius: 5px;
-  width: 70%;
-}
