@@ -38,8 +38,28 @@ class FilterDropdown extends Component {
 
     return (
       <div className='filter-dropdown'>
+        <div className='webDropdown'>
         <Dropdown options={options} onChange={this.handleChange} value={value} placeholder="Select an option" />
+        </div>
+        <div className='nativeDropdown Dropdown-root'>
+
+        <div class="Dropdown-control" aria-haspopup="listbox">
+        <select onChange={this.handleChange} className='mySelect Dropdown-placeholder'>
+          {options.map((option) => {
+            return <option value={option}>{option}</option>
+          })}
+        </select>
+        <div class="Dropdown-arrow-wrapper">
+        <span class="Dropdown-arrow"></span>
+        </div>
+        </div>
+
+
+
+        </div>
       </div>
+
+
     )
   }
 }

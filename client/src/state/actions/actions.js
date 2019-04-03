@@ -10,6 +10,7 @@ export const SET_MILES = 'SET_MILES';
 export const SET_TIME_FILTER = 'SET_TIME_FILTER';
 export const SET_CURRENT_LOCATION = 'SET_CURRENT_LOCATION';
 export const SET_HOVER_COORDINATES = 'SET_HOVER_COORDINATES';
+export const SET_CAROUSEL_SLIDE = 'SET_CAROUSEL_SLIDE';
 
 
 //ACTIONSSSS - these basically label the input argument
@@ -57,8 +58,11 @@ export function postData(obj) {
 }
 
 export function centerMap(lat, lng) {
-  console.log('centerMapcenterMapcenterMap', lat, lng);
   return {type: CENTER_MAP, payload: { lat, lng }};
+}
+
+export function setCarouselSlide(index) {
+  return {type: SET_CAROUSEL_SLIDE, payload: index};
 }
 
 export function setHoverCoordinates(lat, lng) {

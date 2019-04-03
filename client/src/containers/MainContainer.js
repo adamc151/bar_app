@@ -43,6 +43,7 @@ class MainContainer extends Component {
             nowFilter={this.props.actions.nowFilter}
             setTimeFilter={this.props.actions.setTimeFilter}
             hoverCoordinates={hoverCoordinates}
+            setCarouselSlide={this.props.actions.setCarouselSlide}
           />
         </div>
 
@@ -72,22 +73,25 @@ class MainContainer extends Component {
               }
             />
           </div>
-          <div className="carousel">
-            <Carousel data={this.props.data} onSwipe={entry => {
-              console.log('entry', entry);
-              if(!entry) return;
-              this.props.actions.centerMap(
-                entry.location.coordinates[0],
-                entry.location.coordinates[1]
-              );
-              this.props.actions.setHoverCoordinates(
-                entry.location.coordinates[0],
-                entry.location.coordinates[1]
-              );
-            }
 
-            } />
-          </div>
+        </div>
+
+        <div className="carousel">
+          <Carousel data={this.props.data}
+          controlledSlide={this.props.carouselSlide}
+          onSwipe={entry => {
+            if(!entry) return;
+            this.props.actions.centerMap(
+              entry.location.coordinates[0],
+              entry.location.coordinates[1]
+            );
+            this.props.actions.setHoverCoordinates(
+              entry.location.coordinates[0],
+              entry.location.coordinates[1]
+            );
+          }
+
+          } />
         </div>
       </div>
     );
@@ -103,7 +107,8 @@ function mapStateToProps(state) {
     toggle: state.toggle,
     miles: state.miles,
     timeFilter: state.timeFilter,
-    hoverCoordinates: state.hoverCoordinates
+    hoverCoordinates: state.hoverCoordinates,
+    carouselSlide: state.carouselSlide
   };
 }
 

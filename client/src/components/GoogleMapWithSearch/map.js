@@ -11,9 +11,9 @@ const API_KEY = keys.googleAPIKey;
 console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
 
 const Marker = props => {
-  const { className, style, lat, lng } = props;
+  const { className, style, lat, lng, onClick } = props;
 
-  return <div className={className} lat={lat} lng={lng} style={style} />;
+  return <div className={`marker ${className}`} lat={lat} lng={lng} style={style} onClick={onClick} />;
 };
 
 export class MyMap extends React.Component {
@@ -172,7 +172,7 @@ export class MyMap extends React.Component {
       miles: this.props.centerOn.miles,
       timeFilter: this.props.centerOn.timeFilter
     };
-    const { google, hoverCoordinates } = this.props;
+    const { google, hoverCoordinates, setCarouselSlide } = this.props;
 
     return (
       <Fragment>
@@ -203,8 +203,7 @@ export class MyMap extends React.Component {
             }}
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
-            disableDefaultUI={true}
-            panControl={true}
+            options={{ disableDefaultUI: true }}
             onGoogleApiLoaded={x => (this.map = x.map)}
           >
             <Marker
@@ -220,6 +219,7 @@ export class MyMap extends React.Component {
               return (
                 <Marker
                   className={animate ? "hovered" : "plainMarker"}
+                  onClick={() => { console.log('marker', i); setCarouselSlide(i); }}
                   key={i}
                   lat={marker.location.coordinates[0]}
                   lng={marker.location.coordinates[1]}
