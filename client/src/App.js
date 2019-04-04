@@ -4,6 +4,9 @@ import logo from './logo.svg';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MainContainer from './containers/MainContainer';
 
+require('matchmedia-polyfill');
+require('matchmedia-polyfill/matchMedia.addListener');
+
 class App extends Component {
   render() {
     return (
