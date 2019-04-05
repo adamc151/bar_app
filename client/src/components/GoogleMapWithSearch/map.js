@@ -3,18 +3,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import Place from "../Place/Place";
 import "./map.css";
 import GoogleMapReact from "google-map-react";
+import Marker from "./Marker";
 
 const keys = require("../../keys");
 
 const API_KEY = keys.googleAPIKey;
 
 console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
-
-const Marker = props => {
-  const { className, style, lat, lng, onClick } = props;
-
-  return <div className={`marker ${className}`} lat={lat} lng={lng} style={style} onClick={onClick} />;
-};
 
 export class MyMap extends React.Component {
   constructor(props) {
@@ -32,8 +27,6 @@ export class MyMap extends React.Component {
     this.setCurrentLocation = this.setCurrentLocation.bind(this);
     this.errorHandler = this.errorHandler.bind(this);
     this.findPlace = this.findPlace.bind(this);
-    this.onMapClicked = this.onMapClicked.bind(this);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
   componentDidMount() {
@@ -59,10 +52,10 @@ export class MyMap extends React.Component {
   setCurrentLocation(position) {
     this.setState({ searchedPlace: null, showingInfoWindow: false });
     console.log("setCurrentLocation position", position);
-    this.props.setCurrentLocation(
+    this.props.setUserCoordinates([
       position.coords.latitude,
       position.coords.longitude
-    );
+    ]);
     this.centerMap(position);
   }
 
@@ -71,18 +64,20 @@ export class MyMap extends React.Component {
       this.setState({ searchedPlace: null });
     }
 
-    this.props.centerMap(position.coords.latitude, position.coords.longitude);
+    this.props.setCenterCoordinates([
+      position.coords.latitude,
+      position.coords.longitude
+    ]);
     const obj = {
       lat: position.coords.latitude,
       long: position.coords.longitude,
-      miles: this.props.centerOn.miles,
-      timeFilter: this.props.centerOn.timeFilter
+      miles: this.props.miles,
+      timeFilter: this.props.timeFilter
     };
     this.props.fetchData(obj);
   }
 
   findPlace(e) {
-    const { google } = this.props;
     var map = this.map;
 
     // Create the search box and link it to the UI element.
@@ -93,7 +88,6 @@ export class MyMap extends React.Component {
       searchBox.setBounds(map.getBounds());
     });
 
-    var markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
 
@@ -121,9 +115,7 @@ export class MyMap extends React.Component {
       let city = "";
       try {
         city = el.querySelector(".locality").innerText.trim();
-      } catch (err) {
-        city = city;
-      }
+      } catch (err) {}
 
       if (place.types && place.types.includes("bar")) {
         this.setState({
@@ -145,34 +137,24 @@ export class MyMap extends React.Component {
     });
   }
 
-  onMarkerClick(props, marker, e) {
-    console.log("marker", marker);
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-  }
-
-  onMapClicked(props) {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  }
-
   render() {
     console.log("this.props", this.props);
     console.log("this.state", this.state);
+    const {
+      hoverCoordinates,
+      setCarouselSlide,
+      centerCoordinates,
+      userCoordinates,
+      miles,
+      timeFilter
+    } = this.props;
+
     const obj = {
-      lat: this.props.centerOn.lat,
-      long: this.props.centerOn.lng,
-      miles: this.props.centerOn.miles,
-      timeFilter: this.props.centerOn.timeFilter
+      lat: centerCoordinates[0],
+      long: centerCoordinates[1],
+      miles,
+      timeFilter
     };
-    const { google, hoverCoordinates, setCarouselSlide } = this.props;
 
     return (
       <Fragment>
@@ -197,10 +179,7 @@ export class MyMap extends React.Component {
           <GoogleMapReact
             zoom={15}
             bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
-            center={{
-              lat: this.props.centerOn.lat,
-              lng: this.props.centerOn.lng
-            }}
+            center={{ lat: centerCoordinates[0], lng: centerCoordinates[1] }}
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
             options={{ disableDefaultUI: true }}
@@ -208,21 +187,22 @@ export class MyMap extends React.Component {
           >
             <Marker
               className="currentLocation"
-              lat={this.props.currentLocation.lat}
-              lng={this.props.currentLocation.lng}
+              lat={userCoordinates[0]}
+              lng={userCoordinates[1]}
             />
 
             {this.props.data.map((marker, i) => {
+              const { coordinates } = marker.location;
               const animate =
-                hoverCoordinates.lat === marker.location.coordinates[0] &&
-                hoverCoordinates.lng === marker.location.coordinates[1];
+                hoverCoordinates[0] === coordinates[0] &&
+                hoverCoordinates[1] === coordinates[1];
               return (
                 <Marker
                   className={animate ? "hovered" : "plainMarker"}
-                  onClick={() => { console.log('marker', i); setCarouselSlide(i); }}
+                  onClick={() => setCarouselSlide(i)}
                   key={i}
-                  lat={marker.location.coordinates[0]}
-                  lng={marker.location.coordinates[1]}
+                  lat={coordinates[0]}
+                  lng={coordinates[1]}
                 />
               );
             })}

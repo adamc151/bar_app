@@ -26,6 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "updownting": "docker-compose down && docker-compose build --no-cache && docker-compose up"
   }
 }

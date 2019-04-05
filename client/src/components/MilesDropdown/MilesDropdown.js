@@ -1,54 +1,64 @@
-import Dropdown from 'react-dropdown'
-import '../FilterDropdown/FilterDropdown.css'
-import React, { Component } from 'react'
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as actions from '../../state/actions/actions';
+import Dropdown from "react-dropdown";
+import "../FilterDropdown/FilterDropdown.css";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../state/actions/actions";
 
-const options = [ '0.5', '1', '2', '3', '4', '5', '10' ];
-
+const options = ["0.5", "1", "2", "3", "4", "5", "10"];
 
 class MilesDropdown extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-        value: '5'
-      }
+      value: "5"
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(value){
+  handleChange(value) {
+    const { centerCoordinates, timeFilter, actions } = this.props;
+    const { setMiles, fetchData } = actions;
 
     this.setState({
-        value: value.value
-      })
+      value: value.value
+    });
 
-    console.log(value.value);
+    setMiles(value.value);
+    const obj = {
+      lat: centerCoordinates[0],
+      long: centerCoordinates[1],
+      miles: value.value,
+      timeFilter
+    };
+    fetchData(obj);
+  }
 
-    this.props.actions.setMiles(value.value);
-    const obj = {lat: this.props.centerOn.lat, long: this.props.centerOn.lng, miles: value.value, timeFilter: this.props.centerOn.timeFilter}
-    this.props.actions.fetchData(obj);
-  };
-
-  render () {
-
-    const defaultOption = options[0]
-    const { value } = this.state
+  render() {
+    const { value } = this.state;
 
     return (
-      <div className='filter-dropdown'>
-        <Dropdown options={options} onChange={this.handleChange} value={`${value} miles`} placeholder="Select an option" />
+      <div className="filter-dropdown">
+        <Dropdown
+          options={options}
+          onChange={this.handleChange}
+          value={`${value} miles`}
+          placeholder="Select an option"
+        />
       </div>
-    )
+    );
   }
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-      actions: bindActionCreators(actions, dispatch)
-    };
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
 }
 
-export default connect(null, mapDispatchToProps)(MilesDropdown);
+export default connect(
+  null,
+  mapDispatchToProps
+)(MilesDropdown);
