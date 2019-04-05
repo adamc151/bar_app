@@ -1,4 +1,4 @@
-import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES, SET_TIME_FILTER, SET_CURRENT_LOCATION, SET_HOVER_COORDINATES } from '../actions/actions';
+import { DATA_FETCH_REQUEST, DATA_FETCH_SUCCESS, DATA_POST_REQUEST, DATA_POST_SUCCESS, CENTER_MAP, SET_MILES, SET_TIME_FILTER, SET_CURRENT_LOCATION, SET_HOVER_COORDINATES, SET_CAROUSEL_SLIDE } from '../actions/actions';
 
 //the initial store (global app state)
 let initialState = {
@@ -18,7 +18,8 @@ let initialState = {
     hoverCoordinates: {
       lat: null,
       lng: null
-    }
+    },
+    carouselSlide: 0
 }
 
 //REDUCERRRR
@@ -53,6 +54,9 @@ export default function transactions(state = initialState, action) {
         case SET_HOVER_COORDINATES:
             console.log('SET_HOVER_COORDINATES Action')
             return { ...state, hoverCoordinates: { lat: action.payload.lat, lng: action.payload.lng } };
+        case SET_CAROUSEL_SLIDE:
+            console.log('SET_CAROUSEL_SLIDE Action')
+            return { ...state, carouselSlide: action.payload };
         default:
         return state;
     }

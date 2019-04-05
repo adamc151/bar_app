@@ -5,24 +5,33 @@
 }
 
 .mapContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.mapContainer > div {
   position: relative;
   width: 100%;
-  height: 50px;
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 }
 
-.list {
+.sideNav {
   width: 1000px;
   height: 100%;
   position: relative;
+
+}
+
+.sideNavHeader {
+  width: 100%;
+  height: 50px;
+  background: white;
+}
+
+.list {
+  height: calc(100% - 50px);
+  display: block;
+  background: white;
+}
+
+.carousel {
+  display: none;
+  height: calc(100% - 50px);
 }
 
 .addEntryButton {
@@ -51,14 +60,35 @@
     flex-direction: column;
   }
 
-  .mapContainer {
-    width: 100%;
-    height: 50%;
+  .list {
+    display: none;
   }
 
-  .list {
+  .carousel {
+    display: block;
+    position: absolute;
+    bottom: 50px;
+    height: auto;
     width: 100%;
-    height: 50%;
+  }
+
+  .mapContainer {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sideNav {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .sideNavHeader {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
   }
 
   .timeFilter {
