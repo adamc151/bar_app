@@ -12,37 +12,37 @@ import Carousel from "../components/Carousel/Carousel";
 class MainContainer extends Component {
   render() {
     const {
-      setCurrentLocation,
+      setUserCoordinates,
       setCenterCoordinates,
       setHoverCoordinates,
+      setCarouselSlide,
       fetchData
     } = this.props.actions;
     const {
       centerCoordinates,
-      currentLocation,
+      userCoordinates,
       miles,
       timeFilter,
-      hoverCoordinates
+      hoverCoordinates,
+      data,
+      carouselSlide
     } = this.props;
 
     return (
       <div className="wrapper">
         <div className="mapContainer">
           <MyMap
-            currentLocation={currentLocation}
-            setCurrentLocation={setCurrentLocation}
+            userCoordinates={userCoordinates}
+            setUserCoordinates={setUserCoordinates}
             centerCoordinates={centerCoordinates}
             miles={miles}
             timeFilter={timeFilter}
             setCenterCoordinates={setCenterCoordinates}
             fetchData={fetchData}
-            toggle={this.props.toggle}
-            data={this.props.data}
+            data={data}
             miles={miles}
-            nowFilter={this.props.actions.nowFilter}
-            setTimeFilter={this.props.actions.setTimeFilter}
             hoverCoordinates={hoverCoordinates}
-            setCarouselSlide={this.props.actions.setCarouselSlide}
+            setCarouselSlide={setCarouselSlide}
           />
         </div>
 
@@ -63,7 +63,7 @@ class MainContainer extends Component {
           </div>
           <div className="list">
             <List
-              data={this.props.data}
+              data={data}
               onClick={entry =>
                 setCenterCoordinates(entry.location.coordinates)
               }
@@ -74,8 +74,8 @@ class MainContainer extends Component {
 
         <div className="carousel">
           <Carousel
-            data={this.props.data}
-            controlledSlide={this.props.carouselSlide}
+            data={data}
+            controlledSlide={carouselSlide}
             onSwipe={entry => {
               if (!entry) return;
               setCenterCoordinates(entry.location.coordinates);
@@ -93,8 +93,7 @@ function mapStateToProps(state) {
     loading: state.loading,
     data: state.data,
     centerCoordinates: state.centerCoordinates,
-    currentLocation: state.currentLocation,
-    toggle: state.toggle,
+    userCoordinates: state.userCoordinates,
     miles: state.miles,
     timeFilter: state.timeFilter,
     hoverCoordinates: state.hoverCoordinates,

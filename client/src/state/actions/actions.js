@@ -8,7 +8,7 @@ export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
 export const SET_CENTER_COORDINATES = "SET_CENTER_COORDINATES";
 export const SET_MILES = "SET_MILES";
 export const SET_TIME_FILTER = "SET_TIME_FILTER";
-export const SET_CURRENT_LOCATION = "SET_CURRENT_LOCATION";
+export const SET_USER_COORDINATES = "SET_USER_COORDINATES";
 export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
 
@@ -135,6 +135,6 @@ function upcomingFilter(data) {
   return upcomingBlob;
 }
 
-export function setCurrentLocation(lat, lng) {
-  return { type: SET_CURRENT_LOCATION, payload: { lat, lng } };
+export function setUserCoordinates(coordinates) {
+  return { type: SET_USER_COORDINATES, payload: coordinates };
 }

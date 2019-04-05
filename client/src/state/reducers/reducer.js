@@ -6,7 +6,7 @@ import {
   SET_CENTER_COORDINATES,
   SET_MILES,
   SET_TIME_FILTER,
-  SET_CURRENT_LOCATION,
+  SET_USER_COORDINATES,
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE
 } from "../actions/actions";
@@ -15,13 +15,9 @@ import {
 let initialState = {
   data: [],
   loading: false,
-  toggle: false,
   miles: 5,
   timeFilter: "Now",
-  currentLocation: {
-    lat: null,
-    lng: null
-  },
+  userCoordinates: [null, null],
   centerCoordinates: [null, null],
   hoverCoordinates: [null, null],
   carouselSlide: 0
@@ -47,8 +43,7 @@ export default function transactions(state = initialState, action) {
       console.log("SET_CENTER_COORDINATES Action");
       return {
         ...state,
-        centerCoordinates: action.payload,
-        toggle: !state.toggle
+        centerCoordinates: action.payload
       };
     case SET_MILES:
       console.log("SET_MILES Action: " + action.payload.miles);
@@ -56,11 +51,11 @@ export default function transactions(state = initialState, action) {
     case SET_TIME_FILTER:
       console.log("SET_TIME_FILTER Action: " + action.payload.timeFilter);
       return { ...state, timeFilter: action.payload.timeFilter };
-    case SET_CURRENT_LOCATION:
-      console.log("SET_CURRENT_LOCATION Action");
+    case SET_USER_COORDINATES:
+      console.log("SET_USER_COORDINATES Action");
       return {
         ...state,
-        currentLocation: { lat: action.payload.lat, lng: action.payload.lng }
+        userCoordinates: action.payload
       };
     case SET_HOVER_COORDINATES:
       console.log("SET_HOVER_COORDINATES Action");

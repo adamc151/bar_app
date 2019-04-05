@@ -3,26 +3,13 @@ import SearchBar from "../SearchBar/SearchBar";
 import Place from "../Place/Place";
 import "./map.css";
 import GoogleMapReact from "google-map-react";
+import Marker from "./Marker";
 
 const keys = require("../../keys");
 
 const API_KEY = keys.googleAPIKey;
 
 console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
-
-const Marker = props => {
-  const { className, style, lat, lng, onClick } = props;
-
-  return (
-    <div
-      className={`marker ${className}`}
-      lat={lat}
-      lng={lng}
-      style={style}
-      onClick={onClick}
-    />
-  );
-};
 
 export class MyMap extends React.Component {
   constructor(props) {
@@ -65,10 +52,10 @@ export class MyMap extends React.Component {
   setCurrentLocation(position) {
     this.setState({ searchedPlace: null, showingInfoWindow: false });
     console.log("setCurrentLocation position", position);
-    this.props.setCurrentLocation(
+    this.props.setUserCoordinates([
       position.coords.latitude,
       position.coords.longitude
-    );
+    ]);
     this.centerMap(position);
   }
 
@@ -157,6 +144,7 @@ export class MyMap extends React.Component {
       hoverCoordinates,
       setCarouselSlide,
       centerCoordinates,
+      userCoordinates,
       miles,
       timeFilter
     } = this.props;
@@ -199,8 +187,8 @@ export class MyMap extends React.Component {
           >
             <Marker
               className="currentLocation"
-              lat={this.props.currentLocation.lat}
-              lng={this.props.currentLocation.lng}
+              lat={userCoordinates[0]}
+              lng={userCoordinates[1]}
             />
 
             {this.props.data.map((marker, i) => {
