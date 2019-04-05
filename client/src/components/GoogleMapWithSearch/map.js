@@ -40,8 +40,6 @@ export class MyMap extends React.Component {
     this.setCurrentLocation = this.setCurrentLocation.bind(this);
     this.errorHandler = this.errorHandler.bind(this);
     this.findPlace = this.findPlace.bind(this);
-    this.onMapClicked = this.onMapClicked.bind(this);
-    this.onMarkerClick = this.onMarkerClick.bind(this);
   }
 
   componentDidMount() {
@@ -152,24 +150,6 @@ export class MyMap extends React.Component {
     });
   }
 
-  onMarkerClick(props, marker, e) {
-    console.log("marker", marker);
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
-    });
-  }
-
-  onMapClicked(props) {
-    if (this.state.showingInfoWindow) {
-      this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
-      });
-    }
-  }
-
   render() {
     console.log("this.props", this.props);
     console.log("this.state", this.state);
@@ -224,19 +204,17 @@ export class MyMap extends React.Component {
             />
 
             {this.props.data.map((marker, i) => {
+              const { coordinates } = marker.location;
               const animate =
-                hoverCoordinates.lat === marker.location.coordinates[0] &&
-                hoverCoordinates.lng === marker.location.coordinates[1];
+                hoverCoordinates[0] === coordinates[0] &&
+                hoverCoordinates[1] === coordinates[1];
               return (
                 <Marker
                   className={animate ? "hovered" : "plainMarker"}
-                  onClick={() => {
-                    console.log("marker", i);
-                    setCarouselSlide(i);
-                  }}
+                  onClick={() => setCarouselSlide(i)}
                   key={i}
-                  lat={marker.location.coordinates[0]}
-                  lng={marker.location.coordinates[1]}
+                  lat={coordinates[0]}
+                  lng={coordinates[1]}
                 />
               );
             })}

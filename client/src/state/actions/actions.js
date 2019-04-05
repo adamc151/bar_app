@@ -61,8 +61,8 @@ export function setCarouselSlide(index) {
   return { type: SET_CAROUSEL_SLIDE, payload: index };
 }
 
-export function setHoverCoordinates(lat, lng) {
-  return { type: SET_HOVER_COORDINATES, payload: { lat, lng } };
+export function setHoverCoordinates(coordinates) {
+  return { type: SET_HOVER_COORDINATES, payload: coordinates };
 }
 
 export function setMiles(miles) {

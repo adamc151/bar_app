@@ -23,10 +23,7 @@ let initialState = {
     lng: null
   },
   centerCoordinates: [null, null],
-  hoverCoordinates: {
-    lat: null,
-    lng: null
-  },
+  hoverCoordinates: [null, null],
   carouselSlide: 0
 };
 
@@ -67,10 +64,7 @@ export default function transactions(state = initialState, action) {
       };
     case SET_HOVER_COORDINATES:
       console.log("SET_HOVER_COORDINATES Action");
-      return {
-        ...state,
-        hoverCoordinates: { lat: action.payload.lat, lng: action.payload.lng }
-      };
+      return { ...state, hoverCoordinates: action.payload };
     case SET_CAROUSEL_SLIDE:
       console.log("SET_CAROUSEL_SLIDE Action");
       return { ...state, carouselSlide: action.payload };

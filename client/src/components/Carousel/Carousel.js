@@ -17,7 +17,6 @@ class Carousel extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("componentDidUpdate", this.props);
     if (this.props.controlledSlide !== this.state.controlledSlide) {
       this.slick.slickGoTo(this.props.controlledSlide);
       this.setState({ controlledSlide: this.props.controlledSlide });

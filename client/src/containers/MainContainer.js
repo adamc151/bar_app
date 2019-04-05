@@ -14,6 +14,7 @@ class MainContainer extends Component {
     const {
       setCurrentLocation,
       setCenterCoordinates,
+      setHoverCoordinates,
       fetchData
     } = this.props.actions;
     const {
@@ -66,12 +67,7 @@ class MainContainer extends Component {
               onClick={entry =>
                 setCenterCoordinates(entry.location.coordinates)
               }
-              onHover={entry =>
-                this.props.actions.setHoverCoordinates(
-                  entry.location.coordinates[0],
-                  entry.location.coordinates[1]
-                )
-              }
+              onHover={entry => setHoverCoordinates(entry.location.coordinates)}
             />
           </div>
         </div>
@@ -83,10 +79,7 @@ class MainContainer extends Component {
             onSwipe={entry => {
               if (!entry) return;
               setCenterCoordinates(entry.location.coordinates);
-              this.props.actions.setHoverCoordinates(
-                entry.location.coordinates[0],
-                entry.location.coordinates[1]
-              );
+              setHoverCoordinates(entry.location.coordinates);
             }}
           />
         </div>
