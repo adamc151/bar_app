@@ -16,27 +16,35 @@ class FilterDropdown extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeWeb = this.handleChangeWeb.bind(this);
+    this.handleChangeNative = this.handleChangeNative.bind(this);
   }
 
   handleChange(value) {
     const { centerCoordinates, miles, actions } = this.props;
     const { setTimeFilter, fetchData } = actions;
 
-    console.log("centerCoordinates", centerCoordinates);
-    console.log("miles", miles);
-
     this.setState({
       value: value
     });
 
-    setTimeFilter(value.value);
+    setTimeFilter(value);
     const obj = {
       lat: centerCoordinates[0],
       long: centerCoordinates[1],
       miles,
-      timeFilter: value.value
+      timeFilter: value
     };
     fetchData(obj);
+  }
+
+  handleChangeWeb(value) {
+    this.handleChange(value.value);
+  }
+
+  handleChangeNative(e) {
+    const value = e.target.value;
+    this.handleChange(value);
   }
 
   render() {
@@ -55,7 +63,7 @@ class FilterDropdown extends Component {
         <div className="nativeDropdown Dropdown-root">
           <div class="Dropdown-control" aria-haspopup="listbox">
             <select
-              onChange={this.handleChange}
+              onChange={this.handleChangeNative}
               className="mySelect Dropdown-placeholder"
             >
               {options.map(option => {

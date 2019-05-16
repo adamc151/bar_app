@@ -16,6 +16,11 @@ class MilesDropdown extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeWeb = this.handleChangeWeb.bind(this);
+    this.handleChangeNative = this.handleChangeNative.bind(this);
+  }
+  componentDidMount() {
+    this.select.value = this.state.value;
   }
 
   handleChange(value) {
@@ -23,17 +28,26 @@ class MilesDropdown extends Component {
     const { setMiles, fetchData } = actions;
 
     this.setState({
-      value: value.value
+      value: value
     });
 
-    setMiles(value.value);
+    setMiles(value);
     const obj = {
       lat: centerCoordinates[0],
       long: centerCoordinates[1],
-      miles: value.value,
+      miles: value,
       timeFilter
     };
     fetchData(obj);
+  }
+
+  handleChangeWeb(value) {
+    this.handleChange(value.value);
+  }
+
+  handleChangeNative(e) {
+    const value = e.target.value;
+    this.handleChange(value);
   }
 
   render() {
@@ -41,12 +55,30 @@ class MilesDropdown extends Component {
 
     return (
       <div className="filter-dropdown">
-        <Dropdown
-          options={options}
-          onChange={this.handleChange}
-          value={`${value} miles`}
-          placeholder="Select an option"
-        />
+        <div className="webDropdown">
+          <Dropdown
+            options={options}
+            onChange={this.handleChange}
+            value={`${value} miles`}
+            placeholder="Select an option"
+          />
+        </div>
+        <div className="nativeDropdown Dropdown-root">
+          <div class="Dropdown-control" aria-haspopup="listbox">
+            <select
+              ref={node => (this.select = node)}
+              onChange={this.handleChangeNative}
+              className="mySelect Dropdown-placeholder"
+            >
+              {options.map(option => {
+                return <option value={option}>{option}</option>;
+              })}
+            </select>
+            <div class="Dropdown-arrow-wrapper">
+              <span class="Dropdown-arrow" />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
