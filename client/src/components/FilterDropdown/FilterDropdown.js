@@ -55,7 +55,7 @@ class FilterDropdown extends Component {
         <div className="webDropdown">
           <Dropdown
             options={options}
-            onChange={this.handleChange}
+            onChange={this.handleChangeWeb}
             value={value}
             placeholder="Select an option"
           />
