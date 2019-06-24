@@ -16,6 +16,7 @@ export default function ListItem(props) {
     >
       {name && <div className="itemName">{name}</div>}
       {city && <div className="itemLocation">{city}</div>}
+      {deals[0].category && <div className="itemLocation">{deals[0].category}</div>}
       {deals[0].description && (
         <div className="itemDescription">{deals[0].description}</div>
       )}
