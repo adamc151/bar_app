@@ -3,6 +3,8 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
 
+//mergeTest
+
 class App extends Component {
   render() {
     return (
