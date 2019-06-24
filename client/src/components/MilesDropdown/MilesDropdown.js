@@ -58,7 +58,7 @@ class MilesDropdown extends Component {
         <div className="webDropdown">
           <Dropdown
             options={options}
-            onChange={this.handleChange}
+            onChange={this.handleChangeWeb}
             value={`${value} miles`}
             placeholder="Select an option"
           />
