@@ -1,5 +1,6 @@
 import React from "react";
 import "./ListItem.css";
+import locationIcon from "./placeholder.png";
 
 export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className } = props;
@@ -14,8 +15,8 @@ export default function ListItem(props) {
         onHover(props.data);
       }}
     >
-      {name && <div className="itemName">{name}</div>}
-      {city && <div className="itemLocation">{city}</div>}
+    {<img src={locationIcon} className="titleIcon" alt="" />}
+    {name && <div className="itemName">{name}</div>} 
       {deals[0].category && <div className="itemLocation">{deals[0].category}</div>}
       {deals[0].description && (
         <div className="itemDescription">{deals[0].description}</div>
