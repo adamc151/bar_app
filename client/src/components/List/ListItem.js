@@ -21,8 +21,12 @@ export default function ListItem(props) {
       {name && <div className="itemName">{name}</div>} 
       {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
       {deals[0].description && (<div className="itemDescription">{deals[0].description}</div>)}
-      {deals[0].endTime && (<div className="itemLocation">{deals[0].startTime} - {deals[0].endTime}</div>)}
-      {website && (<div className="itemLocation"><a href={website}>Website</a></div>)}
+
+      {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
+      {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
+      {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
+      {/* {deals[0].endTime && (<div className="itemLocation">{deals[0].startTime} - {deals[0].endTime}</div>)} */}
+      {/* {website && (<div className="itemLocation"><a href={website}>Website</a></div>)} */}
     </div>
   );
 }
