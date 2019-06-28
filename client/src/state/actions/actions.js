@@ -23,6 +23,7 @@ export function fetchData(obj) {
       params: { long: long, lat: lat, miles: miles }
     });
     const filteredValues = await fetchAndFilter(timeFilter, values);
+    console.log(`filteredValues: ${JSON.stringify(filteredValues)}`);
     return dispatch({ type: DATA_FETCH_SUCCESS, payload: filteredValues });
   };
 }
@@ -31,12 +32,13 @@ function fetchAndFilter(timeFilter, values) {
   console.log(`time filter ${timeFilter}`);
 
   switch (timeFilter) {
-    case "Now":
-      return nowFilter(values.data);
-    case "Upcoming":
-      return upcomingFilter(values.data);
+    // case "Now":
+    //   return nowFilter(values.data);
+    // case "Upcoming":
+    //   return upcomingFilter(values.data);
     case "All":
-      return values.data;
+      // return values.data;
+      return categoriseData(values.data);
     default:
       return values.data;
   }
@@ -73,7 +75,8 @@ export function setTimeFilter(timeFilter) {
   return { type: SET_TIME_FILTER, payload: { timeFilter } };
 }
 
-function nowFilter(data) {
+
+function categoriseData(data) {
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -82,58 +85,96 @@ function nowFilter(data) {
 
   var time = parseInt(`${h}${m}`);
 
-  var nowBlob = data.filter(item => {
-    var dealsFiltered = [];
+  var categorisedBlob = data.filter(item => {
+    var final = [];
 
     item.deals.map(deal => {
       var st = deal.startTime.replace(":", "");
       var et = deal.endTime.replace(":", "");
 
       if (st <= time && et > time && deal.weekDays.includes(day)) {
-        dealsFiltered.push(deal);
+        deal.category = 'Now';
       }
+      else if (st > time && et > time && deal.weekDays.includes(day)) {
+        deal.category = 'Upcoming';
+      }
+      else{
+        deal.category = 'Inactive';
+      }
+      final.push(deal);
     });
 
-    item.deals = dealsFiltered;
+    item.deals = final;
 
     if (item.deals[0]) {
       return item;
     }
   });
 
-  return nowBlob;
+  return categorisedBlob;
 }
 
-function upcomingFilter(data) {
-  var d = new Date();
-  var h = d.getHours();
-  var m = d.getMinutes();
-  var day = d.getDay();
-  m < 10 ? (m = `${0}${m}`) : null;
+// function nowFilter(data) {
+//   var d = new Date();
+//   var h = d.getHours();
+//   var m = d.getMinutes();
+//   var day = d.getDay();
+//   m < 10 ? (m = `${0}${m}`) : null;
 
-  var time = parseInt(`${h}${m}`);
+//   var time = parseInt(`${h}${m}`);
 
-  var upcomingBlob = data.filter(item => {
-    var dealsFiltered = [];
+//   var nowBlob = data.filter(item => {
+//     var dealsFiltered = [];
 
-    item.deals.map(deal => {
-      var st = deal.startTime.replace(":", "");
-      var et = deal.endTime.replace(":", "");
+//     item.deals.map(deal => {
+//       var st = deal.startTime.replace(":", "");
+//       var et = deal.endTime.replace(":", "");
 
-      if (st > time && et > time && deal.weekDays.includes(day)) {
-        dealsFiltered.push(deal);
-      }
-    });
+//       if (st <= time && et > time && deal.weekDays.includes(day)) {
+//         dealsFiltered.push(deal);
+//       }
+//     });
 
-    item.deals = dealsFiltered;
+//     item.deals = dealsFiltered;
 
-    if (item.deals[0]) {
-      return item;
-    }
-  });
+//     if (item.deals[0]) {
+//       return item;
+//     }
+//   });
 
-  return upcomingBlob;
-}
+//   return nowBlob;
+// }
+
+// function upcomingFilter(data) {
+//   var d = new Date();
+//   var h = d.getHours();
+//   var m = d.getMinutes();
+//   var day = d.getDay();
+//   m < 10 ? (m = `${0}${m}`) : null;
+
+//   var time = parseInt(`${h}${m}`);
+
+//   var upcomingBlob = data.filter(item => {
+//     var dealsFiltered = [];
+
+//     item.deals.map(deal => {
+//       var st = deal.startTime.replace(":", "");
+//       var et = deal.endTime.replace(":", "");
+
+//       if (st > time && et > time && deal.weekDays.includes(day)) {
+//         dealsFiltered.push(deal);
+//       }
+//     });
+
+//     item.deals = dealsFiltered;
+
+//     if (item.deals[0]) {
+//       return item;
+//     }
+//   });
+
+//   return upcomingBlob;
+// }
 
 export function setUserCoordinates(coordinates) {
   return { type: SET_USER_COORDINATES, payload: coordinates };

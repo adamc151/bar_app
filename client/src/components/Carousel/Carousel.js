@@ -53,7 +53,7 @@ class Carousel extends React.Component {
       arrows: false,
       className: "center",
       centerMode: true,
-      centerPadding: "60px"
+      centerPadding: "20px"
     };
     return (
       <Slider

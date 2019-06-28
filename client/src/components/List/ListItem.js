@@ -1,5 +1,7 @@
 import React from "react";
 import "./ListItem.css";
+import locationIcon from "./placeholder.png";
+import barImg from "./bar.jpg";
 
 export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className } = props;
@@ -7,28 +9,24 @@ export default function ListItem(props) {
 
   return (
     <div
-      className={`listItemWrapper ${className}`}
+      className={`listItemWrapper ${className} toggle${deals[0].category}`}
       onClick={() => onClick(props.data)}
       onMouseEnter={() => {
         console.log("onmouseover");
         onHover(props.data);
       }}
     >
-      {name && <div className="itemName">{name}</div>}
-      {city && <div className="itemLocation">{city}</div>}
-      {deals[0].description && (
-        <div className="itemDescription">{deals[0].description}</div>
-      )}
-      {deals[0].endTime && (
-        <div className="itemLocation">
-          {deals[0].startTime} - {deals[0].endTime}
-        </div>
-      )}
-      {website && (
-        <div className="itemLocation">
-          <a href={website}>Website</a>
-        </div>
-      )}
+      {<img src={barImg} className="barImg" alt="" />}
+      {<img src={locationIcon} className="titleIcon" alt="" />}
+      {name && <div className="itemName">{name}</div>} 
+      {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
+      {/* {deals[0].category == "Inactive" && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>} */}
+      {deals[0].description && (<div className="itemDescription">{deals[0].description}</div>)}
+      {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
+      {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
+      {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
+      {/* {deals[0].endTime && (<div className="itemLocation">{deals[0].startTime} - {deals[0].endTime}</div>)} */}
+      {/* {website && (<div className="itemLocation"><a href={website}>Website</a></div>)} */}
     </div>
   );
 }

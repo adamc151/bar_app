@@ -15,8 +15,8 @@ import {
 let initialState = {
   data: [],
   loading: false,
-  miles: 5,
-  timeFilter: "Now",
+  miles: 10,
+  timeFilter: "All",
   userCoordinates: [null, null],
   centerCoordinates: [null, null],
   hoverCoordinates: [null, null],
