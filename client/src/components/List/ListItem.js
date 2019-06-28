@@ -17,7 +17,7 @@ export default function ListItem(props) {
       }}
     >
       {<img src={barImg} className="barImg" alt="" />}
-      {/* {<img src={locationIcon} className="titleIcon" alt="" />} */}
+      {<img src={locationIcon} className="titleIcon" alt="" />}
       {name && <div className="itemName">{name}</div>} 
       {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
       {/* {deals[0].category == "Inactive" && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>} */}
