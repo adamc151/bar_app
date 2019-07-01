@@ -193,6 +193,7 @@ export class MyMap extends React.Component {
 
             {this.props.data.map((marker, i) => {
               const { coordinates } = marker.location;
+              const { deals } = marker;
               const animate =
                 hoverCoordinates[0] === coordinates[0] &&
                 hoverCoordinates[1] === coordinates[1];
@@ -203,6 +204,7 @@ export class MyMap extends React.Component {
                   key={i}
                   lat={coordinates[0]}
                   lng={coordinates[1]}
+                  category={deals[0].category}
                 />
               );
             })}
