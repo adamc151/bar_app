@@ -1,26 +1,26 @@
 @-webkit-keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(99, 180, 207, 0.5);
+    -webkit-box-shadow: 0 0 0 0 #ff981186;
   }
   70% {
-    -webkit-box-shadow: 0 0 0 10px rgba(99, 180, 207, 0);
+    -webkit-box-shadow: 0 0 0 10px #ff981100;
   }
   100% {
-    -webkit-box-shadow: 0 0 0 0 rgba(99, 180, 207, 0);
+    -webkit-box-shadow: 0 0 0 0 #ff981100;
   }
 }
 @keyframes pulse {
   0% {
-    -moz-box-shadow: 0 0 0 0 rgba(99, 180, 207, 0.5);
-    box-shadow: 0 0 0 0 rgba(99, 180, 207, 0.4);
+    -moz-box-shadow: 0 0 0 0 #ff981183;
+    box-shadow: 0 0 0 0 #ff981169;
   }
   70% {
-    -moz-box-shadow: 0 0 0 10px rgba(99, 180, 207, 0);
-    box-shadow: 0 0 0 10px rgba(99, 180, 207, 0);
+    -moz-box-shadow: 0 0 0 10px #ff981100;
+    box-shadow: 0 0 0 10px #ff981100;
   }
   100% {
-    -moz-box-shadow: 0 0 0 0 rgba(99, 180, 207, 0);
-    box-shadow: 0 0 0 0 rgba(99, 180, 207, 0);
+    -moz-box-shadow: 0 0 0 0 #ff981100;
+    box-shadow: 0 0 0 0 #ff981100;
   }
 }
 
@@ -33,9 +33,9 @@
   width: 20px;
   display: block;
   border-radius: 50%;
-  background: #63b4cf;
+  background: #ff9811;
   cursor: pointer;
-  box-shadow: 0 0 0 rgba(99, 180, 207, 0.5);
+  box-shadow: 0 0 0 #ff981180;
   animation: pulse 2s infinite;
   -webkit-transform: translate(-50%, -50%);
 }
@@ -45,7 +45,7 @@
 
 .hovered {
   border-radius: 50%;
-  border: 16px solid #2e7a94;
+  border: 16px solid #ff9811;
   width: 16px;
   height: 16px;
   transform: translate(-50%, calc(-50% - 60px));
@@ -59,13 +59,13 @@
   bottom: -60px;
   left: -12px;
   border: 20px solid transparent;
-  border-top: 34px solid #2e7a94;
+  border-top: 34px solid #ff9811;
 }
 
 .plainMarker {
   position: relative;
   border-radius: 50%;
-  border: 8px solid #63b4cf;
+  border: 8px solid #ff9811;
   width: 8px;
   height: 8px;
   transform: translate(-50%, calc(-50% - 30px));
@@ -79,5 +79,9 @@
   bottom: -30px;
   left: -6px;
   border: 10px solid transparent;
-  border-top: 17px solid #63b4cf;
+  border-top: 17px solid #ff9811;
+}
+
+.markerInactive{
+  opacity: 0.4;
 }
