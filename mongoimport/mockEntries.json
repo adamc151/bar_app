@@ -55,7 +55,7 @@
     {
       "startTime": "17:00",
       "endTime": "21:00",
-      "weekDays": [0,1,2,3,4,5,6],
+      "weekDays": [1,2,3,4,5,6],
       "description": "1 free shot if it's your birthday",
       "fullDescription": "1 free shot if it's your birthday"
     }

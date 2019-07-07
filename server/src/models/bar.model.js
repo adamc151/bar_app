@@ -12,8 +12,15 @@ const MONGO_PASSWORD = keys.mongoPassword;
 const MONGO_HOSTNAME = keys.mongoHostname;
 const MONGO_PORT = keys.mongoPort;
 const MONGO_DB = keys.mongoDatabase;
+const MONGO_PROD = keys.mongoProd;
+let url = '';
 
-const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+if(MONGO_PROD == 'true'){
+    url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
+}
+else{
+    url = `mongodb://mongo:${MONGO_PORT}/${MONGO_DB}`;
+}
 console.log(url);
 
 mongoose.connect(url);

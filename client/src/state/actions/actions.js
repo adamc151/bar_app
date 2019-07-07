@@ -22,26 +22,10 @@ export function fetchData(obj) {
     const values = await axios.get("/api/locations", {
       params: { long: long, lat: lat, miles: miles }
     });
-    const filteredValues = await fetchAndFilter(timeFilter, values);
+    const filteredValues = await categoriseData(values.data);
     console.log(`filteredValues: ${JSON.stringify(filteredValues)}`);
     return dispatch({ type: DATA_FETCH_SUCCESS, payload: filteredValues });
   };
-}
-
-function fetchAndFilter(timeFilter, values) {
-  console.log(`time filter ${timeFilter}`);
-
-  switch (timeFilter) {
-    // case "Now":
-    //   return nowFilter(values.data);
-    // case "Upcoming":
-    //   return upcomingFilter(values.data);
-    case "All":
-      // return values.data;
-      return categoriseData(values.data);
-    default:
-      return values.data;
-  }
 }
 
 export function postData(obj) {
@@ -89,19 +73,23 @@ function categoriseData(data) {
     var final = [];
 
     item.deals.map(deal => {
-      var st = deal.startTime.replace(":", "");
-      var et = deal.endTime.replace(":", "");
 
-      if (st <= time && et > time && deal.weekDays.includes(day)) {
-        deal.category = 'Now';
-      }
-      else if (st > time && et > time && deal.weekDays.includes(day)) {
-        deal.category = 'Upcoming';
-      }
-      else{
-        deal.category = 'Inactive';
-      }
-      final.push(deal);
+      if(deal.weekDays.includes(day)){
+
+          var st = deal.startTime.replace(":", "");
+          var et = deal.endTime.replace(":", "");
+
+          if (st <= time && et > time && deal.weekDays.includes(day)) {
+            deal.category = 'Now';
+          }
+          else if (st > time && et > time && deal.weekDays.includes(day)) {
+            deal.category = 'Upcoming';
+          }
+          else{
+            deal.category = 'Inactive';
+          }
+          final.push(deal);
+        }
     });
 
     item.deals = final;
@@ -113,68 +101,6 @@ function categoriseData(data) {
 
   return categorisedBlob;
 }
-
-// function nowFilter(data) {
-//   var d = new Date();
-//   var h = d.getHours();
-//   var m = d.getMinutes();
-//   var day = d.getDay();
-//   m < 10 ? (m = `${0}${m}`) : null;
-
-//   var time = parseInt(`${h}${m}`);
-
-//   var nowBlob = data.filter(item => {
-//     var dealsFiltered = [];
-
-//     item.deals.map(deal => {
-//       var st = deal.startTime.replace(":", "");
-//       var et = deal.endTime.replace(":", "");
-
-//       if (st <= time && et > time && deal.weekDays.includes(day)) {
-//         dealsFiltered.push(deal);
-//       }
-//     });
-
-//     item.deals = dealsFiltered;
-
-//     if (item.deals[0]) {
-//       return item;
-//     }
-//   });
-
-//   return nowBlob;
-// }
-
-// function upcomingFilter(data) {
-//   var d = new Date();
-//   var h = d.getHours();
-//   var m = d.getMinutes();
-//   var day = d.getDay();
-//   m < 10 ? (m = `${0}${m}`) : null;
-
-//   var time = parseInt(`${h}${m}`);
-
-//   var upcomingBlob = data.filter(item => {
-//     var dealsFiltered = [];
-
-//     item.deals.map(deal => {
-//       var st = deal.startTime.replace(":", "");
-//       var et = deal.endTime.replace(":", "");
-
-//       if (st > time && et > time && deal.weekDays.includes(day)) {
-//         dealsFiltered.push(deal);
-//       }
-//     });
-
-//     item.deals = dealsFiltered;
-
-//     if (item.deals[0]) {
-//       return item;
-//     }
-//   });
-
-//   return upcomingBlob;
-// }
 
 export function setUserCoordinates(coordinates) {
   return { type: SET_USER_COORDINATES, payload: coordinates };
