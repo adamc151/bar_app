@@ -61,8 +61,6 @@ class Place extends React.Component {
         ]
       };
 
-      // console.log(`ITEM TOM TOM: ${newPlace.website}`);
-
       this.props.actions.postData(newPlace);
 
       this.props.onAdd();
@@ -71,8 +69,6 @@ class Place extends React.Component {
 
 
     updateButtonMsg() {
-      console.log('updateButtonMsg');
-
       const { startTime, endTime, description } = this.state;
 
       if(!startTime || !endTime || !description){
@@ -90,21 +86,17 @@ class Place extends React.Component {
     };
 
     finalButtonMsg() {
-      console.log('finalButtonMsg');
       this.setState({ submitState: 'submit-button animated', submitMessage: 'state-2'})
       setTimeout(this.setInitialButtonState, 2000);
     };
 
     setInitialButtonState() {
-      console.log('setInitialButtonState');
       this.submit();
       this.setState({ submitState: 'submit-button', submitMessage: ''})
     };
 
     render() {
         const { place = { name: '', address: '', photo: '' } } = this.state;
-
-        console.log('this.state.submitState', this.state.submitState);
 
         return (
             <div className="PlaceInfoWrapper">

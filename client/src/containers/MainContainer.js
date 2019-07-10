@@ -5,8 +5,8 @@ import * as actions from "../state/actions/actions";
 import List from "../components/List/List";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
-import FilterDropdown from "../components/FilterDropdown/FilterDropdown";
-import MilesDropdown from "../components/MilesDropdown/MilesDropdown";
+// import FilterDropdown from "../components/FilterDropdown/FilterDropdown";
+// import MilesDropdown from "../components/MilesDropdown/MilesDropdown";
 import Carousel from "../components/Carousel/Carousel";
 
 class MainContainer extends Component {
@@ -48,7 +48,7 @@ class MainContainer extends Component {
 
         <div className="sideNav">
           <div className="sideNavHeader">
-            <div className="timeFilter">
+            {/* <div className="timeFilter">
               <FilterDropdown
                 centerCoordinates={centerCoordinates}
                 miles={miles}
@@ -59,7 +59,7 @@ class MainContainer extends Component {
                 centerCoordinates={centerCoordinates}
                 timeFilter={timeFilter}
               />
-            </div>
+            </div> */}
           </div>
           <div className="list">
             <List

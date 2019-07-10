@@ -5,18 +5,17 @@ import barImg from "./bar.jpg";
 
 export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className } = props;
-  const { name, city, deals, website } = data;
+  const { name, city, deals, website, imgUrl } = data;
 
   return (
     <div
       className={`listItemWrapper ${className} toggle${deals[0].category}`}
       onClick={() => onClick(props.data)}
       onMouseEnter={() => {
-        console.log("onmouseover");
         onHover(props.data);
       }}
     >
-      {<img src={barImg} className="barImg" alt="" />}
+      {<img src={imgUrl} className="barImg" alt="" />}
       {<img src={locationIcon} className="titleIcon" alt="" />}
       {name && <div className="itemName">{name}</div>} 
       {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}

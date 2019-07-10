@@ -23,7 +23,6 @@ export function fetchData(obj) {
       params: { long: long, lat: lat, miles: miles }
     });
     const filteredValues = await categoriseData(values.data);
-    console.log(`filteredValues: ${JSON.stringify(filteredValues)}`);
     return dispatch({ type: DATA_FETCH_SUCCESS, payload: filteredValues });
   };
 }
@@ -31,10 +30,7 @@ export function fetchData(obj) {
 export function postData(obj) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_POST_REQUEST });
-
     const response = await axios.post("/api/bar", obj);
-
-    console.log("response", response);
     return dispatch({ type: DATA_POST_SUCCESS });
   };
 }
