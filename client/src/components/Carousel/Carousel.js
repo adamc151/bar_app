@@ -60,7 +60,6 @@ class Carousel extends React.Component {
         ref={node => (this.slick = node)}
         {...settings}
         onSwipe={x => {
-          console.log("x", x);
         }}
       >
         {this.renderList()}

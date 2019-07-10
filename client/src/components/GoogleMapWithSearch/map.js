@@ -6,10 +6,7 @@ import GoogleMapReact from "google-map-react";
 import Marker from "./Marker";
 
 const keys = require("../../keys");
-
 const API_KEY = keys.googleAPIKey;
-
-//console.log(`ENV VARIABLES: ${JSON.stringify(process.env)}`);
 
 export class MyMap extends React.Component {
   constructor(props) {
@@ -93,7 +90,6 @@ export class MyMap extends React.Component {
 
     searchBox.addListener("places_changed", () => {
       var places = searchBox.getPlaces();
-      console.log("places", places);
 
       if (places.length === 0) return;
       const place = places[0];
@@ -138,8 +134,8 @@ export class MyMap extends React.Component {
   }
 
   render() {
-    console.log("this.props", this.props);
-    console.log("this.state", this.state);
+    // console.log("this.props", this.props);
+    // console.log("this.state", this.state);
     const {
       hoverCoordinates,
       setCarouselSlide,
@@ -170,7 +166,6 @@ export class MyMap extends React.Component {
               onClick={() => this.setState({ showingInfoWindow: false })}
               place={this.state.searchedPlace}
               onAdd={() => {
-                console.log("onAdddd");
                 this.props.fetchData(obj);
               }}
             />

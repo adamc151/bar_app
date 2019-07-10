@@ -58,6 +58,10 @@ let barsSchema = new mongoose.Schema({
         type: String,
         require: false
     },
+    imgUrl:{
+        type: String,
+        require: false
+    },
     validated:{
         type: Boolean,
         require: true

@@ -5,8 +5,7 @@ import sadFace from "./sad.png";
 
 class List extends React.Component {
   renderList() {
-    console.log("renered the listttttt");
-    console.log("this.props.data", this.props.data);
+    // console.log("this.props.data", this.props.data);
     if (!this.props.data) return null;
 
     return this.props.data.map((data, i) => {
@@ -24,7 +23,6 @@ class List extends React.Component {
 
   renderEmptyList() {
     console.log("no results, dislaying default message");
-
     return (
       <div className="empty-display">
         <img src={sadFace} className="empty-icon" alt="sadFace" />
