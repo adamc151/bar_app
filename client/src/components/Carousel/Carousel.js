@@ -40,6 +40,12 @@ class Carousel extends React.Component {
     });
   }
 
+  renderEmptyList() {
+    return (
+      <ListItem data="" className="carouselCard"/>
+    );
+  }
+
   render() {
     var settings = {
       dots: false,
@@ -62,7 +68,8 @@ class Carousel extends React.Component {
         onSwipe={x => {
         }}
       >
-        {this.renderList()}
+      {this.props.data[0] ? (this.renderList()) : (this.renderEmptyList())}
+        {/* {this.renderList()} */}
       </Slider>
     );
   }
