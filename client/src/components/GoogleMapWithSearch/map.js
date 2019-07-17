@@ -13,32 +13,60 @@ export class MyMap extends React.Component {
     super(props);
 
     this.state = {
-      latitude: 55,
-      longitude: -5,
+      latitude: 51.5074,
+      longitude: -0.12,
       zoom: 5,
-      showingInfoWindow: false
+      showingInfoWindow: false,
+      currentZoom: 0,
+      center: {
+        lat: 51.5074,
+        lng: -0.12
+      }
     };
 
     this.getLocation = this.getLocation.bind(this);
     this.centerMap = this.centerMap.bind(this);
     this.setCurrentLocation = this.setCurrentLocation.bind(this);
-    this.errorHandler = this.errorHandler.bind(this);
+    this.setDefaultLocation = this.setDefaultLocation.bind(this);
     this.findPlace = this.findPlace.bind(this);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const latitudeOffset = window.matchMedia("(max-width: 1000px)").matches
+      ? -50 * Math.pow(0.5, state.currentZoom)
+      : 0;
+
+    return {
+      ...state,
+      center: {
+        lat: props.centerCoordinates[0] + latitudeOffset,
+        lng: props.centerCoordinates[1]
+      }
+    };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextState.currentZoom === this.state.currentZoom;
   }
 
   componentDidMount() {
     this.getLocation();
   }
 
-  errorHandler(errorObj) {
-    alert(errorObj.code + ": " + errorObj.message);
+  setDefaultLocation(errorObj) {
+    this.centerMap({
+      coords: {
+        latitude: this.state.latitude,
+        longitude: this.state.longitude
+      }
+    });
   }
 
   getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         this.setCurrentLocation,
-        this.errorHandler,
+        this.setDefaultLocation,
         { enableHighAccuracy: true, maximumAge: 10000 }
       );
     } else {
@@ -134,8 +162,6 @@ export class MyMap extends React.Component {
   }
 
   render() {
-    // console.log("this.props", this.props);
-    // console.log("this.state", this.state);
     const {
       hoverCoordinates,
       setCarouselSlide,
@@ -172,13 +198,16 @@ export class MyMap extends React.Component {
           )}
 
           <GoogleMapReact
-            zoom={15}
+            zoom={13}
             bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
-            center={{ lat: centerCoordinates[0], lng: centerCoordinates[1] }}
+            center={this.state.center}
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
             options={{ disableDefaultUI: true }}
             onGoogleApiLoaded={x => (this.map = x.map)}
+            onChange={x => {
+              this.setState({ currentZoom: x.zoom, center: x.center });
+            }}
           >
             <Marker
               className="currentLocation"
