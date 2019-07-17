@@ -198,7 +198,7 @@ export class MyMap extends React.Component {
           )}
 
           <GoogleMapReact
-            zoom={13}
+            zoom={14}
             bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
             center={this.state.center}
             onReady={(a, map) => (this.map = map)}
