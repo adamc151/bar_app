@@ -5,11 +5,17 @@ import * as actions from "../state/actions/actions";
 import List from "../components/List/List";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
-// import FilterDropdown from "../components/FilterDropdown/FilterDropdown";
-// import MilesDropdown from "../components/MilesDropdown/MilesDropdown";
 import Carousel from "../components/Carousel/Carousel";
 
 class MainContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      displayCarousel: true
+    };
+  }
+
   render() {
     const {
       setUserCoordinates,
@@ -28,6 +34,8 @@ class MainContainer extends Component {
       carouselSlide
     } = this.props;
 
+    console.log("this.state.displayCarousel", this.state.displayCarousel);
+
     return (
       <div className="wrapper">
         <div className="mapContainer">
@@ -43,24 +51,18 @@ class MainContainer extends Component {
             miles={miles}
             hoverCoordinates={hoverCoordinates}
             setCarouselSlide={setCarouselSlide}
+            searchbarFocusIn={() => {
+              console.log("innnn");
+              this.setState({ displayCarousel: false });
+            }}
+            searchbarFocusOut={() => {
+              console.log("outtt");
+              this.setState({ displayCarousel: true });
+            }}
           />
         </div>
 
         <div className="sideNav">
-          <div className="sideNavHeader">
-            {/* <div className="timeFilter">
-              <FilterDropdown
-                centerCoordinates={centerCoordinates}
-                miles={miles}
-              />
-            </div>
-            <div className="milesFilter">
-              <MilesDropdown
-                centerCoordinates={centerCoordinates}
-                timeFilter={timeFilter}
-              />
-            </div> */}
-          </div>
           <div className="list">
             <List
               data={data}
@@ -72,17 +74,19 @@ class MainContainer extends Component {
           </div>
         </div>
 
-        <div className="carousel">
-          <Carousel
-            data={data}
-            controlledSlide={carouselSlide}
-            onSwipe={entry => {
-              if (!entry) return;
-              setCenterCoordinates(entry.location.coordinates);
-              setHoverCoordinates(entry.location.coordinates);
-            }}
-          />
-        </div>
+        {this.state.displayCarousel && (
+          <div className="carousel">
+            <Carousel
+              data={data}
+              controlledSlide={carouselSlide}
+              onSwipe={entry => {
+                if (!entry) return;
+                setCenterCoordinates(entry.location.coordinates);
+                setHoverCoordinates(entry.location.coordinates);
+              }}
+            />
+          </div>
+        )}
       </div>
     );
   }

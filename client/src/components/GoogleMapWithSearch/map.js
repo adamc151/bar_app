@@ -29,6 +29,7 @@ export class MyMap extends React.Component {
     this.setCurrentLocation = this.setCurrentLocation.bind(this);
     this.setDefaultLocation = this.setDefaultLocation.bind(this);
     this.findPlace = this.findPlace.bind(this);
+    this.onMapClicked = this.onMapClicked.bind(this);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -60,6 +61,10 @@ export class MyMap extends React.Component {
         longitude: this.state.longitude
       }
     });
+  }
+
+  onMapClicked() {
+    this.props.searchbarFocusOut();
   }
 
   getLocation() {
@@ -168,7 +173,9 @@ export class MyMap extends React.Component {
       centerCoordinates,
       userCoordinates,
       miles,
-      timeFilter
+      timeFilter,
+      searchbarFocusIn,
+      searchbarFocusOut
     } = this.props;
 
     const obj = {
@@ -185,6 +192,8 @@ export class MyMap extends React.Component {
           getNode={node => (this.searchBox = node)}
           onChange={this.findPlace}
           onClickButton={this.getLocation}
+          onfocusin={searchbarFocusIn}
+          onfocusout={searchbarFocusOut}
         />
         <div className="map">
           {this.state.showingInfoWindow && (
