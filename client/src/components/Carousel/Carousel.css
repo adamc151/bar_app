@@ -1,5 +1,5 @@
-.slick-next, .slick-prev {
-
+.slick-next,
+.slick-prev {
 }
 
 .slick-next {
@@ -12,6 +12,10 @@
 
 .slick-prev {
   left: 25px;
+}
+
+.slick-track {
+  margin: auto;
 }
 
 .slick-prev::before {
@@ -28,7 +32,6 @@
   transform: rotate(225deg);
   cursor: pointer;
   z-index: 10;
-
 }
 
 .prevArrow {
