@@ -94,27 +94,31 @@
     padding: 2px 9px;
     margin: 2px 2px;
     border-radius: 16px;
-    left: 35px;
-    top: 100px;
+    left: 48px;
+    top: 102px;
   }
 
   .itemCategory{
     font-size: 14px;
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 30px;
+    right: 5px;
     padding: 0px 8px;
-    border-radius: 0px 0px 3px 0px;
+    border-radius: 0px 0px 0px 0px;
+    -moz-box-shadow: 0px 0px 6px #ccc;
+    -webkit-box-shadow: 0px 0px 6px #ccc;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.356);
   }
 
   .barImg{
     width: 100%;
-    height: 140px;
-    position: absolute;
+    /* padding-top: 10px; */
+    height: 120px;
+    position: center;
     /* background-color: rgb(0, 0, 0); */
     object-fit: cover;
-    margin:-15px;
-    border-radius: 3px 3px 0px 0px;
+    /* margin:-15px; */
+    /* border-radius: 3px 3px 0px 0px; */
     -webkit-filter: blur(0px); /* Safari 6.0 - 9.0 */
     filter: blur(0px);
   }
@@ -126,8 +130,8 @@
     padding: 2px 2px;
     margin: 2px 2px;
     border-radius: 16px;
-    left: 10px;
-    top: 100px;
+    left: 23px;
+    top: 102px;
   }
 
   .itemTime{
@@ -136,11 +140,11 @@
     position: absolute;
     background-color: #ddd;
     padding: 3px 10px;
-    border-radius: 0px 0px 0px 3px;
+    /* border-radius: 0px 0px 0px 3px; */
     /* left: 0px; */
     /* bottom: 0px; */
-    right: 0px;
-    top: 0px;
+    left: 14px;
+    bottom: 10px;
     color: rgb(65, 65, 65);
   }
 
