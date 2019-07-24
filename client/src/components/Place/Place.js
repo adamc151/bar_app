@@ -50,6 +50,7 @@ class Place extends React.Component {
         place_id: place.place_id,
         validated: true,
         website: place.website,
+        imgUrl: place.photo,
         deals: [
           {
             startTime: startTime,
