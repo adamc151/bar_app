@@ -34,7 +34,7 @@ class MainContainer extends Component {
       carouselSlide
     } = this.props;
 
-    console.log("this.state.displayCarousel", this.state.displayCarousel);
+    // console.log("this.state.displayCarousel", this.state.displayCarousel);
 
     return (
       <div className="wrapper">
@@ -52,11 +52,11 @@ class MainContainer extends Component {
             hoverCoordinates={hoverCoordinates}
             setCarouselSlide={setCarouselSlide}
             searchbarFocusIn={() => {
-              console.log("innnn");
+              // console.log("innnn");
               this.setState({ displayCarousel: false });
             }}
             searchbarFocusOut={() => {
-              console.log("outtt");
+              // console.log("outtt");
               this.setState({ displayCarousel: true });
             }}
           />

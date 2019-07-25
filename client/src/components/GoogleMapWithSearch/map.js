@@ -81,7 +81,7 @@ export class MyMap extends React.Component {
 
   setCurrentLocation(position) {
     this.setState({ searchedPlace: null, showingInfoWindow: false });
-    console.log("setCurrentLocation position", position);
+    // console.log("setCurrentLocation position", position);
     this.props.setUserCoordinates([
       position.coords.latitude,
       position.coords.longitude
@@ -146,7 +146,7 @@ export class MyMap extends React.Component {
         city = el.querySelector(".locality").innerText.trim();
       } catch (err) {}
 
-      if (place.types && place.types.includes("bar")) {
+      if (place.types && (place.types.includes("bar") || place.types.includes("restaurant") )) {
         this.setState({
           showingInfoWindow: true,
           searchedPlace: {
