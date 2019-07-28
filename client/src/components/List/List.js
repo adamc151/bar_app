@@ -22,7 +22,7 @@ class List extends React.Component {
   }
 
   renderEmptyList() {
-    console.log("no results, dislaying default message");
+    // console.log("no results, dislaying default message");
     return (
       <div className="empty-display">
         <img src={sadFace} className="empty-icon" alt="sadFace" />
