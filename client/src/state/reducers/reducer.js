@@ -3,6 +3,7 @@ import {
   DATA_FETCH_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
+  DATA_POST_FAILURE,
   SET_CENTER_COORDINATES,
   SET_MILES,
   SET_TIME_FILTER,
@@ -38,6 +39,10 @@ export default function transactions(state = initialState, action) {
       return { ...state };
     case DATA_POST_SUCCESS:
       console.log("DATA_POST_SUCCESS Action");
+      return { ...state };
+    case DATA_POST_FAILURE:
+      console.log("DATA_POST_FAILURE Action");
+      alert("This hapihour could not be added at this time.")
       return { ...state };
     case SET_CENTER_COORDINATES:
       console.log("SET_CENTER_COORDINATES Action");

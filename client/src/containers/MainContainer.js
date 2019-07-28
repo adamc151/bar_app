@@ -22,7 +22,8 @@ class MainContainer extends Component {
       setCenterCoordinates,
       setHoverCoordinates,
       setCarouselSlide,
-      fetchData
+      fetchData,
+      fetchOne
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -47,6 +48,7 @@ class MainContainer extends Component {
             timeFilter={timeFilter}
             setCenterCoordinates={setCenterCoordinates}
             fetchData={fetchData}
+            fetchOne={fetchOne}
             data={data}
             miles={miles}
             hoverCoordinates={hoverCoordinates}

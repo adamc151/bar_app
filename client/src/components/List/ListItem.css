@@ -27,6 +27,7 @@
 
 .itemDescription {
   margin-bottom: 5px;
+  color: rgb(77, 77, 77);
 }
 
 .carouselCard {
@@ -64,7 +65,7 @@
 
 @media screen and (max-width: 1000px) {
   .listItemWrapper {
-    height: 200px;
+    height: 185px;
     -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
     -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
     box-shadow: 0px 0px 6px rgb(170, 170, 170);
@@ -72,19 +73,36 @@
   }
 
   .itemDescription {
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0px;
     /* position: absolute; */
     /* line-height: 18px; */
     background-color: rgba(221, 221, 221, 0);
-    padding-top: 5px;
+    padding-top: 8px;
     margin-top: 0px;
     border-radius: 5px;
     /* left: 10px; */
     width: 100%; 
-    text-align: center;
+    /* text-align: center; */
     height: 55px;
+    left:10px;
+
+    overflow:hidden;
+    max-width:280px;
+    position:relative;
+    white-space: nowrap;
   }
+
+  .itemDescription:after{
+    content:'';
+    position: absolute;
+    left:280px;
+    margin-left: -50px;
+    width: 50px;
+    height:100%;
+    top:0;
+    background:linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+}
 
   .itemName {
     font-size: 12px;

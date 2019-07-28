@@ -127,6 +127,19 @@ export class MyMap extends React.Component {
       if (places.length === 0) return;
       const place = places[0];
 
+      let alreadyInDB = false;
+
+      this.props.fetchOne(place.place_id).then(function (response) {
+
+        alreadyInDB = response.data != null;
+        console.log(`alreadyInDB: ${alreadyInDB}`);
+        
+        if(alreadyInDB){
+          alert("place already exists");
+        }
+
+      }); 
+
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
@@ -147,6 +160,7 @@ export class MyMap extends React.Component {
       } catch (err) {}
 
       if (place.types && (place.types.includes("bar") || place.types.includes("restaurant") )) {
+        
         this.setState({
           showingInfoWindow: true,
           searchedPlace: {

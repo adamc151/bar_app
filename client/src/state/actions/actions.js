@@ -5,6 +5,7 @@ export const DATA_FETCH_REQUEST = "DATA_FETCH_REQUEST";
 export const DATA_FETCH_SUCCESS = "DATA_FETCH_SUCCESS";
 export const DATA_POST_REQUEST = "DATA_POST_REQUEST";
 export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
+export const DATA_POST_FAILURE = "DATA_POST_FAILURE";
 export const SET_CENTER_COORDINATES = "SET_CENTER_COORDINATES";
 export const SET_MILES = "SET_MILES";
 export const SET_TIME_FILTER = "SET_TIME_FILTER";
@@ -27,11 +28,33 @@ export function fetchData(obj) {
   };
 }
 
+export function fetchOne(id) {
+  return async () => {
+    return await axios.get("/api/bar", {
+      params: { place_id: id }
+    });
+    // .then(function (response) {
+    //   console.log(`response: ${JSON.stringify(response)}`);
+    //   return response;
+    // })
+    // .catch(function (error) {
+    //   console.log(`error: ${error}`);
+    //   return "";
+    // });
+  };
+}
+
 export function postData(obj) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_POST_REQUEST });
-    const response = await axios.post("/api/bar", obj);
-    return dispatch({ type: DATA_POST_SUCCESS });
+    await axios.post("/api/bar", obj)
+    .then(function (response) {
+      return dispatch({ type: DATA_POST_SUCCESS });
+    })
+    .catch(function (error) {
+      console.log(`error: ${error}`);
+      return dispatch({ type: DATA_POST_FAILURE });
+    });;
   };
 }
 
