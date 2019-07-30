@@ -74,7 +74,7 @@
 
   .itemDescription {
     font-size: 14px;
-    letter-spacing: 0px;
+    letter-spacing: 0.5px;
     /* position: absolute; */
     /* line-height: 18px; */
     background-color: rgba(221, 221, 221, 0);
@@ -85,7 +85,7 @@
     width: 100%; 
     /* text-align: center; */
     height: 55px;
-    left:10px;
+    left:5px;
 
     overflow:hidden;
     max-width:280px;

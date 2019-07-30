@@ -9,12 +9,13 @@
   "place_id": "ChIJuwdHrU8bdkgRfj7-Ec8Od8w",
   "validated": true,
   "website": "https://pianoworks.bar/",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [0,1,2,3,4,5,6],
-      "description": "Free drinks when you wear a hat",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "Free drinks when you wear a hat"
     }
   ]
@@ -30,12 +31,13 @@
   "place_id": "ChIJ2bYGyCkddkgR-DrrIs-nii8",
   "validated": true,
   "website": "https://www.jdwetherspoon.com/pubs/all-pubs/england/london/the-half-moon-mile-end",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [0,1,2,3,4,5,6],
-      "description": "Buy 1 for double price, get the second free!",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "Buy 1 for double price, get the second free!"
     }
   ]
@@ -51,13 +53,13 @@
   "place_id": "ChIJGWSB-hpceUgRiAe9GzyZGdw",
   "validated": true,
   "website": "https://www.belgravemusichall.com/",
-  "barImg": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [1,2,3,4,5,6],
-      "description": "1 free shot if it's your birthday",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "1 free shot if it's your birthday"
     }
   ]
@@ -73,12 +75,13 @@
   "place_id": "ChIJvwXvNxlceUgRxvVflhf42Hw",
   "validated": true,
   "website": "https://thealchemist.uk.com/",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [0,1,2,3,4,5,6],
-      "description": "Buy 1 get 1 free",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "Buy 1 get 1 free"
     }
   ]
@@ -94,12 +97,13 @@
   "place_id": "ChIJ0TxipBlceUgR5fGCUplqseQ",
   "validated": true,
   "website": "https://calllanesocial.co.uk/",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [0,1,2,3,4,5,6],
-      "description": "Half price baby!",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "Half price baby!"
     }
   ]
@@ -115,12 +119,13 @@
   "place_id": "ChIJo_LUxcgEdkgRGZYhguAAc60",
   "validated": true,
   "website": "https://www.thetattershallcastle.co.uk/home",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
     {
       "startTime": "17:00",
       "endTime": "21:00",
       "weekDays": [0,1,2,3,4,5,6],
-      "description": "2-4-1 on cocktails",
+      "description": ["Deal 1", "Deal 2", "Deal 3"],
       "fullDescription": "2-4-1 on cocktails"
     }
   ]
@@ -136,12 +141,13 @@
   "place_id": "ChIJR0dtzx1ceUgRRPpsmczf8SI",
   "validated": true,
   "website": "https://www.allbarone.co.uk/national-search/yorkshire-and-the-humber/all-bar-one-greek-street-leeds?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
       {
           "weekDays": [0,1,2,3,4,5,6],
           "startTime": "17:00",
           "endTime": "21:00",
-          "description": "Full price drinks",
+          "description": ["Deal 1", "Deal 2", "Deal 3"],
           "fullDescription": "Full price drinks"
       }
   ]
@@ -157,12 +163,13 @@
   "place_id": "ChIJ3-SMG6FeeUgRGKtBhlH0fhY",
   "validated": true,
   "website": "http://www.theveenocompany.com/",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
       {
           "weekDays": [0,1,2,3,4,5,6],
           "startTime": "16:30",
           "endTime": "19:00",
-          "description": "Free drinks after work",
+          "description": ["Deal 1", "Deal 2", "Deal 3"],
           "fullDescription": "Free drinks after work"
       }
   ]
@@ -178,12 +185,13 @@
   "place_id": "ChIJM_0BDBFceUgRxbmuw_-Nj_w",
   "validated": true,
   "website": "https://www.brewdog.com/bars/uk/brewdog-north-street-leeds",
+  "imgUrl": "https://www.belgravemusichall.com/site/wp-content/uploads/2015/11/tom15.jpg",
   "deals": [
       {
           "weekDays": [0,1,2,3,4,5,6],
           "startTime": "14:00",
           "endTime": "21:00",
-          "description": "Shuffle all day",
+          "description": ["Deal 1", "Deal 2", "Deal 3"],
           "fullDescription": "Shuffle all day"
       }
   ]
