@@ -179,7 +179,6 @@
   }  
 
   .empty-display-mobile {
-    font-size: 20px;
     text-align: center;
   }
 
@@ -191,5 +190,11 @@
 
   .empty-text-mobile{
     font-size: 15px;
+    margin-top: 15px;
+  }
+
+  .empty-text-mobile2{
+    color: rgba(216, 157, 30, 0.945);
+    font-size: 10px;
   }
 }
