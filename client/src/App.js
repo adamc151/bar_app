@@ -3,7 +3,11 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
 import ReactGA from 'react-ga';
-ReactGA.initialize('UA-144974904-1');
+try{
+  ReactGA.initialize('UA-144974904-1');
+}catch(e){
+  ReactGA.initialize('UA-144974904-1', { testMode: true });
+}
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends Component {
