@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as actions from '../../state/actions/actions';
 import './Place.css';
+import ReactGA from 'react-ga';
 
 class Place extends React.Component {
 
@@ -63,6 +64,11 @@ class Place extends React.Component {
       };
 
       this.props.actions.postData(newPlace);
+
+      ReactGA.event({
+        category: 'DB',
+        action: 'User submitted a hapihour'
+      });      
 
       this.props.onAdd();
       this.close();
