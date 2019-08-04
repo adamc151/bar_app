@@ -1,5 +1,6 @@
 import {
   DATA_FETCH_REQUEST,
+  DATA_FETCH_REQUEST_SINGLE,
   DATA_FETCH_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
@@ -15,6 +16,7 @@ import {
 //the initial store (global app state)
 let initialState = {
   data: [],
+  singleBar: {},
   loading: false,
   miles: 10,
   timeFilter: "All",
@@ -34,6 +36,9 @@ export default function transactions(state = initialState, action) {
     case DATA_FETCH_SUCCESS:
       console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload, loading: false };
+    case DATA_FETCH_REQUEST_SINGLE:
+      console.log("DATA_FETCH_REQUEST_SINGLE Action");
+      return { ...state, singleBar: action.payload, loading: false };
     case DATA_POST_REQUEST:
       console.log("DATA_POST_REQUEST Action");
       return { ...state };

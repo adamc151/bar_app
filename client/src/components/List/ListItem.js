@@ -2,28 +2,35 @@ import React from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
+import { Route } from "react-router-dom";
 
 export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className } = props;
-  const { name, city, deals, website, imgUrl } = data;
+  const { name, deals, imgUrl, place_id } = data;
 
   return !data=="" ? (
-    <div
-      className={`listItemWrapper ${className} toggle${deals[0].category}`}
-      onClick={() => onClick(props.data)}
-      onMouseEnter={() => {
-        onHover(props.data);
-      }}
-    >
-      {<img src={imgUrl} className="barImg" alt="" />}
-      {<img src={locationIcon} className="titleIcon" alt="" />}
-      {name && <div className="itemName">{name}</div>} 
-      {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
-      {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
-      {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
-      {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
-      {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
-    </div>
+    <Route render={({ history }) => (
+      <div
+        className={`listItemWrapper ${className} toggle${deals[0].category}`}
+        onClick={() => onClick(props.data)}
+        onMouseEnter={() => {
+          onHover(props.data);
+        }}
+        onClick={() => { 
+          history.push(`/details/${place_id}`);
+        }}
+      >
+        {<img src={imgUrl} className="barImg" alt="" />}
+        {<img src={locationIcon} className="titleIcon" alt="" />}
+        {name && <div className="itemName">{name}</div>} 
+        {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
+        {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
+        {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
+        {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
+        {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
+      </div>
+    )} />
+      
   ) : (
     <div className={`listItemWrapper ${className}`}>
        <div className="emptyListContainer-mobile">
