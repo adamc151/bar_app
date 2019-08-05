@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "abbrev-weekday-range": "^1.0.0",
     "axios": "0.18.0",
     "google-map-react": "1.1.2",
+    "npm": "^6.10.2",
     "pigeon-maps": "^0.11.10",
     "pigeon-marker": "^0.3.4",
     "pigeon-overlay": "^0.2.3",

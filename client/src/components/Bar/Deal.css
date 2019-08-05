@@ -1,0 +1,81 @@
+.detailsCategory{
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.detailsInactive{
+    background-color: rgba(221, 221, 221, 0.966);
+}
+
+.detailsUpcoming{
+    background-color: rgba(255, 188, 44, 0.945);
+}
+
+.detailsNow{
+    background-color: rgba(41, 179, 28, 0.925);
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .detailsCategory{
+        /* font-size: 14px; */
+        /* position: absolute;
+        top: 210px;
+        right: 10px; */
+        margin-left: 10px;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+    
+    .detailsDescription{
+        margin-top: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding: 10px;
+    }
+    
+    .detailsTime{
+        padding-bottom: 10px;
+        border: none;
+        background-color: rgba(221, 221, 221, 0.966);
+        padding: 5px 10px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 2px;
+        margin-left: 10px;
+        font-size: 15px;
+    }
+
+    .dealClass{
+        color: rgb(72, 72, 72);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        font-size: 14px;
+    }
+    
+    .dealWrapper{
+        color: rgb(72, 72, 72);
+        padding-top: 10px;
+        border-top: 1px solid rgb(202, 202, 202);
+        margin-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .detailsDays{
+        padding-bottom: 10px;
+        border: none;
+        background-color: rgba(221, 221, 221, 0.966);
+        padding: 5px 10px;
+        text-align: center;
+        display: inline-block;
+        border-radius: 2px;
+        font-size: 15px;
+    }
+}

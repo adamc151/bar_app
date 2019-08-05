@@ -1,26 +1,9 @@
-.detailsCategory{
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 16px;
-}
-
-.detailsInactive{
-    background-color: rgba(221, 221, 221, 0.966);
-}
-
-.detailsUpcoming{
-    background-color: rgba(255, 188, 44, 0.945);
-}
-
-.detailsNow{
-    background-color: rgba(41, 179, 28, 0.925);
-}
-
 @media screen and (max-width: 1000px) {
+
+    .detailsWrapper{
+        padding: 25px;
+        color: rgb(72, 72, 72);
+    }
     
     .detailsImg{
         width: 100%;
@@ -33,51 +16,36 @@
     
     .detailsName{
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 20px;
         font-size: 18px;
-        margin-left: 30px;
-        margin-right: 30px;
-        border-bottom: 2px solid rgb(134, 134, 134);
+        border-bottom: 1px solid rgb(202, 202, 202);
     }
-    
-    .detailsCategory{
-        font-size: 14px;
-        position: absolute;
-        top: 210px;
-        right: 10px;
-    }
-    
-    .detailsDescription{
-
-        margin-top: 10px;
-        margin-left: 30px;
-        margin-right: 30px;
-        padding: 10px;
-        border-top: 2px solid rgb(134, 134, 134);
-    
-    }
-    
-    .detailsTime{
-
-        padding-bottom: 10px; 
-        margin-left: 30px;
-        margin-right: 30px;
-        border-bottom: 2px solid rgb(134, 134, 134);
-    
-    }
-    
+        
     .detailsWebsite{
-
         border: none;
-        color: rgb(0, 0, 0);
-        background-color: rgba(221, 221, 221, 0.966);
+        color: rgb(255, 255, 255);
+        background-color: rgba(255, 188, 44, 0.945);
         padding: 5px 10px;
         text-align: center;
-        /* text-decoration: none; */
+        text-decoration: none;
         display: inline-block;
-        border-radius: 16px;
+        border-radius: 2px;
         margin-top: 10px;
-        
+        font-size: 15px;
+        /* -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+        -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+        box-shadow: 0px 1px 2px rgb(170, 170, 170); */
+    }
 
+    .dealsTitle{
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: rgb(72, 72, 72);
+    }
+
+    .bottomText{
+        font-size: 14px;
+        text-align: center;
     }
 }
