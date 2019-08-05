@@ -16,8 +16,17 @@
     
     .detailsName{
         padding-top: 10px;
-        padding-bottom: 20px;
         font-size: 18px;
+    }
+
+    .detailsAddress{
+        padding-top: 10px;
+        font-size: 14px;
+        font-weight: 200;
+    }
+
+    .line{
+        color: rgba(255, 255, 255, 0);
         border-bottom: 1px solid rgb(202, 202, 202);
     }
         
@@ -30,11 +39,14 @@
         text-decoration: none;
         display: inline-block;
         border-radius: 2px;
-        margin-top: 10px;
+        /* margin-top: 10px; */
         font-size: 15px;
-        /* -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+        position: absolute;
+        top: 230px;
+        right: 40px;
+        -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
         -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-        box-shadow: 0px 1px 2px rgb(170, 170, 170); */
+        box-shadow: 0px 1px 6px rgb(46, 46, 46);
     }
 
     .dealsTitle{
@@ -47,5 +59,6 @@
     .bottomText{
         font-size: 14px;
         text-align: center;
+        font-weight: 200;
     }
 }
