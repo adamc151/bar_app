@@ -33,6 +33,10 @@ class BarDetails extends Component {
             singleBar={singleBar}
           />
         </div>
+        <div className="bottomTextWrapper">
+          {<div className="bottomText">Something wrong with this listing?</div>}
+          {<a href="/" className="bottomText">Send us a message here</a>}
+        </div>
       </div>
     );
   }

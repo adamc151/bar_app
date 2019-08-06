@@ -2,12 +2,13 @@
 
     .detailsWrapper{
         padding: 25px;
+        padding-top: 0px;
         color: rgb(72, 72, 72);
     }
     
     .detailsImg{
         width: 100%;
-        height: 250px;
+        height: 220px;
         position: center;
         object-fit: cover;
         -webkit-filter: blur(0px); /* Safari 6.0 - 9.0 */
@@ -15,13 +16,13 @@
     }
     
     .detailsName{
-        padding-top: 10px;
+        padding-top: 15px;
         font-size: 18px;
     }
 
     .detailsAddress{
         padding-top: 10px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 200;
     }
 
@@ -42,7 +43,7 @@
         /* margin-top: 10px; */
         font-size: 15px;
         position: absolute;
-        top: 230px;
+        top: 203px;
         right: 40px;
         -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
         -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
@@ -50,15 +51,9 @@
     }
 
     .dealsTitle{
-        margin-top: 30px;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px;
         font-size: 18px;
         color: rgb(72, 72, 72);
-    }
-
-    .bottomText{
-        font-size: 14px;
-        text-align: center;
-        font-weight: 200;
     }
 }

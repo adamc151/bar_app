@@ -28,8 +28,7 @@ class Bar extends React.Component {
         {<div className="line">--</div>}
         {<div className="dealsTitle">Deals</div>}
         {this.renderDeals()}
-        {<div className="bottomText">Something wrong with this listing?</div>}
-        {<div className="bottomText">Send us a message here</div>}
+        
         {/* {details.deals[0].category && <div className={ `details${details.deals[0].category} detailsCategory`}>{details.deals[0].category}</div>}
         {details.deals[0].description && (<div className="detailsDescription">{`• ${details.deals[0].description.join(' • ')}`}</div>)}
         {details.deals[0].endTime && (<div className="detailsTime">{details.deals[0].startTime} - {details.deals[0].endTime}</div>)} */}
