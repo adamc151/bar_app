@@ -35,7 +35,7 @@ class BarDetails extends Component {
         </div>
         <div className="bottomTextWrapper">
           {<div className="bottomText">Something wrong with this listing?</div>}
-          {<a href="/" className="bottomText">Send us a message here</a>}
+          {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
         </div>
       </div>
     );
