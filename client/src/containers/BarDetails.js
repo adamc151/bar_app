@@ -4,6 +4,8 @@ import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./BarDetails.css";
 import Bar from "../components/Bar/Bar";
+import navigate from "./back.png";
+import { Route } from "react-router-dom";
 
 class BarDetails extends Component {
   constructor(props) {
@@ -25,19 +27,32 @@ class BarDetails extends Component {
     console.log("BarDetails page");
 
     return (
-      <div className="wrapper">
-        <div className="barContainer">
-          <Bar
-            fetchOne={fetchOne}
-            data={data}
-            singleBar={singleBar}
-          />
+      <Route render={({ history }) => (
+        <div className="wrapper">
+            <div className="navigationClass">
+            {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
+            {<img 
+                src={navigate}
+                className="bottomTextbackNavigation"
+                alt="back"
+                onClick={() => { 
+                  history.push(`/`);
+                }}
+            />}
+            </div>
+            <div className="barContainer">
+            <Bar
+                fetchOne={fetchOne}
+                data={data}
+                singleBar={singleBar}
+            />
+            </div>
+            <div className="bottomTextWrapper">
+            {<div className="bottomText">Something wrong with this listing?</div>}
+            {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
+            </div>
         </div>
-        <div className="bottomTextWrapper">
-          {<div className="bottomText">Something wrong with this listing?</div>}
-          {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
-        </div>
-      </div>
+      )} />
     );
   }
 }
