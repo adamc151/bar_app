@@ -2,6 +2,7 @@ import axios from "axios";
 
 //ACTION TYPES - used to label each action
 export const DATA_FETCH_REQUEST = "DATA_FETCH_REQUEST";
+export const DATA_FETCH_REQUEST_SINGLE = "DATA_FETCH_REQUEST_SINGLE";
 export const DATA_FETCH_SUCCESS = "DATA_FETCH_SUCCESS";
 export const DATA_POST_REQUEST = "DATA_POST_REQUEST";
 export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
@@ -29,10 +30,17 @@ export function fetchData(obj) {
 }
 
 export function fetchOne(id) {
-  return async () => {
-    return await axios.get("/api/bar", {
+  return async (dispatch, getState) => {
+    console.log("fetchOne");
+    const value = await axios.get("/api/bar", {
       params: { place_id: id }
     });
+
+    let valueArray = [];
+    valueArray.push(value.data);
+    let returnValue = categoriseData(valueArray)[0];
+    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
+
     // .then(function (response) {
     //   console.log(`response: ${JSON.stringify(response)}`);
     //   return response;
