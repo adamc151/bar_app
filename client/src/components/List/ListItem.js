@@ -37,8 +37,7 @@ export default function ListItem(props) {
         <div className="empty-display-mobile">
           <img src={sadFace} className="empty-icon-mobile" alt="sadFace" />
           <div className="empty-text-mobile">No Hapihours in this area today</div>
-          <div className="empty-text-mobile2">Search for a location to add a hapihour</div>
-          {/* <div className={`itemUpcoming itemCategory`}>No Hapihours in this area today</div> */}
+          <div className="empty-text-mobile2">Search for a location to add a hapihour or <a href="https://twitter.com/hapihour_io">Tweet us</a></div>
         </div>
       </div>
     </div>
