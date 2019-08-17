@@ -64,6 +64,7 @@ export class MyMap extends React.Component {
 
   setDefaultLocation(errorObj) {
     const { latitude, longitude } = this.state;
+    this.setState({ fetchingUserLocation: false});
     this.centerMap({ coords: { latitude, longitude } });
   }
 
@@ -72,12 +73,14 @@ export class MyMap extends React.Component {
   }
 
   getLocation() {
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         this.setCurrentLocation,
         this.setDefaultLocation,
         { enableHighAccuracy: true, maximumAge: 10000 }
       );
+      this.setState({ fetchingUserLocation: true});
     } else {
       alert("Geolocation is not supported by this browser.");
     }
@@ -88,8 +91,7 @@ export class MyMap extends React.Component {
     const { setUserCoordinates } = this.props;
     const { latitude, longitude } = position.coords;
 
-    this.setState({ searchedPlace: null, showingInfoWindow: false });
-
+    this.setState({ searchedPlace: null, showingInfoWindow: false, fetchingUserLocation: false });
     setUserCoordinates([ latitude, longitude ]);
 
     this.centerMap({ coords: {
@@ -187,6 +189,10 @@ export class MyMap extends React.Component {
   render() {
 
     const {
+      fetchingUserLocation
+    } = this.state;
+
+    const {
       hoverCoordinates,
       setCarouselSlide,
       centerCoordinates,
@@ -214,6 +220,7 @@ export class MyMap extends React.Component {
           onClickButton={this.getLocation}
           onfocusin={searchbarFocusIn}
           onfocusout={searchbarFocusOut}
+          fetchingUserLocation={fetchingUserLocation}
         />
         <div className="map">
           {this.state.showingInfoWindow && (
@@ -237,10 +244,7 @@ export class MyMap extends React.Component {
               this.map = x.map;
               this.props.onMapsLoaded();
             }}
-            onChange={x => {
-              console.log('onChange x', x.center);
-              this.setState({ currentZoom: x.zoom });
-            }}
+            onChange={x => this.setState({ currentZoom: x.zoom })}
           >
             <Marker
               className="currentLocation"

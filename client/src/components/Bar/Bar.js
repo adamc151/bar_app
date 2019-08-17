@@ -1,5 +1,7 @@
 import React from "react";
 import "./Bar.css";
+import bar from "../List/bar.jpg";
+
 import Deal from "./Deal";
 
 class Bar extends React.Component {
@@ -11,17 +13,17 @@ class Bar extends React.Component {
   }
 
   renderBar() {
-    
+
     let details = this.props.singleBar;
     if (details.name == undefined || !details.name || details.name == '') return null;
 
     console.log("Single bar page");
     console.log(details.deals[0]);
-    
+
     return (
-      <div className="detailsWrapper"> 
+      <div className="detailsWrapper">
         {/* {this.props.singleBar && (<div className="">{JSON.stringify(this.props.singleBar)}</div>)} */}
-        {<img src={details.imgUrl} className="detailsImg" alt="" />}
+        {<img src={details.imgUrl || bar} className="detailsImg" alt="" />}
         {details.name && <div className="detailsName">{details.name}</div>}
         {details.address && <div className="detailsAddress">{details.address}</div>}
         {details.website && <a href={details.website} className="detailsWebsite">Website</a>}

@@ -10,11 +10,18 @@
 
 .mapContainer {
   position: relative;
-  width: 100%;
+  flex-grow: 1;
   height: 100%;
 }
 
 .sideNav {
+  width: 500px;
+  overflow:hidden;
+  height: 100%;
+  position: relative;
+}
+
+.sideNavWithAnimate {
   width: 0px;
   -webkit-transition: width 0.7s; /* Safari prior 6.1 */
   transition: width 0.7s;
@@ -24,8 +31,7 @@
 }
 
 .sideNavOpen {
-  width: 1000px;
-
+  width: 500px;
 }
 
 .sideNavHeader {
@@ -43,6 +49,13 @@
 }
 
 .carousel {
+  display: none;
+  height: calc(100% - 50px);
+  position: fixed;
+  bottom: -220px;
+}
+
+.carouselWithAnimate {
   display: none;
   height: calc(100% - 50px);
   position: fixed;
@@ -82,15 +95,23 @@
   .carousel {
     display: block;
     position: fixed;
-    bottom: -220px;
+    bottom: 20px;
     height: auto;
     width: 100%;
   }
 
-  .carouselOpen {
-    bottom: 20px;
+  .carouselWithAnimate {
+    display: block;
+    position: fixed;
+    bottom: -220px;
+    height: auto;
+    width: 100%;
     -webkit-transition: bottom 0.7s; /* Safari prior 6.1 */
     transition: bottom 0.7s;
+  }
+
+  .carouselOpen {
+    bottom: 20px;
   }
 
   .mapContainer {
@@ -99,6 +120,13 @@
   }
 
   .sideNav {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0px;
+  }
+
+  .sideNavWithAnimate {
     width: 100%;
     height: auto;
     position: absolute;

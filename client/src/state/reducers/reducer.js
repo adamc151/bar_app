@@ -11,7 +11,9 @@ import {
   SET_USER_COORDINATES,
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE,
-  SET_LOADING
+  SET_LOADING,
+  SET_SELECTED_BAR,
+  CLEAR_SINGLE_BAR
 } from "../actions/actions";
 
 //the initial store (global app state)
@@ -24,7 +26,9 @@ let initialState = {
   userCoordinates: [null, null],
   centerCoordinates: [null, null],
   hoverCoordinates: [null, null],
-  carouselSlide: 0
+  carouselSlide: 0,
+  animate: true,
+  selectedBar: null
 };
 
 //REDUCERRRR
@@ -33,13 +37,13 @@ export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
       console.log("DATA_FETCH_REQUEST Action");
-      return { ...state };
+      return { ...state, animate: true, carouselSlide: 0, singleBar: {} };
     case DATA_FETCH_SUCCESS:
       console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload };
     case DATA_FETCH_REQUEST_SINGLE:
       console.log("DATA_FETCH_REQUEST_SINGLE Action");
-      return { ...state, singleBar: action.payload };
+      return { ...state, singleBar: action.payload, animate: false };
     case DATA_POST_REQUEST:
       console.log("DATA_POST_REQUEST Action");
       return { ...state };
@@ -76,6 +80,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, carouselSlide: action.payload };
     case SET_LOADING:
       return {...state, loading: action.payload }
+    case CLEAR_SINGLE_BAR:
+      return { ...state, singleBar: {} }
     default:
       return state;
   }

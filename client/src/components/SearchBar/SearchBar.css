@@ -72,6 +72,25 @@
   background-size: 30px 30px;
 }
 
+.searchbarButtonLoading {
+  animation-name: spin;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-delay: 100ms;
+}
+
+@keyframes spin {
+    from {
+        opacity: 1;
+        transform:rotate(0deg);
+    }
+    to {
+      opacity: 0.4;
+        transform:rotate(360deg);
+    }
+}
+
 .searchbarButton:hover {
   background: url("./icons/currentLocationActiveX2.png");
   background-repeat: no-repeat;
@@ -104,9 +123,9 @@
 
   .searchbarButton{
     top: 8px;
-    right: 5px;
-    width: 30px;
-    height: 30px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
     padding: 0px;
     background-size: 25px 25px;
     z-index: 30;

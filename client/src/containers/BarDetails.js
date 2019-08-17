@@ -31,11 +31,11 @@ class BarDetails extends Component {
         <div className="wrapper">
             <div className="navigationClass">
             {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
-            {<img 
+            {<img
                 src={navigate}
                 className="bottomTextbackNavigation"
                 alt="back"
-                onClick={() => { 
+                onClick={() => {
                   history.push(`/`);
                 }}
             />}

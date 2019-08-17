@@ -2,25 +2,26 @@ import React from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
+import bar from "./bar.jpg";
 import { Route } from "react-router-dom";
 
 export default function ListItem(props) {
-  const { onHover = () => {}, onClick = () => {}, data, className } = props;
+  const { onHover = () => {}, onClick = () => {}, data, className, setSelectedBar } = props;
   const { name, deals, imgUrl, place_id } = data;
 
   return !data=="" ? (
     <Route render={({ history }) => (
       <div
-        className={`listItemWrapper ${className} toggle${deals[0].category}`}
-        onClick={() => onClick(props.data)}
+        className={`listItemWrapper carouselCard toggle${deals[0].category}`}
+        onClick={() => {
+          onClick(props.data);
+          history.push(`/details/${place_id}`);
+        }}
         onMouseEnter={() => {
           onHover(props.data);
         }}
-        onClick={() => {
-          history.push(`/details/${place_id}`);
-        }}
       >
-        {<img src={imgUrl} className="barImg" alt="" />}
+        {<img src={imgUrl || bar} className="barImg" alt="" />}
         {<img src={locationIcon} className="titleIcon" alt="" />}
         {name && <div className="itemName">{name}</div>}
         {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
@@ -32,7 +33,7 @@ export default function ListItem(props) {
     )} />
 
   ) : (
-    <div className={`listItemWrapper ${className}`}>
+    <div className={`listItemWrapper carouselCard`}>
        <div className="emptyListContainer-mobile">
         <div className="empty-display-mobile">
           <img src={sadFace} className="empty-icon-mobile" alt="sadFace" />
