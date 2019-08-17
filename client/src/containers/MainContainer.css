@@ -15,7 +15,7 @@
 }
 
 .sideNav {
-  width: 500px;
+  width: 0px;
   overflow:hidden;
   height: 100%;
   position: relative;
@@ -100,6 +100,8 @@
     bottom: -220px;
     height: auto;
     width: 100%;
+    -webkit-transition: bottom 0.7s; /* Safari prior 6.1 */
+    transition: bottom 0.7s;
   }
 
   .carouselWithAnimate {
