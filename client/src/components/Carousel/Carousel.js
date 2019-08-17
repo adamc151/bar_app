@@ -69,7 +69,6 @@ class Carousel extends React.Component {
         }}
       >
       {this.props.data[0] ? (this.renderList()) : (this.renderEmptyList())}
-        {/* {this.renderList()} */}
       </Slider>
     );
   }

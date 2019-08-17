@@ -4,6 +4,10 @@
   height: 100vh;
 }
 
+.loading {
+  display: none !important;;
+}
+
 .mapContainer {
   position: relative;
   width: 100%;

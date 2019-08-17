@@ -17,11 +17,12 @@ export class MyMap extends React.Component {
       longitude: -0.12,
       zoom: 5,
       showingInfoWindow: false,
-      currentZoom: 0,
+      currentZoom: 14,
       center: {
         lat: 51.5074,
         lng: -0.12
-      }
+      },
+      loading: true
     };
 
     this.getLocation = this.getLocation.bind(this);
@@ -33,17 +34,22 @@ export class MyMap extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
+
+    const { centerCoordinates } = props;
+    const { currentZoom } = state;
+
     const latitudeOffset = window.matchMedia("(max-width: 1000px)").matches
-      ? -50 * Math.pow(0.5, state.currentZoom)
+      ? -50 * Math.pow(0.5, currentZoom)
       : 0;
 
     return {
       ...state,
       center: {
-        lat: props.centerCoordinates[0] + latitudeOffset,
-        lng: props.centerCoordinates[1]
+        lat: centerCoordinates[0] && centerCoordinates[0] + latitudeOffset,
+        lng: centerCoordinates[1]
       }
     };
+
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -51,16 +57,14 @@ export class MyMap extends React.Component {
   }
 
   componentDidMount() {
-    this.getLocation();
+    if(this.props.centerCoordinates[0] === null){
+      this.getLocation();
+    }
   }
 
   setDefaultLocation(errorObj) {
-    this.centerMap({
-      coords: {
-        latitude: this.state.latitude,
-        longitude: this.state.longitude
-      }
-    });
+    const { latitude, longitude } = this.state;
+    this.centerMap({ coords: { latitude, longitude } });
   }
 
   onMapClicked() {
@@ -80,31 +84,31 @@ export class MyMap extends React.Component {
   }
 
   setCurrentLocation(position) {
+
+    const { setUserCoordinates } = this.props;
+    const { latitude, longitude } = position.coords;
+
     this.setState({ searchedPlace: null, showingInfoWindow: false });
-    // console.log("setCurrentLocation position", position);
-    this.props.setUserCoordinates([
-      position.coords.latitude,
-      position.coords.longitude
-    ]);
-    this.centerMap(position);
+
+    setUserCoordinates([ latitude, longitude ]);
+
+    this.centerMap({ coords: {
+      longitude,
+      latitude: latitude + (Math.random() / 1000)
+    }});
   }
 
   centerMap(position, searchedPlace = false) {
+
+    const { setCenterCoordinates, fetchData, timeFilter, miles } = this.props;
+    const { latitude: lat, longitude: long } = position.coords;
+
     if (!searchedPlace) {
       this.setState({ searchedPlace: null });
     }
 
-    this.props.setCenterCoordinates([
-      position.coords.latitude,
-      position.coords.longitude
-    ]);
-    const obj = {
-      lat: position.coords.latitude,
-      long: position.coords.longitude,
-      miles: this.props.miles,
-      timeFilter: this.props.timeFilter
-    };
-    this.props.fetchData(obj);
+    setCenterCoordinates([ lat, long ]);
+    fetchData({ lat, long, miles, timeFilter });
   }
 
   findPlace(e) {
@@ -133,7 +137,7 @@ export class MyMap extends React.Component {
 
       //   alreadyInDB = response.data != null;
       //   console.log(`alreadyInDB: ${alreadyInDB}`);
-        
+
       //   if(alreadyInDB){
       //     alert("place already exists");
       //   }
@@ -160,7 +164,7 @@ export class MyMap extends React.Component {
       } catch (err) {}
 
       if (place.types && (place.types.includes("bar") || place.types.includes("restaurant") )) {
-        
+
         this.setState({
           showingInfoWindow: true,
           searchedPlace: {
@@ -181,6 +185,7 @@ export class MyMap extends React.Component {
   }
 
   render() {
+
     const {
       hoverCoordinates,
       setCarouselSlide,
@@ -199,10 +204,11 @@ export class MyMap extends React.Component {
       timeFilter
     };
 
+
     return (
-      <Fragment>
+      <Fragment >
         <SearchBar
-          className="searchbar"
+          className={"searchbar"}
           getNode={node => (this.searchBox = node)}
           onChange={this.findPlace}
           onClickButton={this.getLocation}
@@ -227,9 +233,13 @@ export class MyMap extends React.Component {
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
             options={{ disableDefaultUI: true }}
-            onGoogleApiLoaded={x => (this.map = x.map)}
+            onGoogleApiLoaded={x => {
+              this.map = x.map;
+              this.props.onMapsLoaded();
+            }}
             onChange={x => {
-              this.setState({ currentZoom: x.zoom, center: x.center });
+              console.log('onChange x', x.center);
+              this.setState({ currentZoom: x.zoom });
             }}
           >
             <Marker

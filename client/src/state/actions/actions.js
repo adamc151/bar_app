@@ -13,9 +13,15 @@ export const SET_TIME_FILTER = "SET_TIME_FILTER";
 export const SET_USER_COORDINATES = "SET_USER_COORDINATES";
 export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
+export const SET_LOADING = 'SET_LOADING';
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
+export function setLoading(isLoading) {
+  return { type: SET_LOADING, payload: isLoading };
+}
+
+
 export function fetchData(obj) {
   const { lat, long, miles, timeFilter } = obj;
 
