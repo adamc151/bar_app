@@ -8,8 +8,12 @@ class SearchBar extends React.Component {
       getNode,
       onfocusin,
       onfocusout,
-      onClickButton
+      onClickButton,
+      fetchingUserLocation
     } = this.props;
+
+    const searchbarButtonModifier = fetchingUserLocation ? 'searchbarButtonLoading' : '';
+
     return (
       <div className="searchBarWrapper">
         <input
@@ -30,7 +34,7 @@ class SearchBar extends React.Component {
             }
           }}
         />
-        <div className="searchbarButton" onClick={onClickButton} />
+        <div className={"searchbarButton " + searchbarButtonModifier} onClick={onClickButton} />
         <span className="line" />
       </div>
     );
