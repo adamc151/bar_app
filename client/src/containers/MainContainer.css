@@ -15,9 +15,16 @@
 }
 
 .sideNav {
-  width: 1000px;
+  width: 0px;
+  -webkit-transition: width 0.7s; /* Safari prior 6.1 */
+  transition: width 0.7s;
+  overflow:hidden;
   height: 100%;
   position: relative;
+}
+
+.sideNavOpen {
+  width: 1000px;
 
 }
 
@@ -29,6 +36,7 @@
 }
 
 .list {
+  width: 500px;
   height: 100%;
   display: block;
   background: white;
@@ -37,6 +45,8 @@
 .carousel {
   display: none;
   height: calc(100% - 50px);
+  position: fixed;
+  bottom: -220px;
 }
 
 .addEntryButton {
@@ -72,9 +82,15 @@
   .carousel {
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: -220px;
     height: auto;
     width: 100%;
+  }
+
+  .carouselOpen {
+    bottom: 20px;
+    -webkit-transition: bottom 0.7s; /* Safari prior 6.1 */
+    transition: bottom 0.7s;
   }
 
   .mapContainer {

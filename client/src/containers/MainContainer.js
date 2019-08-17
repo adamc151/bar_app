@@ -14,7 +14,8 @@ class MainContainer extends Component {
 
     this.state = {
       displayCarousel: true,
-      showLoader: false
+      showLoader: false,
+      showSideBar: false
     };
   }
 
@@ -44,6 +45,8 @@ class MainContainer extends Component {
     } = this.props;
 
     const loadingModifier = loading ? 'loading' : '';
+    const sideNavModifier = this.state.showSideBar ? 'sideNavOpen' : '';
+    const sideCarouselModifier= this.state.showSideBar ? 'carouselOpen' : '';
 
     return (
       <Fragment>
@@ -66,13 +69,16 @@ class MainContainer extends Component {
             searchbarFocusOut={() => {
               this.setState({ displayCarousel: true });
             }}
-            onMapsLoaded={() => setLoading(false)}
+            onMapsLoaded={() => {
+              setLoading(false);
+              setTimeout(() => { this.setState({'showSideBar': true}) }, 50);
+            }}
             miles={miles}
             timeFilter={timeFilter}
           />
         </div>
 
-        <div className="sideNav">
+        <div className={"sideNav " + sideNavModifier}>
           <div className="list">
             <List
               data={data}
@@ -84,8 +90,8 @@ class MainContainer extends Component {
           </div>
         </div>
 
-        {this.state.displayCarousel && (
-          <div className="carousel">
+        {this.state.displayCarousel &&  !loading && (
+          <div className={"carousel " + sideCarouselModifier}>
             <Carousel
               data={data}
               controlledSlide={carouselSlide}
