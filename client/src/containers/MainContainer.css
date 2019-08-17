@@ -19,6 +19,8 @@
   overflow:hidden;
   height: 100%;
   position: relative;
+  -webkit-transition: width 0.7s; /* Safari prior 6.1 */
+  transition: width 0.7s;
 }
 
 .sideNavWithAnimate {
@@ -95,7 +97,7 @@
   .carousel {
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: -220px;
     height: auto;
     width: 100%;
   }

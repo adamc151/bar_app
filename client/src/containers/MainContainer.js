@@ -63,8 +63,12 @@ class MainContainer extends Component {
     }) : null;
 
     const loadingModifier = loading ? 'loading' : '';
-    const sideNavClassName = animate ? 'sideNavWithAnimate' : 'sideNav'
-    const carouselClassName = animate ? 'carouselWithAnimate' : 'carousel'
+    // const sideNavClassName = animate ? 'sideNavWithAnimate' : 'sideNav'
+    // const carouselClassName = animate ? 'carouselWithAnimate' : 'carousel'
+
+
+    const sideNavClassName = 'sideNav'
+    const carouselClassName = 'carousel'
     const sideNavModifier = this.state.showSideBar ? 'sideNavOpen' : '';
     const sideCarouselModifier= this.state.showSideBar ? this.state.displayCarousel ? 'carouselOpen' : '' : '';
 
