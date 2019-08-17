@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
@@ -6,14 +6,21 @@ import List from "../components/List/List";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
 import Carousel from "../components/Carousel/Carousel";
+import LoadingPage from '../components/LoadingPage/LoadingPage';
 
 class MainContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      displayCarousel: true
+      displayCarousel: true,
+      showLoader: false,
+      showSideBar: false
     };
+  }
+
+  componentDidMount(){
+    setTimeout(() => { this.setState({'showLoader': true}) }, 2000);
   }
 
   render() {
@@ -23,7 +30,8 @@ class MainContainer extends Component {
       setHoverCoordinates,
       setCarouselSlide,
       fetchData,
-      fetchOne
+      fetchOne,
+      setLoading
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -32,39 +40,45 @@ class MainContainer extends Component {
       timeFilter,
       hoverCoordinates,
       data,
-      carouselSlide
+      carouselSlide,
+      loading
     } = this.props;
 
-    // console.log("this.state.displayCarousel", this.state.displayCarousel);
+    const loadingModifier = loading ? 'loading' : '';
+    const sideNavModifier = this.state.showSideBar ? 'sideNavOpen' : '';
+    const sideCarouselModifier= this.state.showSideBar ? 'carouselOpen' : '';
 
     return (
-      <div className="wrapper">
+      <Fragment>
+      {loading && this.state.showLoader && <LoadingPage />}
+      <div className={"wrapper " + loadingModifier}>
         <div className="mapContainer">
           <MyMap
             userCoordinates={userCoordinates}
             setUserCoordinates={setUserCoordinates}
             centerCoordinates={centerCoordinates}
-            miles={miles}
-            timeFilter={timeFilter}
             setCenterCoordinates={setCenterCoordinates}
             fetchData={fetchData}
             fetchOne={fetchOne}
             data={data}
-            miles={miles}
             hoverCoordinates={hoverCoordinates}
             setCarouselSlide={setCarouselSlide}
             searchbarFocusIn={() => {
-              // console.log("innnn");
               this.setState({ displayCarousel: false });
             }}
             searchbarFocusOut={() => {
-              // console.log("outtt");
               this.setState({ displayCarousel: true });
             }}
+            onMapsLoaded={() => {
+              setLoading(false);
+              setTimeout(() => { this.setState({'showSideBar': true}) }, 50);
+            }}
+            miles={miles}
+            timeFilter={timeFilter}
           />
         </div>
 
-        <div className="sideNav">
+        <div className={"sideNav " + sideNavModifier}>
           <div className="list">
             <List
               data={data}
@@ -76,8 +90,8 @@ class MainContainer extends Component {
           </div>
         </div>
 
-        {this.state.displayCarousel && (
-          <div className="carousel">
+        {this.state.displayCarousel &&  !loading && (
+          <div className={"carousel " + sideCarouselModifier}>
             <Carousel
               data={data}
               controlledSlide={carouselSlide}
@@ -86,10 +100,15 @@ class MainContainer extends Component {
                 setCenterCoordinates(entry.location.coordinates);
                 setHoverCoordinates(entry.location.coordinates);
               }}
+              onUpdate={entry => {
+                if (!entry) return;
+                setHoverCoordinates(entry.location.coordinates);
+              }}
             />
           </div>
         )}
       </div>
+      </Fragment>
     );
   }
 }

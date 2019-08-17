@@ -10,14 +10,15 @@ import {
   SET_TIME_FILTER,
   SET_USER_COORDINATES,
   SET_HOVER_COORDINATES,
-  SET_CAROUSEL_SLIDE
+  SET_CAROUSEL_SLIDE,
+  SET_LOADING
 } from "../actions/actions";
 
 //the initial store (global app state)
 let initialState = {
   data: [],
   singleBar: {},
-  loading: false,
+  loading: true,
   miles: 10,
   timeFilter: "All",
   userCoordinates: [null, null],
@@ -32,13 +33,13 @@ export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
       console.log("DATA_FETCH_REQUEST Action");
-      return { ...state, loading: true };
+      return { ...state };
     case DATA_FETCH_SUCCESS:
       console.log("DATA_FETCH_SUCCESS Action");
-      return { ...state, data: action.payload, loading: false };
+      return { ...state, data: action.payload };
     case DATA_FETCH_REQUEST_SINGLE:
       console.log("DATA_FETCH_REQUEST_SINGLE Action");
-      return { ...state, singleBar: action.payload, loading: false };
+      return { ...state, singleBar: action.payload };
     case DATA_POST_REQUEST:
       console.log("DATA_POST_REQUEST Action");
       return { ...state };
@@ -73,6 +74,8 @@ export default function transactions(state = initialState, action) {
     case SET_CAROUSEL_SLIDE:
       console.log("SET_CAROUSEL_SLIDE Action");
       return { ...state, carouselSlide: action.payload };
+    case SET_LOADING:
+      return {...state, loading: action.payload }
     default:
       return state;
   }
