@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import List from "../components/List/List";
+import ListItem from "../components/List/ListItem";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
 import Carousel from "../components/Carousel/Carousel";
 import LoadingPage from '../components/LoadingPage/LoadingPage';
+import BarDetails from './BarDetails';
 
 class MainContainer extends Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class MainContainer extends Component {
 
   componentDidMount(){
     setTimeout(() => { this.setState({'showLoader': true}) }, 2000);
+    this.props.actions.clearSingleBar();
   }
 
   render() {
@@ -31,7 +34,8 @@ class MainContainer extends Component {
       setCarouselSlide,
       fetchData,
       fetchOne,
-      setLoading
+      setLoading,
+      clearSingleBar
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -41,12 +45,28 @@ class MainContainer extends Component {
       hoverCoordinates,
       data,
       carouselSlide,
-      loading
+      loading,
+      selectedBar,
+      animate
     } = this.props;
 
+    const list = this.props.data.length > 0 ? this.props.data.map((data, i) => {
+      return (
+        <ListItem
+          key={i}
+          index={i}
+          data={data}
+          onHover={this.props.onHover}
+          className="carouselCard"
+        />
+      );
+    }) : null;
+
     const loadingModifier = loading ? 'loading' : '';
+    const sideNavClassName = animate ? 'sideNavWithAnimate' : 'sideNav'
+    const carouselClassName = animate ? 'carouselWithAnimate' : 'carousel'
     const sideNavModifier = this.state.showSideBar ? 'sideNavOpen' : '';
-    const sideCarouselModifier= this.state.showSideBar ? 'carouselOpen' : '';
+    const sideCarouselModifier= this.state.showSideBar ? this.state.displayCarousel ? 'carouselOpen' : '' : '';
 
     return (
       <Fragment>
@@ -78,40 +98,34 @@ class MainContainer extends Component {
           />
         </div>
 
-        <div className={"sideNav " + sideNavModifier}>
-          <div className="list">
-            <List
-              data={data}
-              onClick={entry =>
-                setCenterCoordinates(entry.location.coordinates)
-              }
-              onHover={entry => setHoverCoordinates(entry.location.coordinates)}
-            />
-          </div>
+
+        <div className={sideNavClassName + ' ' + sideNavModifier}>
+          <div className="list">{list}</div>
         </div>
 
-        {this.state.displayCarousel &&  !loading && (
-          <div className={"carousel " + sideCarouselModifier}>
+        {!loading && (
+          <div className={carouselClassName + ' ' + sideCarouselModifier}>
             <Carousel
-              data={data}
               controlledSlide={carouselSlide}
-              onSwipe={entry => {
-                if (!entry) return;
-                setCenterCoordinates(entry.location.coordinates);
-                setHoverCoordinates(entry.location.coordinates);
+              onSwipe={index => {
+                if (!data[index]) return;
+                setCarouselSlide(index);
+                setCenterCoordinates(data[index].location.coordinates);
+                setHoverCoordinates(data[index].location.coordinates);
               }}
-              onUpdate={entry => {
-                if (!entry) return;
-                setHoverCoordinates(entry.location.coordinates);
-              }}
-            />
+            >
+              {list || <ListItem data="" className="carouselCard" />}
+            </Carousel>
           </div>
         )}
       </div>
+
       </Fragment>
     );
   }
+
 }
+
 
 function mapStateToProps(state) {
   return {
@@ -122,7 +136,8 @@ function mapStateToProps(state) {
     miles: state.miles,
     timeFilter: state.timeFilter,
     hoverCoordinates: state.hoverCoordinates,
-    carouselSlide: state.carouselSlide
+    carouselSlide: state.carouselSlide,
+    animate: state.animate,
   };
 }
 

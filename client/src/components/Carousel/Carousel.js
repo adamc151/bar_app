@@ -1,7 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import ListItem from "../List/ListItem";
-import "../List/ListItem.css";
 import "./Carousel.css";
 
 class Carousel extends React.Component {
@@ -10,8 +8,6 @@ class Carousel extends React.Component {
 
     this.state = {
       slideIndex: 0,
-      updateCount: 0,
-      slides: props.data,
       controlledSlide: null
     };
   }
@@ -23,29 +19,6 @@ class Carousel extends React.Component {
     }
   }
 
-  renderList() {
-    if (!this.props.data) return null;
-
-    return this.props.data.map((data, i) => {
-      return (
-        <ListItem
-          key={i}
-          index={i}
-          data={data}
-          onClick={() => this.state.slideIndex !== i && this.slick.slickGoTo(i)}
-          onHover={this.props.onHover}
-          className="carouselCard"
-        />
-      );
-    });
-  }
-
-  renderEmptyList() {
-    return (
-      <ListItem data="" className="carouselCard"/>
-    );
-  }
-
   render() {
     var settings = {
       dots: false,
@@ -54,21 +27,20 @@ class Carousel extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       afterChange: () =>
-        this.props.onSwipe(this.props.data[this.state.slideIndex]),
+        this.props.onSwipe(this.state.slideIndex),
       beforeChange: (current, next) => this.setState({ slideIndex: next }),
       arrows: false,
       className: "center",
       centerMode: true,
-      centerPadding: "20px"
+      centerPadding: "20px",
+      initialSlide: this.props.initialSlide
     };
     return (
       <Slider
         ref={node => (this.slick = node)}
         {...settings}
-        onSwipe={x => {
-        }}
       >
-      {this.props.data[0] ? (this.renderList()) : (this.renderEmptyList())}
+      {this.props.children}
       </Slider>
     );
   }
