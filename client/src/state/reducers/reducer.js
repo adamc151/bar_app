@@ -37,7 +37,7 @@ export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
       console.log("DATA_FETCH_REQUEST Action");
-      return { ...state, animate: true, carouselSlide: 0, singleBar: {} };
+      return { ...state, carouselSlide: 0, singleBar: {} };
     case DATA_FETCH_SUCCESS:
       console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload };

@@ -11,6 +11,40 @@
   text-align: left;
 }
 
+.navigationClass{
+  font-size: 12px;
+  position:fixed;
+  top: 20px;
+  left: 15px;
+  padding: 5px 5px 2px 4px;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(255, 188, 44, 0.945);
+  z-index: 100;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 3px rgb(46, 46, 46);
+  border-radius: 2px;
+}
+
+.bottomTextWrapper{
+  font-size: 12px;
+  font-weight: 200;
+  position:fixed;
+  bottom: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(206, 206, 206);
+  z-index: 100;
+}
+
+.bottomTextbackNavigation{
+    height: 20px;
+    width: 22px;
+}
+
 
 @media screen and (max-width: 1000px) {
   .wrapper {
@@ -20,39 +54,5 @@
   .barContainer {
     width: 100%;
     height: 100%;
-  }
-
-  .bottomTextWrapper{
-    font-size: 12px;
-    font-weight: 200;
-    position:fixed;
-    bottom: 0px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    width: 100%;
-    text-align: center;
-    background-color: rgb(206, 206, 206);
-    z-index: 100;
-  }
-
-  .navigationClass{
-    font-size: 12px;
-    position:fixed;
-    top: 20px;
-    left: 15px;
-    padding: 5px 5px 2px 4px;
-    text-decoration: none;
-    text-align: center;
-    background-color: rgba(255, 188, 44, 0.945);
-    z-index: 100;
-    -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-    -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-    box-shadow: 0px 1px 3px rgb(46, 46, 46);
-    border-radius: 2px;
-  }
-
-  .bottomTextbackNavigation{
-      height: 20px;
-      width: 22px;
   }
 }

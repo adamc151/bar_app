@@ -124,6 +124,10 @@ export class MyMap extends React.Component {
       searchBox.setBounds(map.getBounds());
     });
 
+    // window.google.maps.event.addListenerOnce(map, 'idle', function(){
+    //   console.log('rendered yo');
+    // });
+
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
 

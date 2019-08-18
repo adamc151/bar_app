@@ -5,7 +5,7 @@
 }
 
 .loading {
-  display: none !important;;
+  display: none !important;
 }
 
 .mapContainer {
@@ -15,25 +15,25 @@
 }
 
 .sideNav {
-  width: 0px;
-  overflow:hidden;
-  height: 100%;
-  position: relative;
-  -webkit-transition: width 0.7s; /* Safari prior 6.1 */
-  transition: width 0.7s;
-}
-
-.sideNavWithAnimate {
-  width: 0px;
-  -webkit-transition: width 0.7s; /* Safari prior 6.1 */
-  transition: width 0.7s;
-  overflow:hidden;
-  height: 100%;
-  position: relative;
-}
-
-.sideNavOpen {
   width: 500px;
+  overflow:hidden;
+  height: 100%;
+  position: relative;
+}
+
+.sideNavAnimaion {
+  animation-name: openSideNav;
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+}
+
+@keyframes openSideNav {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 500px;
+    }
 }
 
 .sideNavHeader {
@@ -52,16 +52,6 @@
 
 .carousel {
   display: none;
-  height: calc(100% - 50px);
-  position: fixed;
-  bottom: -220px;
-}
-
-.carouselWithAnimate {
-  display: none;
-  height: calc(100% - 50px);
-  position: fixed;
-  bottom: -220px;
 }
 
 .addEntryButton {
@@ -97,25 +87,24 @@
   .carousel {
     display: block;
     position: fixed;
-    bottom: -220px;
-    height: auto;
-    width: 100%;
-    -webkit-transition: bottom 0.7s; /* Safari prior 6.1 */
-    transition: bottom 0.7s;
-  }
-
-  .carouselWithAnimate {
-    display: block;
-    position: fixed;
-    bottom: -220px;
-    height: auto;
-    width: 100%;
-    -webkit-transition: bottom 0.7s; /* Safari prior 6.1 */
-    transition: bottom 0.7s;
-  }
-
-  .carouselOpen {
     bottom: 20px;
+    height: auto;
+    width: 100%;
+  }
+
+  .carouselAnimaion {
+    animation-name: open;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+  }
+
+  @keyframes open {
+      from {
+          bottom: -220px;
+      }
+      to {
+          bottom: 20px;
+      }
   }
 
   .mapContainer {
@@ -124,13 +113,6 @@
   }
 
   .sideNav {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    bottom: 0px;
-  }
-
-  .sideNavWithAnimate {
     width: 100%;
     height: auto;
     position: absolute;

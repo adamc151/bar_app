@@ -17,7 +17,6 @@ class MainContainer extends Component {
     this.state = {
       displayCarousel: true,
       showLoader: false,
-      showSideBar: false
     };
   }
 
@@ -34,8 +33,7 @@ class MainContainer extends Component {
       setCarouselSlide,
       fetchData,
       fetchOne,
-      setLoading,
-      clearSingleBar
+      setLoading
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -60,17 +58,11 @@ class MainContainer extends Component {
           className="carouselCard"
         />
       );
-    }) : null;
+    }) : <ListItem data="" className="carouselCard" />;
 
     const loadingModifier = loading ? 'loading' : '';
-    // const sideNavClassName = animate ? 'sideNavWithAnimate' : 'sideNav'
-    // const carouselClassName = animate ? 'carouselWithAnimate' : 'carousel'
-
-
-    const sideNavClassName = 'sideNav'
-    const carouselClassName = 'carousel'
-    const sideNavModifier = this.state.showSideBar ? 'sideNavOpen' : '';
-    const sideCarouselModifier= this.state.showSideBar ? this.state.displayCarousel ? 'carouselOpen' : '' : '';
+    const carouselAnimaionClassName = 'carouselAnimaion';
+    const sideNavAnimaionClassName = animate ? 'sideNavAnimaion' : ''
 
     return (
       <Fragment>
@@ -95,7 +87,6 @@ class MainContainer extends Component {
             }}
             onMapsLoaded={() => {
               setLoading(false);
-              setTimeout(() => { this.setState({'showSideBar': true}) }, 50);
             }}
             miles={miles}
             timeFilter={timeFilter}
@@ -103,14 +94,15 @@ class MainContainer extends Component {
         </div>
 
 
-        <div className={sideNavClassName + ' ' + sideNavModifier}>
+        <div className={'sideNav ' + sideNavAnimaionClassName}>
           <div className="list">{list}</div>
         </div>
 
-        {!loading && (
-          <div className={carouselClassName + ' ' + sideCarouselModifier}>
+        {!loading && this.state.displayCarousel && (
+          <div className={'carousel ' + carouselAnimaionClassName}>
             <Carousel
               controlledSlide={carouselSlide}
+              initialSlide={carouselSlide}
               onSwipe={index => {
                 if (!data[index]) return;
                 setCarouselSlide(index);
@@ -118,7 +110,7 @@ class MainContainer extends Component {
                 setHoverCoordinates(data[index].location.coordinates);
               }}
             >
-              {list || <ListItem data="" className="carouselCard" />}
+              {list}
             </Carousel>
           </div>
         )}
@@ -132,17 +124,7 @@ class MainContainer extends Component {
 
 
 function mapStateToProps(state) {
-  return {
-    loading: state.loading,
-    data: state.data,
-    centerCoordinates: state.centerCoordinates,
-    userCoordinates: state.userCoordinates,
-    miles: state.miles,
-    timeFilter: state.timeFilter,
-    hoverCoordinates: state.hoverCoordinates,
-    carouselSlide: state.carouselSlide,
-    animate: state.animate,
-  };
+  return state;
 }
 
 function mapDispatchToProps(dispatch) {
