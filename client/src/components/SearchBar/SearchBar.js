@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
             this.searchBar = node;
             getNode(node);
           }}
-          className="searchbar"
+          className="searchbar searchBarLanding"
           onChange={onChange}
           placeholder="Search..."
           onFocus={onfocusin}

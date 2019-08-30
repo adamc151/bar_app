@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
 import BarDetails from "./containers/BarDetails";
 import ReactGA from 'react-ga';
+import LandingPage from "./containers/LandingPage";
+
 try{
   ReactGA.initialize('UA-144974904-1');
 }catch(e){
@@ -28,6 +30,7 @@ class App extends Component {
           <div>
             <Route exact path="/" component={MainContainer} />
             <Route exact path="/details/:id" component={BarDetails} />
+            <Route exact path="/landing" component={LandingPage} />
           </div>
         </div>
       </Router>

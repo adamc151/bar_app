@@ -1,0 +1,83 @@
+.wrapperLanding {
+}
+
+.titleLandingWrapper{
+    /* margin: auto; */
+    margin-top: 100px;
+    width: 100%;
+}
+
+.titleLanding{
+    font-size: 30px;
+}
+
+.animationLandingWrapper{
+    margin-top: 100px;
+}
+
+.searchBarLandingWrapper{
+    margin: auto;
+    position: relative;
+    margin-top: 100px;
+    width: 50%;
+}
+
+.searchBarLanding{
+    -moz-box-shadow: 0px 6px 8px rgb(170, 170, 170);
+    -webkit-box-shadow: 6px 0px 8px rgb(170, 170, 170);
+    box-shadow: 0px 3px 6px rgb(170, 170, 170);
+    border: solid 1px #ff981100;
+    border-radius: 3px;
+}
+
+.descriptionLandingWrapper{
+    margin-top: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 100vh;
+}
+
+.descriptionLandingItem{
+    width: 100%;
+}
+
+.descriptionLandingItemDesc{
+    font-size: 18px;
+    padding: 10px;
+}
+
+.descriptionLandingItemImg{
+    width: 100px;
+}
+
+.descriptionLandingItemTitle{
+    font-size: 25px;
+    padding: 10px;
+}
+
+  
+.bottomTextWrapper{
+  font-size: 12px;
+  font-weight: 200;
+  position:fixed;
+  bottom: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(206, 206, 206);
+  z-index: 100;
+}
+  
+.bottomTextbackNavigation{
+  height: 20px;
+  width: 22px;
+}  
+  
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+  
