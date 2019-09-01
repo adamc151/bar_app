@@ -30,42 +30,51 @@ class LandingPage extends Component {
     return (
       <Route render={({ history }) => (
 
-        <div className="wrapperLanding">
-            <div className="titleLandingWrapper">
-                <div className="titleLanding" onClick={() => {history.push(`/`);}}>Welcome to hapihour.io</div>
-            </div>
-            <div className="animationLandingWrapper">
-                <div className="cssload-battery">
-                    <div className="cssload-liquid"></div>
+        <div className="wrapperLandingParent">
+            <div className="wrapperLanding">
+                <div className="titleLandingWrapper">
+                    <div className="titleLanding" onClick={() => {history.push(`/`);}}>Welcome to hapihour.io</div>
                 </div>
-            </div>
-            <div className="searchBarLandingWrapper">
-                {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
-                <SearchBar
-                    // className={"searchbar searchBarLanding"}
-                    getNode={node => (this.searchBox = node)}
-                    // onChange={this.findPlace}
-                    // onClickButton={this.getLocation}
-                    // onfocusin={searchbarFocusIn}
-                    // onfocusout={searchbarFocusOut}
-                    // fetchingUserLocation={fetchingUserLocation}
-                />
-            </div>
-            <div className="descriptionLandingWrapper">
-                <div className="descriptionLandingItem">
-                    <div className="descriptionLandingItemTitle">Title</div>
-                    <img className="descriptionLandingItemImg" src={world}/>
-                    <div className="descriptionLandingItemDesc">Locations all over the UK</div>
+                <div className="animationLandingWrapper">
+                    <div className="cssload-battery">
+                        <div className="cssload-liquid"></div>
+                    </div>
                 </div>
-                <div className="descriptionLandingItem">
-                    <div className="descriptionLandingItemTitle">Title</div>
-                    <img className="descriptionLandingItemImg" src={world}/>
-                    <div className="descriptionLandingItemDesc">Search for your favourite bars</div>
+                <div className="searchBarLandingWrapper">
+                    {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
+                    <SearchBar
+                        // className={"searchbar searchBarLanding"}
+                        getNode={node => (this.searchBox = node)}
+                        // onChange={this.findPlace}
+                        // onClickButton={this.getLocation}
+                        // onfocusin={searchbarFocusIn}
+                        // onfocusout={searchbarFocusOut}
+                        // fetchingUserLocation={fetchingUserLocation}
+                    />
                 </div>
-                <div className="descriptionLandingItem">
-                    <div className="descriptionLandingItemTitle">Title</div>
-                    <img className="descriptionLandingItemImg" src={world}/>
-                    <div className="descriptionLandingItemDesc">See great deals near you</div>
+                <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
+                <div className="descriptionLandingWrapper">
+                    <div className="descriptionLandingItem">
+                        <img className="descriptionLandingItemImg" src={world}/>
+                        <div className="descriptionLandingText">
+                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
+                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                        </div>
+                    </div>
+                    <div className="descriptionLandingItem">
+                        <img className="descriptionLandingItemImg" src={world}/>
+                        <div className="descriptionLandingText">
+                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
+                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                        </div>
+                    </div>
+                    <div className="descriptionLandingItem">
+                        <img className="descriptionLandingItemImg" src={world}/>
+                        <div className="descriptionLandingText">
+                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
+                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="bottomTextWrapper">

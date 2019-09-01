@@ -1,4 +1,10 @@
 .wrapperLanding {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.wrapperLanding {
+    color: rgb(72, 72, 72);
 }
 
 .titleLandingWrapper{
@@ -31,20 +37,32 @@
 }
 
 .descriptionLandingWrapper{
-    margin-top: 300px;
+    /* margin-top: 300px; */
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
-    height: 100vh;
+    /* height: 100vh; */
+}
+
+.descriptionLandingTitle{
+    width: 350px;
+    margin: auto;
+    margin-top: 300px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    padding-bottom: 10px;
 }
 
 .descriptionLandingItem{
     width: 100%;
+    padding: 40px;
 }
 
 .descriptionLandingItemDesc{
-    font-size: 18px;
-    padding: 10px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
 }
 
 .descriptionLandingItemImg{
@@ -52,8 +70,10 @@
 }
 
 .descriptionLandingItemTitle{
-    font-size: 25px;
-    padding: 10px;
+    font-size: 17px;
+    margin-top: 10px;
+    /* padding: 10px; */
+    color: rgba(255, 188, 44, 0.945);
 }
 
   
@@ -75,9 +95,28 @@
   width: 22px;
 }  
   
-@media screen and (max-width: 1000px) {
-  .wrapper {
-    flex-direction: column;
-  }
+@media screen and (max-width: 750px) {
+
+    .descriptionLandingTitle{
+        width: 300px;
+        font-size: 20px;
+    }
+
+    .descriptionLandingWrapper{
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+    }
+
+    .descriptionLandingItem{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+    
+    .descriptionLandingText{
+        margin-left: 20px;
+    }
+  
 }
   
