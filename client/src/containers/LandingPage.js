@@ -4,8 +4,10 @@ import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
 import SearchBar from "../components/SearchBar/SearchBar";
-import LoadingPage from '../components/LoadingPage/LoadingPage';
 import world from "./world.png";
+import location from "./pin.png";
+import calendar from "./monday.png";
+import beers from "./cheers.png";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -17,13 +19,6 @@ class LandingPage extends Component {
   }
 
   render() {
-    // const {
-    //   fetchOne
-    // } = this.props.actions;
-    // const {
-    //   data,
-    //   singleBar
-    // } = this.props;
 
     console.log("LandingPage page");
 
@@ -33,12 +28,7 @@ class LandingPage extends Component {
         <div className="wrapperLandingParent">
             <div className="wrapperLanding">
                 <div className="titleLandingWrapper">
-                    <div className="titleLanding" onClick={() => {history.push(`/`);}}>Welcome to hapihour.io</div>
-                </div>
-                <div className="animationLandingWrapper">
-                    <div className="cssload-battery">
-                        <div className="cssload-liquid"></div>
-                    </div>
+                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>Welcome to hapihour.io</div>
                 </div>
                 <div className="searchBarLandingWrapper">
                     {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
@@ -54,25 +44,25 @@ class LandingPage extends Component {
                 </div>
                 <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
                 <div className="descriptionLandingWrapper">
-                    <div className="descriptionLandingItem">
-                        <img className="descriptionLandingItemImg" src={world}/>
+                <div className="descriptionLandingItem">
+                        <img className="descriptionLandingItemImg" src={location}/>
                         <div className="descriptionLandingText">
-                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
-                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                            <div className="descriptionLandingItemTitle">FIND YOUR LOCATION</div>
+                            <div className="descriptionLandingItemDesc">Search for an area you want to see happy hours for or provide your current location.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
-                        <img className="descriptionLandingItemImg" src={world}/>
+                        <img className="descriptionLandingItemImg" src={calendar}/>
                         <div className="descriptionLandingText">
-                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
-                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                            <div className="descriptionLandingItemTitle">SEE TODAY'S HAPI HOURS</div>
+                            <div className="descriptionLandingItemDesc">See our listed happy hours for today on the map.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
-                        <img className="descriptionLandingItemImg" src={world}/>
+                        <img className="descriptionLandingItemImg" src={beers}/>
                         <div className="descriptionLandingText">
-                            <div className="descriptionLandingItemTitle">THIS IS THE TITLE</div>
-                            <div className="descriptionLandingItemDesc">This is the description of the item to give more details</div>
+                            <div className="descriptionLandingItemTitle">PLAN YOUR NIGHT</div>
+                            <div className="descriptionLandingItemDesc">See currently active happy hours as well as those about to start so you can plan your next move!</div>
                         </div>
                     </div>
                 </div>

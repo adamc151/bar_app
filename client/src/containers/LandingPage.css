@@ -1,5 +1,5 @@
 .wrapperLanding {
-    max-width: 1400px;
+    max-width: 1100px;
     margin: auto;
 }
 
@@ -8,13 +8,13 @@
 }
 
 .titleLandingWrapper{
-    /* margin: auto; */
-    margin-top: 100px;
+    margin-top: 60px;
     width: 100%;
 }
 
 .titleLanding{
     font-size: 30px;
+    font-weight: lighter;
 }
 
 .animationLandingWrapper{
@@ -37,11 +37,9 @@
 }
 
 .descriptionLandingWrapper{
-    /* margin-top: 300px; */
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
-    /* height: 100vh; */
+    flex-direction: row;
 }
 
 .descriptionLandingTitle{
@@ -49,6 +47,7 @@
     margin: auto;
     margin-top: 300px;
     font-size: 25px;
+    font-weight: lighter;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(202, 202, 202);
     padding-bottom: 10px;
@@ -61,18 +60,25 @@
 
 .descriptionLandingItemDesc{
     font-size: 15px;
+    font-weight: lighter;
     letter-spacing: 0.5px;
     margin-top: 8px;
 }
 
 .descriptionLandingItemImg{
     width: 100px;
+    height: 100px;
+}
+
+.descriptionLandingText{
+    margin-top: 20px;
+    max-width: 350px;
 }
 
 .descriptionLandingItemTitle{
     font-size: 17px;
+    font-weight: bold;
     margin-top: 10px;
-    /* padding: 10px; */
     color: rgba(255, 188, 44, 0.945);
 }
 
@@ -93,7 +99,7 @@
 .bottomTextbackNavigation{
   height: 20px;
   width: 22px;
-}  
+}
   
 @media screen and (max-width: 750px) {
 
@@ -112,10 +118,35 @@
         flex-direction: row;
         justify-content: center;
         text-align: left;
+        padding: 30px;
     }
     
     .descriptionLandingText{
         margin-left: 20px;
+    }
+
+    .descriptionLandingItemImg{
+        width: 60px;
+        height: 60px;
+    }
+
+    .descriptionLandingText{
+        margin-top: 0px;
+        max-width: 350px;
+    }
+
+    .descriptionLandingItemDesc{
+        font-size: 12px;
+        font-weight: lighter;
+        letter-spacing: 0.5px;
+        margin-top: 0px;
+    }
+    
+    .descriptionLandingItemTitle{
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: rgba(255, 188, 44, 0.945);
     }
   
 }
