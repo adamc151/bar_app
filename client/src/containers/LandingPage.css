@@ -126,8 +126,10 @@
     }
 
     .descriptionLandingItemImg{
-        width: 64px;
-        height: 64px;
+        /* width: 64px; */
+        width: 14vw;
+        /* height: 64px; */
+        height: 14vw;
     }
 
     .descriptionLandingText{
