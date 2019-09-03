@@ -46,7 +46,7 @@
     width: 350px;
     margin: auto;
     margin-top: 300px;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: lighter;
     margin-bottom: 20px;
     border-bottom: 1px solid rgb(202, 202, 202);
@@ -59,7 +59,7 @@
 }
 
 .descriptionLandingItemDesc{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: lighter;
     letter-spacing: 0.5px;
     margin-top: 8px;
@@ -76,7 +76,7 @@
 }
 
 .descriptionLandingItemTitle{
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
@@ -124,12 +124,12 @@
     .descriptionLandingText{
         margin-left: 20px;
     }
-
+    
     .descriptionLandingItemImg{
         width: 64px;
         height: 64px;
     }
-
+    
     .descriptionLandingText{
         margin-top: 0px;
         max-width: 350px;
@@ -146,6 +146,7 @@
         font-size: 14px;
         font-weight: bold;
         margin-top: 10px;
+        margin-bottom: 5px;
         color: rgba(255, 188, 44, 0.945);
     }
   

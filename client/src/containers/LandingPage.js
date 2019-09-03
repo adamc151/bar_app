@@ -28,7 +28,7 @@ class LandingPage extends Component {
         <div className="wrapperLandingParent">
             <div className="wrapperLanding">
                 <div className="titleLandingWrapper">
-                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>Welcome to hapihour.io</div>
+                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>>></div>
                 </div>
                 <div className="searchBarLandingWrapper">
                     {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
