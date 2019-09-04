@@ -1,9 +1,6 @@
 .wrapperLanding {
     max-width: 1100px;
     margin: auto;
-}
-
-.wrapperLanding {
     color: rgb(72, 72, 72);
 }
 
@@ -45,7 +42,7 @@
 .descriptionLandingTitle{
     width: 350px;
     margin: auto;
-    margin-top: 300px;
+    margin-top: 600px;
     font-size: 24px;
     font-weight: lighter;
     margin-bottom: 20px;
@@ -80,6 +77,23 @@
     font-weight: bold;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
+}
+
+.photosLandingWrapper{
+    background-color: rgba(255, 188, 44, 0.945);
+    margin-top: 100px;
+    height: 500px;
+    overflow: hidden;
+    position: absolute;
+    z-index: -100;
+}
+
+.photoLanding{
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    z-index: -100;
+    /* position: center; */
 }
 
   
@@ -149,6 +163,17 @@
         margin-bottom: 5px;
         color: rgba(255, 188, 44, 0.945);
     }
+
+    .photosLandingWrapper{
+        margin-top: 0px;
+        top: 0;
+        height: 100vh;
+    }
+    
+    .photoLanding{
+        height: 100vh;
+    }
+    
   
 }
   

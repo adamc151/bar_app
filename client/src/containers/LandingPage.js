@@ -4,10 +4,10 @@ import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
 import SearchBar from "../components/SearchBar/SearchBar";
-import world from "./world.png";
 import location from "./pin.png";
 import calendar from "./monday.png";
 import beers from "./cheers.png";
+import bar1 from "./barimg1.jpg";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -19,16 +19,16 @@ class LandingPage extends Component {
   }
 
   render() {
-
-    console.log("LandingPage page");
-
     return (
       <Route render={({ history }) => (
 
         <div className="wrapperLandingParent">
+            <div className="photosLandingWrapper">
+                <img className="photoLanding" src={bar1}/>    
+            </div>
             <div className="wrapperLanding">
                 <div className="titleLandingWrapper">
-                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>>></div>
+                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>hapihour</div>
                 </div>
                 <div className="searchBarLandingWrapper">
                     {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
