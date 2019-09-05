@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
-import SearchBar from "../components/SearchBar/SearchBar";
 import location from "./pin.png";
 import calendar from "./monday.png";
 import beers from "./cheers.png";
@@ -25,7 +24,7 @@ class LandingPage extends Component {
 render() {
 
     const barImgs = [bar1, bar2, bar4, bar5];
-    const num = Math.floor(Math.random() * Math.floor(3));
+    const num = Math.floor(Math.random() * Math.floor(4));
     const barImg = barImgs[num];
 
     return (
