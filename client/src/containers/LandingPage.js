@@ -66,6 +66,10 @@ render() {
                 {<div className="bottomText">Want to get in touch?</div>}
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
+            <div class="footer">
+                <a href="https://twitter.com/hapihour_io" className="footerItem">Twitter</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/>
+            </div>
         </div>
       )} />
     );

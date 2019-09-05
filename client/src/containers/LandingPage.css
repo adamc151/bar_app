@@ -1,5 +1,5 @@
 .wrapperLandingParent{
-
+    ;
 }
 
 .titleLandingWrapper{
@@ -13,12 +13,7 @@
     font-weight: lighter;
 }
 
-.searchBarLandingWrapper{
-    margin: auto;
-    position: relative;
-    width: 50%;
-    background-color: rgb(104, 99, 99);
-}
+
 
 .descriptionAndTitleLandingWrapper{
     margin: auto;
@@ -86,6 +81,14 @@
 }
 
 .searchBarLandingWrapper{
+    margin: auto;
+    position: relative;
+    width: 50%;
+    max-width: 1100px;
+    background-color: rgb(104, 99, 99);
+}
+
+.searchBarLandingWrapper{
     background-color: white;
     border-radius: 5px;
     text-align: left;
@@ -97,7 +100,9 @@
     -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
     box-shadow: 0px 3px 6px rgb(56, 56, 56);
     border: solid 1px #ff981100;
+    max-width: 1100px;
 }
+
 
 .photosLandingWrapper{
     background-color: rgba(168, 129, 44, 0.945);
@@ -231,5 +236,19 @@
         background-color: rgb(206, 206, 206);
       }      
   
+      .footer {
+          /* height: 150px; */
+          left: 0;
+          bottom: 0;
+          /* width: 100%; */
+          background-color: rgba(255, 188, 44, 0.945);
+          padding: 10px 0px 10px 10px;
+          text-align: left;
+        }
+      
+      .footerItem{
+          font-size: 20px;
+          text-decoration: none;
+          color: white;
+      }
 }
-  
