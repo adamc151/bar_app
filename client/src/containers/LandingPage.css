@@ -1,14 +1,11 @@
-.wrapperLanding {
-    max-width: 1100px;
-    margin: auto;
-    color: rgb(72, 72, 72);
-    height: 100vh;
+.wrapperLandingParent{
+
 }
 
 .titleLandingWrapper{
     /* margin-top: 60px; */
     width: 100%;
-    color: black;
+    color: rgb(72, 72, 72);
 }
 
 .titleLanding{
@@ -23,6 +20,13 @@
     background-color: rgb(104, 99, 99);
 }
 
+.descriptionAndTitleLandingWrapper{
+    margin: auto;
+    margin-top: 165px;
+    max-width: 1100px;
+    color: rgb(72, 72, 72);
+}
+
 .descriptionLandingWrapper{
     width: 100%;
     display: flex;
@@ -32,7 +36,6 @@
 .descriptionLandingTitle{
     width: 350px;
     margin: auto;
-    margin-top: 550px;
     /* margin-top: 500px; */
     font-size: 24px;
     font-weight: lighter;
@@ -70,12 +73,38 @@
     color: rgba(255, 188, 44, 0.945);
 }
 
+.titleDescriptionLanding{
+    color: white;
+    font-weight: bolder;
+    font-size: 70px;
+    text-align: left;
+    /* margin-top: 10vh; */
+    max-width: 300px;
+    margin-left: 30px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.searchBarLandingWrapper{
+    background-color: white;
+    border-radius: 5px;
+    text-align: left;
+    padding: 5px 0px 5px 10px ; 
+    color: grey;
+    font-size: 20px;
+    margin-top: 30px;
+    -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
+    -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
+    box-shadow: 0px 3px 6px rgb(56, 56, 56);
+    border: solid 1px #ff981100;
+}
+
 .photosLandingWrapper{
     background-color: rgba(168, 129, 44, 0.945);
-    margin-top: 100px;
     height: 500px;
     overflow: hidden;
     position: absolute;
+    top: 0;
     z-index: -100;
 }
 
@@ -91,13 +120,18 @@
 .bottomTextLandingWrapper{
   font-size: 12px;
   font-weight: 200;
+  position: absolute;
   bottom: 0px;
   width: 100%;
   text-align: center;
   background-color: rgb(206, 206, 206);
 }
-  
+
+
 @media screen and (max-width: 750px) {
+
+    .wrapperLandingParent{
+    }
 
     .descriptionLandingTitle{
         margin-top: 50vh;
@@ -151,6 +185,7 @@
         margin-top: 0px;
         top: 0;
         height: 100vh;
+        max-height: 812px;
     }
     
     .photoLanding{
@@ -163,8 +198,8 @@
         font-size: 70px;
         text-align: left;
         margin-top: 10vh;
+        margin-left: 0px;
         padding: 20px;
-
     }
 
     .searchBarLandingWrapper{
@@ -186,7 +221,6 @@
     }
 
     .bottomTextLandingWrapper{
-        margin-top: 100vh;
         font-size: 12px;
         font-weight: 200;
         height: 50px;

@@ -34,17 +34,12 @@ render() {
             <div className="photosLandingWrapper">
                 <img className="photoLanding" src={barImg}/>
             </div>
-            <div className="wrapperLanding">
-                <div className="titleLandingWrapper">
-                    {/* <div className="titleLanding" onClick={() => {history.push(`/map`);}}>hapihour</div> */}
-                <div className="titleDescriptionLanding" >Search for a location</div> 
-                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>
-                    Search..
-                </div>
-                </div>
+            <div className="titleDescriptionLanding" >Search for a location</div> 
+            <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search..</div>
+            <div className="descriptionAndTitleLandingWrapper">
                 <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
                 <div className="descriptionLandingWrapper">
-                <div className="descriptionLandingItem">
+                    <div className="descriptionLandingItem">
                         <img className="descriptionLandingItemImg" src={location}/>
                         <div className="descriptionLandingText">
                             <div className="descriptionLandingItemTitle">FIND YOUR LOCATION</div>
@@ -67,10 +62,10 @@ render() {
                     </div>
                 </div>
             </div>
-            <div className="bottomTextLandingWrapper">
+            {/* <div className="bottomTextLandingWrapper">
                 {<div className="bottomText">Want to get in touch?</div>}
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
-            </div>
+            </div> */}
         </div>
       )} />
     );
