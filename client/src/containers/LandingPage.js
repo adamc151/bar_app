@@ -8,6 +8,9 @@ import location from "./pin.png";
 import calendar from "./monday.png";
 import beers from "./cheers.png";
 import bar1 from "./barimg1.jpg";
+import bar2 from "./barimg2.jpg";
+import bar4 from "./barimg4.jpg";
+import bar5 from "./barimg5.jpg";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -16,31 +19,29 @@ class LandingPage extends Component {
 
     this.state = {
     };
-  }
 
-  render() {
+}
+
+render() {
+
+    const barImgs = [bar1, bar2, bar4, bar5];
+    const num = Math.floor(Math.random() * Math.floor(3));
+    const barImg = barImgs[num];
+
     return (
       <Route render={({ history }) => (
 
         <div className="wrapperLandingParent">
             <div className="photosLandingWrapper">
-                <img className="photoLanding" src={bar1}/>    
+                <img className="photoLanding" src={barImg}/>
             </div>
             <div className="wrapperLanding">
                 <div className="titleLandingWrapper">
-                    <div className="titleLanding" onClick={() => {history.push(`/map`);}}>hapihour</div>
+                    {/* <div className="titleLanding" onClick={() => {history.push(`/map`);}}>hapihour</div> */}
+                <div className="titleDescriptionLanding" >Search for a location</div> 
+                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>
+                    Search..
                 </div>
-                <div className="searchBarLandingWrapper">
-                    {/* <div className="searchBarLanding">SEARCH BAR HERE</div> */}
-                    <SearchBar
-                        // className={"searchbar searchBarLanding"}
-                        getNode={node => (this.searchBox = node)}
-                        // onChange={this.findPlace}
-                        // onClickButton={this.getLocation}
-                        // onfocusin={searchbarFocusIn}
-                        // onfocusout={searchbarFocusOut}
-                        // fetchingUserLocation={fetchingUserLocation}
-                    />
                 </div>
                 <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
                 <div className="descriptionLandingWrapper">
@@ -67,7 +68,7 @@ class LandingPage extends Component {
                     </div>
                 </div>
             </div>
-            <div className="bottomTextWrapper">
+            <div className="bottomTextLandingWrapper">
                 {<div className="bottomText">Want to get in touch?</div>}
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div>

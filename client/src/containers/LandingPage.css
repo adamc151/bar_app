@@ -2,11 +2,13 @@
     max-width: 1100px;
     margin: auto;
     color: rgb(72, 72, 72);
+    height: 100vh;
 }
 
 .titleLandingWrapper{
-    margin-top: 60px;
+    /* margin-top: 60px; */
     width: 100%;
+    color: black;
 }
 
 .titleLanding{
@@ -14,23 +16,11 @@
     font-weight: lighter;
 }
 
-.animationLandingWrapper{
-    margin-top: 100px;
-}
-
 .searchBarLandingWrapper{
     margin: auto;
     position: relative;
-    margin-top: 100px;
     width: 50%;
-}
-
-.searchBarLanding{
-    -moz-box-shadow: 0px 6px 8px rgb(170, 170, 170);
-    -webkit-box-shadow: 6px 0px 8px rgb(170, 170, 170);
-    box-shadow: 0px 3px 6px rgb(170, 170, 170);
-    border: solid 1px #ff981100;
-    border-radius: 3px;
+    background-color: rgb(104, 99, 99);
 }
 
 .descriptionLandingWrapper{
@@ -42,7 +32,8 @@
 .descriptionLandingTitle{
     width: 350px;
     margin: auto;
-    margin-top: 600px;
+    margin-top: 550px;
+    /* margin-top: 500px; */
     font-size: 24px;
     font-weight: lighter;
     margin-bottom: 20px;
@@ -80,7 +71,7 @@
 }
 
 .photosLandingWrapper{
-    background-color: rgba(255, 188, 44, 0.945);
+    background-color: rgba(168, 129, 44, 0.945);
     margin-top: 100px;
     height: 500px;
     overflow: hidden;
@@ -97,27 +88,19 @@
 }
 
   
-.bottomTextWrapper{
+.bottomTextLandingWrapper{
   font-size: 12px;
   font-weight: 200;
-  position:fixed;
   bottom: 0px;
-  padding-bottom: 10px;
-  padding-top: 10px;
   width: 100%;
   text-align: center;
   background-color: rgb(206, 206, 206);
-  z-index: 100;
-}
-  
-.bottomTextbackNavigation{
-  height: 20px;
-  width: 22px;
 }
   
 @media screen and (max-width: 750px) {
 
     .descriptionLandingTitle{
+        margin-top: 65vh;
         width: 300px;
         font-size: 20px;
     }
@@ -173,7 +156,45 @@
     .photoLanding{
         height: 100vh;
     }
-    
+
+    .titleDescriptionLanding{
+        color: white;
+        font-weight: bolder;
+        font-size: 50px;
+        text-align: left;
+        margin-top: 20vh;
+        margin-left: 20px;
+
+    }
+
+    .searchBarLandingWrapper{
+        margin: auto;
+        width: 80%;
+        background-color: white;
+        border-radius: 5px;
+        text-align: left;
+        padding-left: 10px; 
+
+        color: grey;
+        font-size: 20px;
+        margin-top: 30px;
+
+        -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
+        -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
+        box-shadow: 0px 3px 6px rgb(56, 56, 56);
+        border: solid 1px #ff981100;
+    }
+
+    .bottomTextLandingWrapper{
+        margin-top: 100vh;
+        font-size: 12px;
+        font-weight: 200;
+        height: 100px;
+        bottom: 0px;
+        width: 100%;
+        text-align: center;
+        background-color: rgb(206, 206, 206);
+      }      
   
 }
   
