@@ -3,22 +3,17 @@
     height: 100vh;
 }
 
-.titleLandingWrapper{
-    /* margin-top: 60px; */
-    width: 100%;
-    color: rgb(72, 72, 72);
+.titleDescriptionLanding{
+    color: white;
+    font-size: 70px;
+    letter-spacing: -3px;
+    text-align: center;
 }
-
-.titleLanding{
-    font-size: 30px;
-    font-weight: lighter;
-}
-
-
 
 .descriptionAndTitleLandingWrapper{
     margin: auto;
     margin-top: 350px;
+    margin-bottom: 60px;
     max-width: 1100px;
     color: rgb(72, 72, 72);
 }
@@ -32,7 +27,6 @@
 .descriptionLandingTitle{
     width: 350px;
     margin: auto;
-    /* margin-top: 500px; */
     font-size: 24px;
     font-weight: lighter;
     margin-bottom: 20px;
@@ -67,19 +61,6 @@
     font-weight: bold;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
-}
-
-.titleDescriptionLanding{
-    color: white;
-    font-weight: bolder;
-    font-size: 70px;
-    letter-spacing: -2px;
-    text-align: center;
-    /* max-width: 300px; */
-    /* margin-top: 40px; */
-    /* margin-left: 30px;
-    margin-top: 30px; */
-    /* padding: 20px; */
 }
 
 .titleDescriptionLandingWrapper{
@@ -171,6 +152,21 @@
         height: 100%;
     }
 
+    .titleDescriptionLanding{
+        color: white;
+        font-weight: bolder;    
+        font-size: 70px;
+        width: 300px;
+        text-align: left;
+        margin-top: 8vh;
+        margin-left: 0px;
+    }
+
+    .titleDescriptionLandingWrapper{
+        margin-left: 20px;
+    }
+
+
     .descriptionLandingTitle{
         margin-top: 55vh;
         width: 300px;
@@ -205,7 +201,7 @@
     }
 
     .descriptionLandingItemDesc{
-        font-size: 12px;
+        /* font-size: 12px; */
         font-weight: lighter;
         letter-spacing: 0.5px;
         margin-top: 0px;
@@ -230,20 +226,7 @@
         height: 100vh;
     }
 
-    .titleDescriptionLanding{
-        color: white;
-        font-weight: bolder;    
-        font-size: 70px;
-        text-align: left;
-        margin-top: 8vh;
-        margin-left: 0px;
-        /* padding: 20px; */
-    }
-
-    .titleDescriptionLandingWrapper{
-        margin-left: 20px;
-    }
-
+   
     /* .searchBarLandingWrapper{
         margin: auto;
         width: 80%;
@@ -295,9 +278,16 @@
     position: fixed;
     width: 100%;
     background-color: rgb(255, 188, 44);
-    padding: 5px 0px 5px 20px;
+    padding: 0px 0px 3px 15px;
     text-align: left;
     font-size: 25px;
     letter-spacing: -2px;
-    z-index: 200;
+}
+
+.beerIconLanding{
+    height: 25px;
+    margin-top: 4px;
+    float: right;
+    margin-right: 28px;
+
 }

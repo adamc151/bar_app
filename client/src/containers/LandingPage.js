@@ -12,6 +12,7 @@ import bar4 from "./barimg4.jpg";
 import bar5 from "./barimg5.jpg";
 import locationIcon from "./placeholder.png";
 import twitterIcon from "./twitter.png";
+import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
 import { Route } from "react-router-dom";
 
@@ -34,7 +35,7 @@ render() {
       <Route render={({ history }) => (
 
         <div className="wrapperLandingParent">
-            <div class="header">hapihour</div>
+            <div class="header">hapihour <img src={beerIcon} className="beerIconLanding"/></div>
             <div className="photosLandingWrapper">
                 <img className="photoLanding" src={barImg}/>
             </div>
