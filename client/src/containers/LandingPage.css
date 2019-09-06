@@ -1,5 +1,5 @@
 .wrapperLandingParent{
-    ;
+    height: 100vh;
 }
 
 .titleLandingWrapper{
@@ -136,6 +136,7 @@
 @media screen and (max-width: 750px) {
 
     .wrapperLandingParent{
+        height: 100%;
     }
 
     .descriptionLandingTitle{
@@ -236,19 +237,20 @@
         background-color: rgb(206, 206, 206);
       }      
   
-      .footer {
-          /* height: 150px; */
-          left: 0;
-          bottom: 0;
-          /* width: 100%; */
-          background-color: rgba(255, 188, 44, 0.945);
-          padding: 10px 0px 10px 10px;
-          text-align: left;
-        }
-      
-      .footerItem{
-          font-size: 20px;
-          text-decoration: none;
-          color: white;
-      }
+    }
+    
+.footer {
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 188, 44, 0.945);
+    padding: 20px;
+    text-align: left;
+}
+
+.footerItem{
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: white;
 }

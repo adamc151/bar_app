@@ -67,8 +67,11 @@ render() {
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
             <div class="footer">
-                <a href="https://twitter.com/hapihour_io" className="footerItem">Twitter</a><br/><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">TWITTER</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">INSTAGRAM</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a><br/>
             </div>
         </div>
       )} />
