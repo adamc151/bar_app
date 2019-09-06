@@ -85,7 +85,7 @@
 .titleDescriptionLandingWrapper{
     margin: auto;
     margin-top: 80px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     max-width: 1000px;
 }
 
@@ -240,6 +240,10 @@
         /* padding: 20px; */
     }
 
+    .titleDescriptionLandingWrapper{
+        margin-left: 20px;
+    }
+
     /* .searchBarLandingWrapper{
         margin: auto;
         width: 80%;
@@ -265,8 +269,7 @@
         text-align: center;
         background-color: rgb(206, 206, 206);
       }      
-  
-    }
+}
     
 .footer {
     left: 0;
