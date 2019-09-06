@@ -1,4 +1,5 @@
 .wrapperLandingParent{
+    font-family: 'Lexend Deca', sans-serif;
     height: 100vh;
 }
 
@@ -17,7 +18,7 @@
 
 .descriptionAndTitleLandingWrapper{
     margin: auto;
-    margin-top: 165px;
+    margin-top: 350px;
     max-width: 1100px;
     color: rgb(72, 72, 72);
 }
@@ -72,35 +73,66 @@
     color: white;
     font-weight: bolder;
     font-size: 70px;
-    text-align: left;
-    /* margin-top: 10vh; */
-    max-width: 300px;
-    margin-left: 30px;
-    margin-top: 30px;
-    padding: 20px;
+    letter-spacing: -2px;
+    text-align: center;
+    /* max-width: 300px; */
+    /* margin-top: 40px; */
+    /* margin-left: 30px;
+    margin-top: 30px; */
+    /* padding: 20px; */
+}
+
+.titleDescriptionLandingWrapper{
+    margin: auto;
+    margin-top: 80px;
+    margin-left: 20px;
+    max-width: 1000px;
+}
+
+.locationWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 85%;
+    margin: auto;
+    margin-top: 10px;
+    max-width: 500px;
 }
 
 .searchBarLandingWrapper{
     margin: auto;
-    position: relative;
-    width: 50%;
-    max-width: 1100px;
-    background-color: rgb(104, 99, 99);
-}
-
-.searchBarLandingWrapper{
+    width: 80%;
     background-color: white;
     border-radius: 5px;
     text-align: left;
     padding: 5px 0px 5px 10px ; 
     color: grey;
     font-size: 20px;
-    margin-top: 30px;
     -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
     -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
     box-shadow: 0px 3px 6px rgb(56, 56, 56);
     border: solid 1px #ff981100;
-    max-width: 1100px;
+}
+
+.currentLocationLanding{
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30px;
+    color: grey;
+    /* font-size: 20px; */
+    padding: 2px;
+    -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
+    -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
+    box-shadow: 0px 3px 6px rgb(56, 56, 56);
+    border: solid 1px #ff981100;
+    margin-left: 10px;
+
+}
+
+.currentLocationLanding img{
+    width: 25px;
+    margin-top: 3px;
 }
 
 
@@ -122,7 +154,7 @@
 }
 
   
-.bottomTextLandingWrapper{
+/* .bottomTextLandingWrapper{
   font-size: 12px;
   font-weight: 200;
   position: absolute;
@@ -130,7 +162,7 @@
   width: 100%;
   text-align: center;
   background-color: rgb(206, 206, 206);
-}
+} */
 
 
 @media screen and (max-width: 750px) {
@@ -140,7 +172,7 @@
     }
 
     .descriptionLandingTitle{
-        margin-top: 50vh;
+        margin-top: 55vh;
         width: 300px;
         font-size: 20px;
     }
@@ -200,31 +232,28 @@
 
     .titleDescriptionLanding{
         color: white;
-        font-weight: bolder;
+        font-weight: bolder;    
         font-size: 70px;
         text-align: left;
-        margin-top: 10vh;
+        margin-top: 8vh;
         margin-left: 0px;
-        padding: 20px;
+        /* padding: 20px; */
     }
 
-    .searchBarLandingWrapper{
+    /* .searchBarLandingWrapper{
         margin: auto;
         width: 80%;
         background-color: white;
         border-radius: 5px;
         text-align: left;
         padding: 5px 0px 5px 10px ; 
-
         color: grey;
         font-size: 20px;
-        margin-top: 30px;
-
         -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
         -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
         box-shadow: 0px 3px 6px rgb(56, 56, 56);
         border: solid 1px #ff981100;
-    }
+    } */
 
     .bottomTextLandingWrapper{
         font-size: 12px;
@@ -243,7 +272,7 @@
     left: 0;
     bottom: 0;
     background-color: rgba(255, 188, 44, 0.945);
-    padding: 20px;
+    padding: 15px;
     text-align: left;
 }
 
@@ -253,4 +282,17 @@
     letter-spacing: 2px;
     text-decoration: none;
     color: white;
+}
+
+.header {
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(255, 188, 44);
+    padding: 5px 0px 5px 20px;
+    text-align: left;
+    font-size: 25px;
+    letter-spacing: -2px;
+    z-index: 200;
 }

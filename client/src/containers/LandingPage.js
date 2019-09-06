@@ -10,6 +10,7 @@ import bar1 from "./barimg1.jpg";
 import bar2 from "./barimg2.jpg";
 import bar4 from "./barimg4.jpg";
 import bar5 from "./barimg5.jpg";
+import locationIcon from "./placeholder.png";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -31,11 +32,17 @@ render() {
       <Route render={({ history }) => (
 
         <div className="wrapperLandingParent">
+            <div class="header">hapihour</div>
             <div className="photosLandingWrapper">
                 <img className="photoLanding" src={barImg}/>
             </div>
-            <div className="titleDescriptionLanding" >Search for a location</div> 
-            <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search..</div>
+            <div className="titleDescriptionLandingWrapper" > 
+                <div className="titleDescriptionLanding" >Search for a location</div> 
+            </div>
+            <div className="locationWrapper" >
+                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search..</div>
+                <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
+            </div>
             <div className="descriptionAndTitleLandingWrapper">
                 <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
                 <div className="descriptionLandingWrapper">
@@ -67,10 +74,10 @@ render() {
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
             <div class="footer">
-                <a href="https://twitter.com/hapihour_io" className="footerItem">TWITTER</a><br/><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">INSTAGRAM</a><br/><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a><br/><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">TWITTER</a><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">INSTAGRAM</a><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/>
                 <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a><br/>
             </div>
         </div>
