@@ -11,6 +11,8 @@ import bar2 from "./barimg2.jpg";
 import bar4 from "./barimg4.jpg";
 import bar5 from "./barimg5.jpg";
 import locationIcon from "./placeholder.png";
+import twitterIcon from "./twitter.png";
+import instagramIcon from "./instagram.png";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -74,11 +76,11 @@ render() {
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
             <div class="footer">
-                <a href="https://twitter.com/hapihour_io" className="footerItem">TWITTER</a><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">INSTAGRAM</a><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a><br/>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a><br/>
+                <a href="https://twitter.com/hapihour_io" className="footerItem"><img src={twitterIcon}/></a>
+                <a href="https://twitter.com/hapihour_io" className="footerItem"><img src={instagramIcon}/></a>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a>
+                <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a>
             </div>
         </div>
       )} />
