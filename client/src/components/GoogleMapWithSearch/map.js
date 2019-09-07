@@ -239,12 +239,11 @@ export class MyMap extends React.Component {
 
           <GoogleMapReact
             zoom={14}
-            gestureHandling="greedy"
             bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
             center={this.state.center}
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
-            options={{ disableDefaultUI: true }}
+            options={{ disableDefaultUI: true , gestureHandling: 'greedy'}}
             onGoogleApiLoaded={x => {
               this.map = x.map;
               this.props.onMapsLoaded();
