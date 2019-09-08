@@ -36,9 +36,16 @@ class Place extends React.Component {
     }
 
     submit() {
-      const { place, startTime, endTime, description } = this.state;
+      const { place, startTime, endTime, description, weekDays } = this.state;
 
       if(!place) return;
+
+      let calcWeekDays = [];
+      for (var i = 0, l = weekDays.length; i < l; i++) {
+        if (weekDays[i].selected) {
+          calcWeekDays.push(parseInt(weekDays[i].value));
+        }
+      }
 
       const newPlace = {
         name: place.name,
@@ -56,14 +63,16 @@ class Place extends React.Component {
           {
             startTime: startTime,
             endTime: endTime,
-            weekDays: [0,1,2,3,4,5,6],
+            weekDays: calcWeekDays,
             description: description,
             fullDescription: description,
           }
         ]
       };
 
-      this.props.actions.postData(newPlace);
+      console.log(`weekDays: ${JSON.stringify(newPlace)}`);
+
+      // this.props.actions.postData(newPlace);
 
       ReactGA.event({
         category: 'DB',
@@ -78,15 +87,15 @@ class Place extends React.Component {
     updateButtonMsg() {
       const { startTime, endTime, description } = this.state;
 
-      if(!startTime || !endTime || !description){
-        alert("All fields must be populated");
-        return;
-      }
+      // if(!startTime || !endTime || !description){
+      //   alert("All fields must be populated");
+      //   return;
+      // }
 
-      if(startTime >= endTime){
-        alert("Start time can't be after or the same as the end time");
-        return;
-      }
+      // if(startTime >= endTime){
+      //   alert("Start time can't be after or the same as the end time");
+      //   return;
+      // }
 
       this.setState({ submitState: 'submit-button animated', submitMessage: 'state-1'})
       setTimeout(this.finalButtonMsg, 2000);
@@ -118,9 +127,21 @@ class Place extends React.Component {
                 <div><input type ="time" className='placeDetailsStartTime' ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
                 <div>End Time:</div>
                 <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
-                <div>Days of the week:</div>
+                <div>Days:</div>
+                <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node} onChange={event => this.setState({ weekDays: event.target.options })}>
+                  <option value="0">Sunday</option>
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6">Saturday</option>
+                </select>
+                {/* <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div> */}
+
+                {/* <div>Days of the week:</div> */}
               </div>
-              { place.photo && <img className='placeImage' src={place.photo} /> }
+              {/* { place.photo && <img className='placeImage' src={place.photo} /> } */}
             </div>
             <button onClick={this.updateButtonMsg} className={this.state.submitState}>
               <span className={'submit-pres-state ' + this.state.submitMessage}>Submit</span>
