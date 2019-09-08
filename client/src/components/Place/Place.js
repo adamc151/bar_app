@@ -125,6 +125,7 @@ class Place extends React.Component {
             <div onClick={this.close} type="button" className="closeButton" aria-label="Close">&times;</div>
             <div className='placeDetailsWrapper'>
               <div className='placeDetails'>
+              { place.photo && <img className='placeImage' src={place.photo} /> }
                 <div className='placeDetailsName'>{place.name}</div>
                 <div className='placeDetailsAddress'>{place.address}</div>
                 <div className='placeLabel'>Deal (separate by a comma for multiple)</div>
@@ -147,7 +148,6 @@ class Place extends React.Component {
 
                 {/* <div>Days of the week:</div> */}
               </div>
-              {/* { place.photo && <img className='placeImage' src={place.photo} /> } */}
             </div>
             <button onClick={this.updateButtonMsg} className={this.state.submitState}>
               <span className={'submit-pres-state ' + this.state.submitMessage}>Submit</span>
