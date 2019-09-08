@@ -130,10 +130,14 @@ class Place extends React.Component {
                 <div className='placeDetailsAddress'>{place.address}</div>
                 <div className='placeLabel'>Deal (separate by a comma for multiple)</div>
                 <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
-                <div className='placeLabel'>Start Time</div>
-                <div><input type ="time" className='placeDetailsStartTime' ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
-                <div className='placeLabel'>End Time</div>
-                <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
+                <div className='placeTimeWrapper'>
+                  <div className='placeLabel'>Start Time</div>
+                  <div className='placeLabel'>End Time</div>
+                </div>
+                <div className='placeTimeWrapper'>
+                  <div className='placeDetailsTime'><input className='placeDetailsTimeInner' type ="time" ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
+                  <div className='placeDetailsTime' ><input className='placeDetailsTimeInner' type ="time" ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
+                </div>
                 <div className='placeLabel'>Days (select all relevant)</div>
                 <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node} onChange={event => this.setState({ weekDays: event.target.options })}>
                   <option value="1">Monday</option>
