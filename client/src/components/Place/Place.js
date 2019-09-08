@@ -38,6 +38,12 @@ class Place extends React.Component {
     submit() {
       const { place, startTime, endTime, description, weekDays } = this.state;
 
+      let dealDescriptionArray = description.split(',');
+
+      for (var i = 0; i < dealDescriptionArray.length; i++) {
+        dealDescriptionArray[i] = dealDescriptionArray[i].trim();
+    }
+
       if(!place) return;
 
       let calcWeekDays = [];
@@ -64,15 +70,15 @@ class Place extends React.Component {
             startTime: startTime,
             endTime: endTime,
             weekDays: calcWeekDays,
-            description: description,
-            fullDescription: description,
+            description: dealDescriptionArray,
+            fullDescription: "placeholder description",
           }
         ]
       };
 
       console.log(`weekDays: ${JSON.stringify(newPlace)}`);
 
-      // this.props.actions.postData(newPlace);
+      this.props.actions.postData(newPlace);
 
       ReactGA.event({
         category: 'DB',
@@ -87,15 +93,15 @@ class Place extends React.Component {
     updateButtonMsg() {
       const { startTime, endTime, description } = this.state;
 
-      // if(!startTime || !endTime || !description){
-      //   alert("All fields must be populated");
-      //   return;
-      // }
+      if(!startTime || !endTime || !description){
+        alert("All fields must be populated");
+        return;
+      }
 
-      // if(startTime >= endTime){
-      //   alert("Start time can't be after or the same as the end time");
-      //   return;
-      // }
+      if(startTime >= endTime){
+        alert("Start time can't be after or the same as the end time");
+        return;
+      }
 
       this.setState({ submitState: 'submit-button animated', submitMessage: 'state-1'})
       setTimeout(this.finalButtonMsg, 2000);
@@ -121,21 +127,21 @@ class Place extends React.Component {
               <div className='placeDetails'>
                 <div className='placeDetailsName'>{place.name}</div>
                 <div className='placeDetailsAddress'>{place.address}</div>
-                <div>Deal:</div>
+                <div className='placeLabel'>Deal (separate by a comma for multiple)</div>
                 <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
-                <div>Start Time:</div>
+                <div className='placeLabel'>Start Time</div>
                 <div><input type ="time" className='placeDetailsStartTime' ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
-                <div>End Time:</div>
+                <div className='placeLabel'>End Time</div>
                 <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
-                <div>Days:</div>
+                <div className='placeLabel'>Days (select all relevant)</div>
                 <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node} onChange={event => this.setState({ weekDays: event.target.options })}>
-                  <option value="0">Sunday</option>
                   <option value="1">Monday</option>
                   <option value="2">Tuesday</option>
                   <option value="3">Wednesday</option>
                   <option value="4">Thursday</option>
                   <option value="5">Friday</option>
                   <option value="6">Saturday</option>
+                  <option value="0">Sunday</option>
                 </select>
                 {/* <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div> */}
 
