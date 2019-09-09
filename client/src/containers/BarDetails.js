@@ -36,7 +36,7 @@ class BarDetails extends Component {
                 className="bottomTextbackNavigation"
                 alt="back"
                 onClick={() => {
-                  history.push(`/`);
+                  history.push(`/map`);
                 }}
             />}
             </div>

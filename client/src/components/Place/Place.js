@@ -36,9 +36,22 @@ class Place extends React.Component {
     }
 
     submit() {
-      const { place, startTime, endTime, description } = this.state;
+      const { place, startTime, endTime, description, weekDays } = this.state;
+
+      let dealDescriptionArray = description.split(',');
+
+      for (var i = 0; i < dealDescriptionArray.length; i++) {
+        dealDescriptionArray[i] = dealDescriptionArray[i].trim();
+    }
 
       if(!place) return;
+
+      let calcWeekDays = [];
+      for (var i = 0, l = weekDays.length; i < l; i++) {
+        if (weekDays[i].selected) {
+          calcWeekDays.push(parseInt(weekDays[i].value));
+        }
+      }
 
       const newPlace = {
         name: place.name,
@@ -56,12 +69,14 @@ class Place extends React.Component {
           {
             startTime: startTime,
             endTime: endTime,
-            weekDays: [0,1,2,3,4,5,6],
-            description: description,
-            fullDescription: description,
+            weekDays: calcWeekDays,
+            description: dealDescriptionArray,
+            fullDescription: "placeholder description",
           }
         ]
       };
+
+      console.log(`weekDays: ${JSON.stringify(newPlace)}`);
 
       this.props.actions.postData(newPlace);
 
@@ -110,17 +125,33 @@ class Place extends React.Component {
             <div onClick={this.close} type="button" className="closeButton" aria-label="Close">&times;</div>
             <div className='placeDetailsWrapper'>
               <div className='placeDetails'>
+              { place.photo && <img className='placeImage' src={place.photo} /> }
                 <div className='placeDetailsName'>{place.name}</div>
                 <div className='placeDetailsAddress'>{place.address}</div>
-                <div>Deal:</div>
+                <div className='placeLabel'>Deal (separate by a comma for multiple)</div>
                 <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
-                <div>Start Time:</div>
-                <div><input type ="time" className='placeDetailsStartTime' ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
-                <div>End Time:</div>
-                <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
-                <div>Days of the week:</div>
+                <div className='placeTimeWrapper'>
+                  <div className='placeLabel'>Start Time</div>
+                  <div className='placeLabel'>End Time</div>
+                </div>
+                <div className='placeTimeWrapper'>
+                  <div className='placeDetailsTime'><input className='placeDetailsTimeInner' type ="time" ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
+                  <div className='placeDetailsTime' ><input className='placeDetailsTimeInner' type ="time" ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
+                </div>
+                <div className='placeLabel'>Days (select all relevant)</div>
+                <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node} onChange={event => this.setState({ weekDays: event.target.options })}>
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6">Saturday</option>
+                  <option value="0">Sunday</option>
+                </select>
+                {/* <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div> */}
+
+                {/* <div>Days of the week:</div> */}
               </div>
-              { place.photo && <img className='placeImage' src={place.photo} /> }
             </div>
             <button onClick={this.updateButtonMsg} className={this.state.submitState}>
               <span className={'submit-pres-state ' + this.state.submitMessage}>Submit</span>
