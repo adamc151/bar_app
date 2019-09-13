@@ -155,12 +155,28 @@ export class MyMap extends React.Component {
         return;
       }
 
+      
       var position = {
         coords: {
           latitude: place.geometry.location.lat(),
           longitude: place.geometry.location.lng()
         }
       };
+
+      const exists = this.props.data.some(function(item) {
+        return item.place_id === place.place_id;
+      });
+      
+      if(exists){
+        this.centerMap(position, true);
+        return;
+      }
+      else{
+        const answer = window.confirm('This is a new location, would you like to submit a hapihour for this location?');
+        if(!answer){
+          return;
+        }
+      }
 
       const el = document.createElement("p");
       el.innerHTML = place.adr_address;

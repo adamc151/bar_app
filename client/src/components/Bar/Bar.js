@@ -1,6 +1,6 @@
 import React from "react";
 import "./Bar.css";
-import bar from "../List/bar.jpg";
+import bar from "../List/deafultBarImg.jpg";
 
 import Deal from "./Deal";
 

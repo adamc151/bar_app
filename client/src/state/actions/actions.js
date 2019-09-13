@@ -110,25 +110,28 @@ function categoriseData(data) {
   var categorisedBlob = data.filter(item => {
     var final = [];
 
-    item.deals.map(deal => {
+    if(item.validated){
 
-      if(deal.weekDays.includes(day)){
+      item.deals.map(deal => {
 
-          var st = deal.startTime.replace(":", "");
-          var et = deal.endTime.replace(":", "");
+        if(deal.weekDays.includes(day)){
 
-          if (st <= time && et > time && deal.weekDays.includes(day)) {
-            deal.category = 'Now';
+            var st = deal.startTime.replace(":", "");
+            var et = deal.endTime.replace(":", "");
+
+            if (st <= time && et > time && deal.weekDays.includes(day)) {
+              deal.category = 'Now';
+            }
+            else if (st > time && et > time && deal.weekDays.includes(day)) {
+              deal.category = 'Upcoming';
+            }
+            else{
+              deal.category = 'Inactive';
+            }
+            final.push(deal);
           }
-          else if (st > time && et > time && deal.weekDays.includes(day)) {
-            deal.category = 'Upcoming';
-          }
-          else{
-            deal.category = 'Inactive';
-          }
-          final.push(deal);
-        }
-    });
+      });
+    }
 
     item.deals = final;
 

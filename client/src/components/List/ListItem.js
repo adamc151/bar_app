@@ -2,7 +2,7 @@ import React from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
-import bar from "./bar.jpg";
+import bar from "./deafultBarImg.jpg";
 import { Route } from "react-router-dom";
 
 export default function ListItem(props) {

@@ -53,6 +53,8 @@ class Place extends React.Component {
         }
       }
 
+      calcWeekDays.sort();
+
       const newPlace = {
         name: place.name,
         address: place.address,
@@ -62,7 +64,7 @@ class Place extends React.Component {
           type:"Point"
         },
         place_id: place.place_id,
-        validated: true,
+        validated: false,
         website: place.website,
         imgUrl: place.photo,
         deals: [
