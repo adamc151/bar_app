@@ -1,5 +1,4 @@
 .pac-container {
-  /* border: none; */
   box-shadow: none;
 }
 
@@ -12,15 +11,20 @@
   border-width: 0px;
   border-style: solid;
   border-color: lightgrey;
-  padding: 10px;
+  padding: 8px;
   font: 15px/24px "Lato", Arial, sans-serif;
   color: #333;
   width: 100%;
   letter-spacing: 0.5px;
   font-size: 24px;
   position: relative;
-  /* border: solid 1px #ff9811; */
-  border-radius: 5px;
+  border-radius: 8px;
+
+  -moz-box-shadow: 0px 6px 8px rgb(170, 170, 170);
+  -webkit-box-shadow: 6px 0px 8px rgb(170, 170, 170);
+  box-shadow: 0px 3px 6px rgb(170, 170, 170);
+  border: solid 1px #ff981100;
+  -webkit-appearance: none;
 }
 
 .searchbar:focus {
@@ -29,10 +33,11 @@
 
 .searchbar ~ .line {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 0;
   height: 4px;
+  border-radius: 8px;
   background-color: #ff9811;
   transition: 0.4s;
 }
@@ -107,18 +112,7 @@
   .searchbar{
     font-size: 16px;
     padding: 8px 5px 5px 12px;
-    /* border-color: #ffffff00; */
-    /* border-width: 2px; */
-    -moz-box-shadow: 0px 6px 8px rgb(170, 170, 170);
-    -webkit-box-shadow: 6px 0px 8px rgb(170, 170, 170);
-    box-shadow: 0px 3px 6px rgb(170, 170, 170);
-    /* border: none; */
-    border: solid 1px #ff981100;
-    border-radius: 3px;
-    /*z-index: 20; */
-    /* -webkit-box-shadow: 0px 2px 8px 6px #ccc; */
-    -webkit-appearance: none;
-
+    border-radius: 8px;
   }
 
   .searchbarButton{
@@ -136,10 +130,6 @@
     cursor: pointer;
   }
 
-  .searchbar:focus ~ .line {
-    /* top: 0px; */
-  }
-
   .searchbar ~ .line {
     position: absolute;
     top: 0;
@@ -149,6 +139,4 @@
     background-color: #ff9811;
     transition: 0.4s;
   }
-
-
 }

@@ -52,7 +52,7 @@ export default function transactions(state = initialState, action) {
       return { ...state };
     case DATA_POST_FAILURE:
       console.log("DATA_POST_FAILURE Action");
-      alert("This hapihour could not be added at this time.")
+      alert("This hapihour could not be added at this time. Possible reasons include:\n\n• The bar already exists in our records\n• The server had a wobble\n• You lost connection\n\nPlease try again later or get in contact with us directly.");
       return { ...state };
     case SET_CENTER_COORDINATES:
       console.log("SET_CENTER_COORDINATES Action");

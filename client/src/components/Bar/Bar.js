@@ -1,6 +1,6 @@
 import React from "react";
 import "./Bar.css";
-import bar from "../List/bar.jpg";
+import bar from "../List/deafultBarImg.jpg";
 
 import Deal from "./Deal";
 
@@ -30,7 +30,6 @@ class Bar extends React.Component {
         {<div className="line">--</div>}
         {<div className="dealsTitle">Deals</div>}
         {this.renderDeals()}
-        {<div className="line">--</div>}
         {/* {<div className="dealsTitle">Map</div>}
         {<div className="line">--</div>} */}
         {/* {details.deals[0].category && <div className={ `details${details.deals[0].category} detailsCategory`}>{details.deals[0].category}</div>}
