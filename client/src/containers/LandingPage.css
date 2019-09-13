@@ -6,7 +6,8 @@
 .titleDescriptionLanding{
     color: white;
     font-size: 70px;
-    letter-spacing: -3px;
+    font-weight: lighter;
+    /* letter-spacing: -3px; */
     text-align: center;
 }
 

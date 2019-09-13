@@ -17,9 +17,14 @@
 .sideNav {
   width: 500px;
   overflow:hidden;
+  overflow-y: scroll;
   height: 100%;
   position: relative;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 }
+
+.sideNav::-webkit-scrollbar { width: 0 !important }
 
 .sideNavAnimaion {
   animation-name: openSideNav;

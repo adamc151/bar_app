@@ -171,7 +171,7 @@ export class MyMap extends React.Component {
         this.centerMap(position, true);
         return;
       }
-      else{
+      else if(place.types && (place.types.includes("bar") || place.types.includes("restaurant") )){
         const answer = window.confirm('This is a new location, would you like to submit a hapihour for this location?');
         if(!answer){
           return;
