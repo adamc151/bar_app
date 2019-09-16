@@ -40,12 +40,25 @@
   -webkit-transform: translate(-50%, -50%);
 }
 
-.markerWrapper {
+.markerNow{
+  border-color: rgb(41, 179, 28);
+}
+
+.markerInactive{
+  border-color: rgb(150, 150, 150);
+  opacity: 0.6;
+}
+
+.markerUpcoming{
+  border-color: #ff9811;
+  opacity: 0.8;
 }
 
 .hovered {
   border-radius: 50%;
-  border: 16px solid #ff9811;
+  border-width: 16px;
+  border-style: solid;
+  /* border-color: #ff9811; */
   width: 16px;
   height: 16px;
   transform: translate(-50%, calc(-50% - 60px));
@@ -58,14 +71,20 @@
   height: 0px;
   bottom: -60px;
   left: -12px;
-  border: 20px solid transparent;
-  border-top: 34px solid #ff9811;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent;
+  /* border-top-color: #ff9811; */
+  border-top-width: 34px;
+  border-top-style: solid;
 }
 
 .plainMarker {
   position: relative;
   border-radius: 50%;
-  border: 8px solid #ff9811;
+  border-width: 8px;
+  border-style: solid;
+  /* border-color: #ff9811; */
   width: 8px;
   height: 8px;
   transform: translate(-50%, calc(-50% - 30px));
@@ -78,15 +97,22 @@
   height: 0px;
   bottom: -30px;
   left: -6px;
-  border: 10px solid transparent;
-  border-top: 17px solid #ff9811;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  /* border-top-color: #ff9811; */
+  border-top-width: 17px;
+  border-top-style: solid;
 }
 
-.markerInactive{
-  opacity: 0.4;
+.markerNow::after{
+  border-top-color: rgb(41, 179, 28);
 }
 
-.markerUpcoming{
-  opacity: 0.4;
-  /* border: 8px solid #ff9811; */
+.markerInactive::after{
+  border-top-color: rgb(150, 150, 150);
+}
+
+.markerUpcoming::after{
+  border-top-color: #ff9811;
 }
