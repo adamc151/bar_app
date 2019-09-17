@@ -6,6 +6,9 @@ import "./BarDetails.css";
 import Bar from "../components/Bar/Bar";
 import navigate from "./back.png";
 import { Route } from "react-router-dom";
+import twitterIcon from "./twitter.png";
+import beerIcon from "./beer.png";
+import instagramIcon from "./instagram.png";
 
 class BarDetails extends Component {
   constructor(props) {
@@ -29,6 +32,7 @@ class BarDetails extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper">
+            <div class="header">hapihour <img src={beerIcon} className="beerIconLanding"/></div>
             <div className="navigationClass">
             {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
             {<img
@@ -47,9 +51,19 @@ class BarDetails extends Component {
                 singleBar={singleBar}
             />
             </div>
-            <div className="bottomTextWrapper">
+            {/* <div className="bottomTextWrapper">
             {<div className="bottomText">Something wrong with this listing?</div>}
             {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
+            </div> */}
+            <div class="footerCenter">
+                <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
+                {/* <div className="footerItemTitle">LET US KNOW:</div> */}
+                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+
             </div>
         </div>
       )} />

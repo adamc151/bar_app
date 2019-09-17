@@ -56,8 +56,8 @@
 
 .dealClass{
     color: rgb(72, 72, 72);
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 10px;
     font-size: 16px;
     font-weight: 200;
@@ -65,7 +65,7 @@
 
 .dealWrapper{
     color: rgb(72, 72, 72);
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px solid rgb(202, 202, 202);
     margin-top: 10px;
     padding-bottom: 10px;
@@ -73,6 +73,10 @@
 }
 
 @media screen and (max-width: 700px) {
+
+    .dealWrapper{
+        padding-top: 10px;
+    }
 
     .detailsCategory{
         font-size: 12px;
@@ -88,6 +92,8 @@
 
     .dealClass{
         font-size: 14px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     
 }
