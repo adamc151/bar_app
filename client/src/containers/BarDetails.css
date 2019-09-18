@@ -1,8 +1,11 @@
 .wrapper {
-  flex-direction: column;
   /* display: flex; */
   /* flex-direction: row-reverse; */
   /* height: 100vh; */
+}
+
+.barDetailsWrapper{
+  flex-direction: column;
 }
 
 .barContainer {
@@ -52,7 +55,7 @@
   left: 0;
   bottom: 0;
   background-color: rgba(255, 188, 44, 0.945);
-  padding: 20px;
+  padding: 12px;
   font-size: 11px;
   font-weight: bold;
   letter-spacing: 2px;
@@ -62,7 +65,7 @@
 
 .footerItemTitle{
   display: block;
-  padding: 0px 0px 15px 0px;
+  padding: 0px 0px 8px 0px;
 }
 
 .inline{

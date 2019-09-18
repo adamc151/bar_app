@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
+import emailIcon from "./email.png";
 
 class BarDetails extends Component {
   constructor(props) {
@@ -31,8 +32,8 @@ class BarDetails extends Component {
 
     return (
       <Route render={({ history }) => (
-        <div className="wrapper">
-            <div class="header">hapihour <img src={beerIcon} className="beerIconLanding"/></div>
+        <div className="wrapper barDetailsWrapper">
+            <div class="header" onClick={() => { history.push(`/`);}}>hapihour<img src={beerIcon} className="beerIconLanding"/></div>
             <div className="navigationClass">
             {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
             {<img
@@ -62,7 +63,7 @@ class BarDetails extends Component {
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img src={emailIcon}/></a>
 
             </div>
         </div>
