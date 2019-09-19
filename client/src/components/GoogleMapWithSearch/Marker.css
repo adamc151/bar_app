@@ -51,7 +51,6 @@
 
 .markerUpcoming{
   border-color: #ff9811;
-  opacity: 0.8;
 }
 
 .hovered {
@@ -62,6 +61,7 @@
   width: 16px;
   height: 16px;
   transform: translate(-50%, calc(-50% - 60px));
+  opacity: 0.9;
 }
 
 .hovered::after {
@@ -88,6 +88,7 @@
   width: 8px;
   height: 8px;
   transform: translate(-50%, calc(-50% - 30px));
+  opacity: 0.9;
 }
 
 .plainMarker::after {
