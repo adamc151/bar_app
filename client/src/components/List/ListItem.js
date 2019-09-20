@@ -9,6 +9,8 @@ export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className, setSelectedBar } = props;
   const { name, deals, imgUrl, place_id } = data;
 
+  
+
   return !data=="" ? (
     <Route render={({ history }) => (
       <div
