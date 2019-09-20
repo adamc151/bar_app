@@ -110,18 +110,29 @@
     font-size: 12px;
     line-height: 18px;
     position: absolute;
-    background-color: rgba(221, 221, 221, 0.897);
-    padding: 2px 9px;
+    background-color: rgb(211, 211, 211);
+    padding: 2px 8px;
+    padding-top: 3px;
+    /* padding-right: 8px; */
     margin: 2px 2px;
     border-radius: 16px;
-    left: 37px;
+    left: 12px;
     top: 85px;
+    display: flex;
+  }
+
+  .titleIconInside{
+    width: 14px;
+    height: 13px; 
+    padding-right: 3px;
+    padding-top: 2px;
+    /* margin: 2px 2px; */
   }
 
   .titleIcon{
     width: 17px;
     position: absolute;
-    background-color: rgba(221, 221, 221, 0.897);
+    background-color: rgb(211, 211, 211);
     padding: 2px 2px;
     margin: 2px 2px;
     border-radius: 16px;
