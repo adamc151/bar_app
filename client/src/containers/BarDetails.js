@@ -63,8 +63,7 @@ class BarDetails extends Component {
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={emailIcon}/></a>
-
+                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
             </div>
         </div>
       )} />

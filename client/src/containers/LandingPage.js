@@ -79,7 +79,8 @@ render() {
             <div class="footer">
                 <a href="https://twitter.com/hapihour_io" className="footerItem"><img src={twitterIcon}/></a>
                 <a href="https://www.instagram.com/hapihour.io/" className="footerItem"><img src={instagramIcon}/></a>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a>
+                {/* <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a> */}
+                <a href="mailto:hapihour.io@gmail.com" className="footerItem" target="_top">EMAIL US</a>
                 <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a>
                 <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a>
             </div>
