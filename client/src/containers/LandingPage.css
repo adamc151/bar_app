@@ -13,7 +13,7 @@
 
 .descriptionAndTitleLandingWrapper{
     margin: auto;
-    margin-top: 350px;
+    margin-top: 280px;
     margin-bottom: 60px;
     max-width: 1100px;
     color: rgb(72, 72, 72);
@@ -25,13 +25,18 @@
     flex-direction: row;
 }
 
+.descriptionLandingItemFullLogo{
+    width: 70%;
+    min-width: 300px;
+}
+
 .descriptionLandingTitle{
-    width: 350px;
+    width: 200px;
     margin: auto;
     font-size: 24px;
     font-weight: lighter;
     margin-bottom: 20px;
-    border-bottom: 1px solid rgb(202, 202, 202);
+    border-bottom: 3px solid rgb(202, 202, 202);
     padding-bottom: 10px;
 }
 
@@ -41,7 +46,7 @@
 }
 
 .descriptionLandingItemDesc{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.5px;
     margin-top: 8px;
@@ -58,7 +63,7 @@
 }
 
 .descriptionLandingItemTitle{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
@@ -66,7 +71,7 @@
 
 .titleDescriptionLandingWrapper{
     margin: auto;
-    margin-top: 80px;
+    margin-top: 130px;
     /* margin-left: 20px; */
     max-width: 1000px;
 }
@@ -146,11 +151,36 @@
   background-color: rgb(206, 206, 206);
 } */
 
+.header {
+    /* font-family: 'Lexend Deca', sans-serif; */
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(255, 188, 44);
+    padding: 8px 0px 8px 15px;
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: -2px;
+    -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+}
 
-@media screen and (max-width: 1120px) {
+
+@media screen and (max-width: 1000px) {
 
     .wrapperLandingParent{
         height: 100%;
+    }
+
+    .descriptionAndTitleLandingWrapper{
+        margin: auto;
+        margin-top: 400px;
+        margin-top: 30vh;
+        /* margin-bottom: 100px; */
+        max-width: 1100px;
+        color: rgb(72, 72, 72);
     }
 
     .titleDescriptionLanding{
@@ -167,10 +197,10 @@
         margin-left: 20px;
     }
 
-
     .descriptionLandingTitle{
-        margin-top: 55vh;
-        width: 300px;
+        /* margin-top: 55vh; */
+        margin-top: 40px;
+        width: 200px;
         font-size: 20px;
     }
 
@@ -202,7 +232,7 @@
     }
 
     .descriptionLandingItemDesc{
-        /* font-size: 12px; */
+        font-size: 12px;
         font-weight: lighter;
         letter-spacing: 0.5px;
         margin-top: 0px;
@@ -220,7 +250,8 @@
         margin-top: 0px;
         top: 0;
         height: 100vh;
-        max-height: 812px;
+        /* max-height: 812px; */
+        max-height: 650px;
     }
     
     .photoLanding{
@@ -252,7 +283,20 @@
         width: 100%;
         text-align: center;
         background-color: rgb(206, 206, 206);
-      }      
+      }
+      
+      .header {
+        font-family: 'Lexend Deca', sans-serif;
+        left: 0;
+        top: 0;
+        position: fixed;
+        width: 100%;
+        background-color: rgb(255, 188, 44);
+        padding: 5px 0px 8px 15px;
+        text-align: left;
+        font-size: 25px;
+        letter-spacing: -2px;
+    }
 }
     
 .footer {
@@ -273,19 +317,6 @@
     text-decoration: none;
     color: white;
     padding: 0px 0px 15px 0px;
-}
-
-.header {
-    font-family: 'Lexend Deca', sans-serif;
-    left: 0;
-    top: 0;
-    position: fixed;
-    width: 100%;
-    background-color: rgb(255, 188, 44);
-    padding: 0px 0px 3px 15px;
-    text-align: left;
-    font-size: 25px;
-    letter-spacing: -2px;
 }
 
 .beerIconLanding{

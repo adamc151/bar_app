@@ -13,6 +13,7 @@ import bar5 from "./barimg5.jpg";
 import locationIcon from "./placeholder.png";
 import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
+import fullLogo from "./fullLogo.png";
 import instagramIcon from "./instagram.png";
 import { Route } from "react-router-dom";
 
@@ -47,7 +48,9 @@ render() {
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
             <div className="descriptionAndTitleLandingWrapper">
-                <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div>
+                {/* <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div> */}
+                <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
+                <div className="descriptionLandingTitle">HOW IT WORKS</div>
                 <div className="descriptionLandingWrapper">
                     <div className="descriptionLandingItem">
                         <img className="descriptionLandingItemImg" src={location}/>
@@ -82,7 +85,7 @@ render() {
                 {/* <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a> */}
                 <a href="mailto:hapihour.io@gmail.com" className="footerItem" target="_top">EMAIL US</a>
                 <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a>
+                {/* <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a> */}
             </div>
         </div>
       )} />
