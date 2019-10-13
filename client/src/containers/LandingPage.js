@@ -45,7 +45,7 @@ render() {
                 <div className="titleDescriptionLanding" >Search for a location</div> 
             </div>
             <div className="locationWrapper" >
-                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search..</div>
+                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search...</div>
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
             <div className="descriptionAndTitleLandingWrapper">

@@ -91,11 +91,11 @@
     }
 
     .detailsName{
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .detailsAddress{
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .detailsWebsite{
@@ -118,6 +118,6 @@
     }
 
     .dealsTitle{
-        font-size: 18px;
+        font-size: 20px;
     }
 }
