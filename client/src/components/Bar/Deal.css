@@ -1,4 +1,5 @@
 .detailsCategory{
+    font-family: Circular-bold;
     border: none;
     color: rgb(255, 255, 255);
     padding: 5px 10px;
@@ -24,6 +25,7 @@
 }
 
 .detailsTime{
+    font-family: Circular-bold;
     padding-bottom: 10px;
     border: none;
     background-color: rgba(221, 221, 221, 0.966);
@@ -36,6 +38,7 @@
 }
 
 .detailsDays{
+    font-family: Circular-bold;
     padding-bottom: 10px;
     border: none;
     background-color: rgba(221, 221, 221, 0.966);
