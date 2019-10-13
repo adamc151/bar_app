@@ -1,14 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
 
+@font-face {
+    font-family: Circular;
+    src: url(CircularStd-Book.otf);
+}
+
+@font-face {
+    font-family: Circular-bold;
+    src: url(CircularStd-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Circular-black;
+    src: url(CircularStd-Black.otf);
+    font-weight: bolder;
+}
+
+/* @font-face {
+    font-family: myFirstFont;
+    src: url(sansation_bold.woff);
+    font-weight: bold;
+} */
+
 .wrapperLandingParent{
-    font-family: 'Lexend Deca', sans-serif;
+    /* font-family: 'Lexend Deca', sans-serif; */
+    font-family: Circular;
     height: 100vh;
 }
 
 .titleDescriptionLanding{
     color: white;
     font-size: 70px;
-    font-weight: lighter;
+    font-family: Circular-black;
+    /* font-weight: lighter; */
     /* letter-spacing: -3px; */
     text-align: center;
 }
@@ -36,7 +61,7 @@
     width: 200px;
     margin: auto;
     font-size: 24px;
-    font-weight: lighter;
+    font-family: Circular-bold;
     margin-bottom: 20px;
     border-bottom: 3px solid rgb(202, 202, 202);
     padding-bottom: 10px;
@@ -50,7 +75,7 @@
 .descriptionLandingItemDesc{
     font-size: 16px;
     font-weight: lighter;
-    letter-spacing: 0.5px;
+    /* letter-spacing: 0.5px; */
     margin-top: 8px;
 }
 
@@ -66,7 +91,7 @@
 
 .descriptionLandingItemTitle{
     font-size: 20px;
-    font-weight: bold;
+    font-family: Circular-bold;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
 }
@@ -155,6 +180,7 @@
 
 .header {
     /* font-family: 'Lexend Deca', sans-serif; */
+    font-family: Circular;
     left: 0;
     top: 0;
     position: fixed;
@@ -163,10 +189,19 @@
     padding: 8px 0px 8px 15px;
     text-align: left;
     font-size: 30px;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
     -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
     -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
     box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+}
+
+.headerTextHapi{
+    float: left;
+    font-family: Circular-black;
+}
+
+.headerTextHour{
+    float: left;
 }
 
 
@@ -236,7 +271,7 @@
     .descriptionLandingItemDesc{
         font-size: 12px;
         font-weight: lighter;
-        letter-spacing: 0.5px;
+        /* letter-spacing: 0.5px; */
         margin-top: 0px;
     }
     
@@ -288,7 +323,7 @@
       }
       
       .header {
-        font-family: 'Lexend Deca', sans-serif;
+        /* font-family: 'Lexend Deca', sans-serif; */
         left: 0;
         top: 0;
         position: fixed;
@@ -297,7 +332,7 @@
         padding: 5px 0px 8px 15px;
         text-align: left;
         font-size: 25px;
-        letter-spacing: -2px;
+        /* letter-spacing: -2px; */
     }
 }
     

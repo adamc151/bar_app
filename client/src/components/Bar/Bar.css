@@ -1,3 +1,14 @@
+@font-face {
+    font-family: Circular;
+    src: url(../../containers/CircularStd-Book.otf);
+}
+
+@font-face {
+    font-family: Circular-bold;
+    src: url(../../containers/CircularStd-Bold.otf);
+    font-weight: bold;
+}
+
 .detailsWrapper{
     margin: auto;
     max-width: 1500px;
@@ -24,17 +35,17 @@
     z-index: -100;
 }
 
-.detailsName{
+/* .detailsName{
     margin-top: 0px;
     padding-top: 15px;
     font-size: 20px;
-}
+} */
 
-.detailsAddress{
+/* .detailsAddress{
     padding-top: 10px;
     font-size: 14px;
     font-weight: 200;
-}
+} */
 
 .line{
     color: rgba(255, 255, 255, 0);
@@ -77,9 +88,9 @@
         max-height: 220px;
     }
 
-    .detailsName{
+    /* .detailsName{
         font-size: 18px;
-    }
+    } */
 
     .detailsAddress{
         font-size: 12px;

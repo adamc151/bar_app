@@ -33,7 +33,8 @@ class BarDetails extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
-            <div class="header" onClick={() => { history.push(`/`);}}>hapihour<img src={beerIcon} className="beerIconLanding"/></div>
+            {/* <div class="header" onClick={() => { history.push(`/`);}}>hapihour<img src={beerIcon} className="beerIconLanding"/></div> */}
+            <div className="header" onClick={() => { history.push(`/`);}}><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
             <div className="navigationClass">
             {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
             {<img
