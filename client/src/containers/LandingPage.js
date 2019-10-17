@@ -57,14 +57,14 @@ render() {
                         <img className="descriptionLandingItemImg" src={location}/>
                         <div className="descriptionLandingText">
                             <div className="descriptionLandingItemTitle">FIND YOUR LOCATION</div>
-                            <div className="descriptionLandingItemDesc">Search for an area you want to see happy hours for or provide your current location.</div>
+                            <div className="descriptionLandingItemDesc">Search for an area you want to see hapi hours for or provide your current location.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
                         <img className="descriptionLandingItemImg" src={calendar}/>
                         <div className="descriptionLandingText">
                             <div className="descriptionLandingItemTitle">SEE TODAY'S HAPI HOURS</div>
-                            <div className="descriptionLandingItemDesc">See our listed happy hours for today on the map.</div>
+                            <div className="descriptionLandingItemDesc">See our active & upcoming hapi hours for today on the map.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
@@ -81,12 +81,14 @@ render() {
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
             <div class="footerCenter">
-                {/* <div className="footerItemTitle">LET US KNOW:</div> */}
+                {/* <div className="footerItemTitle">CONTACT</div> */}
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="mailto:hapihour.io@gmail.com" className="inline faq" target="_top">FAQ</a>
             </div>
         </div>
       )} />

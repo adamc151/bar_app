@@ -259,8 +259,8 @@
     }
     
     .descriptionLandingItemImg{
-        width: 64px;
-        height: 64px;
+        width: 55px;
+        height: 55px;
     }
     
     .descriptionLandingText{
@@ -269,14 +269,14 @@
     }
 
     .descriptionLandingItemDesc{
-        font-size: 12px;
+        font-size: 15px;
         font-weight: lighter;
-        /* letter-spacing: 0.5px; */
         margin-top: 0px;
     }
     
     .descriptionLandingItemTitle{
-        font-size: 15px;
+        font-size: 16px;
+        font-family: Circular-bold;
         font-weight: bold;
         margin-top: 10px;
         margin-bottom: 5px;
@@ -354,6 +354,12 @@
     text-decoration: none;
     color: white;
     padding: 0px 0px 15px 0px;
+}
+
+.faq{
+    font-family: Circular-black;
+    font-size: 20px;
+    padding: 0px;
 }
 
 .beerIconLanding{
