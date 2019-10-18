@@ -12,6 +12,7 @@ import bar4 from "./barimg4.jpg";
 import bar5 from "./barimg5.jpg";
 import locationIcon from "./placeholder.png";
 import twitterIcon from "./twitter.png";
+import emailIcon from "./email.png";
 import beerIcon from "./beer.png";
 import fullLogo from "./fullLogo.png";
 import instagramIcon from "./instagram.png";
@@ -36,7 +37,7 @@ render() {
       <Route render={({ history }) => (
 
         <div className="wrapperLandingParent">
-            <div class="header">hapihour <img src={beerIcon} className="beerIconLanding"/></div>
+            <div className="header"><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
             <div className="photosLandingWrapper">
                 <img className="photoLanding" src={barImg}/>
             </div>
@@ -44,7 +45,7 @@ render() {
                 <div className="titleDescriptionLanding" >Search for a location</div> 
             </div>
             <div className="locationWrapper" >
-                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search..</div>
+                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search...</div>
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
             <div className="descriptionAndTitleLandingWrapper">
@@ -56,14 +57,14 @@ render() {
                         <img className="descriptionLandingItemImg" src={location}/>
                         <div className="descriptionLandingText">
                             <div className="descriptionLandingItemTitle">FIND YOUR LOCATION</div>
-                            <div className="descriptionLandingItemDesc">Search for an area you want to see happy hours for or provide your current location.</div>
+                            <div className="descriptionLandingItemDesc">Search for an area you want to see hapi hours for or provide your current location.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
                         <img className="descriptionLandingItemImg" src={calendar}/>
                         <div className="descriptionLandingText">
                             <div className="descriptionLandingItemTitle">SEE TODAY'S HAPI HOURS</div>
-                            <div className="descriptionLandingItemDesc">See our listed happy hours for today on the map.</div>
+                            <div className="descriptionLandingItemDesc">See our active & upcoming hapi hours for today on the map.</div>
                         </div>
                     </div>
                     <div className="descriptionLandingItem">
@@ -79,13 +80,13 @@ render() {
                 {<div className="bottomText">Want to get in touch?</div>}
                 {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
             </div> */}
-            <div class="footer">
-                <a href="https://twitter.com/hapihour_io" className="footerItem"><img src={twitterIcon}/></a>
-                <a href="https://www.instagram.com/hapihour.io/" className="footerItem"><img src={instagramIcon}/></a>
-                {/* <a href="https://twitter.com/hapihour_io" className="footerItem">EMAIL US</a> */}
-                <a href="mailto:hapihour.io@gmail.com" className="footerItem" target="_top">EMAIL US</a>
-                <a href="https://twitter.com/hapihour_io" className="footerItem">FAQ</a>
-                {/* <a href="https://twitter.com/hapihour_io" className="footerItem">PRIVACY POLICY</a> */}
+            <div class="footerCenter">
+                <div className="footerItemTitle">CONTACT US</div>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
             </div>
         </div>
       )} />
