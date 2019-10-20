@@ -18,7 +18,7 @@ import {
 const placeholders = [
   {
     heading: "How do I submit a happy hour for review?",
-    panel: "If you think that there is a hapi hour that we need to know about, you can submit a request through our web app. Simply search for the bar or restaurant that you are interested in on the map page and a pop-up will become available. Alternatively, you can let us know on social media through, Twitter, Instagram or Facebook. We also have an email address that you can send suggestions to."
+    panel: "If you think that there is a hapi hour that we need to know about, you can submit a request through our web app. Simply search for the bar or restaurant that you are interested in on the map page and a pop-up will become available. Alternatively, you can let us know on social media via our Twitter, Instagram or Facebook accounts. We also have an email address that you can send suggestions to."
   },
   {
     heading: "I added a new happy hour but I can’t see it in the list, why?",
