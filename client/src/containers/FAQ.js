@@ -15,32 +15,25 @@ import {
   AccordionItemButton,
 } from 'react-accessible-accordion';
 
-// Demo styles, see 'Styles' section below for some notes on use.
-import 'react-accessible-accordion/dist/fancy-example.css';
-
 const placeholders = [
   {
-    heading: "Question 1",
+    heading: "How do I submit a happy hour for review?",
+    panel: "This is the answer to that question if you have any more questions please ask. This is ont a full answer but should look like one for test purposes. If you want to know more then please ask, if not, then dont."
+  },
+  {
+    heading: "I added a new happy hour but I can’t see it in the list, why?",
     panel: "this is the answer to that question"
   },
   {
-    heading: "Question 2",
+    heading: "There was an error submitting a happy hour, what happened?",
     panel: "this is the answer to that question"
   },
   {
-    heading: "Question 3",
+    heading: "There are no happy hours in my location, will there be any?",
     panel: "this is the answer to that question"
   },
   {
-    heading: "Question 4",
-    panel: "this is the answer to that question"
-  },
-  {
-    heading: "Question 5",
-    panel: "this is the answer to that question"
-  },
-  {
-    heading: "Question 6",
+    heading: "The information on a happy hour is wrong, will you update this?",
     panel: "this is the answer to that question"
   },
 ]
