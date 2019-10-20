@@ -80,6 +80,10 @@
     border: none;
 }
 
+.accordion__button:focus {
+    outline: none !important;
+}
+
 .accordion__button:hover {
     background-color: #ddd;
 }
