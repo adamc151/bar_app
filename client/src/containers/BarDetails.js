@@ -33,10 +33,8 @@ class BarDetails extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
-            {/* <div class="header" onClick={() => { history.push(`/`);}}>hapihour<img src={beerIcon} className="beerIconLanding"/></div> */}
-            <div className="header" onClick={() => { history.push(`/`);}}><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
+            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
-            {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
             {<img
                 src={navigate}
                 className="bottomTextbackNavigation"
@@ -53,13 +51,8 @@ class BarDetails extends Component {
                 singleBar={singleBar}
             />
             </div>
-            {/* <div className="bottomTextWrapper">
-            {<div className="bottomText">Something wrong with this listing?</div>}
-            {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
-            </div> */}
             <div class="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
-                {/* <div className="footerItemTitle">LET US KNOW:</div> */}
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>

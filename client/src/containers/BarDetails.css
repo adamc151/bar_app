@@ -66,8 +66,14 @@
 }
 
 .footerItemTitle{
+  font-size: 14px;
   display: block;
-  padding: 0px 0px 8px 0px;
+  padding-bottom: 3px;
+  /* border-bottom: white 2px solid;
+  width: 100px;
+  margin: auto;
+  margin-top: 5px; */
+  margin-bottom: 5px;
 }
 
 .inline{

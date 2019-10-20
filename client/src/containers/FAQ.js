@@ -52,7 +52,7 @@ class FAQ extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
-            <div className="header" onClick={() => { history.push(`/`);}}><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
+            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
 

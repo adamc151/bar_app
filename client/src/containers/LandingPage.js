@@ -49,7 +49,6 @@ render() {
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
             <div className="descriptionAndTitleLandingWrapper">
-                {/* <div className="descriptionLandingTitle">HOW HAPIHOUR WORKS</div> */}
                 <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
                 <div className="descriptionLandingTitle">HOW IT WORKS</div>
                 <div className="descriptionLandingWrapper">
@@ -76,11 +75,8 @@ render() {
                     </div>
                 </div>
             </div>
-            {/* <div className="bottomTextLandingWrapper">
-                {<div className="bottomText">Want to get in touch?</div>}
-                {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
-            </div> */}
             <div class="footerCenter">
+                <div className="faqFooter" onClick={() => {history.push(`/faq`);}}><a>FAQs</a></div>
                 <div className="footerItemTitle">CONTACT US</div>
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>

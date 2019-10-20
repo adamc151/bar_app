@@ -319,6 +319,16 @@
     padding: 0px 0px 15px 0px;
 }
 
+.faqFooter{
+    display: block;
+    padding: 0px 0px 8px 0px;
+    font-size: 14px;
+}
+
+.faqFooter:hover{
+    color: black;
+}
+
 .faq{
     font-family: Circular-black;
     font-size: 20px;
