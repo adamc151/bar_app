@@ -1,0 +1,51 @@
+@font-face {
+    font-family: Circular;
+    src: url(CircularStd-Book.otf);
+}
+
+@font-face {
+    font-family: Circular-bold;
+    src: url(CircularStd-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Circular-black;
+    src: url(CircularStd-Black.otf);
+    font-weight: bolder;
+}
+
+.faqTitle{
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    font-size: 24px;
+    font-family: Circular-bold;
+    margin-bottom: 20px;
+    border-bottom: 3px solid rgb(202, 202, 202);
+    padding-bottom: 10px;
+}
+
+.accordianFAQ{
+    margin: auto;
+    margin-top: 30px;
+    width: 80%;
+}
+
+.accordion__button{width: none;}
+
+@media screen and (max-width: 1000px) {
+
+    .faqTitle{
+        margin-top: 80px;
+        font-size: 20px;
+        max-width: 250px;
+    }
+
+    .accordianFAQ{
+        margin-top: 30px;
+        font-size: 14px;
+        width: 100%;
+    }
+}
