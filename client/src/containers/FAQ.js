@@ -18,6 +18,33 @@ import {
 // Demo styles, see 'Styles' section below for some notes on use.
 import 'react-accessible-accordion/dist/fancy-example.css';
 
+const placeholders = [
+  {
+    heading: "Question 1",
+    panel: "this is the answer to that question"
+  },
+  {
+    heading: "Question 2",
+    panel: "this is the answer to that question"
+  },
+  {
+    heading: "Question 3",
+    panel: "this is the answer to that question"
+  },
+  {
+    heading: "Question 4",
+    panel: "this is the answer to that question"
+  },
+  {
+    heading: "Question 5",
+    panel: "this is the answer to that question"
+  },
+  {
+    heading: "Question 6",
+    panel: "this is the answer to that question"
+  },
+]
+
 class FAQ extends Component {
   constructor(props) {
     super(props);
@@ -35,37 +62,19 @@ class FAQ extends Component {
             <div className="header" onClick={() => { history.push(`/`);}}><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
             <div className="barContainer">
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
+
               <Accordion className="accordianFAQ" allowZeroExpanded={true}>
-                <AccordionItem>
-                    <AccordionItemHeading>
-                        <AccordionItemButton>
-                            What harsh truths do you prefer to ignore?
-                        </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                        <p>
-                            Exercitation in fugiat est ut ad ea cupidatat ut in
-                            cupidatat occaecat ut occaecat consequat est minim minim
-                            esse tempor laborum consequat esse adipisicing eu
-                            reprehenderit enim.
-                        </p>
-                    </AccordionItemPanel>
-                </AccordionItem>
-                <AccordionItem>
-                    <AccordionItemHeading>
-                        <AccordionItemButton>
-                            Is free will real or just an illusion?
-                        </AccordionItemButton>
-                    </AccordionItemHeading>
-                    <AccordionItemPanel>
-                        <p>
-                            In ad velit in ex nostrud dolore cupidatat consectetur
-                            ea in ut nostrud velit in irure cillum tempor laboris
-                            sed adipisicing eu esse duis nulla non.
-                        </p>
-                    </AccordionItemPanel>
-                </AccordionItem>
-            </Accordion>
+                {placeholders.map((placeholder) => (
+                    <AccordionItem key={placeholder.heading}>
+                        <AccordionItemHeading>
+                            <AccordionItemButton>
+                                {placeholder.heading}
+                            </AccordionItemButton>
+                        </AccordionItemHeading>
+                        <AccordionItemPanel>{placeholder.panel}</AccordionItemPanel>
+                    </AccordionItem>
+                ))}
+              </Accordion>
             </div>
             <div class="footerCenter">
                 <div className="footerItemTitle">CONTACT US</div>

@@ -33,9 +33,8 @@
     width: 80%;
 }
 
-.accordion__button{width: none;}
-
 @media screen and (max-width: 1000px) {
+
 
     .faqTitle{
         margin-top: 80px;
