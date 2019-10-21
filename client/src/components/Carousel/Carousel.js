@@ -1,3 +1,4 @@
+import '../../setupTests.js'
 import React from "react";
 import Slider from "react-slick";
 import "./Carousel.css";

@@ -184,6 +184,12 @@
     float: left;
 }
 
+.faqFooter{
+    display: block;
+    padding: 0px 0px 8px 0px;
+    font-size: 14px;
+}
+
 
 @media screen and (max-width: 1000px) {
 
@@ -297,6 +303,10 @@
         font-size: 25px;
         /* letter-spacing: -2px; */
     }
+
+    .faqFooter{
+        font-size: 12px;
+    }    
 }
     
 .footer {
@@ -317,12 +327,6 @@
     text-decoration: none;
     color: white;
     padding: 0px 0px 15px 0px;
-}
-
-.faqFooter{
-    display: block;
-    padding: 0px 0px 8px 0px;
-    font-size: 14px;
 }
 
 .faqFooter:hover{

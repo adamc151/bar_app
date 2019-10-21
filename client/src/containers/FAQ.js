@@ -17,23 +17,23 @@ import {
 
 const placeholders = [
   {
-    heading: "How do I submit a happy hour for review?",
+    heading: "How do I submit a hapihour for review?",
     panel: "If you think that there is a hapi hour that we need to know about, you can submit a request through our web app. Simply search for the bar or restaurant that you are interested in on the map page and a pop-up will become available. Alternatively, you can let us know on social media via our Twitter, Instagram or Facebook accounts. We also have an email address that you can send suggestions to."
   },
   {
-    heading: "I added a new happy hour but I can’t see it in the list, why?",
+    heading: "I added a new hapihour but I can’t see it in the list, why?",
     panel: "To ensure data integrity we review each of the hapihours that are submitted. This process might involve checking with the premises to verify that the hapihour is still valid. Once we can confirm this we will set the hapihour to be visible for everyone."
   },
   {
-    heading: "There was an error submitting a happy hour, what happened?",
+    heading: "There was an error submitting a hapihour, what happened?",
     panel: "There are a number of potential reasons for a hapihour submission to have failed. This could have been due to a duplicated hapihour that is currently under review, poor internet connection or a problem with our servers. If you are consistently seeing a problem, please let us know through social media or via email."
   },
   {
-    heading: "There are no happy hours in my location, will there be any?",
+    heading: "There are no hapihours in my location, will there be any?",
     panel: "We are currently operating in the Leeds and London areas. Once we gain popularity we will be adding hapihours to a wider area. However, if you think that there is a hapihour that we need to know about in your area please submit it via the map pop-up, via social media or email and we will get it on the site."
   },
   {
-    heading: "The information on a happy hour is wrong, will you update this?",
+    heading: "The information on a hapihour is wrong, will you update this?",
     panel: "The process of keeping data up to date is quite difficult and we try to keep the data that you see up-to-date, however, we might not get it right all the time. If you know something is wrong with a hapihour, please let us know via social media or email and we will get the information updated."
   },
 ]

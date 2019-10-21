@@ -6,6 +6,7 @@ import BarDetails from "./containers/BarDetails";
 import FAQ from "./containers/FAQ";
 import ReactGA from 'react-ga';
 import LandingPage from "./containers/LandingPage";
+import Helmet from 'react-helmet';
 
 try{
   ReactGA.initialize('UA-144974904-1');
@@ -28,6 +29,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <Helmet title="hapihour" />
           <div>
             <Route exact path="/map" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />
