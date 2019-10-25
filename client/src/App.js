@@ -29,7 +29,13 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Helmet title="hapihour" />
+          <Helmet>
+            <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+            find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
+             information you need to decide where to go next." />
+            <title>Hapihour | Find Happy Hours That Are Happening Near You Right Now!</title>
+            <link rel="canonical" href="hapihour.io" />
+          </Helmet>
           <div>
             <Route exact path="/map" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />

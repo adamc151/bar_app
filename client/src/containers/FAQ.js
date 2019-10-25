@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./FAQ.css";
-import navigate from "./back.png";
 import { Route } from "react-router-dom";
 import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
 import emailIcon from "./email.png";
+import Helmet from 'react-helmet';
  
 import {
   Accordion,
@@ -52,6 +52,13 @@ class FAQ extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
+            <Helmet>
+              <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+              find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
+              information you need to decide where to go next." />
+              <title>Hapihour | Frequently Asked Questions</title>
+              <link rel="canonical" href="hapihour.io" />
+            </Helmet>
             <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
