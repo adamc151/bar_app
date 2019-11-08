@@ -38,16 +38,20 @@ render() {
 
         <div className="wrapperLandingParent">
             <div className="header"><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
+
             <div className="photosLandingWrapper">
                 <img className="photoLanding" src={barImg}/>
             </div>
+
             <div className="titleDescriptionLandingWrapper" > 
                 <div className="titleDescriptionLanding" >Search for a location</div> 
             </div>
+
             <div className="locationWrapper" >
                 <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search...</div>
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
+
             <div className="descriptionAndTitleLandingWrapper">
                 <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
                 <div className="descriptionLandingTitle">HOW IT WORKS</div>
@@ -75,6 +79,17 @@ render() {
                     </div>
                 </div>
             </div>
+
+            <div className="donationWrapper">
+                  <div className="donationItem">
+                      <div className="">
+                          <div className="donationItemTitle">BUY US A ROUND?</div>
+                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
+                      </div>
+                      <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
+                  </div>
+            </div>
+
             <div class="footerCenter">
                 <div className="faqFooter" onClick={() => {history.push(`/faq`);}}><a>FAQs</a></div>
                 <div className="footerItemTitle">CONTACT US</div>
