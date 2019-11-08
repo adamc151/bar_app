@@ -60,7 +60,7 @@ class BarDetails extends Component {
             />
             </div>
 
-            <div className="donationWrapper">
+            {/* <div className="donationWrapper">
                   <div className="donationItem">
                   {<div className="line">--</div>}
                       <div className="">
@@ -69,7 +69,7 @@ class BarDetails extends Component {
                       </div>
                       <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
                   </div>
-            </div>
+            </div> */}
 
             <div class="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
