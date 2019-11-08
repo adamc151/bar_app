@@ -62,6 +62,7 @@ class BarDetails extends Component {
 
             <div className="donationWrapper">
                   <div className="donationItem">
+                  {<div className="line">--</div>}
                       <div className="">
                           <div className="donationItemTitle">BUY US A ROUND?</div>
                           <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>

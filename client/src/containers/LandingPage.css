@@ -215,7 +215,7 @@
 .donationItemTitle{
     font-size: 15px;
     font-family: Circular-bold;
-    margin-top: 10px;
+    margin-top: 20px;
     color: rgba(236, 163, 3, 0.945);
 }
 
@@ -345,10 +345,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 20px;
     }
     
     .donationItem{
-        padding: 40px;
+        padding: 30px;
     }
     
     .donationItemDesc{
@@ -361,8 +362,12 @@
     .donationItemTitle{
         font-size: 15px;
         font-family: Circular-bold;
-        margin-top: 10px;
+        margin-top: 20px;
         color: rgba(255, 188, 44, 0.945);
+    }
+
+    .line{
+        border-width: 1px;
     }
     
 }
