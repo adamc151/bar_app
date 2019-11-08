@@ -86,7 +86,7 @@ render() {
                   {<div className="line">--</div>}
                       <div className="">
                           <div className="donationItemTitle">BUY US A ROUND?</div>
-                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
+                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you think hapihour is useful, maybe buy us a coffee/ beer?</div>
                       </div>
                       <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
                   </div>
