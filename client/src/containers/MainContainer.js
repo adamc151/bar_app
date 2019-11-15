@@ -8,7 +8,7 @@ import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
 import Carousel from "../components/Carousel/Carousel";
 import LoadingPage from '../components/LoadingPage/LoadingPage';
-import BarDetails from './BarDetails';
+import Helmet from 'react-helmet';
 
 class MainContainer extends Component {
   constructor(props) {
@@ -66,6 +66,13 @@ class MainContainer extends Component {
 
     return (
       <Fragment>
+        <Helmet>
+            <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+            find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
+            information you need to decide where to go next." />
+            <title>Hapihour | Map</title>
+            <link rel="canonical" href="hapihour.io" />
+        </Helmet>
       {loading && this.state.showLoader && <LoadingPage />}
       <div className={"wrapper " + loadingModifier}>
         <div className="mapContainer">

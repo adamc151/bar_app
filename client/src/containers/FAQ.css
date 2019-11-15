@@ -1,0 +1,124 @@
+@font-face {
+    font-family: Circular;
+    src: url(CircularStd-Book.otf);
+}
+
+@font-face {
+    font-family: Circular-bold;
+    src: url(CircularStd-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Circular-black;
+    src: url(CircularStd-Black.otf);
+    font-weight: bolder;
+}
+
+.faqTitle{
+    text-align: center;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 100px;
+    font-size: 24px;
+    font-family: Circular-bold;
+    margin-bottom: 20px;
+    border-bottom: 3px solid rgb(202, 202, 202);
+    padding-bottom: 10px;
+}
+
+.accordianFAQ{
+    margin: auto;
+    margin-top: 30px;
+    width: 80%;
+    max-width: 1000px;
+}
+
+@media screen and (max-width: 1000px) {
+
+
+    .faqTitle{
+        margin-top: 80px;
+        font-size: 20px;
+        max-width: 250px;
+    }
+
+    .accordianFAQ{
+        margin-top: 30px;
+        font-size: 14px;
+        width: 100%;
+    }
+
+    .accordianFAQButton{
+        width: 80%;
+    }
+}
+
+
+
+/**
+* ----------------------------------------------
+* Demo styles
+* ----------------------------------------------
+**/
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: #f4f4f4;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    /* width: 100%; */
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:focus {
+    outline: none !important;
+}
+
+.accordion__button:hover {
+    background-color: #ddd;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 10px;
+    margin-right: 12px;
+    border-bottom: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(-45deg);
+}
+
+.accordion__button[aria-expanded='true']::before,
+.accordion__button[aria-selected='true']::before {
+    transform: rotate(45deg);
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

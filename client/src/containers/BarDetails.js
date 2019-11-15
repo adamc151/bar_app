@@ -10,6 +10,7 @@ import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
 import emailIcon from "./email.png";
+import Helmet from 'react-helmet';
 
 class BarDetails extends Component {
   constructor(props) {
@@ -33,10 +34,15 @@ class BarDetails extends Component {
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
-            {/* <div class="header" onClick={() => { history.push(`/`);}}>hapihour<img src={beerIcon} className="beerIconLanding"/></div> */}
-            <div className="header" onClick={() => { history.push(`/`);}}><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
+            <Helmet>
+                <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+                find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
+                information you need to decide where to go next." />
+                <title>Hapihour | Details</title>
+                <link rel="canonical" href="hapihour.io" />
+            </Helmet>
+            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
-            {/* {<a href="/" className="bottomTextbackNavigation">{"<"}</a>} */}
             {<img
                 src={navigate}
                 className="bottomTextbackNavigation"
@@ -53,13 +59,20 @@ class BarDetails extends Component {
                 singleBar={singleBar}
             />
             </div>
-            {/* <div className="bottomTextWrapper">
-            {<div className="bottomText">Something wrong with this listing?</div>}
-            {<a href="https://twitter.com/hapihour_io" className="bottomText">Send us a message here</a>}
+
+            {/* <div className="donationWrapper">
+                  <div className="donationItem">
+                  {<div className="line">--</div>}
+                      <div className="">
+                          <div className="donationItemTitle">BUY US A ROUND?</div>
+                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
+                      </div>
+                      <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
+                  </div>
             </div> */}
+
             <div class="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
-                {/* <div className="footerItemTitle">LET US KNOW:</div> */}
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
