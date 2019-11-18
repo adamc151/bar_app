@@ -6,10 +6,10 @@ import "./LandingPage.css";
 import location from "./pin.png";
 import calendar from "./monday.png";
 import beers from "./cheers.png";
-import bar1 from "./barimg1.jpg";
-import bar2 from "./barimg2.jpg";
-import bar4 from "./barimg4.jpg";
-import bar5 from "./barimg5.jpg";
+import bar1 from "./barImg111.jpg";
+import bar2 from "./barImg222.jpg";
+import bar3 from "./barImg333.jpg";
+// import bar5 from "./barimg5.jpg";
 import locationIcon from "./placeholder.png";
 import twitterIcon from "./twitter.png";
 import emailIcon from "./email.png";
@@ -29,7 +29,7 @@ class LandingPage extends Component {
 
 render() {
 
-    const barImgs = [bar1, bar2, bar4, bar5];
+    const barImgs = [bar1, bar2, bar3];
     const num = Math.floor(Math.random() * Math.floor(4));
     const barImg = barImgs[num];
 
