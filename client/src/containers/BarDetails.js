@@ -58,6 +58,14 @@ class BarDetails extends Component {
                 data={data}
                 singleBar={singleBar}
             />
+            <div className="footerCenter">
+                <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+            </div>
             </div>
 
             {/* <div className="donationWrapper">
@@ -71,14 +79,7 @@ class BarDetails extends Component {
                   </div>
             </div> */}
 
-            <div class="footerCenter">
-                <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
-                <a className="inline dot">•</a>
-                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
-                <a className="inline dot">•</a>
-                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
-            </div>
+            
         </div>
       )} />
     );

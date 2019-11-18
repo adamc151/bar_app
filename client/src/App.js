@@ -18,11 +18,11 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 class App extends Component {
 
   componentDidMount(){
-    console.log('componentDidMount', this.props);
+    // console.log('componentDidMount', this.props);
   }
 
   componentDidUpdate(){
-    console.log('componentDidUpdate', this.props);
+    // console.log('componentDidUpdate', this.props);
   }
 
   render() {

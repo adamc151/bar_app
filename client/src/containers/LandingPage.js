@@ -92,7 +92,7 @@ render() {
                   </div>
             </div>
 
-            <div class="footerCenter">
+            <div className="footerCenter">
                 <div className="faqFooter" onClick={() => {history.push(`/faq`);}}><a>FAQs</a></div>
                 <div className="footerItemTitle">CONTACT US</div>
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
