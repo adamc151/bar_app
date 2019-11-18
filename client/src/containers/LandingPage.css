@@ -32,7 +32,7 @@
 .descriptionAndTitleLandingWrapper{
     margin: auto;
     margin-top: 280px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     max-width: 1100px;
     color: rgb(72, 72, 72);
 }
@@ -201,7 +201,9 @@
 }
 
 .donationItem{
-    padding: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
 }
 
 .donationItemDesc{
@@ -228,9 +230,8 @@
 
     .descriptionAndTitleLandingWrapper{
         margin: auto;
-        margin-top: 400px;
+        /* margin-top: 400px; */
         margin-top: 30vh;
-        /* margin-bottom: 100px; */
         max-width: 1100px;
         color: rgb(72, 72, 72);
     }
@@ -349,7 +350,9 @@
     }
     
     .donationItem{
-        padding: 30px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
     }
     
     .donationItemDesc{
