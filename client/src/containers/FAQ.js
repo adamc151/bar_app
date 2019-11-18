@@ -75,8 +75,7 @@ class FAQ extends Component {
                     </AccordionItem>
                 ))}
               </Accordion>
-            </div>
-            <div class="footerCenter">
+              <div class="footerCenter">
                 <div className="footerItemTitle">CONTACT US</div>
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
@@ -84,6 +83,8 @@ class FAQ extends Component {
                 <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
             </div>
+            </div>
+            
         </div>
       )} />
     );
