@@ -30,7 +30,7 @@ class LandingPage extends Component {
 render() {
 
     const barImgs = [bar1, bar2, bar3];
-    const num = Math.floor(Math.random() * Math.floor(4));
+    const num = Math.floor(Math.random() * Math.floor(barImgs.length));
     const barImg = barImgs[num];
 
     return (
