@@ -94,8 +94,8 @@ render() {
             </div>
 
             <div className="footerCenter">
-                <div className="faqFooter" onClick={() => {history.push(`/faq`);}}><a>FAQs</a></div>
-                <div className="footerItemTitle">CONTACT US</div>
+                <div className="faqFooter" onClick={() => {history.push(`/faq`);}}><a>FAQ</a></div>
+                {/* <div className="footerItemTitle">CONTACT US</div> */}
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>

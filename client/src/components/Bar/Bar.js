@@ -51,7 +51,7 @@ class Bar extends React.Component {
   componentWillReceiveProps(nextProps) {}
 
   render() {
-    return (<div className="BarContainer">{this.renderBar()}</div>);
+    return this.renderBar();
   }
 }
 
