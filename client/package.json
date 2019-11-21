@@ -1,7 +1,6 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://hapihour.io/react-app/",
   "private": true,
   "dependencies": {
     "abbrev-weekday-range": "^1.0.0",
