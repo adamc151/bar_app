@@ -12,7 +12,6 @@
 .detailsWrapper{
     margin: auto;
     max-width: 800px;
-    margin-top:80px;
 }
 
 .detailsTextWrapper{
@@ -82,10 +81,6 @@
 }
 
 @media screen and (max-width: 700px) {
-
-    .detailsWrapper{
-        margin-top:32px;
-    }
 
     .detailsTextWrapper{
         padding: 5px 25px 25px 25px;

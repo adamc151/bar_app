@@ -6,6 +6,9 @@
 
 .barDetailsWrapper{
   flex-direction: column;
+  padding-top: 45px;
+    padding-bottom: 106px;
+    height: calc(100% - 45px - 106px);
 }
 
 .barContainer {
@@ -51,6 +54,8 @@
 }
 
 .footerCenter{
+  position: fixed;
+  width: 100%;
   text-align: center;
   left: 0;
   bottom: 0;
