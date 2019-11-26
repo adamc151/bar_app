@@ -61,6 +61,7 @@ class FAQ extends Component {
             </Helmet>
             <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
+
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
 
               <Accordion className="accordianFAQ" allowZeroExpanded={true}>
@@ -75,16 +76,17 @@ class FAQ extends Component {
                     </AccordionItem>
                 ))}
               </Accordion>
-              <div class="footerCenter">
-                <div className="footerItemTitle">CONTACT US</div>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
-                <a className="inline dot">•</a>
-                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
-                <a className="inline dot">•</a>
-                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+
+              {/* <div class="footerCenter">
+                  <div className="footerItemTitle">CONTACT US</div>
+                  <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                  <a className="inline dot">•</a>
+                  <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                  <a className="inline dot">•</a>
+                  <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+              </div> */}
+
             </div>
-            </div>
-            
         </div>
       )} />
     );

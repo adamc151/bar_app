@@ -187,7 +187,7 @@
 .faqFooter{
     display: block;
     padding: 0px 0px 8px 0px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .donationWrapper{
@@ -335,7 +335,7 @@
     }
 
     .faqFooter{
-        font-size: 12px;
+        font-size: 18px;
     }
 
     .donationWrapper{
