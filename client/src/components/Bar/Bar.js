@@ -25,7 +25,7 @@ class Bar extends React.Component {
           {details.address && <div className="detailsAddress">{details.address}</div>}
           {details.website && <a href={details.website} className="detailsWebsite">Website</a>}
           {/* {<div className="line">--</div>} */}
-          {<div className="dealsTitle">Deals</div>}
+          {<div className="dealsTitle">Today's Deals</div>}
           {this.renderDeals()}
         </div>
       </div>
