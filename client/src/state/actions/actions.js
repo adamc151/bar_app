@@ -99,7 +99,7 @@ export function setTimeFilter(timeFilter) {
 
 
 export function categoriseData(data) {
-  console.log('categirising data...');
+  // console.log('categirising data...');
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();

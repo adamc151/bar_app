@@ -173,6 +173,7 @@
     -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
     -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
     box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    z-index: 200;
 }
 
 .headerTextHapi{
@@ -331,6 +332,7 @@
         padding: 5px 0px 8px 15px;
         text-align: left;
         font-size: 25px;
+        z-index: 200;
         /* letter-spacing: -2px; */
     }
 
