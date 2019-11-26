@@ -40,7 +40,7 @@ class Bar extends React.Component {
     let details = this.props.singleBar;
     if (details.name == undefined || !details.name || details.name == '') return null;
 
-    console.log(`deals: ${JSON.stringify(details.otherDeals)}`);
+    // console.log(`deals: ${JSON.stringify(details.otherDeals)}`);
 
     return details.deals.map((data, i) => {
         return (
