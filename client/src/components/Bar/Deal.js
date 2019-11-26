@@ -20,11 +20,8 @@ class Deal extends React.Component {
   render() {
 
     const { category, endTime, startTime, description, weekDays } = this.props.data;
-    // let weekDaysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let weekDayFinal = abbrevDays(weekDays);
     weekDayFinal == "Sun-Sat" ? weekDayFinal = "Everyday" : null;
-    console.log(weekDayFinal);
-    // weekDays.map((data)=>{weekDayFinal.push(weekDaysArray[data]);});
 
     return (
       <div

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Bar.css";
 import bar from "../List/deafultBarImg.jpg";
+import { categoriseData } from '../../state/actions/actions';
 
 import Deal from "./Deal";
 
@@ -26,18 +27,38 @@ class Bar extends React.Component {
           {details.website && <a href={details.website} className="detailsWebsite">Website</a>}
           {/* {<div className="line">--</div>} */}
           {<div className="dealsTitle">Today's Deals</div>}
-          {this.renderDeals()}
+          {this.renderTodayDeals()}
+          { this.props.singleBar.otherDeals[0] && <div className="dealsTitle">Other Deals</div>}
+          { this.props.singleBar.otherDeals[0] && this.renderOtherDeals()}
         </div>
       </div>
     );
   }
 
-  renderDeals(){
+  renderTodayDeals(){
 
     let details = this.props.singleBar;
     if (details.name == undefined || !details.name || details.name == '') return null;
 
+    console.log(`deals: ${JSON.stringify(details.otherDeals)}`);
+
     return details.deals.map((data, i) => {
+        return (
+          <Deal
+            key={i}
+            index={i}
+            data={data}
+          />
+        );
+      });
+  }
+
+  renderOtherDeals(){
+
+    let details = this.props.singleBar;
+    if (details.name == undefined || !details.name || details.name == '') return null;
+
+    return details.otherDeals.map((data, i) => {
         return (
           <Deal
             key={i}

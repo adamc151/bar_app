@@ -50,7 +50,7 @@ export function fetchOne(id) {
     let valueArray = [];
     valueArray.push(value.data);
     let returnValue = categoriseData(valueArray)[0];
-    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
+    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: valueArray[0]});
 
     // .then(function (response) {
     //   console.log(`response: ${JSON.stringify(response)}`);
@@ -98,7 +98,8 @@ export function setTimeFilter(timeFilter) {
 }
 
 
-function categoriseData(data) {
+export function categoriseData(data) {
+  console.log('categirising data...');
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -109,6 +110,7 @@ function categoriseData(data) {
 
   var categorisedBlob = data.filter(item => {
     var final = [];
+    var finalOther = [];
 
     if(item.validated){
 
@@ -116,24 +118,29 @@ function categoriseData(data) {
 
         if(deal.weekDays.includes(day)){
 
-            var st = deal.startTime.replace(":", "");
-            var et = deal.endTime.replace(":", "");
+          var st = deal.startTime.replace(":", "");
+          var et = deal.endTime.replace(":", "");
 
-            if (st <= time && et > time && deal.weekDays.includes(day)) {
-              deal.category = 'Now';
-            }
-            else if (st > time && et > time && deal.weekDays.includes(day)) {
-              deal.category = 'Upcoming';
-            }
-            else{
-              deal.category = 'Inactive';
-            }
-            final.push(deal);
+          if (st <= time && et > time && deal.weekDays.includes(day)) {
+            deal.category = 'Now';
           }
+          else if (st > time && et > time && deal.weekDays.includes(day)) {
+            deal.category = 'Upcoming';
+          }
+          else{
+            deal.category = 'Inactive';
+          }
+          final.push(deal);
+        }
+        else{
+          deal.category = 'Inactive';
+          finalOther.push(deal);
+        }
       });
     }
 
     item.deals = final;
+    item['otherDeals'] = finalOther;
 
     if (item.deals[0]) {
       return item;
