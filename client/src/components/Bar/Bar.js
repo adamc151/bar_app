@@ -28,8 +28,8 @@ class Bar extends React.Component {
           {/* {<div className="line">--</div>} */}
           {<div className="dealsTitle">Today's Deals</div>}
           {this.renderTodayDeals()}
-          {<div className="dealsTitle">Other Deals</div>}
-          {this.renderOtherDeals()}
+          { this.props.singleBar.otherDeals[0] && <div className="dealsTitle">Other Deals</div>}
+          { this.props.singleBar.otherDeals[0] && this.renderOtherDeals()}
         </div>
       </div>
     );
@@ -40,7 +40,7 @@ class Bar extends React.Component {
     let details = this.props.singleBar;
     if (details.name == undefined || !details.name || details.name == '') return null;
 
-    // console.log(`deals: ${JSON.stringify(details)}`);
+    console.log(`deals: ${JSON.stringify(details.otherDeals)}`);
 
     return details.deals.map((data, i) => {
         return (
