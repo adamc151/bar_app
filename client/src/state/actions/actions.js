@@ -28,7 +28,7 @@ export function clearSingleBar() {
 }
 
 export function fetchData(obj) {
-  const { lat, long, miles, timeFilter } = obj;
+  const { lat, long, miles } = obj;
 
   return async (dispatch, getState) => {
     dispatch({ type: DATA_FETCH_REQUEST });
@@ -42,7 +42,7 @@ export function fetchData(obj) {
 
 export function fetchOne(id) {
   return async (dispatch, getState) => {
-    console.log("fetchOne");
+    // console.log("fetchOne");
     const value = await axios.get("/api/bar", {
       params: { place_id: id }
     });
@@ -71,7 +71,7 @@ export function postData(obj) {
       return dispatch({ type: DATA_POST_SUCCESS });
     })
     .catch(function (error) {
-      console.log(`error: ${error}`);
+      // console.log(`error: ${error}`);
       return dispatch({ type: DATA_POST_FAILURE });
     });;
   };

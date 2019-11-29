@@ -78,8 +78,6 @@ class Place extends React.Component {
         ]
       };
 
-      console.log(`weekDays: ${JSON.stringify(newPlace)}`);
-
       this.props.actions.postData(newPlace);
 
       ReactGA.event({
