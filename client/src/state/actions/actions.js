@@ -50,7 +50,7 @@ export function fetchOne(id) {
     let valueArray = [];
     valueArray.push(value.data);
     let returnValue = categoriseData(valueArray)[0];
-    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: valueArray[0]});
+    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
 
     // .then(function (response) {
     //   console.log(`response: ${JSON.stringify(response)}`);
@@ -99,7 +99,7 @@ export function setTimeFilter(timeFilter) {
 
 
 export function categoriseData(data) {
-  // console.log('categirising data...');
+  
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();

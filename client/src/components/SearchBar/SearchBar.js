@@ -28,7 +28,7 @@ class SearchBar extends React.Component {
           onBlur={onfocusout}
           id="keyword"
           onKeyDown={event => {
-            if (event.keyCode == 13) {
+            if (event.keyCode === 13) {
               this.searchBar.blur();
               return false;
             }

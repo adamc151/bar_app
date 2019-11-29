@@ -1,7 +1,6 @@
 import React from "react";
 import "./Bar.css";
 import bar from "../List/deafultBarImg.jpg";
-import { categoriseData } from '../../state/actions/actions';
 
 import Deal from "./Deal";
 
@@ -16,7 +15,7 @@ class Bar extends React.Component {
   renderBar() {
 
     let details = this.props.singleBar;
-    if (details.name == undefined || !details.name || details.name == '') return null;
+    if (details.name === undefined || !details.name || details.name === '') return null;
 
     return (
       <div className="detailsWrapper">
@@ -38,7 +37,7 @@ class Bar extends React.Component {
   renderTodayDeals(){
 
     let details = this.props.singleBar;
-    if (details.name == undefined || !details.name || details.name == '') return null;
+    if (details.name === undefined || !details.name || details.name === '') return null;
 
     // console.log(`deals: ${JSON.stringify(details.otherDeals)}`);
 
@@ -56,7 +55,7 @@ class Bar extends React.Component {
   renderOtherDeals(){
 
     let details = this.props.singleBar;
-    if (details.name == undefined || !details.name || details.name == '') return null;
+    if (details.name === undefined || !details.name || details.name === '') return null;
 
     return details.otherDeals.map((data, i) => {
         return (
