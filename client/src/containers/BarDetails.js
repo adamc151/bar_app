@@ -29,7 +29,7 @@ class BarDetails extends Component {
       singleBar
     } = this.props;
 
-    console.log("BarDetails page");
+    // console.log("BarDetails page");
 
     return (
       <Route render={({ history }) => (

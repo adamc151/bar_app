@@ -28,7 +28,7 @@ export function clearSingleBar() {
 }
 
 export function fetchData(obj) {
-  const { lat, long, miles, timeFilter } = obj;
+  const { lat, long, miles } = obj;
 
   return async (dispatch, getState) => {
     dispatch({ type: DATA_FETCH_REQUEST });
@@ -42,7 +42,7 @@ export function fetchData(obj) {
 
 export function fetchOne(id) {
   return async (dispatch, getState) => {
-    console.log("fetchOne");
+    // console.log("fetchOne");
     const value = await axios.get("/api/bar", {
       params: { place_id: id }
     });
@@ -50,7 +50,7 @@ export function fetchOne(id) {
     let valueArray = [];
     valueArray.push(value.data);
     let returnValue = categoriseData(valueArray)[0];
-    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: valueArray[0]});
+    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
 
     // .then(function (response) {
     //   console.log(`response: ${JSON.stringify(response)}`);
@@ -71,7 +71,7 @@ export function postData(obj) {
       return dispatch({ type: DATA_POST_SUCCESS });
     })
     .catch(function (error) {
-      console.log(`error: ${error}`);
+      // console.log(`error: ${error}`);
       return dispatch({ type: DATA_POST_FAILURE });
     });;
   };
@@ -99,7 +99,7 @@ export function setTimeFilter(timeFilter) {
 
 
 export function categoriseData(data) {
-  // console.log('categirising data...');
+  
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();

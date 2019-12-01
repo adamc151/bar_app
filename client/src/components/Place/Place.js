@@ -42,7 +42,7 @@ class Place extends React.Component {
 
       for (var i = 0; i < dealDescriptionArray.length; i++) {
         dealDescriptionArray[i] = dealDescriptionArray[i].trim();
-    }
+      }
 
       if(!place) return;
 
@@ -77,8 +77,6 @@ class Place extends React.Component {
           }
         ]
       };
-
-      console.log(`weekDays: ${JSON.stringify(newPlace)}`);
 
       this.props.actions.postData(newPlace);
 

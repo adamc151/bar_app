@@ -12,7 +12,6 @@ import {
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE,
   SET_LOADING,
-  SET_SELECTED_BAR,
   CLEAR_SINGLE_BAR
 } from "../actions/actions";
 
