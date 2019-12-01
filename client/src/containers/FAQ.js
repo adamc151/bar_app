@@ -47,7 +47,7 @@ class FAQ extends Component {
   }
 
   render() {
-    console.log("FAQ page");
+    // console.log("FAQ page");
 
     return (
       <Route render={({ history }) => (

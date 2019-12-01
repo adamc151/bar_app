@@ -29,7 +29,7 @@ class BarDetails extends Component {
       singleBar
     } = this.props;
 
-    console.log("BarDetails page");
+    // console.log("BarDetails page");
 
     return (
       <Route render={({ history }) => (
@@ -49,22 +49,12 @@ class BarDetails extends Component {
             </div>
 
             <div className="barContainer">
-                <Bar
-                    fetchOne={fetchOne}
-                    data={data}
-                    singleBar={singleBar}
-                />
-            </div>
-
-            {/* <div className="donationWrapper">
-                <div className="donationItem">
-                {<div className="line">--</div>}
-                    <div className="">
-                        <div className="donationItemTitle">BUY US A ROUND? :)</div>
-                        <div className="donationItemDesc">Hapihour is a free, self-funded product. If you think hapihour is useful, maybe buy us a coffee/beer to keep us going?</div>
-                    </div>
-                    <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
-                </div>
+            <Bar
+                fetchOne={fetchOne}
+                data={data}
+                singleBar={singleBar}
+            />
+            
             </div>
 
             <div className="footerCenter">
@@ -74,6 +64,17 @@ class BarDetails extends Component {
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+            </div>
+
+            {/* <div className="donationWrapper">
+                  <div className="donationItem">
+                  {<div className="line">--</div>}
+                      <div className="">
+                          <div className="donationItemTitle">BUY US A ROUND?</div>
+                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
+                      </div>
+                      <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
+                  </div>
             </div> */}
 
         </div>

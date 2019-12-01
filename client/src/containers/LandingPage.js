@@ -16,6 +16,7 @@ import emailIcon from "./email.png";
 import beerIcon from "./beer.png";
 import fullLogo from "./fullLogo.png";
 import instagramIcon from "./instagram.png";
+import facebookIcon from "./facebook.png";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -99,6 +100,8 @@ render() {
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://www.facebook.com/hapihour.io" className="inline"><img src={facebookIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
             </div>
