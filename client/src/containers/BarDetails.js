@@ -35,7 +35,7 @@ class BarDetails extends Component {
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
             <Helmet>
-                <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+                <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
                 find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
                 information you need to decide where to go next." />
                 <title>Hapihour | Details</title>
@@ -83,6 +83,7 @@ class BarDetails extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('yooo state.singleBar', state.singleBar);
   return {
     loading: state.loading,
     data: state.data,

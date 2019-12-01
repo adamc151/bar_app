@@ -47,19 +47,14 @@ export function fetchOne(id) {
       params: { place_id: id }
     });
 
+    console.log('yooo fetch one value', value);
+
     let valueArray = [];
     valueArray.push(value.data);
-    let returnValue = categoriseData(valueArray)[0];
+    console.log('yooo fetch one valueArray', valueArray);
+    let returnValue = categoriseData(valueArray, true)[0];
+    console.log('yooo fetch one returnValue', returnValue);
     return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
-
-    // .then(function (response) {
-    //   console.log(`response: ${JSON.stringify(response)}`);
-    //   return response;
-    // })
-    // .catch(function (error) {
-    //   console.log(`error: ${error}`);
-    //   return "";
-    // });
   };
 }
 
@@ -98,8 +93,8 @@ export function setTimeFilter(timeFilter) {
 }
 
 
-export function categoriseData(data) {
-  
+export function categoriseData(data, returnAllDeals = false) {
+
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -130,6 +125,7 @@ export function categoriseData(data) {
           else{
             deal.category = 'Inactive';
           }
+          console.log('yooo deal', deal);
           final.push(deal);
         }
         else{
@@ -142,7 +138,7 @@ export function categoriseData(data) {
     item.deals = final;
     item['otherDeals'] = finalOther;
 
-    if (item.deals[0]) {
+    if (item.deals[0] || returnAllDeals) {
       return item;
     }
   });

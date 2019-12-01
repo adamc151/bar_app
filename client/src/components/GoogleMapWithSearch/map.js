@@ -88,10 +88,11 @@ export class MyMap extends React.Component {
 
   setCurrentLocation(position) {
 
-    const { setUserCoordinates } = this.props;
+    const { setUserCoordinates, displayCarousel } = this.props;
     const { latitude, longitude } = position.coords;
 
     this.setState({ searchedPlace: null, showingInfoWindow: false, fetchingUserLocation: false });
+    displayCarousel(true);
     setUserCoordinates([ latitude, longitude ]);
 
     this.centerMap({ coords: {
@@ -155,7 +156,7 @@ export class MyMap extends React.Component {
         return;
       }
 
-      
+
       var position = {
         coords: {
           latitude: place.geometry.location.lat(),
@@ -166,7 +167,7 @@ export class MyMap extends React.Component {
       const exists = this.props.data.some(function(item) {
         return item.place_id === place.place_id;
       });
-      
+
       if(exists){
         this.centerMap(position, true);
         return;
@@ -200,6 +201,7 @@ export class MyMap extends React.Component {
             city: city
           }
         });
+        this.props.displayCarousel(false);
       }
 
       this.centerMap(position, true);
@@ -219,8 +221,7 @@ export class MyMap extends React.Component {
       userCoordinates,
       miles,
       timeFilter,
-      searchbarFocusIn,
-      searchbarFocusOut
+      displayCarousel
     } = this.props;
 
     const obj = {
@@ -238,14 +239,17 @@ export class MyMap extends React.Component {
           getNode={node => (this.searchBox = node)}
           onChange={this.findPlace}
           onClickButton={this.getLocation}
-          onfocusin={searchbarFocusIn}
-          onfocusout={searchbarFocusOut}
+          onfocusin={() => displayCarousel(false)}
+          onfocusout={() => displayCarousel(true)}
           fetchingUserLocation={fetchingUserLocation}
         />
         <div className="map">
           {this.state.showingInfoWindow && (
             <Place
-              onClick={() => this.setState({ showingInfoWindow: false })}
+              onClick={() => {
+                this.setState({ showingInfoWindow: false });
+                displayCarousel(true);
+              }}
               place={this.state.searchedPlace}
               onAdd={() => {
                 this.props.fetchData(obj);
