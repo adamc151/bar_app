@@ -9,11 +9,16 @@
 }
 
 .barContainer {
-  /* position: fixed; */
+  margin-top: 45px;
+  height: calc(100% - 45px);
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
   text-align: left;
+}
+
+.barContainerGrow {
+  flex-grow: 1;
 }
 
 .navigationClass{
@@ -63,7 +68,7 @@
   letter-spacing: 2px;
   text-decoration: none;
   color: white;
-  box-shadow: 
+  box-shadow:
     inset 0px 11px 10px -10px rgb(145, 145, 145);
 }
 
@@ -98,7 +103,6 @@
 
   .barContainer {
     width: 100%;
-    height: 100%;
   }
 
   .detailsTextWrapper{
