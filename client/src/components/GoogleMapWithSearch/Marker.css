@@ -1,26 +1,36 @@
 @-webkit-keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 #ff981186;
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
   }
   70% {
-    -webkit-box-shadow: 0 0 0 10px #ff981100;
+    -webkit-box-shadow: 0 0 0 30px #ff981100;
   }
   100% {
     -webkit-box-shadow: 0 0 0 0 #ff981100;
+    transform: scale(0.9);
   }
 }
 @keyframes pulse {
   0% {
     -moz-box-shadow: 0 0 0 0 #ff981183;
     box-shadow: 0 0 0 0 #ff981169;
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1);
   }
   70% {
-    -moz-box-shadow: 0 0 0 10px #ff981100;
-    box-shadow: 0 0 0 10px #ff981100;
+    -moz-box-shadow: 0 0 0 30px #ff981100;
+    box-shadow: 0 0 0 30px #ff981100;
   }
   100% {
     -moz-box-shadow: 0 0 0 0 #ff981100;
     box-shadow: 0 0 0 0 #ff981100;
+    transform: scale(0.9);
   }
 }
 

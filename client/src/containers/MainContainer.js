@@ -85,6 +85,7 @@ class MainContainer extends Component {
             fetchOne={fetchOne}
             data={data}
             hoverCoordinates={hoverCoordinates}
+            setHoverCoordinates={setHoverCoordinates}
             setCarouselSlide={setCarouselSlide}
             displayCarousel={(bool) => {
               this.setState({ displayCarousel: bool });
