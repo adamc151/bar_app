@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
+import facebookIcon from "./facebook.png";
 import emailIcon from "./email.png";
 import Helmet from 'react-helmet';
 
@@ -62,6 +63,8 @@ class BarDetails extends Component {
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a className="inline dot">•</a>
+                <a href="https://www.facebook.com/hapihour.io" className="inline"><img src={facebookIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
             </div>
