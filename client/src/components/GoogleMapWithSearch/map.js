@@ -34,7 +34,6 @@ export class MyMap extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-
     const { centerCoordinates } = props;
     const { currentZoom } = state;
 
@@ -69,7 +68,7 @@ export class MyMap extends React.Component {
   }
 
   onMapClicked() {
-    this.props.searchbarFocusOut();
+    this.props.displayCarousel(true);
   }
 
   getLocation() {
@@ -101,9 +100,9 @@ export class MyMap extends React.Component {
     }});
   }
 
-  centerMap(position, searchedPlace = false) {
+  centerMap(position, searchedPlace = false, doFetchData = true) {
 
-    const { setCenterCoordinates, fetchData, timeFilter, miles } = this.props;
+    const { setCenterCoordinates, setHoverCoordinates, fetchData, timeFilter, miles } = this.props;
     const { latitude: lat, longitude: long } = position.coords;
 
     if (!searchedPlace) {
@@ -111,7 +110,8 @@ export class MyMap extends React.Component {
     }
 
     setCenterCoordinates([ lat, long ]);
-    fetchData({ lat, long, miles, timeFilter });
+    setHoverCoordinates([ lat, long ]);
+    doFetchData && fetchData({ lat, long, miles, timeFilter });
   }
 
   findPlace(e) {
@@ -268,7 +268,9 @@ export class MyMap extends React.Component {
               this.map = x.map;
               this.props.onMapsLoaded();
             }}
-            onChange={x => this.setState({ currentZoom: x.zoom })}
+            onChange={x => {
+              this.setState({ currentZoom: x.zoom });
+            }}
           >
             <Marker
               className="currentLocation"
@@ -285,7 +287,16 @@ export class MyMap extends React.Component {
               return (
                 <Marker
                   className={animate ? "hovered" : "plainMarker"}
-                  onClick={() => setCarouselSlide(i)}
+                  onClick={() => {
+                    const position = {
+                      coords: {
+                        latitude: coordinates[0],
+                        longitude: coordinates[1]
+                      }
+                    }
+                    this.centerMap(position, false, false);
+                    setCarouselSlide(i)
+                  }}
                   key={i}
                   lat={coordinates[0]}
                   lng={coordinates[1]}
