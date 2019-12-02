@@ -14,7 +14,7 @@ class Bar extends React.Component {
 
   renderBar() {
 
-    console.log('yooo this.props', this.props);
+    // console.log('yooo this.props', this.props);
 
     let details = this.props.singleBar;
     if (!details || details.name === undefined || !details.name || details.name === '') return null;

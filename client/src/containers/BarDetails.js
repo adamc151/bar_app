@@ -9,6 +9,7 @@ import { Route } from "react-router-dom";
 import twitterIcon from "./twitter.png";
 import beerIcon from "./beer.png";
 import instagramIcon from "./instagram.png";
+import facebookIcon from "./facebook.png";
 import emailIcon from "./email.png";
 import Helmet from 'react-helmet';
 
@@ -41,39 +42,46 @@ class BarDetails extends Component {
                 <title>Hapihour | Details</title>
                 <link rel="canonical" href="hapihour.io" />
             </Helmet>
-
-            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
-
+            <div className="header">
+            <div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div>
+            <div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div>
+            <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
                 {<img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {history.push(`/map`);}}/>}
             </div>
 
             <div className="barContainer">
-                <Bar
-                    fetchOne={fetchOne}
-                    data={data}
-                    singleBar={singleBar}
-                />
+            <div className="barContainerGrow">
+              <Bar
+                  fetchOne={fetchOne}
+                  data={data}
+                  singleBar={singleBar}
+              />
             </div>
-
-            {/* <div className="donationWrapper">
-                <div className="donationItem">
-                {<div className="line">--</div>}
-                    <div className="">
-                        <div className="donationItemTitle">BUY US A ROUND? :)</div>
-                        <div className="donationItemDesc">Hapihour is a free, self-funded product. If you think hapihour is useful, maybe buy us a coffee/beer to keep us going?</div>
-                    </div>
-                    <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
-                </div>
-            </div>
-
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
                 <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
+                <a href="https://www.facebook.com/hapihour.io" className="inline"><img src={facebookIcon}/></a>
+                <a className="inline dot">•</a>
                 <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+            </div>
+
+            </div>
+
+
+
+            {/* <div className="donationWrapper">
+                  <div className="donationItem">
+                  {<div className="line">--</div>}
+                      <div className="">
+                          <div className="donationItemTitle">BUY US A ROUND?</div>
+                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
+                      </div>
+                      <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
+                  </div>
             </div> */}
 
         </div>
@@ -83,7 +91,7 @@ class BarDetails extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('yooo state.singleBar', state.singleBar);
+  // console.log('yooo state.singleBar', state.singleBar);
   return {
     loading: state.loading,
     data: state.data,
