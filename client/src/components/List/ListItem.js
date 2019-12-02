@@ -4,12 +4,11 @@ import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
 import bar from "./deafultBarImg.jpg";
 import { Route } from "react-router-dom";
+import Image from '../Image/Image';
 
 export default function ListItem(props) {
   const { onHover = () => {}, onClick = () => {}, data, className, setSelectedBar } = props;
   const { name, deals, imgUrl, place_id } = data;
-
-  
 
   return !data=="" ? (
     <Route render={({ history }) => (
@@ -23,7 +22,7 @@ export default function ListItem(props) {
           onHover(props.data);
         }}
       >
-        {<img src={imgUrl || bar} className="barImg" alt="" />}
+        <Image src={imgUrl || bar} className="barImg" alt="" />
         {/* {<img src={locationIcon} className="titleIcon" alt="" />} */}
         {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
         {deals[0].category && <div className={ `item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
