@@ -69,7 +69,6 @@ export class MyMap extends React.Component {
 
   onMapClicked() {
     this.searchBox.blur();
-    this.props.displayCarousel(true);
   }
 
   getLocation() {
@@ -241,7 +240,12 @@ export class MyMap extends React.Component {
           onChange={this.findPlace}
           onClickButton={this.getLocation}
           onfocusin={() => displayCarousel(false)}
-          onfocusout={() => displayCarousel(true)}
+          onfocusout={() =>
+            setTimeout(
+              () => {
+                //add slight delay for android so carousel doesnt flash
+                displayCarousel(true);
+              }, 100)}
           fetchingUserLocation={fetchingUserLocation}
         />
         <div className="map">
