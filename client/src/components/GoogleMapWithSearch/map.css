@@ -1,7 +1,9 @@
 .map {
   height: 100%;
   width: 100%;
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  transition: height 200ms;
 }
 
 .searchBarWrapper {
