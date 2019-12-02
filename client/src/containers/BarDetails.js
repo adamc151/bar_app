@@ -24,7 +24,7 @@ class BarDetails extends Component {
 
     return (
       <Route render={({ history }) => (
-        <div className="barDetailsWrapper">
+        <div className="wrapper barDetailsWrapper">
             <Helmet>
                 <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
                 find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
@@ -37,7 +37,7 @@ class BarDetails extends Component {
             <div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div>
             <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
-                {<img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {history.push(`/map`);}}/>}
+                  <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {history.push(`/map`);}}/>
             </div>
 
             <div className="barContainer">

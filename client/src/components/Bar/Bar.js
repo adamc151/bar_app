@@ -3,25 +3,30 @@ import "./Bar.css";
 import bar from "../List/deafultBarImg.jpg";
 
 import Deal from "./Deal";
+import Image from '../Image/Image';
 
 class Bar extends React.Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      imageLoading: true
+    }
+
     const googleId = window.location.pathname.split("/").pop()
     this.props.fetchOne(googleId);
   }
 
   renderBar() {
 
-    // console.log('yooo this.props', this.props);
-
     let details = this.props.singleBar;
     if (!details || details.name === undefined || !details.name || details.name === '') return null;
 
+
     return (
       <div className="detailsWrapper">
-        {<img src={details.imgUrl || bar} className="detailsImg" alt="" />}
+        <Image src={details.imgUrl || bar} className="barDetailsImage" />
         <div className="detailsTextWrapper">
           {details.name && <div className="detailsName">{details.name}</div>}
           {details.address && <div className="detailsAddress">{details.address}</div>}
