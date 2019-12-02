@@ -68,6 +68,7 @@ export class MyMap extends React.Component {
   }
 
   onMapClicked() {
+    this.searchBox.blur();
     this.props.displayCarousel(true);
   }
 
