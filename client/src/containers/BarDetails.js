@@ -4,37 +4,27 @@ import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./BarDetails.css";
 import Bar from "../components/Bar/Bar";
-import navigate from "./back.png";
+import navigate from "./icons/back.png";
 import { Route } from "react-router-dom";
-import twitterIcon from "./twitter.png";
-import beerIcon from "./beer.png";
-import instagramIcon from "./instagram.png";
-import facebookIcon from "./facebook.png";
-import emailIcon from "./email.png";
+import twitterIcon from "./icons/twitter.png";
+import beerIcon from "./icons/beer.png";
+import instagramIcon from "./icons/instagram.png";
+import facebookIcon from "./icons/facebook.png";
+import emailIcon from "./icons/email.png";
 import Helmet from 'react-helmet';
 
 class BarDetails extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
   }
 
   render() {
-    const {
-      fetchOne
-    } = this.props.actions;
-    const {
-      data,
-      singleBar
-    } = this.props;
-
-    // console.log("BarDetails page");
+    const { fetchOne } = this.props.actions;
+    const { data, singleBar } = this.props;
 
     return (
       <Route render={({ history }) => (
-        <div className="wrapper barDetailsWrapper">
+        <div className="barDetailsWrapper">
             <Helmet>
                 <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
                 find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
@@ -52,11 +42,7 @@ class BarDetails extends Component {
 
             <div className="barContainer">
             <div className="barContainerGrow">
-              <Bar
-                  fetchOne={fetchOne}
-                  data={data}
-                  singleBar={singleBar}
-              />
+            <Bar fetchOne={fetchOne} data={data} singleBar={singleBar} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
@@ -91,7 +77,6 @@ class BarDetails extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log('yooo state.singleBar', state.singleBar);
   return {
     loading: state.loading,
     data: state.data,

@@ -22,7 +22,8 @@ export class MyMap extends React.Component {
         lat: 51.5074,
         lng: -0.12
       },
-      loading: true
+      loading: true,
+      mapOffset: 15 * Math.pow(1.04, 14)
     };
 
     this.getLocation = this.getLocation.bind(this);
@@ -35,24 +36,20 @@ export class MyMap extends React.Component {
 
   static getDerivedStateFromProps(props, state) {
     const { centerCoordinates } = props;
-    const { currentZoom } = state;
-
-    const latitudeOffset = window.matchMedia("(max-width: 1000px)").matches
-      ? -50 * Math.pow(0.5, currentZoom)
-      : 0;
+    let mapOffset = state.mapOffset;
+    if(state.center.lat !== centerCoordinates[0] && state.center.lng !== centerCoordinates[1]){
+      mapOffset = 15 * Math.pow(1.04, state.currentZoom);
+    }
 
     return {
       ...state,
+      previousCenter: state.center,
       center: {
-        lat: centerCoordinates[0] && centerCoordinates[0] + latitudeOffset,
+        lat: centerCoordinates[0],
         lng: centerCoordinates[1]
-      }
+      },
+      mapOffset
     };
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.currentZoom === this.state.currentZoom;
   }
 
   componentDidMount() {
@@ -231,6 +228,9 @@ export class MyMap extends React.Component {
       timeFilter
     };
 
+    const mapStyle = window.matchMedia("(max-width: 1000px)").matches ? 
+    { height: `calc(100% + ${this.state.mapOffset}%`  } : { height: `100%`  };
+
 
     return (
       <Fragment >
@@ -248,7 +248,7 @@ export class MyMap extends React.Component {
               }, 100)}
           fetchingUserLocation={fetchingUserLocation}
         />
-        <div className="map">
+        <div className="map" style={mapStyle}>
           {this.state.showingInfoWindow && (
             <Place
               onClick={() => {

@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./FAQ.css";
 import { Route } from "react-router-dom";
-import twitterIcon from "./twitter.png";
-import beerIcon from "./beer.png";
-import instagramIcon from "./instagram.png";
-import emailIcon from "./email.png";
+import twitterIcon from "./icons/twitter.png";
+import beerIcon from "./icons/beer.png";
+import instagramIcon from "./icons/instagram.png";
+import emailIcon from "./icons/email.png";
 import Helmet from 'react-helmet';
- 
+
 import {
   Accordion,
   AccordionItem,
@@ -53,7 +53,7 @@ class FAQ extends Component {
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
             <Helmet>
-              <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+              <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
               find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
               information you need to decide where to go next." />
               <title>Hapihour | Frequently Asked Questions</title>

@@ -3,20 +3,19 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
-import location from "./pin.png";
-import calendar from "./monday.png";
-import beers from "./cheers.png";
-import bar1 from "./barImg111.jpg";
-import bar2 from "./barImg222.jpg";
-import bar3 from "./barImg333.jpg";
-// import bar5 from "./barimg5.jpg";
-import locationIcon from "./placeholder.png";
-import twitterIcon from "./twitter.png";
-import emailIcon from "./email.png";
-import beerIcon from "./beer.png";
-import fullLogo from "./fullLogo.png";
-import instagramIcon from "./instagram.png";
-import facebookIcon from "./facebook.png";
+import location from "./icons/pin.png";
+import calendar from "./icons/monday.png";
+import beers from "./icons/cheers.png";
+import bar1 from "./images/barImg111.jpg";
+import bar2 from "./images/barImg222.jpg";
+import bar3 from "./images/barImg333.jpg";
+import locationIcon from "./icons/placeholder.png";
+import twitterIcon from "./icons/twitter.png";
+import emailIcon from "./icons/email.png";
+import beerIcon from "./icons/beer.png";
+import fullLogo from "./icons/fullLogo.png";
+import instagramIcon from "./icons/instagram.png";
+import facebookIcon from "./icons/facebook.png";
 import { Route } from "react-router-dom";
 
 class LandingPage extends Component {
@@ -44,8 +43,8 @@ render() {
                 <img className="photoLanding" src={barImg}/>
             </div>
 
-            <div className="titleDescriptionLandingWrapper" > 
-                <div className="titleDescriptionLanding" >Search for a location</div> 
+            <div className="titleDescriptionLandingWrapper" >
+                <div className="titleDescriptionLanding" >Search for a location</div>
             </div>
 
             <div className="locationWrapper" >
