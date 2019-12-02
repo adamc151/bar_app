@@ -47,13 +47,13 @@ export function fetchOne(id) {
       params: { place_id: id }
     });
 
-    console.log('yooo fetch one value', value);
+    // console.log('yooo fetch one value', value);
 
     let valueArray = [];
     valueArray.push(value.data);
-    console.log('yooo fetch one valueArray', valueArray);
+    // console.log('yooo fetch one valueArray', valueArray);
     let returnValue = categoriseData(valueArray, true)[0];
-    console.log('yooo fetch one returnValue', returnValue);
+    // console.log('yooo fetch one returnValue', returnValue);
     return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
   };
 }
@@ -125,7 +125,7 @@ export function categoriseData(data, returnAllDeals = false) {
           else{
             deal.category = 'Inactive';
           }
-          console.log('yooo deal', deal);
+          // console.log('yooo deal', deal);
           final.push(deal);
         }
         else{

@@ -91,7 +91,7 @@ class BarDetails extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('yooo state.singleBar', state.singleBar);
+  // console.log('yooo state.singleBar', state.singleBar);
   return {
     loading: state.loading,
     data: state.data,
