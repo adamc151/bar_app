@@ -1,17 +1,17 @@
 @font-face {
     font-family: Circular;
-    src: url(CircularStd-Book.otf);
+    src: url(./fonts/CircularStd-Book.otf);
 }
 
 @font-face {
     font-family: Circular-bold;
-    src: url(CircularStd-Bold.otf);
+    src: url(./fonts/CircularStd-Bold.otf);
     font-weight: bold;
 }
 
 @font-face {
     font-family: Circular-black;
-    src: url(CircularStd-Black.otf);
+    src: url(./fonts/CircularStd-Black.otf);
     font-weight: bolder;
 }
 

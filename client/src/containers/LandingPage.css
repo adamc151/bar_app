@@ -1,21 +1,21 @@
 @font-face {
     font-family: Circular;
-    src: url(CircularStd-Book.otf);
+    src: url(./fonts/CircularStd-Book.otf);
 }
 
 @font-face {
     font-family: Circular-bold;
-    src: url(CircularStd-Bold.otf);
+    src: url(./fonts/CircularStd-Bold.otf);
     font-weight: bold;
 }
 
 @font-face {
     font-family: Circular-black;
-    src: url(CircularStd-Black.otf);
+    src: url(./fonts/CircularStd-Black.otf);
     font-weight: bolder;
 }
 
-.wrapperLandingParent{  
+.wrapperLandingParent{
     font-family: Circular;
     height: 100vh;
 }
@@ -111,7 +111,7 @@
     background-color: white;
     border-radius: 5px;
     text-align: left;
-    padding: 5px 0px 5px 10px ; 
+    padding: 5px 0px 5px 10px ;
     color: grey;
     font-size: 20px;
     -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
@@ -239,7 +239,7 @@
 
     .titleDescriptionLanding{
         color: white;
-        font-weight: bolder;    
+        font-weight: bolder;
         font-size: 70px;
         width: 300px;
         text-align: left;
@@ -270,16 +270,16 @@
         text-align: left;
         padding: 30px;
     }
-    
+
     .descriptionLandingText{
         margin-left: 20px;
     }
-    
+
     .descriptionLandingItemImg{
         width: 55px;
         height: 55px;
     }
-    
+
     .descriptionLandingText{
         margin-top: 0px;
         max-width: 350px;
@@ -290,7 +290,7 @@
         font-weight: lighter;
         margin-top: 0px;
     }
-    
+
     .descriptionLandingItemTitle{
         font-size: 16px;
         font-family: Circular-bold;
@@ -307,7 +307,7 @@
         /* max-height: 812px; */
         max-height: 650px;
     }
-    
+
     .photoLanding{
         height: 100vh;
     }
@@ -322,7 +322,7 @@
         text-align: center;
         background-color: rgb(206, 206, 206);
       }
-      
+
       .header {
         left: 0;
         top: 0;
@@ -350,20 +350,20 @@
         justify-content: center;
         margin-bottom: 20px;
     }
-    
+
     .donationItem{
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom: 30px;
     }
-    
+
     .donationItemDesc{
         font-size: 12px;
         font-weight: lighter;
         margin-top: 8px;
         margin-bottom: 10px;
     }
-    
+
     .donationItemTitle{
         font-size: 15px;
         font-family: Circular-bold;
@@ -374,16 +374,16 @@
     .line{
         border-width: 1px;
     }
-    
+
 }
-    
+
 .footer {
     left: 0;
     bottom: 0;
     background-color: rgba(255, 188, 44, 0.945);
     text-align: left;
     padding: 20px;
-    box-shadow: 
+    box-shadow:
     inset 0px 11px 10px -10px rgb(145, 145, 145);
 }
 

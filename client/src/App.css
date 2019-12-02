@@ -1,6 +1,6 @@
 @font-face {
   font-family: Circular;
-  src: url(./containers/CircularStd-Book.otf);
+  src: url(./containers/fonts/CircularStd-Book.otf);
 }
 
 .App {

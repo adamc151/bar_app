@@ -17,20 +17,12 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends Component {
 
-  componentDidMount(){
-    // console.log('componentDidMount', this.props);
-  }
-
-  componentDidUpdate(){
-    // console.log('componentDidUpdate', this.props);
-  }
-
   render() {
     return (
       <Router>
         <div className="App">
           <Helmet>
-            <meta charSet="utf-8" name="description" content="hapihour is an application that lets you 
+            <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
             find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
              information you need to decide where to go next." />
             <title>Hapihour | Find Happy Hours That Are Happening Near You Right Now!</title>
