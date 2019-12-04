@@ -2,8 +2,10 @@ import axios from "axios";
 
 //ACTION TYPES - used to label each action
 export const DATA_FETCH_REQUEST = "DATA_FETCH_REQUEST";
-export const DATA_FETCH_REQUEST_SINGLE = "DATA_FETCH_REQUEST_SINGLE";
 export const DATA_FETCH_SUCCESS = "DATA_FETCH_SUCCESS";
+export const DATA_FETCH_SINGLE_REQUEST = 'DATA_FETCH_SINGLE_REQUEST';
+export const DATA_FETCH_SINGLE_SUCCESS = 'DATA_FETCH_SINGLE_SUCCESS';
+
 export const DATA_POST_REQUEST = "DATA_POST_REQUEST";
 export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
 export const DATA_POST_FAILURE = "DATA_POST_FAILURE";
@@ -21,6 +23,10 @@ export const CLEAR_SINGLE_BAR = 'CLEAR_SINGLE_BAR';
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
 export function setLoading(isLoading) {
   return { type: SET_LOADING, payload: isLoading };
+}
+
+export function setSingleBar(bar) {
+  return { type: DATA_FETCH_SINGLE_SUCCESS, payload: bar };
 }
 
 export function clearSingleBar() {
@@ -42,19 +48,18 @@ export function fetchData(obj) {
 
 export function fetchOne(id) {
   return async (dispatch, getState) => {
-    // console.log("fetchOne");
+
+    dispatch({ type: DATA_FETCH_SINGLE_REQUEST });
+
     const value = await axios.get("/api/bar", {
       params: { place_id: id }
     });
 
-    // console.log('yooo fetch one value', value);
-
     let valueArray = [];
     valueArray.push(value.data);
-    // console.log('yooo fetch one valueArray', valueArray);
     let returnValue = categoriseData(valueArray, true)[0];
-    // console.log('yooo fetch one returnValue', returnValue);
-    return dispatch({ type: DATA_FETCH_REQUEST_SINGLE, payload: returnValue});
+
+    return dispatch({ type: DATA_FETCH_SINGLE_SUCCESS, payload: returnValue });
   };
 }
 
@@ -62,13 +67,13 @@ export function postData(obj) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_POST_REQUEST });
     await axios.post("/api/bar", obj)
-    .then(function (response) {
-      return dispatch({ type: DATA_POST_SUCCESS });
-    })
-    .catch(function (error) {
-      // console.log(`error: ${error}`);
-      return dispatch({ type: DATA_POST_FAILURE });
-    });;
+      .then(function (response) {
+        return dispatch({ type: DATA_POST_SUCCESS });
+      })
+      .catch(function (error) {
+        // console.log(`error: ${error}`);
+        return dispatch({ type: DATA_POST_FAILURE });
+      });;
   };
 }
 
@@ -107,11 +112,11 @@ export function categoriseData(data, returnAllDeals = false) {
     var final = [];
     var finalOther = [];
 
-    if(item.validated){
+    if (item.validated) {
 
       item.deals.map(deal => {
 
-        if(deal.weekDays.includes(day)){
+        if (deal.weekDays.includes(day)) {
 
           var st = deal.startTime.replace(":", "");
           var et = deal.endTime.replace(":", "");
@@ -122,13 +127,13 @@ export function categoriseData(data, returnAllDeals = false) {
           else if (st > time && et > time && deal.weekDays.includes(day)) {
             deal.category = 'Upcoming';
           }
-          else{
+          else {
             deal.category = 'Inactive';
           }
           // console.log('yooo deal', deal);
           final.push(deal);
         }
-        else{
+        else {
           deal.category = 'Inactive';
           finalOther.push(deal);
         }

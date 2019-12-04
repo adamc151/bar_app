@@ -268,7 +268,7 @@ export class MyMap extends React.Component {
             center={this.state.center}
             onReady={(a, map) => (this.map = map)}
             onClick={this.onMapClicked}
-            options={{ disableDefaultUI: true , gestureHandling: 'greedy'}}
+            options={{ disableDefaultUI: true , gestureHandling: 'greedy', clickableIcons: false }}
             onGoogleApiLoaded={x => {
               this.map = x.map;
               this.props.onMapsLoaded();
