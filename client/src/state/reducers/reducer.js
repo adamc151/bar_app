@@ -1,7 +1,8 @@
 import {
   DATA_FETCH_REQUEST,
-  DATA_FETCH_REQUEST_SINGLE,
   DATA_FETCH_SUCCESS,
+  DATA_FETCH_SINGLE_REQUEST,
+  DATA_FETCH_SINGLE_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
   DATA_POST_FAILURE,
@@ -20,6 +21,7 @@ let initialState = {
   data: [],
   singleBar: {},
   loading: true,
+  loadingBar: false,
   miles: 10,
   timeFilter: "All",
   userCoordinates: [null, null],
@@ -40,9 +42,12 @@ export default function transactions(state = initialState, action) {
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload };
-    case DATA_FETCH_REQUEST_SINGLE:
-      // console.log("DATA_FETCH_REQUEST_SINGLE Action");
-      return { ...state, singleBar: action.payload, animate: false };
+    case DATA_FETCH_SINGLE_REQUEST:
+      // console.log("DATA_FETCH_SINGLE_REQUEST Action");
+      return { ...state, loadingBar: true };
+    case DATA_FETCH_SINGLE_SUCCESS:
+      // console.log("DATA_FETCH_SINGLE_SUCCESS Action");
+      return { ...state, singleBar: action.payload, animate: false, loadingBar: false };
     case DATA_POST_REQUEST:
       // console.log("DATA_POST_REQUEST Action");
       return { ...state };
@@ -55,10 +60,7 @@ export default function transactions(state = initialState, action) {
       return { ...state };
     case SET_CENTER_COORDINATES:
       // console.log("SET_CENTER_COORDINATES Action");
-      return {
-        ...state,
-        centerCoordinates: action.payload
-      };
+      return { ...state, centerCoordinates: action.payload };
     case SET_MILES:
       // console.log("SET_MILES Action: " + action.payload.miles);
       return { ...state, miles: action.payload.miles };
@@ -67,10 +69,7 @@ export default function transactions(state = initialState, action) {
       return { ...state, timeFilter: action.payload.timeFilter };
     case SET_USER_COORDINATES:
       // console.log("SET_USER_COORDINATES Action");
-      return {
-        ...state,
-        userCoordinates: action.payload
-      };
+      return { ...state, userCoordinates: action.payload };
     case SET_HOVER_COORDINATES:
       // console.log("SET_HOVER_COORDINATES Action");
       return { ...state, hoverCoordinates: action.payload };
@@ -78,7 +77,7 @@ export default function transactions(state = initialState, action) {
       // console.log("SET_CAROUSEL_SLIDE Action");
       return { ...state, carouselSlide: action.payload };
     case SET_LOADING:
-      return {...state, loading: action.payload }
+      return { ...state, loading: action.payload }
     case CLEAR_SINGLE_BAR:
       return { ...state, singleBar: {} }
     default:

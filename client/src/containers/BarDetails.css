@@ -1,7 +1,3 @@
-.barDetailsWrapper{
-  flex-direction: column;
-}
-
 .barContainer {
   margin-top: 45px;
   height: calc(100% - 45px);
@@ -76,6 +72,7 @@
 .dot{
   font-size: 26px;
 }
+
 
 @media screen and (max-width: 1000px) {
   .wrapper {

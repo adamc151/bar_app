@@ -20,11 +20,11 @@ class BarDetails extends Component {
 
   render() {
     const { fetchOne } = this.props.actions;
-    const { data, singleBar } = this.props;
+    const { data, singleBar, loading } = this.props;
 
     return (
       <Route render={({ history }) => (
-        <div className="barWrapper barDetailsWrapper">
+        <div className="wrapper barDetailsWrapper">
             <Helmet>
                 <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
                 find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
@@ -42,7 +42,7 @@ class BarDetails extends Component {
 
             <div className="barContainer">
             <div className="barContainerGrow">
-            <Bar fetchOne={fetchOne} data={data} singleBar={singleBar} />
+            <Bar fetchOne={fetchOne} data={data} singleBar={singleBar} loading={loading} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
@@ -78,7 +78,7 @@ class BarDetails extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading,
+    loading: state.loadingBar,
     data: state.data,
     singleBar: state.singleBar
   };

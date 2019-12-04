@@ -2,8 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
-import List from "../components/List/List";
-import ListItem from "../components/List/ListItem";
+import getList from "../components/List/List";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
 import Carousel from "../components/Carousel/Carousel";
@@ -33,7 +32,8 @@ class MainContainer extends Component {
       setCarouselSlide,
       fetchData,
       fetchOne,
-      setLoading
+      setLoading,
+      setSingleBar
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -44,21 +44,9 @@ class MainContainer extends Component {
       data,
       carouselSlide,
       loading,
-      selectedBar,
+      singleBar,
       animate
     } = this.props;
-
-    const list = this.props.data.length > 0 ? this.props.data.map((data, i) => {
-      return (
-        <ListItem
-          key={i}
-          index={i}
-          data={data}
-          onHover={this.props.onHover}
-          className="carouselCard"
-        />
-      );
-    }) : <ListItem data="" className="carouselCard" />;
 
     const loadingModifier = loading ? 'loading' : '';
     const carouselAnimaionClassName = 'carouselAnimaion';
@@ -100,7 +88,7 @@ class MainContainer extends Component {
 
 
         <div className={'sideNav ' + sideNavAnimaionClassName}>
-          <div className="list">{list}</div>
+          <div className="list">{getList(data, setSingleBar)}</div>
         </div>
 
         {!loading && this.state.displayCarousel && (
@@ -115,7 +103,7 @@ class MainContainer extends Component {
                 setHoverCoordinates(data[index].location.coordinates);
               }}
             >
-              {list}
+              {getList(data, setSingleBar)}
             </Carousel>
           </div>
         )}
