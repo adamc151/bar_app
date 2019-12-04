@@ -153,6 +153,7 @@
   }
 
   .barImg{
+    overflow: hidden;
     width: 100%;
     /* padding-top: 10px; */
     height: 120px;

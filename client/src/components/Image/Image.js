@@ -1,5 +1,6 @@
 import React from "react";
 import "./Image.css";
+import ViewportObserver from '../ViewportObserver/ViewportObserver';
 
 class Image extends React.Component {
 
@@ -16,9 +17,24 @@ class Image extends React.Component {
     const { src, className } = this.props;
     const imageLoaded = !this.state.imageLoading ? 'imgLoaded' : '';
 
+    // return <img src={src} className={`img ${imageLoaded} ${className}`} alt="" onLoad={() => { this.setState({ imageLoading: false }) }}/>;
+
     return(
       <div className={`imgSkeleton ${className}`} >
-        <img src={src} className={`img ${imageLoaded} ${className}`} alt="" onLoad={() => { this.setState({ imageLoading: false }) }}/>
+        <ViewportObserver>
+          {(intersected) => {
+            console.log('yooo intersected', intersected);
+
+
+            return (<img
+              src={intersected ? src : ''}
+              className={`img ${imageLoaded} ${className}`}
+              alt=""
+              onLoad={() => { this.setState({ imageLoading: false }) }}
+            />);
+
+          }}
+        </ViewportObserver>
       </div>
     );
 

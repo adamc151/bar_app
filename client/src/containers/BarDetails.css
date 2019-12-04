@@ -1,5 +1,9 @@
 .barDetailsWrapper{
   flex-direction: column;
+  z-index: 10;
+  position: fixed;
+  background: white;
+  top: 0;
 }
 
 .barContainer {
