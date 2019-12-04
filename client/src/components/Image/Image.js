@@ -13,21 +13,15 @@ class Image extends React.Component {
   }
 
   render() {
-
     const { src, className } = this.props;
     const imageLoaded = !this.state.imageLoading ? 'imgLoaded' : '';
 
-    // return <img src={src} className={`img ${imageLoaded} ${className}`} alt="" onLoad={() => { this.setState({ imageLoading: false }) }}/>;
-
-    return(
+    return (
       <div className={`imgSkeleton ${className}`} >
         <ViewportObserver>
           {(intersected) => {
-            console.log('yooo intersected', intersected);
-
-
-            return (<img
-              src={intersected ? src : ''}
+            return intersected && (<img
+              src={src}
               className={`img ${imageLoaded} ${className}`}
               alt=""
               onLoad={() => { this.setState({ imageLoading: false }) }}

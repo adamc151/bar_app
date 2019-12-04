@@ -24,7 +24,7 @@ class BarDetails extends Component {
 
     return (
       <Route render={({ history }) => (
-        <div className="wrapper barDetailsWrapper">
+        <div className="barWrapper barDetailsWrapper">
             <Helmet>
                 <meta charSet="utf-8" name="description" content="hapihour is an application that lets you
                 find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
