@@ -35,9 +35,6 @@
     max-width: 1100px;
     padding-top: 20px;
     color: rgb(72, 72, 72);
-    background-color: rgba(255, 188, 44, 0.945);
-    /* box-shadow:
-    inset 0px 11px 10px -10px rgb(145, 145, 145); */
 }
 
 .descriptionLandingWrapper{
@@ -69,8 +66,6 @@
 
 .descriptionLandingItemDesc{
     font-size: 16px;
-    font-weight: lighter;
-    /* letter-spacing: 0.5px; */
     margin-top: 8px;
 }
 
@@ -86,7 +81,7 @@
 
 .descriptionLandingItemTitle{
     font-size: 20px;
-    font-family: Circular-bold;
+    font-family: Circular-black;
     margin-top: 10px;
     color: rgba(255, 188, 44, 0.945);
 }
@@ -223,7 +218,6 @@
     font-size: 15px;
     font-family: Circular-bold;
     margin-top: 20px;
-    color: rgba(236, 163, 3, 0.945);
 }
 
 
@@ -234,7 +228,7 @@
     }
 
     .locationWrapper{
-        margin-bottom: 180px;
+        margin-bottom: 170px;
     }
 
     .descriptionAndTitleLandingWrapper{
@@ -242,6 +236,10 @@
         margin-top: 10px;
         max-width: 1100px;
         color: rgb(72, 72, 72);
+        padding-top: 30px;
+        background-color: rgba(255, 188, 44, 0.945);
+        box-shadow:
+        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
     }
 
     .titleDescriptionLanding{
@@ -261,13 +259,14 @@
     .descriptionLandingTitle{
         /* margin-top: 55vh; */
         /* margin-top: 40px; */
+        margin-bottom: 0px;
         width: 200px;
         font-size: 20px;
     }
 
     .descriptionLandingWrapper{
         flex-wrap: wrap;
-        margin-bottom: 100px;
+        padding-bottom: 20px;
     }
 
     .descriptionLandingItem{
@@ -285,6 +284,7 @@
     .descriptionLandingItemImg{
         width: 55px;
         height: 55px;
+        margin-bottom: 20px;
     }
 
     .descriptionLandingText{
@@ -294,7 +294,7 @@
 
     .descriptionLandingItemDesc{
         font-size: 15px;
-        font-weight: lighter;
+        font-family: Circular-bold;
         margin-top: 0px;
     }
 
@@ -304,7 +304,8 @@
         font-weight: bold;
         margin-top: 10px;
         margin-bottom: 5px;
-        color: rgba(255, 188, 44, 0.945);
+        /* color: rgba(255, 188, 44, 0.945); */
+        color: white;
     }
 
     .photosLandingWrapper{
@@ -357,6 +358,7 @@
     }
 
     .donationItem{
+        margin-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom: 30px;
@@ -373,11 +375,11 @@
         font-size: 15px;
         font-family: Circular-bold;
         margin-top: 20px;
-        color: rgba(255, 188, 44, 0.945);
     }
 
     .line{
         border-width: 1px;
+        display: none;
     }
 
 }
