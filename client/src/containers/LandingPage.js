@@ -52,8 +52,9 @@ render() {
                 <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
             </div>
 
+            <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
+
             <div className="descriptionAndTitleLandingWrapper">
-                <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
                 <div className="descriptionLandingTitle">HOW IT WORKS</div>
                 <div className="descriptionLandingWrapper">
                     <div className="descriptionLandingItem">

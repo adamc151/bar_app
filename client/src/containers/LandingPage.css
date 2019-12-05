@@ -31,10 +31,13 @@
 
 .descriptionAndTitleLandingWrapper{
     margin: auto;
-    margin-top: 280px;
     margin-bottom: 20px;
     max-width: 1100px;
+    padding-top: 20px;
     color: rgb(72, 72, 72);
+    background-color: rgba(255, 188, 44, 0.945);
+    /* box-shadow:
+    inset 0px 11px 10px -10px rgb(145, 145, 145); */
 }
 
 .descriptionLandingWrapper{
@@ -102,6 +105,7 @@
     width: 85%;
     margin: auto;
     margin-top: 10px;
+    margin-bottom: 260px;
     max-width: 500px;
 }
 
@@ -229,10 +233,13 @@
         height: 100%;
     }
 
+    .locationWrapper{
+        margin-bottom: 180px;
+    }
+
     .descriptionAndTitleLandingWrapper{
         margin: auto;
-        /* margin-top: 400px; */
-        margin-top: 30vh;
+        margin-top: 10px;
         max-width: 1100px;
         color: rgb(72, 72, 72);
     }
@@ -253,7 +260,7 @@
 
     .descriptionLandingTitle{
         /* margin-top: 55vh; */
-        margin-top: 40px;
+        /* margin-top: 40px; */
         width: 200px;
         font-size: 20px;
     }
@@ -303,13 +310,12 @@
     .photosLandingWrapper{
         margin-top: 0px;
         top: 0;
-        height: 100vh;
-        /* max-height: 812px; */
+        height: 600px;
         max-height: 650px;
     }
 
     .photoLanding{
-        height: 100vh;
+        height: 600px;
     }
 
     .bottomTextLandingWrapper{
@@ -321,9 +327,9 @@
         width: 100%;
         text-align: center;
         background-color: rgb(206, 206, 206);
-      }
+    }
 
-      .header {
+    .header {
         left: 0;
         top: 0;
         position: fixed;
@@ -333,7 +339,6 @@
         text-align: left;
         font-size: 25px;
         z-index: 200;
-        /* letter-spacing: -2px; */
     }
 
     .faqFooter{
