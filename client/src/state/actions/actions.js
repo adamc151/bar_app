@@ -17,6 +17,7 @@ export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
 export const SET_LOADING = 'SET_LOADING';
 export const CLEAR_SINGLE_BAR = 'CLEAR_SINGLE_BAR';
+export const SHOW_MAP = 'SHOW_MAP';
 
 
 //ACTIONSSSS - these basically label the input argument
@@ -25,7 +26,12 @@ export function setLoading(isLoading) {
   return { type: SET_LOADING, payload: isLoading };
 }
 
+export function showMap() {
+  return { type: SHOW_MAP };
+}
+
 export function setSingleBar(bar) {
+  console.log('yooo setSingleBar', bar);
   return { type: DATA_FETCH_SINGLE_SUCCESS, payload: bar };
 }
 

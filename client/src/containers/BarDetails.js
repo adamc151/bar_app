@@ -37,7 +37,7 @@ class BarDetails extends Component {
             <div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div>
             <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
-                  <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {history.push(`/map`);}}/>
+                  <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {this.props.setSingleBar(null); this.props.onBack(); history.push(`/map`);}}/>
             </div>
 
             <div className="barContainer">

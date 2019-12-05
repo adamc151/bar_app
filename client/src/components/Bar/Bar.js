@@ -20,12 +20,6 @@ class Bar extends React.Component {
       </div>);
   }
 
-  componentDidMount() {
-    const details = this.props.singleBar;
-    const googleId = window.location.pathname.split("/").pop()
-    !details.name && this.props.fetchOne(googleId);
-  }
-
   renderBar() {
     const { loading } = this.props;
     let details = this.props.singleBar;

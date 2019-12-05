@@ -7,6 +7,15 @@
   text-align: left;
 }
 
+.barDetailsWrapper{
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  margin: auto;
+  background-color: white;
+  width: 100vw;
+}
+
 .barContainerGrow {
   flex-grow: 1;
 }
