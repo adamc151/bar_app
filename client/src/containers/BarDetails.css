@@ -13,7 +13,7 @@
   z-index: 10;
   margin: auto;
   background-color: white;
-  width: 100vw;
+  width: 100%;
 }
 
 .barContainerGrow {
@@ -47,7 +47,7 @@
   width: auto;
   left: 0;
   bottom: 0;
-  background-color: rgba(255, 188, 44, 0.945);
+  background-color: rgba(255, 188, 44);
   padding: 25px;
   font-size: 11px;
   font-weight: bold;

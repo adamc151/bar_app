@@ -17,6 +17,7 @@ import fullLogo from "./icons/fullLogo.png";
 import instagramIcon from "./icons/instagram.png";
 import facebookIcon from "./icons/facebook.png";
 import { Route } from "react-router-dom";
+import Image from '../components/Image/Image';
 
 class LandingPage extends Component {
   constructor(props) {
@@ -25,6 +26,10 @@ class LandingPage extends Component {
     this.state = {
     };
 
+}
+
+componentDidMount(){
+  this.props.actions.setSingleBar(null);
 }
 
 render() {
@@ -40,7 +45,7 @@ render() {
             <div className="header"><div className="headerTextHapi">hapi</div><div className="headerTextHour">hour</div> <img src={beerIcon} className="beerIconLanding"/></div>
 
             <div className="photosLandingWrapper">
-                <img className="photoLanding" src={barImg}/>
+                <Image className="photoLanding" imageLoadedStyle='photoLandingLoaded' src={barImg}/>
             </div>
 
             <div className="titleDescriptionLandingWrapper" >

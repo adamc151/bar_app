@@ -41,7 +41,6 @@ class MainContainer extends Component {
   }
 
   render() {
-    console.log('yooo singleBar', this.props.singleBar);
     const {
       setUserCoordinates,
       setCenterCoordinates,
