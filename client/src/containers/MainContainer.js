@@ -9,6 +9,7 @@ import Carousel from "../components/Carousel/Carousel";
 import LoadingPage from '../components/LoadingPage/LoadingPage';
 import Helmet from 'react-helmet';
 import BarDetails from './BarDetails';
+import { getCityCoordinates } from "./getCityCoordinates";
 
 class MainContainer extends Component {
   constructor(props) {
@@ -30,6 +31,8 @@ class MainContainer extends Component {
       const googleId = window.location.pathname.split("/").pop()
       !this.props.singleBar && this.props.actions.fetchOne(googleId);
     } else {
+      const location = window.location.pathname.split("/").pop()
+      this.props.actions.setCenterCoordinates(getCityCoordinates(location));
       this.props.actions.showMap();
     }
   }
@@ -127,7 +130,7 @@ class MainContainer extends Component {
         )}
       </div>}
 
-      {this.props.singleBar && <BarDetails setSingleBar={setSingleBar} onBack={() => { this.setState({ displayCarousel: true }); }} />}
+      {singleBar && <BarDetails setSingleBar={setSingleBar} onBack={() => { this.setState({ displayCarousel: true }); }} />}
 
       </Fragment>
     );

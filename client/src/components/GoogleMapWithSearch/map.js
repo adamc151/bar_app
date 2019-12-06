@@ -55,6 +55,10 @@ export class MyMap extends React.Component {
   componentDidMount() {
     if(this.props.centerCoordinates[0] === null){
       this.getLocation();
+    } else {
+      const [ latitude, longitude ] = this.props.centerCoordinates;
+      this.centerMap({ coords: { latitude, longitude } });
+      this.getLocation(false);
     }
   }
 
@@ -68,12 +72,12 @@ export class MyMap extends React.Component {
     this.searchBox.blur();
   }
 
-  getLocation() {
+  getLocation(centerMap = true) {
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        this.setCurrentLocation,
-        this.setDefaultLocation,
+        (position) => this.setCurrentLocation(position, centerMap),
+        (position) => this.setDefaultLocation(position, centerMap),
         { enableHighAccuracy: true, maximumAge: 10000 }
       );
       this.setState({ fetchingUserLocation: true});
@@ -82,7 +86,7 @@ export class MyMap extends React.Component {
     }
   }
 
-  setCurrentLocation(position) {
+  setCurrentLocation(position, centerMap) {
 
     const { setUserCoordinates, displayCarousel } = this.props;
     const { latitude, longitude } = position.coords;
@@ -91,7 +95,7 @@ export class MyMap extends React.Component {
     displayCarousel(true);
     setUserCoordinates([ latitude, longitude ]);
 
-    this.centerMap({ coords: {
+    centerMap && this.centerMap({ coords: {
       longitude,
       latitude: latitude + (Math.random() / 1000)
     }});
