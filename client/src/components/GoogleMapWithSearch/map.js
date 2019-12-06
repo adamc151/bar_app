@@ -62,10 +62,10 @@ export class MyMap extends React.Component {
     }
   }
 
-  setDefaultLocation(errorObj) {
+  setDefaultLocation(errorObj, centerMap) {
     const { latitude, longitude } = this.state;
     this.setState({ fetchingUserLocation: false});
-    this.centerMap({ coords: { latitude, longitude } });
+    centerMap && this.centerMap({ coords: { latitude, longitude } });
   }
 
   onMapClicked() {
