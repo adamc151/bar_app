@@ -8,6 +8,8 @@ import "./MainContainer.css";
 import Carousel from "../components/Carousel/Carousel";
 import LoadingPage from '../components/LoadingPage/LoadingPage';
 import Helmet from 'react-helmet';
+import BarDetails from './BarDetails';
+import { getCityCoordinates } from "./getCityCoordinates";
 
 class MainContainer extends Component {
   constructor(props) {
@@ -16,12 +18,29 @@ class MainContainer extends Component {
     this.state = {
       displayCarousel: true,
       showLoader: false,
+      showMap: false,
+      showBar: false
     };
   }
 
   componentDidMount(){
     setTimeout(() => { this.setState({'showLoader': true}) }, 2000);
-    this.props.actions.clearSingleBar();
+
+    const url = window.location.pathname.split("/");
+    if(url[1] === 'details'){
+      const googleId = window.location.pathname.split("/").pop()
+      !this.props.singleBar && this.props.actions.fetchOne(googleId);
+    } else {
+      const location = window.location.pathname.split("/").pop()
+      this.props.actions.setCenterCoordinates(getCityCoordinates(location));
+      this.props.actions.showMap();
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(!prevProps.singleBar && this.props.singleBar){
+      this.props.actions.showMap();
+    }
   }
 
   render() {
@@ -45,7 +64,8 @@ class MainContainer extends Component {
       carouselSlide,
       loading,
       singleBar,
-      animate
+      animate,
+      showMap
     } = this.props;
 
     const loadingModifier = loading ? 'loading' : '';
@@ -61,8 +81,10 @@ class MainContainer extends Component {
             <title>Hapihour | Map</title>
             <link rel="canonical" href="hapihour.io" />
         </Helmet>
+
       {loading && this.state.showLoader && <LoadingPage />}
-      <div className={"wrapper " + loadingModifier}>
+
+      {showMap && <div className={"wrapper " + loadingModifier}>
         <div className="mapContainer">
           <MyMap
             userCoordinates={userCoordinates}
@@ -86,9 +108,8 @@ class MainContainer extends Component {
           />
         </div>
 
-
         <div className={'sideNav ' + sideNavAnimaionClassName}>
-          <div className="list">{getList(data, setSingleBar)}</div>
+          <div className="list">{getList(data, (data) => { this.setState({ displayCarousel: false }); setSingleBar(data); })}</div>
         </div>
 
         {!loading && this.state.displayCarousel && (
@@ -103,11 +124,13 @@ class MainContainer extends Component {
                 setHoverCoordinates(data[index].location.coordinates);
               }}
             >
-              {getList(data, setSingleBar)}
+              {getList(data, (data) => { this.setState({ displayCarousel: false }); setSingleBar(data); })}
             </Carousel>
           </div>
         )}
-      </div>
+      </div>}
+
+      {singleBar && <BarDetails setSingleBar={setSingleBar} onBack={() => { this.setState({ displayCarousel: true }); }} />}
 
       </Fragment>
     );

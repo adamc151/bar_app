@@ -13,8 +13,8 @@ class Image extends React.Component {
   }
 
   render() {
-    const { src, className } = this.props;
-    const imageLoaded = !this.state.imageLoading ? 'imgLoaded' : '';
+    const { src, className, imageLoadedStyle } = this.props;
+    const imageLoaded = !this.state.imageLoading ? imageLoadedStyle || 'imgLoaded' : '';
 
     return (
       <div className={`imgSkeleton ${className}`} >

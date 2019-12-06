@@ -143,6 +143,7 @@
 
 .photosLandingWrapper{
     background-color: rgba(168, 129, 44, 0.945);
+    width: 100%;
     height: 500px;
     overflow: hidden;
     position: absolute;
@@ -153,9 +154,11 @@
 .photoLanding{
     width: 100%;
     object-fit: cover;
-    opacity: 0.8;
     z-index: -100;
-    /* position: center; */
+}
+
+.photoLandingLoaded{
+    opacity: 0.8;
 }
 
 .header {

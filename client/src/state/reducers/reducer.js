@@ -13,7 +13,7 @@ import {
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE,
   SET_LOADING,
-  CLEAR_SINGLE_BAR
+  SHOW_MAP
 } from "../actions/actions";
 
 //the initial store (global app state)
@@ -29,7 +29,8 @@ let initialState = {
   hoverCoordinates: [null, null],
   carouselSlide: 0,
   animate: true,
-  selectedBar: null
+  singleBar: null,
+  showMap: false
 };
 
 //REDUCERRRR
@@ -38,7 +39,7 @@ export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
       // console.log("DATA_FETCH_REQUEST Action");
-      return { ...state, carouselSlide: 0, singleBar: {} };
+      return { ...state, carouselSlide: 0 };
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload };
@@ -78,8 +79,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, carouselSlide: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload }
-    case CLEAR_SINGLE_BAR:
-      return { ...state, singleBar: {} }
+    case SHOW_MAP:
+      return { ...state, showMap: true }
     default:
       return state;
   }

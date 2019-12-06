@@ -29,9 +29,8 @@ class App extends Component {
             <link rel="canonical" href="hapihour.io" />
           </Helmet>
           <div>
-            <Route exact path="/map" component={MainContainer} />
+            <Route path="/(map|details)/" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />
-            <Route exact path="/details/:id" component={BarDetails} />
             <Route exact path="/" component={LandingPage} />
           </div>
         </div>
