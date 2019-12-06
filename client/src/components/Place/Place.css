@@ -1,8 +1,10 @@
 .PlaceInfoWrapper {
-    position: absolute;
-    left: 10px;
-    width: calc(100% - 20px);
-    top: 60px;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+
     margin: auto;
     z-index: 100;
     background: rgb(250, 250, 250);

@@ -77,7 +77,7 @@ export class MyMap extends React.Component {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => this.setCurrentLocation(position, centerMap),
-        (position) => this.setDefaultLocation(position, centerMap),
+        (errorObj) => this.setDefaultLocation(errorObj, centerMap),
         { enableHighAccuracy: true, maximumAge: 10000 }
       );
       this.setState({ fetchingUserLocation: true});
