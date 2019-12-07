@@ -13,8 +13,8 @@ export class MyMap extends React.Component {
     super(props);
 
     this.state = {
-      latitude: 51.5074,
-      longitude: -0.12,
+      latitude: 53.8008,
+      longitude: -1.5491,
       zoom: 5,
       showingInfoWindow: false,
       currentZoom: 14,
@@ -50,6 +50,10 @@ export class MyMap extends React.Component {
       },
       mapOffset
     };
+  }
+
+  componentDidUpdate(){
+
   }
 
   componentDidMount() {
@@ -222,7 +226,8 @@ export class MyMap extends React.Component {
       userCoordinates,
       miles,
       timeFilter,
-      displayCarousel
+      displayCarousel,
+      displaySearchBar
     } = this.props;
 
     const obj = {
@@ -232,14 +237,14 @@ export class MyMap extends React.Component {
       timeFilter
     };
 
-    const mapStyle = window.matchMedia("(max-width: 1000px)").matches ? 
+    const mapStyle = window.matchMedia("(max-width: 1000px)").matches ?
     { height: `calc(100% + ${this.state.mapOffset}%`  } : { height: `100%`  };
 
 
     return (
       <Fragment >
         <SearchBar
-          className={"searchbar"}
+          className={displaySearchBar ? '' : 'removeSearchBar'}
           getNode={node => (this.searchBox = node)}
           onChange={this.findPlace}
           onClickButton={this.getLocation}

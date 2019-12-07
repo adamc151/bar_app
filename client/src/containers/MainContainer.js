@@ -16,7 +16,8 @@ class MainContainer extends Component {
     super(props);
 
     this.state = {
-      displayCarousel: true,
+      displayCarousel: false,
+      displaySearchBar: false,
       showLoader: false,
       showMap: false,
       showBar: false
@@ -34,12 +35,23 @@ class MainContainer extends Component {
       const location = window.location.pathname.split("/").pop()
       this.props.actions.setCenterCoordinates(getCityCoordinates(location));
       this.props.actions.showMap();
+      this.setState({ displayCarousel: true, displaySearchBar: true });
     }
   }
 
+  componentWillUnmount(){
+    this.props.actions.setCarouselSlide(0);
+  }
+
   componentDidUpdate(prevProps, prevState){
-    if(!prevProps.singleBar && this.props.singleBar){
+    if(prevProps.singleBar && !this.props.singleBar){
       this.props.actions.showMap();
+      this.setState({ displayCarousel: true, displaySearchBar: true });
+    }
+
+    const url = window.location.pathname.split("/");
+    if(url[1] !== 'details'){
+      this.props.actions.setSingleBar(null);
     }
   }
 
@@ -102,14 +114,17 @@ class MainContainer extends Component {
             }}
             onMapsLoaded={() => {
               setLoading(false);
+              const location = window.location.pathname.split("/").pop()
+              this.props.actions.setCenterCoordinates(getCityCoordinates(location));
             }}
             miles={miles}
             timeFilter={timeFilter}
+            displaySearchBar={this.state.displaySearchBar}
           />
         </div>
 
         <div className={'sideNav ' + sideNavAnimaionClassName}>
-          <div className="list">{getList(data, (data) => { this.setState({ displayCarousel: false }); setSingleBar(data); })}</div>
+          <div className="list">{getList(data, (data) => { this.setState({ displayCarousel: false, displaySearchBar: false }); setSingleBar(data); })}</div>
         </div>
 
         {!loading && this.state.displayCarousel && (
@@ -124,13 +139,13 @@ class MainContainer extends Component {
                 setHoverCoordinates(data[index].location.coordinates);
               }}
             >
-              {getList(data, (data) => { this.setState({ displayCarousel: false }); setSingleBar(data); })}
+              {getList(data, (data) => { this.setState({ displayCarousel: false, displaySearchBar: false }); setSingleBar(data); })}
             </Carousel>
           </div>
         )}
       </div>}
 
-      {singleBar && <BarDetails setSingleBar={setSingleBar} onBack={() => { this.setState({ displayCarousel: true }); }} />}
+      {singleBar && <BarDetails setSingleBar={setSingleBar} onBack={() => { this.setState({ displayCarousel: true, displaySearchBar: true }); }} />}
 
       </Fragment>
     );
