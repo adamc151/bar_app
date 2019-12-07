@@ -44,8 +44,14 @@ class MainContainer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    if(!prevProps.singleBar && this.props.singleBar){
+    if(prevProps.singleBar && !this.props.singleBar){
       this.props.actions.showMap();
+      this.setState({ displayCarousel: true, displaySearchBar: true });
+    }
+
+    const url = window.location.pathname.split("/");
+    if(url[1] !== 'details'){
+      this.props.actions.setSingleBar(null);
     }
   }
 
