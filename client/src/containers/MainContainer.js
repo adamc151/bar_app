@@ -51,6 +51,9 @@ class MainContainer extends Component {
     const url = window.location.pathname.split("/");
     if(url[1] !== 'details'){
       this.props.actions.setSingleBar(null);
+    } else if(url[1] === 'details') {
+      const googleId = window.location.pathname.split("/").pop()
+      !this.props.singleBar && this.props.actions.fetchOne(googleId);
     }
 
   }
@@ -76,12 +79,10 @@ class MainContainer extends Component {
       carouselSlide,
       loading,
       singleBar,
-      animate
+      loadingBars
     } = this.props;
 
     const loadingModifier = loading ? 'loading' : '';
-    const carouselAnimaionClassName = 'carouselAnimaion';
-    const sideNavAnimaionClassName = animate ? 'sideNavAnimaion' : ''
 
     return (
       <Fragment>
@@ -119,12 +120,12 @@ class MainContainer extends Component {
           />
         </div>
 
-        <div className={'sideNav ' + sideNavAnimaionClassName}>
+        <div className={'sideNav sideNavAnimaion'}>
           <div className="list">{getList(data, setSingleBar)}</div>
         </div>
 
-        {!loading && this.state.displayCarousel && (
-          <div className={'carousel ' + carouselAnimaionClassName}>
+        {(!loading && this.state.displayCarousel &&
+          <div className={'carousel carouselAnimaion'}>
             <Carousel
               controlledSlide={carouselSlide}
               initialSlide={carouselSlide}
@@ -139,7 +140,7 @@ class MainContainer extends Component {
             </Carousel>
           </div>
         )}
-      </div>}
+      </div>
 
       {singleBar && <BarDetails singleBar={singleBar} loading={this.state.loadingBar} />}
 

@@ -5,7 +5,6 @@ import "./List.css";
 const getList = (data, setSingleBar) => {
   if (data.length > 0) {
     return data.map((data, i) => {
-      console.log('yooo data', data);
       return <ListItem
         key={i}
         index={i}
