@@ -20,7 +20,9 @@ class Place extends React.Component {
 
         this.state = {
           submitState: 'submit-button',
-          submitMessage: ''
+          submitMessage: '',
+          deals: [],
+          numOfDeals: 1
         };
     }
 
@@ -36,24 +38,39 @@ class Place extends React.Component {
     }
 
     submit() {
-      const { place, startTime, endTime, description, weekDays } = this.state;
 
-      let dealDescriptionArray = description.split(',');
-
-      for (var i = 0; i < dealDescriptionArray.length; i++) {
-        dealDescriptionArray[i] = dealDescriptionArray[i].trim();
-      }
-
+      const { place } = this.state;
+      let deals = [];
       if(!place) return;
 
-      let calcWeekDays = [];
-      for (var i = 0, l = weekDays.length; i < l; i++) {
-        if (weekDays[i].selected) {
-          calcWeekDays.push(parseInt(weekDays[i].value));
+      for(let x = 0; x < this.state.numOfDeals; x++){
+
+        const { startTime, endTime, description, weekDays } = this.state[`deal${x}`];
+        let dealDescriptionArray = description.split(',');
+
+        for (var i = 0; i < dealDescriptionArray.length; i++) {
+          dealDescriptionArray[i] = dealDescriptionArray[i].trim();
         }
+
+        let calcWeekDays = [];
+        for (var i = 0, l = weekDays.length; i < l; i++) {
+          if (weekDays[i].selected) {
+            calcWeekDays.push(parseInt(weekDays[i].value));
+          }
+        }
+
+        calcWeekDays.sort();
+
+        deals.push({
+          startTime: startTime,
+          endTime: endTime,
+          weekDays: calcWeekDays,
+          description: dealDescriptionArray,
+          fullDescription: "placeholder description",
+        })
+
       }
 
-      calcWeekDays.sort();
 
       const newPlace = {
         name: place.name,
@@ -67,15 +84,7 @@ class Place extends React.Component {
         validated: false,
         website: place.website,
         imgUrl: place.photo,
-        deals: [
-          {
-            startTime: startTime,
-            endTime: endTime,
-            weekDays: calcWeekDays,
-            description: dealDescriptionArray,
-            fullDescription: "placeholder description",
-          }
-        ]
+        deals: deals
       };
 
       this.props.actions.postData(newPlace);
@@ -83,7 +92,7 @@ class Place extends React.Component {
       ReactGA.event({
         category: 'DB',
         action: 'User submitted a hapihour'
-      });      
+      });
 
       this.props.onAdd();
       this.close();
@@ -91,17 +100,21 @@ class Place extends React.Component {
 
 
     updateButtonMsg() {
-      const { startTime, endTime, description } = this.state;
+      for(let x = 0; x < this.state.numOfDeals; x++){
 
-      if(!startTime || !endTime || !description){
-        alert("All fields must be populated");
-        return;
+        const { startTime, endTime, description } = this.state[`deal${x}`];
+        if(!startTime || !endTime || !description){
+          alert("All fields must be populated");
+          return;
+        }
+
+        if(startTime >= endTime){
+          alert("Start time can't be after or the same as the end time");
+          return;
+        }
+
       }
 
-      if(startTime >= endTime){
-        alert("Start time can't be after or the same as the end time");
-        return;
-      }
 
       this.setState({ submitState: 'submit-button animated', submitMessage: 'state-1'})
       setTimeout(this.finalButtonMsg, 2000);
@@ -117,8 +130,56 @@ class Place extends React.Component {
       this.setState({ submitState: 'submit-button', submitMessage: ''})
     };
 
+    renderInput(index) {
+
+      const { numOfDeals } = this.state;
+      const dealCurrentState = this.state[`deal${index}`];
+
+      console.log('yooo index', index);
+      console.log('yooo numOfDeals', numOfDeals);
+
+      return (
+        <div className='dealWrapper' >
+        {index === numOfDeals - 1 && index !== 0 && <div className="removeDealButton" aria-label="Close" onClick={() => this.setState({ numOfDeals: numOfDeals - 1 })}>&times;</div>}
+        {numOfDeals > 1 ? <div className='placeLabel'>{`Deal ${index + 1} (separate by a comma for multiple)`}</div> : <div className='placeLabel'>Deal (separate by a comma for multiple)</div>}
+        <div>
+        <input
+          className='placeDetailsDescription'
+          ref={node => this.descriptionInput = node}
+          onChange={event => this.setState({ [`deal${index}`]: { ...dealCurrentState, description: event.target.value }})}
+        />
+        </div>
+        <div className='placeTimeWrapper'>
+          <div className='placeLabel'>Start Time</div>
+          <div className='placeLabel'>End Time</div>
+        </div>
+        <div className='placeTimeWrapper'>
+          <div className='placeDetailsTime'><input className='placeDetailsTimeInner' type ="time" ref={node => this.startTimeInput = node}
+          onChange={event => this.setState({ [`deal${index}`]: { ...dealCurrentState, startTime: event.target.value }})} /></div>
+          <div className='placeDetailsTime' ><input className='placeDetailsTimeInner' type ="time" ref={node => this.endTimeInput = node}
+          onChange={event => this.setState({ [`deal${index}`]: { ...dealCurrentState, endTime: event.target.value }})} /></div>
+        </div>
+        <div className='placeLabel'>Days (select all relevant)</div>
+        <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node}
+        onChange={event => this.setState({ [`deal${index}`]: { ...dealCurrentState, weekDays: event.target.options }})}>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+          <option value="0">Sunday</option>
+        </select>
+        </div>)
+    }
+
     render() {
-        const { place = { name: '', address: '', photo: '' } } = this.state;
+        const { place = { name: '', address: '', photo: '' }, numOfDeals } = this.state;
+
+        var inputs = [];
+        for (var i = 0; i < numOfDeals; i++) {
+          inputs.push(this.renderInput(i));
+        }
 
         return (
             <div className="PlaceInfoWrapper">
@@ -128,31 +189,10 @@ class Place extends React.Component {
               { place.photo && <img className='placeImage' src={place.photo} /> }
                 <div className='placeDetailsName'>{place.name}</div>
                 <div className='placeDetailsAddress'>{place.address}</div>
-                <div className='placeLabel'>Deal (separate by a comma for multiple)</div>
-                <div><input className='placeDetailsDescription' ref={node => this.descriptionInput = node} onChange={event => this.setState({ description: event.target.value })} /></div>
-                <div className='placeTimeWrapper'>
-                  <div className='placeLabel'>Start Time</div>
-                  <div className='placeLabel'>End Time</div>
-                </div>
-                <div className='placeTimeWrapper'>
-                  <div className='placeDetailsTime'><input className='placeDetailsTimeInner' type ="time" ref={node => this.startTimeInput = node} onChange={event => this.setState({ startTime: event.target.value })} /></div>
-                  <div className='placeDetailsTime' ><input className='placeDetailsTimeInner' type ="time" ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div>
-                </div>
-                <div className='placeLabel'>Days (select all relevant)</div>
-                <select multiple={true} className='placeDetailsDays' ref={node => this.endTimeInput = node} onChange={event => this.setState({ weekDays: event.target.options })}>
-                  <option value="1">Monday</option>
-                  <option value="2">Tuesday</option>
-                  <option value="3">Wednesday</option>
-                  <option value="4">Thursday</option>
-                  <option value="5">Friday</option>
-                  <option value="6">Saturday</option>
-                  <option value="0">Sunday</option>
-                </select>
-                {/* <div><input type ="time" className='placeDetailsEndTime' ref={node => this.endTimeInput = node} onChange={event => this.setState({ endTime: event.target.value })} /></div> */}
-
-                {/* <div>Days of the week:</div> */}
+                {inputs}
               </div>
             </div>
+            <div className='AddAnotherLabel' onClick={() => this.setState({ numOfDeals: numOfDeals + 1 })}>Add Another Deal</div>
             <button onClick={this.updateButtonMsg} className={this.state.submitState}>
               <span className={'submit-pres-state ' + this.state.submitMessage}>Submit</span>
               <span className='submit-sending-state'>...sending</span>

@@ -2,7 +2,7 @@
     position: fixed;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     top: 0;
 
     margin: auto;
@@ -16,6 +16,37 @@
     border-radius: 5px;
     overflow-x: hidden;
     overflow-x: auto;
+}
+
+.AddAnotherLabel{
+  margin-bottom: 10px;
+  text-decoration: underline;
+}
+
+.dealWrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.removeDealButton {
+  position: absolute;
+  top: 6px;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  text-decoration: none;
+}
+
+.removeDealButton:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
 }
 
 
