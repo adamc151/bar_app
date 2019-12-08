@@ -52,10 +52,6 @@ export class MyMap extends React.Component {
     };
   }
 
-  componentDidUpdate(){
-
-  }
-
   componentDidMount() {
     if(this.props.centerCoordinates[0] === null){
       this.getLocation();

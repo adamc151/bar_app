@@ -33,7 +33,6 @@ class Bar extends React.Component {
             {details.name && <div className="detailsName">{details.name}</div>}
             {details.address && <div className="detailsAddress">{details.address}</div>}
             {details.website && <a href={details.website} className="detailsWebsite">Website</a>}
-            {/* {<div className="line">--</div>} */}
             {<div className="dealsTitle">Today's Deals</div>}
             {this.renderTodayDeals()}
             {details.otherDeals && details.otherDeals[0] && <div className="dealsTitle">Other Deals</div>}
@@ -49,13 +48,7 @@ class Bar extends React.Component {
     if (details.name === undefined || !details.name || details.name === '') return null;
 
     return details.deals.map((data, i) => {
-      return (
-        <Deal
-          key={i}
-          index={i}
-          data={data}
-        />
-      );
+      return (<Deal key={i} index={i} data={data} />);
     });
   }
 
@@ -65,13 +58,7 @@ class Bar extends React.Component {
     if (details.name === undefined || !details.name || details.name === '') return null;
 
     return details.otherDeals.map((data, i) => {
-      return (
-        <Deal
-          key={i}
-          index={i}
-          data={data}
-        />
-      );
+      return (<Deal key={i} index={i} data={data} />);
     });
   }
 

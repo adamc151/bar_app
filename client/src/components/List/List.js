@@ -2,7 +2,7 @@ import React from "react";
 import ListItem from "./ListItem";
 import "./List.css";
 
-const getList = (data, onCLick) => {
+const getList = (data, setSingleBar) => {
   if (data.length > 0) {
     return data.map((data, i) => {
       return <ListItem
@@ -10,7 +10,7 @@ const getList = (data, onCLick) => {
         index={i}
         data={data}
         className="carouselCard"
-        onClick={onCLick}
+        onClick={() => setSingleBar(data)}
       />
     });
   } else {
