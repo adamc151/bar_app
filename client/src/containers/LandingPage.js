@@ -23,13 +23,10 @@ class LandingPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-    };
-
 }
 
 componentDidMount(){
-  this.props.actions.setSingleBar(null);
+  this.props.actions.reset();
 }
 
 render() {

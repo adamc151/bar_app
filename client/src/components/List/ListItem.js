@@ -14,8 +14,8 @@ const ListItem = (props) => {
     <div
       className={`listItemWrapper carouselCard toggle${deals[0].category}`}
       onClick={() => {
-        onClick(props.data);
         props.history.push(`/details/${place_id}`);
+        onClick();
       }}
       onMouseEnter={() => {
         onHover(props.data);

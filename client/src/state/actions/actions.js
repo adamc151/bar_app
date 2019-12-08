@@ -16,27 +16,22 @@ export const SET_USER_COORDINATES = "SET_USER_COORDINATES";
 export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
 export const SET_LOADING = 'SET_LOADING';
-export const CLEAR_SINGLE_BAR = 'CLEAR_SINGLE_BAR';
-export const SHOW_MAP = 'SHOW_MAP';
+export const RESET = 'RESET';
 
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
-export function setLoading(isLoading) {
-  return { type: SET_LOADING, payload: isLoading };
+export function reset(){
+  return { type: RESET }
 }
 
-export function showMap() {
-  return { type: SHOW_MAP };
+export function setLoading(isLoading) {
+  return { type: SET_LOADING, payload: isLoading };
 }
 
 export function setSingleBar(bar) {
   console.log('yooo setSingleBar', bar);
   return { type: DATA_FETCH_SINGLE_SUCCESS, payload: bar };
-}
-
-export function clearSingleBar() {
-  return { type: CLEAR_SINGLE_BAR };
 }
 
 export function fetchData(obj) {

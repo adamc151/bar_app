@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actions from "../state/actions/actions";
 import "./BarDetails.css";
-import Bar from "../components/Bar/Bar";
-import navigate from "./icons/back.png";
+import Bar from "./Bar";
+import navigate from "../../containers/icons/back.png";
 import { Route } from "react-router-dom";
-import twitterIcon from "./icons/twitter.png";
-import beerIcon from "./icons/beer.png";
-import instagramIcon from "./icons/instagram.png";
-import facebookIcon from "./icons/facebook.png";
-import emailIcon from "./icons/email.png";
+import twitterIcon from "../../containers/icons/twitter.png";
+import beerIcon from "../../containers/icons/beer.png";
+import instagramIcon from "../../containers/icons/instagram.png";
+import facebookIcon from "../../containers/icons/facebook.png";
+import emailIcon from "../../containers/icons/email.png";
 import Helmet from 'react-helmet';
 
 class BarDetails extends Component {
@@ -19,8 +16,7 @@ class BarDetails extends Component {
   }
 
   render() {
-    const { fetchOne } = this.props.actions;
-    const { data, singleBar, loading } = this.props;
+    const { singleBar, loading } = this.props;
 
     return (
       <Route render={({ history }) => (
@@ -37,12 +33,12 @@ class BarDetails extends Component {
             <div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div>
             <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
-                  <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => {this.props.setSingleBar(null); this.props.onBack(); history.push(`/map`);}}/>
+                  <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => { history.push(`/map`); }}/>
             </div>
 
             <div className="barContainer">
             <div className="barContainerGrow">
-            <Bar fetchOne={fetchOne} data={data} singleBar={singleBar} loading={loading} />
+            <Bar singleBar={singleBar} loading={loading} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
@@ -57,40 +53,11 @@ class BarDetails extends Component {
 
             </div>
 
-
-
-            {/* <div className="donationWrapper">
-                  <div className="donationItem">
-                  {<div className="line">--</div>}
-                      <div className="">
-                          <div className="donationItemTitle">BUY US A ROUND?</div>
-                          <div className="donationItemDesc">Hapihour is a free, self-funded product. If you enjoy think hapihour is useful, maybe buy us a coffee/ beer?</div>
-                      </div>
-                      <a href={'https://paypal.me/hapihour/3.5'}><img className="" src={'https://img.shields.io/badge/Donate-PayPal-orange.svg'}/></a>
-                  </div>
-            </div> */}
-
         </div>
       )} />
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    loading: state.loadingBar,
-    data: state.data,
-    singleBar: state.singleBar
-  };
-}
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(actions, dispatch)
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(BarDetails);
+export default BarDetails;

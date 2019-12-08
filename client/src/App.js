@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
-import BarDetails from "./containers/BarDetails";
 import FAQ from "./containers/FAQ";
 import ReactGA from 'react-ga';
 import LandingPage from "./containers/LandingPage";

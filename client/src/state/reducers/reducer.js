@@ -13,7 +13,7 @@ import {
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE,
   SET_LOADING,
-  SHOW_MAP
+  RESET
 } from "../actions/actions";
 
 //the initial store (global app state)
@@ -79,8 +79,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, carouselSlide: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload }
-    case SHOW_MAP:
-      return { ...state, showMap: true }
+    case RESET:
+      return { ...state, carouselSlide: 0, singleBar: null }
     default:
       return state;
   }
