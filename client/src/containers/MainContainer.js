@@ -34,8 +34,7 @@ class MainContainer extends Component {
       !singleBar && fetchOne(googleId);
     } else {
       const location = window.location.pathname.split("/").pop()
-      setCenterCoordinates(getCityCoordinates(location));
-      this.setState({ displayCarousel: true, displaySearchBar: true });
+      this.setState({ displaySearchBar: true });
     }
   }
 
@@ -51,12 +50,16 @@ class MainContainer extends Component {
     const url = window.location.pathname.split("/");
     if(url[1] !== 'details'){
       this.props.actions.setSingleBar(null);
+      if(prevProps.loadingBars && !this.props.loadingBars){
+        this.setState({ displayCarousel: true });
+      }
     } else if(url[1] === 'details') {
       const googleId = window.location.pathname.split("/").pop()
       !this.props.singleBar && this.props.actions.fetchOne(googleId);
     }
 
   }
+
 
   render() {
     const {
@@ -110,13 +113,13 @@ class MainContainer extends Component {
             setCarouselSlide={setCarouselSlide}
             displayCarousel={(bool) => { this.setState({ displayCarousel: bool }); }}
             onMapsLoaded={() => {
-              setLoading(false);
               const location = window.location.pathname.split("/").pop()
               setCenterCoordinates(getCityCoordinates(location));
             }}
             miles={miles}
             timeFilter={timeFilter}
             displaySearchBar={this.state.displaySearchBar}
+            loading={loading}
           />
         </div>
 

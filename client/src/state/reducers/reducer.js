@@ -25,7 +25,7 @@ let initialState = {
   miles: 10,
   timeFilter: "All",
   userCoordinates: [null, null],
-  centerCoordinates: [null, null],
+  centerCoordinates: [1, 1],
   hoverCoordinates: [null, null],
   carouselSlide: 0,
   singleBar: null,
@@ -41,7 +41,7 @@ export default function transactions(state = initialState, action) {
       return { ...state, carouselSlide: 0, loadingBars: true };
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
-      return { ...state, data: action.payload, loadingBars: true };
+      return { ...state, data: action.payload, loadingBars: false };
     case DATA_FETCH_SINGLE_REQUEST:
       // console.log("DATA_FETCH_SINGLE_REQUEST Action");
       return { ...state, loadingBar: true };
@@ -60,7 +60,7 @@ export default function transactions(state = initialState, action) {
       return { ...state };
     case SET_CENTER_COORDINATES:
       // console.log("SET_CENTER_COORDINATES Action");
-      return { ...state, centerCoordinates: action.payload };
+      return { ...state, centerCoordinates: action.payload, loading: false };
     case SET_MILES:
       // console.log("SET_MILES Action: " + action.payload.miles);
       return { ...state, miles: action.payload.miles };
@@ -79,7 +79,7 @@ export default function transactions(state = initialState, action) {
     case SET_LOADING:
       return { ...state, loading: action.payload }
     case RESET:
-      return { ...state, carouselSlide: 0, singleBar: null, data: [] }
+      return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:
       return state;
   }
