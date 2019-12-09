@@ -52,10 +52,8 @@ export class MyMap extends React.Component {
     };
   }
 
-  componentDidMount() {
-    if(this.props.centerCoordinates[0] === null){
-      this.getLocation();
-    } else {
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.loading && !this.props.loading){
       const [ latitude, longitude ] = this.props.centerCoordinates;
       this.centerMap({ coords: { latitude, longitude } });
       this.getLocation(false);
@@ -92,7 +90,6 @@ export class MyMap extends React.Component {
     const { latitude, longitude } = position.coords;
 
     this.setState({ searchedPlace: null, showingInfoWindow: false, fetchingUserLocation: false });
-    displayCarousel(true);
     setUserCoordinates([ latitude, longitude ]);
 
     centerMap && this.centerMap({ coords: {
@@ -170,6 +167,7 @@ export class MyMap extends React.Component {
       });
 
       if(exists){
+        this.props.setCarouselSlide(0);
         this.centerMap(position, true);
         return;
       }
@@ -211,9 +209,7 @@ export class MyMap extends React.Component {
 
   render() {
 
-    const {
-      fetchingUserLocation
-    } = this.state;
+    const { fetchingUserLocation } = this.state;
 
     const {
       hoverCoordinates,
@@ -243,7 +239,7 @@ export class MyMap extends React.Component {
           className={displaySearchBar ? '' : 'removeSearchBar'}
           getNode={node => (this.searchBox = node)}
           onChange={this.findPlace}
-          onClickButton={this.getLocation}
+          onClickButton={() => { this.getLocation(); displayCarousel(false); }}
           onfocusin={() => displayCarousel(false)}
           onfocusout={() =>
             setTimeout(
@@ -261,9 +257,7 @@ export class MyMap extends React.Component {
                 displayCarousel(true);
               }}
               place={this.state.searchedPlace}
-              onAdd={() => {
-                this.props.fetchData(obj);
-              }}
+              onAdd={() => { this.props.fetchData(obj); }}
             />
           )}
 
@@ -278,15 +272,8 @@ export class MyMap extends React.Component {
               this.map = x.map;
               this.props.onMapsLoaded();
             }}
-            onChange={x => {
-              this.setState({ currentZoom: x.zoom });
-            }}
-          >
-            <Marker
-              className="currentLocation"
-              lat={userCoordinates[0]}
-              lng={userCoordinates[1]}
-            />
+            onChange={x => { this.setState({ currentZoom: x.zoom }); }} >
+            <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />
 
             {this.props.data.map((marker, i) => {
               const { coordinates } = marker.location;

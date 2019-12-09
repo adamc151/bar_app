@@ -135,9 +135,6 @@ class Place extends React.Component {
       const { numOfDeals } = this.state;
       const dealCurrentState = this.state[`deal${index}`];
 
-      console.log('yooo index', index);
-      console.log('yooo numOfDeals', numOfDeals);
-
       return (
         <div className='dealWrapper' >
         {index === numOfDeals - 1 && index !== 0 && <div className="removeDealButton" aria-label="Close" onClick={() => this.setState({ numOfDeals: numOfDeals - 1 })}>&times;</div>}
