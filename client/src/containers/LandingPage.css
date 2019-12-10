@@ -29,11 +29,18 @@
     text-align: center;
 }
 
+.descriptionColourWrapper{
+    background-color: rgba(255, 188, 44, 0.945);
+    box-shadow:
+    inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
+}
+
 .descriptionAndTitleLandingWrapper{
     margin: auto;
+    margin-top: -20px;
     margin-bottom: 20px;
+    padding-top: 30px;
     max-width: 1100px;
-    padding-top: 20px;
     color: rgb(72, 72, 72);
 }
 
@@ -54,9 +61,9 @@
     margin: auto;
     font-size: 24px;
     font-family: Circular-bold;
-    margin-bottom: 20px;
-    border-bottom: 3px solid rgb(202, 202, 202);
+    border-bottom: 2px solid rgb(72, 72, 72);;
     padding-bottom: 10px;
+    
 }
 
 .descriptionLandingItem{
@@ -65,6 +72,7 @@
 }
 
 .descriptionLandingItemDesc{
+    font-family: Circular-bold;
     font-size: 16px;
     margin-top: 8px;
 }
@@ -83,7 +91,7 @@
     font-size: 20px;
     font-family: Circular-black;
     margin-top: 10px;
-    color: rgba(255, 188, 44, 0.945);
+    color: white;
 }
 
 .titleDescriptionLandingWrapper{
@@ -100,7 +108,7 @@
     width: 85%;
     margin: auto;
     margin-top: 10px;
-    margin-bottom: 260px;
+    margin-bottom: 230px;
     max-width: 500px;
 }
 
@@ -201,6 +209,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .donationItem{
@@ -236,13 +245,12 @@
 
     .descriptionAndTitleLandingWrapper{
         margin: auto;
-        margin-top: 10px;
         max-width: 1100px;
         color: rgb(72, 72, 72);
         padding-top: 30px;
-        background-color: rgba(255, 188, 44, 0.945);
+        /* background-color: rgba(255, 188, 44, 0.945);
         box-shadow:
-        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
+        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747); */
     }
 
     .titleDescriptionLanding{
@@ -262,7 +270,7 @@
     .descriptionLandingTitle{
         /* margin-top: 55vh; */
         /* margin-top: 40px; */
-        margin-bottom: 0px;
+        margin-bottom: 10px;
         width: 200px;
         font-size: 20px;
     }
@@ -297,7 +305,6 @@
 
     .descriptionLandingItemDesc{
         font-size: 15px;
-        font-family: Circular-bold;
         margin-top: 0px;
     }
 
@@ -308,7 +315,6 @@
         margin-top: 10px;
         margin-bottom: 5px;
         /* color: rgba(255, 188, 44, 0.945); */
-        color: white;
     }
 
     .photosLandingWrapper{
@@ -351,17 +357,16 @@
 
     .donationWrapper{
         margin: auto;
+        margin-top: 15px;
         max-width: 1100px;
         color: rgb(72, 72, 72);
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
     }
 
     .donationItem{
-        margin-top: 30px;
         padding-left: 30px;
         padding-right: 30px;
         padding-bottom: 30px;
