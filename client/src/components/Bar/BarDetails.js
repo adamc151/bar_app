@@ -16,7 +16,7 @@ class BarDetails extends Component {
   }
 
   render() {
-    const { singleBar, loading } = this.props;
+    const { singleBar, loading, getPhotos } = this.props;
 
     return (
       <Route render={({ history }) => (
@@ -38,7 +38,7 @@ class BarDetails extends Component {
 
             <div className="barContainer">
             <div className="barContainerGrow">
-            <Bar singleBar={singleBar} loading={loading} />
+            <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>

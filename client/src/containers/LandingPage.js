@@ -16,7 +16,7 @@ import beerIcon from "./icons/beer.png";
 import fullLogo from "./icons/fullLogo.png";
 import instagramIcon from "./icons/instagram.png";
 import facebookIcon from "./icons/facebook.png";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import Image from '../components/Image/Image';
 
 class LandingPage extends Component {
@@ -50,8 +50,8 @@ render() {
             </div>
 
             <div className="locationWrapper" >
-                <div className="searchBarLandingWrapper" onClick={() => {history.push(`/map`);}}>Search...</div>
-                <div className="currentLocationLanding" onClick={() => {history.push(`/map`);}}><img src={locationIcon}/></div>
+                <div className="searchBarLandingWrapper"><Link to={`/map`}>Search...</Link></div>
+                <div className="currentLocationLanding"><Link to={`/map`}><img src={locationIcon}/></Link></div>
             </div>
 
             <img className="descriptionLandingItemFullLogo" src={fullLogo}/>
