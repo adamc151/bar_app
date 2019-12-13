@@ -21,12 +21,13 @@ class Bar extends React.Component {
   }
 
   renderBar() {
-    const { loading } = this.props;
+    const { loading, getPhotos } = this.props;
     let details = this.props.singleBar;
 
     return (
       <div className="detailsWrapper">
         <Image src={details.imgUrl} className="barDetailsImage" />
+        <div onClick={() => getPhotos()} >getPhotos</div>
         {loading && !details.name ?
           this.getSkeleton() :
           <div className="detailsTextWrapper">

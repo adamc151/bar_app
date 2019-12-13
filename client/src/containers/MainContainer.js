@@ -124,7 +124,14 @@ class MainContainer extends Component {
         </div>
 
         <div className={'sideNav sideNavAnimaion'}>
-          <div className="list">{getList(data, setSingleBar)}</div>
+          <div className="list">
+            {getList(data, 
+              setSingleBar, 
+              (data) => {
+                setCenterCoordinates(data.location.coordinates);
+                setHoverCoordinates(data.location.coordinates);
+              })}
+              </div>
         </div>
 
         {(!loading && this.state.displayCarousel &&
