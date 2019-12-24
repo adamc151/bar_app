@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
 import FAQ from "./containers/FAQ";
+import Admin from "./containers/Admin";
 import ReactGA from 'react-ga';
 import LandingPage from "./containers/LandingPage";
 import Helmet from 'react-helmet';
@@ -30,6 +31,7 @@ class App extends Component {
           <div>
             <Route path="/(map|details)/" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />
+            <Route exact path="/admin/*" component={Admin} />
             <Route exact path="/" component={LandingPage} />
           </div>
         </div>
