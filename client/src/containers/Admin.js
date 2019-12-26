@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Admin.css";
+import AdminForm from "../components/AdminForm/AdminForm"
 import navigate from "./icons/back.png";
 import { Route } from "react-router-dom";
 import twitterIcon from "./icons/twitter.png";
@@ -37,34 +38,34 @@ class Admin extends Component {
         });
     }
 
-    renderDealsLower(deals){
-        console.log(deals);
-        return deals.map((data, i) => {
-            return (
-                <div className="dealClass"><input type="text" name="fname" value={JSON.stringify(data).replace(/"/g, '')}/></div>
-            );
-        });
+    // renderDealsLower(deals){
+    //     console.log(deals);
+    //     return deals.map((data, i) => {
+    //         return (
+    //             <div className="dealClass"><input type="text" name="fname" value={JSON.stringify(data).replace(/"/g, '')}/></div>
+    //         );
+    //     });
 
-    }
+    // }
 
-    renderDeals(deals){
-        console.log(deals);
-        return deals.map((data, i) => {
-            return (
-                <div className="dealClass">
-                    <input type="text" name="fname" value={JSON.stringify(data.weekDays)}/>
-                    <input type="text" name="fname" value={JSON.stringify(data.startTime).replace(/"/g, '')}/>
-                    <input type="text" name="fname" value={JSON.stringify(data.endTime).replace(/"/g, '')}/>
-                    <div className="dealClass">{this.renderDealsLower(data.description)}</div>
-                </div>
-            );
-        });
-    }
+    // renderDeals(deals){
+    //     console.log(deals);
+    //     return deals.map((data, i) => {
+    //         return (
+    //             <div className="dealClass">
+    //                 <input type="text" name="fname" value={JSON.stringify(data.weekDays)}/>
+    //                 <input type="text" name="fname" value={JSON.stringify(data.startTime).replace(/"/g, '')}/>
+    //                 <input type="text" name="fname" value={JSON.stringify(data.endTime).replace(/"/g, '')}/>
+    //                 <div className="dealClass">{this.renderDealsLower(data.description)}</div>
+    //             </div>
+    //         );
+    //     });
+    // }
 
-    onSubmit(){
-        e.preventDefault();
+    // onSubmit(){
+    //     e.preventDefault();
         
-    }
+    // }
 
     render() {
 
@@ -91,14 +92,15 @@ class Admin extends Component {
                     <div className="barContainer">
                         <div className="barContainerGrow">
                             <div className="adminContainer">
-                                <div className="adminTitle">{this.state.singleBar && this.state.singleBar.name}</div>
+                                {/* <div className="adminTitle">{this.state.singleBar && this.state.singleBar.name}</div>
                                 <div className="adminAddress">{this.state.singleBar && this.state.singleBar.address}</div>
                                 <form className="" onSubmit={(e)=>{this.onSubmit(e)}}>
                                     <div className="adminDeals">{this.state.singleBar && this.renderDeals(this.state.singleBar.deals)}</div>
                                     <div className="">
                                         <button type="submit">Update</button>
                                     </div>
-                                </form>
+                                </form> */}
+                                {this.state.singleBar && <AdminForm singleBar={this.state.singleBar}/>}
                             </div>
                         </div>
                         <div className="footerCenter">
