@@ -23,7 +23,8 @@ class AdminForm extends React.Component {
             deals: initialStateArray,
             Name: this.props.singleBar.name,
             Address: this.props.singleBar.address,
-            Validated: this.props.singleBar.validated
+            Validated: this.props.singleBar.validated,
+            URL: this.props.singleBar.imgUrl
         }
     }
 
@@ -48,6 +49,7 @@ class AdminForm extends React.Component {
         e.preventDefault();
         let tmpBar = this.props.singleBar;
         tmpBar.validated = this.state.Validated;
+        tmpBar.imgUrl = this.state.URL;
         
         let tmpDealsArray = [];
         this.state.deals.map((val, idx) => {
@@ -89,15 +91,24 @@ class AdminForm extends React.Component {
         this.setState({ Validated: !this.state.Validated});
     }
 
+    handleUrlChange = (e) => {
+        this.setState({ URL: e.target.value});
+    }
+
     render() {
-        let {Name, Address, deals, Validated} = this.state
+        let {Name, Address, deals, Validated, URL} = this.state
         return (
         <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
             <div className="adminTitle"><label htmlFor="name">{Name}</label></div>
             <br/>
+            <div className="adminUrl">
+                <label htmlFor="name">Image Url</label><br/>
+                <input className="adminUrlInput" type="text" onChange={this.handleUrlChange} value={URL}/>
+            </div>
+            <br/>
             <div className="adminValidated">
                 <label htmlFor="validated">Validated</label>
-                <input className="adminCheckbox" name="isValidated" type="checkbox" checked={this.state.Validated} onChange={this.handleValidatedChange} />
+                <input className="adminCheckbox" name="isValidated" type="checkbox" checked={Validated} onChange={this.handleValidatedChange} />
             </div>
             <br/>
             <button className="button" onClick={this.addDeal}>Add new Deal</button>
