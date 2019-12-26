@@ -16,7 +16,7 @@ class AdminForm extends React.Component {
                 endTime: val.endTime,
                 deals: val.description.toString()
             }
-            initialStateArray.push(dealObj);
+            return initialStateArray.push(dealObj);
         })
 
         this.state = {
@@ -72,7 +72,7 @@ class AdminForm extends React.Component {
         
         axios.put("/api/bar?place_id=" + this.props.singleBar.place_id, this.props.singleBar, config)
         .then(function (response) {
-            console.log('submitted');
+        console.log('submitted');
         })
         .catch(function (error) {
             console.log(`error: ${error}`);
@@ -94,7 +94,6 @@ class AdminForm extends React.Component {
         return (
         <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
             <div className="adminTitle"><label htmlFor="name">{Name}</label></div>
-            {/* <div className="adminAddress"><label htmlFor="address">{Address}</label></div> */}
             <br/>
             <div className="adminValidated">
                 <label htmlFor="validated">Validated</label>
@@ -102,57 +101,65 @@ class AdminForm extends React.Component {
             </div>
             <br/>
             <button className="button" onClick={this.addDeal}>Add new Deal</button>
-            <input className="button" type="submit" value="Submit" /> 
-            {
-            deals.map((val, idx)=> {
-                let wdId = `wd-${idx}`, stId = `st-${idx}`, etId = `et-${idx}`, dId = `d-${idx}`
-                return (
-                <div className="dealItem" key={idx}>
-                    <button className="deleteButton" onClick={this.handleDelete} id={idx}>x</button>
-                    <br/>
-                    <label className="itemLabel" htmlFor={wdId}>Week Days:</label>
-                    <input
-                    type="text"
-                    name={wdId}
-                    data-id={idx}
-                    id={wdId}
-                    value={deals[idx].weekDays} 
-                    className="weekDays"
-                    />
-                    <br/>
-                    <label className="itemLabel" htmlFor={stId}>Start Time:</label>
-                    <input
-                    type="text"
-                    name={stId}
-                    data-id={idx}
-                    id={stId}
-                    value={deals[idx].startTime} 
-                    className="startTime"
-                    />
-                    <br/>
-                    <label className="itemLabel" htmlFor={etId}>End Time:</label>
-                    <input
-                    type="text"
-                    name={etId}
-                    data-id={idx}
-                    id={etId}
-                    value={deals[idx].endTime} 
-                    className="endTime"
-                    />
-                    <br/>
-                    <label className="itemLabel" htmlFor={etId}>Deals:</label>
-                    <input
-                    type="text"
-                    name={dId}
-                    data-id={idx}
-                    id={dId}
-                    value={deals[idx].deals} 
-                    className="deals"
-                    />
-                </div>
-                )
-            })
-            }
+            <input className="button" type="submit" value="Submit" />
+            <div className="adminFlexContainer">
+                {
+                deals.map((val, idx)=> {
+                    let wdId = `wd-${idx}`, stId = `st-${idx}`, etId = `et-${idx}`, dId = `d-${idx}`
+                    return (
+                    <div className="dealItem" key={idx}>
+                        <label className="dealLabel">Deal {idx+1}</label>
+                        <br/>
+                        <a href="#" className="close" onClick={this.handleDelete} id={idx}></a>
+                        <br/>
+                        <label className="itemLabel" htmlFor={wdId}>Week Days:</label>
+                        <br/>
+                        <input
+                        type="text"
+                        name={wdId}
+                        data-id={idx}
+                        id={wdId}
+                        value={deals[idx].weekDays} 
+                        className="weekDays"
+                        />
+                        <br/>
+                        <label className="itemLabel" htmlFor={stId}>Start Time:</label>
+                        <br/>
+                        <input
+                        type="text"
+                        name={stId}
+                        data-id={idx}
+                        id={stId}
+                        value={deals[idx].startTime} 
+                        className="startTime"
+                        />
+                        <br/>
+                        <label className="itemLabel" htmlFor={etId}>End Time:</label>
+                        <br/>
+                        <input
+                        type="text"
+                        name={etId}
+                        data-id={idx}
+                        id={etId}
+                        value={deals[idx].endTime} 
+                        className="endTime"
+                        />
+                        <br/>
+                        <label className="itemLabel" htmlFor={etId}>Deals:</label>
+                        <br/>
+                        <input
+                        type="text"
+                        name={dId}
+                        data-id={idx}
+                        id={dId}
+                        value={deals[idx].deals} 
+                        className="deals"
+                        />
+                    </div>
+                    )
+                })
+                }
+            </div>
         </form>
         )
     }
