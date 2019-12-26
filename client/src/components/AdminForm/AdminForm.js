@@ -107,7 +107,7 @@ class AdminForm extends React.Component {
             </div>
             <br/>
             <div className="adminValidated">
-                <label htmlFor="validated">Validated</label>
+                <label htmlFor="validated">Displayable: </label>
                 <input className="adminCheckbox" name="isValidated" type="checkbox" checked={Validated} onChange={this.handleValidatedChange} />
             </div>
             <br/>
