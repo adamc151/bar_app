@@ -11,7 +11,7 @@ class AdminForm extends React.Component {
                 weekDays: val.weekDays.toString(),
                 startTime: val.startTime,
                 endTime: val.endTime,
-                deals: "here are the deals"
+                deals: val.description.toString()
             }
             initialStateArray.push(dealObj);
         })
@@ -26,24 +26,33 @@ class AdminForm extends React.Component {
 
     handleChange = (e) => {
         if (["weekDays", "startTime", "endTime", "deals"].includes(e.target.className) ) {
-        let deals = [...this.state.deals]
-        deals[e.target.dataset.id][e.target.className] = e.target.value.toUpperCase()
-        this.setState({ deals }, () => console.log(this.state.deals))
+            let deals = [...this.state.deals]
+            deals[e.target.dataset.id][e.target.className] = e.target.value.toUpperCase()
+            this.setState({ deals }, () => console.log(this.state.deals))
         } else {
-        this.setState({ [e.target.weekDays]: e.target.value.toUpperCase() })
+            this.setState({ [e.target.weekDays]: e.target.value.toUpperCase() })
         }
     }
 
     addDeal = (e) => {
         this.setState((prevState) => ({
-        deals: [...prevState.deals, {weekDays:"", startTime:"", endTime:"", deals:""}],
+            deals: [...prevState.deals, {weekDays:"", startTime:"", endTime:"", deals:""}],
         }));
     }
 
     handleSubmit = (e) => { 
         e.preventDefault();
-        console.log('print it out') ;
+        console.log('print it out');
         console.log(this.state.deals);
+    }
+
+    handleDelete = (e) => {
+        console.log(`delete: ${e.target.id}`);
+        console.log(this.state.deals[e.target.id]);
+        let tmpArray = this.state.deals.splice(e.target.id, 1);
+        console.log(tmpArray);
+        this.forceUpdate();
+        // this.setState({deals: });
     }
 
     render() {
@@ -61,6 +70,7 @@ class AdminForm extends React.Component {
                 let wdId = `wd-${idx}`, stId = `st-${idx}`, etId = `et-${idx}`, dId = `d-${idx}`
                 return (
                 <div key={idx}>
+                    <button onClick={this.handleDelete} id={idx}>x</button>
                     <label htmlFor={wdId}>{`Week Days`}</label>
                     <input
                     type="text"
