@@ -19,18 +19,20 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: 80%;
+    max-width: 60%;
     margin: auto;
 }
 
 .dealItem{
     margin: auto;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 20px;
     margin-bottom: 25px;
     border-radius: 10px;
     padding: 10px;
     padding-bottom: 30px;
-    min-width: 450px;
+    min-width: 300px;
     background-color: rgb(255, 255, 255);
     box-shadow:
     0px 11px 25px -5px rgb(145, 145, 145);
@@ -86,7 +88,7 @@
 
 .close {
     position: relative;
-    right: -190px;
+    right: -120px;
     top: -20px;
     width: 30px;
     height: 30px;
@@ -111,3 +113,14 @@
 }
 
 /* -------------------- */
+
+@media screen and (max-width: 700px) {
+    .adminFlexContainer{
+        max-width: 100%;
+    }
+
+    .dealItem{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
