@@ -1,5 +1,6 @@
 import React from "react"
 import "./AdminForm.css";
+import axios from "axios";
 
 class AdminForm extends React.Component {
 
@@ -30,10 +31,10 @@ class AdminForm extends React.Component {
     handleChange = (e) => {
         if (["weekDays", "startTime", "endTime", "deals"].includes(e.target.className) ) {
             let deals = [...this.state.deals]
-            deals[e.target.dataset.id][e.target.className] = e.target.value.toUpperCase()
+            deals[e.target.dataset.id][e.target.className] = e.target.value
             this.setState({ deals }, () => console.log(this.state.deals))
         } else {
-            this.setState({ [e.target.weekDays]: e.target.value.toUpperCase() })
+            this.setState({ [e.target.weekDays]: e.target.value })
         }
     }
 
@@ -45,7 +46,37 @@ class AdminForm extends React.Component {
 
     handleSubmit = (e) => { 
         e.preventDefault();
-        console.log(this.state);
+        let tmpBar = this.props.singleBar;
+        tmpBar.validated = this.state.Validated;
+        
+        let tmpDealsArray = [];
+        this.state.deals.map((val, idx) => {
+            let tmpDealsObj = {
+                description: val.deals.split(','),
+                endTime: val.endTime.trim(),
+                fullDescription: "placeholder description",
+                startTime: val.startTime.trim(),
+                weekDays: val.weekDays.split(',').map(Number)
+            }
+
+            for (var i = 0; i < tmpDealsObj.description.length; i++) {
+                tmpDealsObj.description[i] = tmpDealsObj.description[i].trim();
+            }
+
+            tmpDealsArray.push(tmpDealsObj);
+        });
+
+        this.props.singleBar.deals = tmpDealsArray;
+
+        const config = { headers: {'Content-Type': 'application/json'} };
+        
+        axios.put("/api/bar?place_id=" + this.props.singleBar.place_id, this.props.singleBar, config)
+        .then(function (response) {
+            console.log('submitted');
+        })
+        .catch(function (error) {
+            console.log(`error: ${error}`);
+        });
     }
 
     handleDelete = (e) => {
@@ -55,7 +86,6 @@ class AdminForm extends React.Component {
     }
 
     handleValidatedChange = (e) => {
-        console.log('validation change');
         this.setState({ Validated: !this.state.Validated});
     }
 
@@ -87,7 +117,7 @@ class AdminForm extends React.Component {
                     data-id={idx}
                     id={wdId}
                     value={deals[idx].weekDays} 
-                    className="weekDays inputItem"
+                    className="weekDays"
                     />
                     <br/>
                     <label className="itemLabel" htmlFor={stId}>Start Time:</label>
@@ -97,7 +127,7 @@ class AdminForm extends React.Component {
                     data-id={idx}
                     id={stId}
                     value={deals[idx].startTime} 
-                    className="startTime inputItem"
+                    className="startTime"
                     />
                     <br/>
                     <label className="itemLabel" htmlFor={etId}>End Time:</label>
@@ -107,7 +137,7 @@ class AdminForm extends React.Component {
                     data-id={idx}
                     id={etId}
                     value={deals[idx].endTime} 
-                    className="endTime inputItem"
+                    className="endTime"
                     />
                     <br/>
                     <label className="itemLabel" htmlFor={etId}>Deals:</label>
@@ -117,7 +147,7 @@ class AdminForm extends React.Component {
                     data-id={idx}
                     id={dId}
                     value={deals[idx].deals} 
-                    className="deals inputItem"
+                    className="deals"
                     />
                 </div>
                 )
