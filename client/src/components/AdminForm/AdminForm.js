@@ -1,4 +1,6 @@
 import React from "react"
+import "./AdminForm.css";
+
 class AdminForm extends React.Component {
 
     constructor(props) {
@@ -19,7 +21,8 @@ class AdminForm extends React.Component {
         this.state = {
             deals: initialStateArray,
             Name: this.props.singleBar.name,
-            Address: this.props.singleBar.address
+            Address: this.props.singleBar.address,
+            Validated: this.props.singleBar.validated
         }
     }
 
@@ -42,81 +45,83 @@ class AdminForm extends React.Component {
 
     handleSubmit = (e) => { 
         e.preventDefault();
-        console.log('print it out');
-        console.log(this.state.deals);
+        console.log(this.state);
     }
 
     handleDelete = (e) => {
         console.log(`delete: ${e.target.id}`);
-        console.log(this.state.deals[e.target.id]);
         let tmpArray = this.state.deals.splice(e.target.id, 1);
-        console.log(tmpArray);
         this.forceUpdate();
-        // this.setState({deals: });
+    }
+
+    handleValidatedChange = (e) => {
+        console.log('validation change');
+        this.setState({ Validated: !this.state.Validated});
     }
 
     render() {
-        let {Name, Address, deals} = this.state
+        let {Name, Address, deals, Validated} = this.state
         return (
         <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
-            <label htmlFor="name">{Name}</label> 
-            <br/>
-            <label htmlFor="description">{Address}</label> 
-            <br/>
-            <br/>
-            <button onClick={this.addDeal}>Add new Deal</button>
+            <div className="adminTitle"><label htmlFor="name">{Name}</label></div>
+            <div className="adminAddress"><label htmlFor="address">{Address}</label></div>
+            <div className="adminValidated">
+                <label htmlFor="validated">Validated</label>
+                <input className="adminCheckbox" name="isValidated" type="checkbox" checked={this.state.Validated} onChange={this.handleValidatedChange} />
+            </div>
             {
             deals.map((val, idx)=> {
                 let wdId = `wd-${idx}`, stId = `st-${idx}`, etId = `et-${idx}`, dId = `d-${idx}`
                 return (
-                <div key={idx}>
-                    <button onClick={this.handleDelete} id={idx}>x</button>
-                    <label htmlFor={wdId}>{`Week Days`}</label>
+                <div className="dealItem" key={idx}>
+                    <button className="deleteButton" onClick={this.handleDelete} id={idx}>x</button>
+                    <br/>
+                    <label className="itemLabel" htmlFor={wdId}>Week Days:</label>
                     <input
                     type="text"
                     name={wdId}
                     data-id={idx}
                     id={wdId}
                     value={deals[idx].weekDays} 
-                    className="weekDays"
+                    className="weekDays inputItem"
                     />
                     <br/>
-                    <label htmlFor={stId}>Start Time</label>
+                    <label className="itemLabel" htmlFor={stId}>Start Time:</label>
                     <input
                     type="text"
                     name={stId}
                     data-id={idx}
                     id={stId}
                     value={deals[idx].startTime} 
-                    className="startTime"
+                    className="startTime inputItem"
                     />
                     <br/>
-                    <label htmlFor={etId}>End Time</label>
+                    <label className="itemLabel" htmlFor={etId}>End Time:</label>
                     <input
                     type="text"
                     name={etId}
                     data-id={idx}
                     id={etId}
                     value={deals[idx].endTime} 
-                    className="endTime"
+                    className="endTime inputItem"
                     />
                     <br/>
-                    <label htmlFor={etId}>Deals</label>
+                    <label className="itemLabel" htmlFor={etId}>Deals:</label>
                     <input
                     type="text"
                     name={dId}
                     data-id={idx}
                     id={dId}
                     value={deals[idx].deals} 
-                    className="deals"
+                    className="deals inputItem"
                     />
-                    <br/>
-                    <br/>
-                    <br/>
                 </div>
                 )
             })
             }
+            <br/>
+            <button onClick={this.addDeal}>Add new Deal</button>
+            <br/>
             <input type="submit" value="Submit" /> 
         </form>
         )
