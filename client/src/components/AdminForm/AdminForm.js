@@ -64,11 +64,15 @@ class AdminForm extends React.Component {
         return (
         <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
             <div className="adminTitle"><label htmlFor="name">{Name}</label></div>
-            <div className="adminAddress"><label htmlFor="address">{Address}</label></div>
+            {/* <div className="adminAddress"><label htmlFor="address">{Address}</label></div> */}
+            <br/>
             <div className="adminValidated">
                 <label htmlFor="validated">Validated</label>
                 <input className="adminCheckbox" name="isValidated" type="checkbox" checked={this.state.Validated} onChange={this.handleValidatedChange} />
             </div>
+            <br/>
+            <button className="button" onClick={this.addDeal}>Add new Deal</button>
+            <input className="button" type="submit" value="Submit" /> 
             {
             deals.map((val, idx)=> {
                 let wdId = `wd-${idx}`, stId = `st-${idx}`, etId = `et-${idx}`, dId = `d-${idx}`
@@ -119,10 +123,6 @@ class AdminForm extends React.Component {
                 )
             })
             }
-            <br/>
-            <button onClick={this.addDeal}>Add new Deal</button>
-            <br/>
-            <input type="submit" value="Submit" /> 
         </form>
         )
     }
