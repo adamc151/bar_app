@@ -15,8 +15,12 @@ class BarDetails extends Component {
     super(props);
   }
 
+  componentWillUnmount(){
+    this.props.clearPhotos();
+  }
+
   render() {
-    const { singleBar, loading, getPhotos } = this.props;
+    const { singleBar, loading, getPhotos, photos } = this.props;
 
     return (
       <Route render={({ history }) => (
@@ -38,7 +42,7 @@ class BarDetails extends Component {
 
             <div className="barContainer">
             <div className="barContainerGrow">
-            <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} />
+            <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} photos={photos} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>

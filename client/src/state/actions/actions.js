@@ -3,8 +3,12 @@ import axios from "axios";
 //ACTION TYPES - used to label each action
 export const DATA_FETCH_REQUEST = "DATA_FETCH_REQUEST";
 export const DATA_FETCH_SUCCESS = "DATA_FETCH_SUCCESS";
-export const DATA_FETCH_SINGLE_REQUEST = 'DATA_FETCH_SINGLE_REQUEST';
-export const DATA_FETCH_SINGLE_SUCCESS = 'DATA_FETCH_SINGLE_SUCCESS';
+export const DATA_FETCH_SINGLE_REQUEST = "DATA_FETCH_SINGLE_REQUEST";
+export const DATA_FETCH_SINGLE_SUCCESS = "DATA_FETCH_SINGLE_SUCCESS";
+
+export const GOOGLE_PHOTOS_FETCH_REQUEST = "GOOGLE_PHOTOS_FETCH_REQUEST";
+export const GOOGLE_PHOTOS_FETCH_SUCCESS = "GOOGLE_PHOTOS_FETCH_SUCCESS";
+export const CLEAR_PHOTOS = "CLEAR_PHOTOS";
 
 export const DATA_POST_REQUEST = "DATA_POST_REQUEST";
 export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
@@ -15,14 +19,13 @@ export const SET_TIME_FILTER = "SET_TIME_FILTER";
 export const SET_USER_COORDINATES = "SET_USER_COORDINATES";
 export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
-export const SET_LOADING = 'SET_LOADING';
-export const RESET = 'RESET';
-
+export const SET_LOADING = "SET_LOADING";
+export const RESET = "RESET";
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
-export function reset(){
-  return { type: RESET }
+export function reset() {
+  return { type: RESET };
 }
 
 export function setLoading(isLoading) {
@@ -30,8 +33,31 @@ export function setLoading(isLoading) {
 }
 
 export function setSingleBar(bar) {
-  console.log('yooo setSingleBar', bar);
   return { type: DATA_FETCH_SINGLE_SUCCESS, payload: bar };
+}
+
+export function clearPhotos() {
+  return { type: CLEAR_PHOTOS };
+}
+
+export function getGooglePlacePhotos(place_id) {
+  return async (dispatch, getState) => {
+    dispatch({ type: GOOGLE_PHOTOS_FETCH_REQUEST });
+
+    await window.places.getDetails(
+      {
+        placeId: place_id
+      },
+      details => {
+        const photos =
+          details.photos && details.photos.map(photo => photo.getUrl());
+        return dispatch({
+          type: GOOGLE_PHOTOS_FETCH_SUCCESS,
+          payload: photos
+        });
+      }
+    );
+  };
 }
 
 export function fetchData(obj) {
@@ -49,7 +75,6 @@ export function fetchData(obj) {
 
 export function fetchOne(id) {
   return async (dispatch, getState) => {
-
     dispatch({ type: DATA_FETCH_SINGLE_REQUEST });
 
     const value = await axios.get("/api/bar", {
@@ -67,14 +92,15 @@ export function fetchOne(id) {
 export function postData(obj) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_POST_REQUEST });
-    await axios.post("/api/bar", obj)
-      .then(function (response) {
+    await axios
+      .post("/api/bar", obj)
+      .then(function(response) {
         return dispatch({ type: DATA_POST_SUCCESS });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         // console.log(`error: ${error}`);
         return dispatch({ type: DATA_POST_FAILURE });
-      });;
+      });
   };
 }
 
@@ -98,9 +124,7 @@ export function setTimeFilter(timeFilter) {
   return { type: SET_TIME_FILTER, payload: { timeFilter } };
 }
 
-
 export function categoriseData(data, returnAllDeals = false) {
-
   var d = new Date();
   var h = d.getHours();
   var m = d.getMinutes();
@@ -114,35 +138,29 @@ export function categoriseData(data, returnAllDeals = false) {
     var finalOther = [];
 
     if (item.validated) {
-
       item.deals.map(deal => {
-
         if (deal.weekDays.includes(day)) {
-
           var st = deal.startTime.replace(":", "");
           var et = deal.endTime.replace(":", "");
 
           if (st <= time && et > time && deal.weekDays.includes(day)) {
-            deal.category = 'Now';
-          }
-          else if (st > time && et > time && deal.weekDays.includes(day)) {
-            deal.category = 'Upcoming';
-          }
-          else {
-            deal.category = 'Inactive';
+            deal.category = "Now";
+          } else if (st > time && et > time && deal.weekDays.includes(day)) {
+            deal.category = "Upcoming";
+          } else {
+            deal.category = "Inactive";
           }
           // console.log('yooo deal', deal);
           final.push(deal);
-        }
-        else {
-          deal.category = 'Inactive';
+        } else {
+          deal.category = "Inactive";
           finalOther.push(deal);
         }
       });
     }
 
     item.deals = final;
-    item['otherDeals'] = finalOther;
+    item["otherDeals"] = finalOther;
 
     if (item.deals[0] || returnAllDeals) {
       return item;
