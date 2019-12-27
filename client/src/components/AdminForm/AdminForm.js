@@ -107,8 +107,14 @@ class AdminForm extends React.Component {
             </div>
             <br/>
             <div className="adminValidated">
-                <label htmlFor="validated">Displayable: </label>
-                <input className="adminCheckbox" name="isValidated" type="checkbox" checked={Validated} onChange={this.handleValidatedChange} />
+                <label className="container">Displayed
+                    <input type="checkbox" name="isValidated" checked={Validated} onChange={this.handleValidatedChange}/>
+                    <span className="checkmark"></span>
+                </label>
+                {/* <label className="container" htmlFor="validated">Displayable:
+                    <input className="adminCheckbox" name="isValidated" type="checkbox" checked={Validated} onChange={this.handleValidatedChange} />
+                    <span className="checkmark"></span>
+                </label> */}
             </div>
             <br/>
             <button className="button" onClick={this.addDeal}>Add new Deal</button>
