@@ -271,6 +271,7 @@ export class MyMap extends React.Component {
             onGoogleApiLoaded={x => {
               this.map = x.map;
               this.props.onMapsLoaded();
+              window.places = new window.google.maps.places.PlacesService(x.map);
             }}
             onChange={x => { this.setState({ currentZoom: x.zoom }); }} >
             <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />

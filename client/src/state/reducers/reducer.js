@@ -3,6 +3,7 @@ import {
   DATA_FETCH_SUCCESS,
   DATA_FETCH_SINGLE_REQUEST,
   DATA_FETCH_SINGLE_SUCCESS,
+  GOOGLE_PHOTOS_FETCH_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
   DATA_POST_FAILURE,
@@ -13,6 +14,7 @@ import {
   SET_HOVER_COORDINATES,
   SET_CAROUSEL_SLIDE,
   SET_LOADING,
+  CLEAR_PHOTOS,
   RESET
 } from "../actions/actions";
 
@@ -44,10 +46,12 @@ export default function transactions(state = initialState, action) {
       return { ...state, data: action.payload, loadingBars: false };
     case DATA_FETCH_SINGLE_REQUEST:
       // console.log("DATA_FETCH_SINGLE_REQUEST Action");
-      return { ...state, loadingBar: true };
+      return { ...state, photos: null, loadingBar: true };
     case DATA_FETCH_SINGLE_SUCCESS:
       // console.log("DATA_FETCH_SINGLE_SUCCESS Action");
       return { ...state, singleBar: action.payload, loadingBar: false };
+    case GOOGLE_PHOTOS_FETCH_SUCCESS:
+      return { ...state, photos: action.payload }
     case DATA_POST_REQUEST:
       // console.log("DATA_POST_REQUEST Action");
       return { ...state };
@@ -78,6 +82,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, carouselSlide: action.payload };
     case SET_LOADING:
       return { ...state, loading: action.payload }
+    case CLEAR_PHOTOS:
+      return { ...state, photos: null }
     case RESET:
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:
