@@ -2,67 +2,103 @@ import React from "react";
 import "./Bar.css";
 import bar from "../List/deafultBarImg.jpg";
 import Deal from "./Deal";
-import Image from '../Image/Image';
+import Image from "../Image/Image";
+import Slider from "react-slick";
 
 class Bar extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
   getSkeleton() {
     return (
-      <div className='detailsTextWrapper' >
-        <div className='titleSkeleton' ></div>
-        <div className='detailsSkeleton' ></div>
-        <div className='dealsTitleSkeleton' ></div>
-        <div className='detailsSkeleton' ></div>
-      </div>);
+      <div className="detailsTextWrapper">
+        <div className="titleSkeleton"></div>
+        <div className="detailsSkeleton"></div>
+        <div className="dealsTitleSkeleton"></div>
+        <div className="detailsSkeleton"></div>
+      </div>
+    );
   }
 
   renderBar() {
-    const { loading } = this.props;
+    const { loading, getPhotos, photos } = this.props;
     let details = this.props.singleBar;
+
+    var settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      className: "detailsCarousel",
+      centerMode: true,
+      centerPadding: "0px",
+      initialSlide: 0,
+      onSwipe: () => {
+        !photos && getPhotos();
+      }
+    };
 
     return (
       <div className="detailsWrapper">
-        <Image src={details.imgUrl} className="barDetailsImage" />
-        {loading && !details.name ?
-          this.getSkeleton() :
+        <Slider ref={node => (this.slick = node)} {...settings}>
+          {photos
+            ? photos.map(photo => {
+                return <Image src={photo} className="barDetailsImage" />;
+              })
+            : [
+                <Image src={details.imgUrl} className="barDetailsImage" />,
+                <Image src={null} className="barDetailsImage" />
+              ]}
+        </Slider>
+        {loading && !details.name ? (
+          this.getSkeleton()
+        ) : (
           <div className="detailsTextWrapper">
             {details.name && <div className="detailsName">{details.name}</div>}
-            {details.address && <div className="detailsAddress">{details.address}</div>}
-            {details.website && <a href={details.website} className="detailsWebsite">Website</a>}
+            {details.address && (
+              <div className="detailsAddress">{details.address}</div>
+            )}
+            {details.website && (
+              <a href={details.website} className="detailsWebsite">
+                Website
+              </a>
+            )}
             {<div className="dealsTitle">Today's Deals</div>}
             {this.renderTodayDeals()}
-            {details.otherDeals && details.otherDeals[0] && <div className="dealsTitle">Other Deals</div>}
-            {details.otherDeals && details.otherDeals[0] && this.renderOtherDeals()}
-          </div>}
+            {details.otherDeals && details.otherDeals[0] && (
+              <div className="dealsTitle">Other Deals</div>
+            )}
+            {details.otherDeals &&
+              details.otherDeals[0] &&
+              this.renderOtherDeals()}
+          </div>
+        )}
       </div>
     );
   }
 
   renderTodayDeals() {
-
     let details = this.props.singleBar;
-    if (details.name === undefined || !details.name || details.name === '') return null;
+    if (details.name === undefined || !details.name || details.name === "")
+      return null;
 
     return details.deals.map((data, i) => {
-      return (<Deal key={i} index={i} data={data} />);
+      return <Deal key={i} index={i} data={data} />;
     });
   }
 
   renderOtherDeals() {
-
     let details = this.props.singleBar;
-    if (details.name === undefined || !details.name || details.name === '') return null;
+    if (details.name === undefined || !details.name || details.name === "")
+      return null;
 
     return details.otherDeals.map((data, i) => {
-      return (<Deal key={i} index={i} data={data} />);
+      return <Deal key={i} index={i} data={data} />;
     });
   }
-
-  componentWillReceiveProps(nextProps) { }
 
   render() {
     return this.renderBar();

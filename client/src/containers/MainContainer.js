@@ -11,6 +11,9 @@ import Helmet from 'react-helmet';
 import BarDetails from '../components/Bar/BarDetails';
 import { getCityCoordinates } from "./getCityCoordinates";
 
+const keys = require("../keys");
+const API_KEY = keys.googleAPIKey;
+
 class MainContainer extends Component {
   constructor(props) {
     super(props);
@@ -70,7 +73,9 @@ class MainContainer extends Component {
       fetchData,
       fetchOne,
       setLoading,
-      setSingleBar
+      setSingleBar,
+      getGooglePlacePhotos,
+      clearPhotos
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -82,8 +87,12 @@ class MainContainer extends Component {
       carouselSlide,
       loading,
       singleBar,
-      loadingBars
+      loadingBars,
+      photos
     } = this.props;
+
+
+    console.log('photos', photos);
 
     const loadingModifier = loading ? 'loading' : '';
 
@@ -124,7 +133,14 @@ class MainContainer extends Component {
         </div>
 
         <div className={'sideNav sideNavAnimaion'}>
-          <div className="list">{getList(data, setSingleBar)}</div>
+          <div className="list">
+            {getList(data, 
+              setSingleBar, 
+              (data) => {
+                setCenterCoordinates(data.location.coordinates);
+                setHoverCoordinates(data.location.coordinates);
+              })}
+              </div>
         </div>
 
         {(!loading && this.state.displayCarousel &&
@@ -145,7 +161,10 @@ class MainContainer extends Component {
         )}
       </div>
 
-      {singleBar && <BarDetails singleBar={singleBar} loading={this.state.loadingBar} />}
+      {singleBar && <BarDetails clearPhotos={clearPhotos} photos={photos} singleBar={singleBar} loading={this.state.loadingBar} getPhotos={() => {
+        const googleId = window.location.pathname.split("/").pop();
+        getGooglePlacePhotos(googleId, API_KEY);
+      }} />}
 
       </Fragment>
     );
