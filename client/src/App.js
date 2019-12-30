@@ -17,6 +17,23 @@ ReactGA.pageview(window.location.pathname + window.location.search);
 
 class App extends Component {
 
+  routeAdmin(){
+    var req = new XMLHttpRequest();
+    req.open('GET', document.location, false);
+    req.send(null);
+    var headers = req.getAllResponseHeaders().toLowerCase();
+
+
+    var arr = headers.split('\r\n');
+    headers = arr.reduce(function (acc, current, i){
+          var parts = current.split(': ');
+          acc[parts[0]] = parts[1];
+          return acc;
+    }, {});
+
+    return headers.hh_header === 'hapihour' ? true : false;
+  }
+
   render() {
     return (
       <Router>
@@ -31,7 +48,7 @@ class App extends Component {
           <div>
             <Route path="/(map|details)/" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />
-            <Route exact path="/admin/*" component={Admin} />
+            <Route exact path="/admin/*" component={this.routeAdmin() ? Admin : LandingPage} />
             <Route exact path="/" component={LandingPage} />
           </div>
         </div>
