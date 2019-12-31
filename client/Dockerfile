@@ -5,6 +5,7 @@ RUN npm install
 COPY . .
 ARG api_key
 ENV REACT_APP_GOOGLEAPIKEY=${api_key}
+ENV REACT_APP_HH_HEADER=${hh_header}
 RUN npm run build
 
 FROM nginx

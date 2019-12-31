@@ -8,6 +8,9 @@ import ReactGA from 'react-ga';
 import LandingPage from "./containers/LandingPage";
 import Helmet from 'react-helmet';
 
+const keys = require("./keys");
+const HH_HEADER = keys.hhHeader;
+
 try{
   ReactGA.initialize('UA-144974904-1');
 }catch(e){
@@ -31,7 +34,7 @@ class App extends Component {
           return acc;
     }, {});
 
-    return headers.hh_header === 'hapihour' ? true : false;
+    return headers.hh_header === HH_HEADER ? true : false;
   }
 
   render() {
