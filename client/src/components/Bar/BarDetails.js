@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./BarDetails.css";
 import Bar from "./Bar";
+import AdminForm from "../AdminForm/AdminForm";
 import navigate from "../../containers/icons/back.png";
 import { Route } from "react-router-dom";
 import twitterIcon from "../../containers/icons/twitter.png";
@@ -42,7 +43,8 @@ class BarDetails extends Component {
 
             <div className="barContainer">
             <div className="barContainerGrow">
-            <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} photos={photos} />
+            {false && <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} photos={photos} />}
+            <AdminForm singleBar={singleBar} getPhotos={getPhotos} photos={photos} />
             </div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>

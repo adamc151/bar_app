@@ -32,8 +32,9 @@ class MainContainer extends Component {
     const { fetchOne, setCenterCoordinates, showMap } = this.props.actions;
 
     const url = window.location.pathname.split("/");
-    if(url[1] === 'details'){
+    if(url[1] === 'details' || url[1] === 'admin'){
       const googleId = window.location.pathname.split("/").pop()
+      console.log('yooo fecth onee!');
       !singleBar && fetchOne(googleId);
     } else {
       const location = window.location.pathname.split("/").pop()
@@ -51,12 +52,12 @@ class MainContainer extends Component {
     }
 
     const url = window.location.pathname.split("/");
-    if(url[1] !== 'details'){
+    if(url[1] !== 'details' && url[1] !== 'admin'){
       this.props.actions.setSingleBar(null);
       if(prevProps.loadingBars && !this.props.loadingBars){
         this.setState({ displayCarousel: true });
       }
-    } else if(url[1] === 'details') {
+    } else if(url[1] === 'details' || url[1] === 'admin') {
       const googleId = window.location.pathname.split("/").pop()
       !this.props.singleBar && this.props.actions.fetchOne(googleId);
     }
@@ -92,7 +93,7 @@ class MainContainer extends Component {
     } = this.props;
 
 
-    console.log('photos', photos);
+    console.log('singleBar', singleBar);
 
     const loadingModifier = loading ? 'loading' : '';
 

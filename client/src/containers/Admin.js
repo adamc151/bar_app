@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../state/actions/actions";
 import "./Admin.css";
 import AdminForm from "../components/AdminForm/AdminForm"
 import { Route } from "react-router-dom";
@@ -10,6 +13,9 @@ import emailIcon from "./icons/email.png";
 import Helmet from 'react-helmet';
 import axios from "axios";
 
+const keys = require("../keys");
+const API_KEY = keys.googleAPIKey;
+
 class Admin extends Component {
 
     constructor(props) {
@@ -18,24 +24,24 @@ class Admin extends Component {
     }
 
     componentDidMount(){
-        const url = window.location.pathname.split("/");
+        // const url = window.location.pathname.split("/");
 
-        if(url[1] === 'admin'){
-            const googleId = window.location.pathname.split("/").pop()
-            this.fetchOne(googleId);
-        }
+        // if(url[1] === 'admin'){
+        //     const googleId = window.location.pathname.split("/").pop()
+        //     this.fetchOne(googleId);
+        // }
     }
 
-    fetchOne(id) {
-        var self = this;
+    // fetchOne(id) {
+    //     var self = this;
 
-        axios.get("/api/bar", {
-            params: { place_id: id }
-        })
-        .then(function (response) {
-            self.setState({ singleBar: response.data });
-        });
-    }
+    //     axios.get("/api/bar", {
+    //         params: { place_id: id }
+    //     })
+    //     .then(function (response) {
+    //         self.setState({ singleBar: response.data });
+    //     });
+    // }
 
     render() {
 
@@ -59,7 +65,7 @@ class Admin extends Component {
 
                     <div className="barContainer">
 
-                        <div className="barContainerGrow">
+                        <div className="barContainerGrow adminBackground">
                             <div className="adminContainer">
                                 {this.state.singleBar && <AdminForm singleBar={this.state.singleBar}/>}
                             </div>
@@ -84,5 +90,17 @@ class Admin extends Component {
     }
 }
 
-
-export default Admin;
+function mapStateToProps(state) {
+    return state;
+  }
+  
+  function mapDispatchToProps(dispatch) {
+    return {
+      actions: bindActionCreators(actions, dispatch)
+    };
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Admin);

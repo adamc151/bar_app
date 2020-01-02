@@ -48,7 +48,7 @@ export default function transactions(state = initialState, action) {
       // console.log("DATA_FETCH_SINGLE_REQUEST Action");
       return { ...state, photos: null, loadingBar: true };
     case DATA_FETCH_SINGLE_SUCCESS:
-      // console.log("DATA_FETCH_SINGLE_SUCCESS Action");
+      console.log("DATA_FETCH_SINGLE_SUCCESS Action");
       return { ...state, singleBar: action.payload, loadingBar: false };
     case GOOGLE_PHOTOS_FETCH_SUCCESS:
       return { ...state, photos: action.payload }
@@ -85,6 +85,7 @@ export default function transactions(state = initialState, action) {
     case CLEAR_PHOTOS:
       return { ...state, photos: null }
     case RESET:
+      console.log('yooo RESET');
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:
       return state;

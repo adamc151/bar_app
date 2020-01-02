@@ -1,6 +1,7 @@
 import React from "react"
 import "./AdminForm.css";
 import axios from "axios";
+import Image from "../Image/Image";
 
 class AdminForm extends React.Component {
 
@@ -9,7 +10,7 @@ class AdminForm extends React.Component {
 
         let initialStateArray = [];
 
-        this.props.singleBar.deals.map((val, idx)=>{
+        this.props.singleBar.deals && this.props.singleBar.deals.map((val, idx)=>{
             let dealObj = {
                 weekDays: val.weekDays.toString(),
                 startTime: val.startTime,
@@ -105,6 +106,10 @@ class AdminForm extends React.Component {
                 <label htmlFor="name">Image Url</label><br/>
                 <input className="adminUrlInput" type="text" onChange={this.handleUrlChange} value={URL}/>
             </div>
+            <div onClick={() => this.props.getPhotos()}>Fetch more images</div>
+            {this.props.photos && this.props.photos.map(photo => {
+                return <Image src={photo} className="barDetailsImage" />;
+              })}
             <br/>
             <div className="adminValidated">
                 <label className="container">Displayed

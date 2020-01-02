@@ -51,6 +51,7 @@ export function getGooglePlacePhotos(place_id) {
       details => {
         const photos =
           details.photos && details.photos.map(photo => photo.getUrl());
+          console.log('yooo photos', photos);
         return dispatch({
           type: GOOGLE_PHOTOS_FETCH_SUCCESS,
           payload: photos

@@ -49,9 +49,9 @@ class App extends Component {
             <link rel="canonical" href="hapihour.io" />
           </Helmet>
           <div>
-            <Route path="/(map|details)/" component={MainContainer} />
+            <Route path="/(map|details|admin)/" component={MainContainer} />
             <Route exact path="/faq" component={FAQ} />
-            <Route exact path="/admin/*" component={this.routeAdmin() ? Admin : LandingPage} />
+            {/* <Route exact path="/admin/*" component={this.routeAdmin() ? Admin : LandingPage} /> */}
             <Route exact path="/" component={LandingPage} />
           </div>
         </div>
