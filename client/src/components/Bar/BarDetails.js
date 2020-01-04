@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./BarDetails.css";
-import Bar from "./Bar";
 import navigate from "../../containers/icons/back.png";
 import { Route } from "react-router-dom";
 import twitterIcon from "../../containers/icons/twitter.png";
@@ -11,17 +10,12 @@ import emailIcon from "../../containers/icons/email.png";
 import Helmet from 'react-helmet';
 
 class BarDetails extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   componentWillUnmount(){
     this.props.clearPhotos();
   }
 
   render() {
-    const { singleBar, loading, getPhotos, photos } = this.props;
-
     return (
       <Route render={({ history }) => (
         <div className="wrapper barDetailsWrapper">
@@ -35,24 +29,22 @@ class BarDetails extends Component {
             <div className="header">
             <div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div>
             <div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div>
-            <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
+            <img src={beerIcon} alt='icon' className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="navigationClass">
                   <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => { history.push(`/map`); }}/>
             </div>
 
             <div className="barContainer">
-            <div className="barContainerGrow">
-            <Bar singleBar={singleBar} loading={loading} getPhotos={getPhotos} photos={photos} />
-            </div>
+            <div className="barContainerGrow">{this.props.children}</div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img alt='twitter' src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
+                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img alt='instagram' src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="https://www.facebook.com/hapihour.io" className="inline"><img src={facebookIcon}/></a>
+                <a href="https://www.facebook.com/hapihour.io" className="inline"><img alt='facebook' src={facebookIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
+                <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img alt='email' src={emailIcon}/></a>
             </div>
 
             </div>

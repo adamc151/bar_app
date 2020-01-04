@@ -86,7 +86,7 @@ export class MyMap extends React.Component {
 
   setCurrentLocation(position, centerMap) {
 
-    const { setUserCoordinates, displayCarousel } = this.props;
+    const { setUserCoordinates } = this.props;
     const { latitude, longitude } = position.coords;
 
     this.setState({ searchedPlace: null, showingInfoWindow: false, fetchingUserLocation: false });

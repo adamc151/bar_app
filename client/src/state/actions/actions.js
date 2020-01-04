@@ -51,6 +51,7 @@ export function getGooglePlacePhotos(place_id) {
       details => {
         const photos =
           details.photos && details.photos.map(photo => photo.getUrl());
+          console.log('yooo photos', photos);
         return dispatch({
           type: GOOGLE_PHOTOS_FETCH_SUCCESS,
           payload: photos
@@ -129,9 +130,9 @@ export function categoriseData(data, returnAllDeals = false) {
   var h = d.getHours();
   var m = d.getMinutes();
   var day = d.getDay();
-  m < 10 ? (m = `${0}${m}`) : null;
+  m = m < 10 ? `${0}${m}` : null;
 
-  var time = parseInt(`${h}${m}`);
+  var time = parseInt(`${h}${m}`, 10);
 
   var categorisedBlob = data.filter(item => {
     var final = [];

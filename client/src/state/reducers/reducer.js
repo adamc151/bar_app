@@ -21,7 +21,6 @@ import {
 //the initial store (global app state)
 let initialState = {
   data: [],
-  singleBar: {},
   loading: true,
   loadingBar: false,
   miles: 10,
@@ -39,7 +38,7 @@ let initialState = {
 export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
-      // console.log("DATA_FETCH_REQUEST Action");
+      console.log("DATA_FETCH_REQUEST Action");
       return { ...state, carouselSlide: 0, loadingBars: true };
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
@@ -48,7 +47,7 @@ export default function transactions(state = initialState, action) {
       // console.log("DATA_FETCH_SINGLE_REQUEST Action");
       return { ...state, photos: null, loadingBar: true };
     case DATA_FETCH_SINGLE_SUCCESS:
-      // console.log("DATA_FETCH_SINGLE_SUCCESS Action");
+      console.log("DATA_FETCH_SINGLE_SUCCESS Action");
       return { ...state, singleBar: action.payload, loadingBar: false };
     case GOOGLE_PHOTOS_FETCH_SUCCESS:
       return { ...state, photos: action.payload }
@@ -85,6 +84,7 @@ export default function transactions(state = initialState, action) {
     case CLEAR_PHOTOS:
       return { ...state, photos: null }
     case RESET:
+      console.log('yooo RESET');
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:
       return state;
