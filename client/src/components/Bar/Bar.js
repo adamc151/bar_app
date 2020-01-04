@@ -22,11 +22,11 @@ class Bar extends React.Component {
   }
 
   renderBar() {
-    const { loading, getPhotos, photos } = this.props;
+    const { loading } = this.props;
     let details = this.props.singleBar;
 
     var settings = {
-      dots: false,
+      dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 1,
@@ -35,23 +35,18 @@ class Bar extends React.Component {
       className: "detailsCarousel",
       centerMode: true,
       centerPadding: "0px",
-      initialSlide: 0,
-      onSwipe: () => {
-        !photos && getPhotos();
-      }
+      initialSlide: 0
     };
+
+    const multipleImages = details.imgUrls && details.imgUrls.length > 0;
+    const images = multipleImages ? details.imgUrls : [details.imgUrl];
 
     return (
       <div className="detailsWrapper">
         <Slider ref={node => (this.slick = node)} {...settings}>
-          {photos
-            ? photos.map(photo => {
-                return <Image src={photo} className="barDetailsImage" />;
-              })
-            : [
-                <Image src={details.imgUrl} className="barDetailsImage" />,
-                <Image src={null} className="barDetailsImage" />
-              ]}
+          {images.map(image => {
+            return <Image src={image} className="barDetailsImage" />;
+          })}
         </Slider>
         {loading && !details.name ? (
           this.getSkeleton()
