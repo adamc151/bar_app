@@ -10,7 +10,7 @@ const ListItem = (props) => {
   const { onHover = () => { }, onClick = () => { }, data } = props;
   const { name, deals, imgUrl, place_id } = data;
 
-  return !data === "" ? (
+  return !data == "" ? (
     <div
       className={`listItemWrapper carouselCard toggle${deals[0].category}`}
       onClick={() => {

@@ -4,10 +4,6 @@ var abbrevDays = require('abbrev-weekday-range');
 
 class Deal extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   renderDeals(description){
 
     return description.map((data, i) => {
@@ -21,7 +17,7 @@ class Deal extends React.Component {
 
     const { category, endTime, startTime, description, weekDays } = this.props.data;
     let weekDayFinal = abbrevDays(weekDays);
-    weekDayFinal == "Sun-Sat" ? weekDayFinal = "Everyday" : null;
+    weekDayFinal === "Sun-Sat" ? weekDayFinal = "Everyday" : null;
 
     return (
       <div

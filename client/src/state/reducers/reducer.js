@@ -21,7 +21,6 @@ import {
 //the initial store (global app state)
 let initialState = {
   data: [],
-  singleBar: {},
   loading: true,
   loadingBar: false,
   miles: 10,

@@ -53,9 +53,9 @@ class Place extends React.Component {
         }
 
         let calcWeekDays = [];
-        for (var i = 0, l = weekDays.length; i < l; i++) {
-          if (weekDays[i].selected) {
-            calcWeekDays.push(parseInt(weekDays[i].value));
+        for (var z = 0, l = weekDays.length; z < l; z++) {
+          if (weekDays[z].selected) {
+            calcWeekDays.push(parseInt(weekDays[z].value, 10));
           }
         }
 
@@ -183,7 +183,7 @@ class Place extends React.Component {
             <div onClick={this.close} type="button" className="closeButton" aria-label="Close">&times;</div>
             <div className='placeDetailsWrapper'>
               <div className='placeDetails'>
-              { place.photo && <img className='placeImage' src={place.photo} /> }
+              { place.photo && <img alt='bar' className='placeImage' src={place.photo} /> }
                 <div className='placeDetailsName'>{place.name}</div>
                 <div className='placeDetailsAddress'>{place.address}</div>
                 {inputs}

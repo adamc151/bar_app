@@ -38,9 +38,9 @@ class BarDetails extends Component {
             <div className="barContainerGrow">{this.props.children}</div>
             <div className="footerCenter">
                 <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
-                <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
+                <a href="https://twitter.com/hapihour_io" className="inline"><img alt='twitter' src={twitterIcon}/></a>
                 <a className="inline dot">•</a>
-                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img alt='twitter' src={instagramIcon}/></a>
+                <a href="https://www.instagram.com/hapihour.io/" className="inline"><img alt='instagram' src={instagramIcon}/></a>
                 <a className="inline dot">•</a>
                 <a href="https://www.facebook.com/hapihour.io" className="inline"><img alt='facebook' src={facebookIcon}/></a>
                 <a className="inline dot">•</a>

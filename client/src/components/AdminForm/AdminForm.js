@@ -73,27 +73,25 @@ class AdminForm extends React.Component {
         tmpDealsObj.description[i] = tmpDealsObj.description[i].trim();
       }
 
-      tmpDealsArray.push(tmpDealsObj);
+      return tmpDealsArray.push(tmpDealsObj);
     });
-
-    console.log("yoooo tmpDealsArray", tmpDealsArray);
 
     this.props.singleBar.deals = tmpDealsArray;
 
     const config = { headers: { "Content-Type": "application/json" } };
 
-    // axios
-    //   .put(
-    //     "/api/bar?place_id=" + this.props.singleBar.place_id,
-    //     this.props.singleBar,
-    //     config
-    //   )
-    //   .then(function(response) {
-    //     console.log("submitted");
-    //   })
-    //   .catch(function(error) {
-    //     console.log(`error: ${error}`);
-    //   });
+    axios
+      .put(
+        "/api/bar?place_id=" + this.props.singleBar.place_id,
+        this.props.singleBar,
+        config
+      )
+      .then(function(response) {
+        console.log("submitted");
+      })
+      .catch(function(error) {
+        console.log(`error: ${error}`);
+      });
   };
 
   handleDelete = e => {
@@ -122,7 +120,7 @@ class AdminForm extends React.Component {
   };
 
   render() {
-    let { Name, Address, deals, Validated, URLs, URL } = this.state;
+    let { Name, deals, Validated, URLs, URL } = this.state;
 
     return (
       <form
@@ -134,7 +132,6 @@ class AdminForm extends React.Component {
 
         {this.props.photos &&
           this.props.photos.map(photo => {
-            console.log("photo", photo);
             return (
               <div
                 className={`${URLs.includes(photo) &&
@@ -189,7 +186,6 @@ class AdminForm extends React.Component {
                 <label className="dealLabel">Deal {idx + 1}</label>
                 <br />
                 <a
-                  href="#"
                   className="close"
                   onClick={this.handleDelete}
                   id={idx}

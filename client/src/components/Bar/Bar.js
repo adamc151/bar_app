@@ -1,14 +1,10 @@
 import React from "react";
 import "./Bar.css";
-import bar from "../List/deafultBarImg.jpg";
 import Deal from "./Deal";
 import Image from "../Image/Image";
 import Slider from "react-slick";
 
 class Bar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   getSkeleton() {
     return (

@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import "./FAQ.css";
 import { Route } from "react-router-dom";
-import twitterIcon from "./icons/twitter.png";
 import beerIcon from "./icons/beer.png";
-import instagramIcon from "./icons/instagram.png";
-import emailIcon from "./icons/email.png";
 import Helmet from 'react-helmet';
 
 import {
@@ -59,7 +56,7 @@ class FAQ extends Component {
               <title>Hapihour | Frequently Asked Questions</title>
               <link rel="canonical" href="hapihour.io" />
             </Helmet>
-            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
+            <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} alt='icon' className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
 
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
