@@ -8,7 +8,7 @@ import Image from '../Image/Image';
 
 const ListItem = (props) => {
   const { onHover = () => { }, onClick = () => { }, data } = props;
-  const { name, deals, imgUrl, place_id } = data;
+  const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
@@ -21,7 +21,7 @@ const ListItem = (props) => {
         onHover(props.data);
       }}
     >
-      <Image src={imgUrl || bar} className="barImg" alt="" />
+      <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
       {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
       {deals[0].category && <div className={`item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
       {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
