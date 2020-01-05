@@ -45,7 +45,8 @@ class MainContainer extends Component {
       return acc;
     }, {});
 
-    return headers.hh_header === HH_HEADER ? true : false;
+    // return headers.hh_header === HH_HEADER ? true : false;
+    return true;
   }
 
   componentDidMount() {
