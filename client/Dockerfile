@@ -3,8 +3,9 @@ WORKDIR '/app'
 COPY ./package.json ./
 RUN npm install
 COPY . .
-ARG api_key
+ARG api_key=defaultkey
 ENV REACT_APP_GOOGLEAPIKEY=${api_key}
+ARG hh_header=defaultheader
 ENV REACT_APP_HH_HEADER=${hh_header}
 RUN npm run build
 
