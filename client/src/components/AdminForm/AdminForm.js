@@ -27,7 +27,8 @@ class AdminForm extends React.Component {
       Address: this.props.singleBar.address,
       Validated: this.props.singleBar.validated,
       URL: this.props.singleBar.imgUrl,
-      URLs: this.props.singleBar.imgUrls
+      URLs: this.props.singleBar.imgUrls,
+      place_id: this.props.singleBar.place_id
     };
   }
 
@@ -58,6 +59,7 @@ class AdminForm extends React.Component {
     tmpBar.validated = this.state.Validated;
     tmpBar.imgUrls = this.state.URLs;
     tmpBar.imgUrl = this.state.URL;
+    tmpBar.place_id = this.state.place_id;
 
     let tmpDealsArray = [];
     this.state.deals.map((val, idx) => {
@@ -119,8 +121,12 @@ class AdminForm extends React.Component {
     this.setState({ URL: e.target.value });
   };
 
+  handlePlaceIdChange = e => {
+    this.setState({ place_id: e.target.value });
+  };
+
   render() {
-    let { Name, deals, Validated, URLs, URL } = this.state;
+    let { Name, deals, Validated, URLs, URL, place_id } = this.state;
 
     return (
       <form
@@ -142,6 +148,15 @@ class AdminForm extends React.Component {
               </div>
             );
           })}
+          <div className="adminUrl">
+          Place ID:
+          <input
+            className="adminUrlInput"
+            type="text"
+            onChange={this.handlePlaceIdChange}
+            value={place_id}
+          />
+        </div>
         <div className="adminUrl">
           Image Url:
           <input
