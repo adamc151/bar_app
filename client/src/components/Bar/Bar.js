@@ -34,6 +34,8 @@ class Bar extends React.Component {
       initialSlide: 0
     };
 
+    console.log('yooo details', details);
+
     const multipleImages = details.imgUrls && details.imgUrls.length > 0;
     const images = multipleImages ? details.imgUrls : [details.imgUrl];
 

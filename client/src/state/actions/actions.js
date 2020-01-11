@@ -130,9 +130,9 @@ export function categoriseData(data, returnAllDeals = false) {
   var h = d.getHours();
   var m = d.getMinutes();
   var day = d.getDay();
-  m = m < 10 ? `${0}${m}` : null;
+  m < 10 ? (m = `${0}${m}`) : null;
 
-  var time = parseInt(`${h}${m}`, 10);
+  var time = parseInt(`${h}${m}`);
 
   var categorisedBlob = data.filter(item => {
     var final = [];

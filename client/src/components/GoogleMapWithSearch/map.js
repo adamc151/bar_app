@@ -136,6 +136,7 @@ export class MyMap extends React.Component {
       if (places.length === 0) return;
       const place = places[0];
 
+      console.log('place', place);
       // let alreadyInDB = false;
 
       // this.props.fetchOne(place.place_id).then(function (response) {
