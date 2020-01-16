@@ -106,6 +106,11 @@ class AdminForm extends React.Component {
     this.setState({ Validated: !this.state.Validated });
   };
 
+  handleRemoveAllImages = e => {
+    this.setState({ URLs: []});
+    window.alert("Removed all images, click submit to confirm")
+  };
+
   handleUrlChange = url => {
     var array = [...this.state.URLs]; // make a separate copy of the array
     var index = array.indexOf(url);
@@ -132,9 +137,13 @@ class AdminForm extends React.Component {
       <form
         onSubmit={this.handleSubmit}
         onChange={this.handleChange}
-        className={"detailsWrapper"}
+        className={"detailsWrapperEdit"}
       >
-        <button onClick={this.props.getPhotos}>Load photos</button>
+
+        <div className="buttonsWrapper">
+          <button className="button" onClick={this.props.getPhotos}>Load photos</button>
+          <button className="button" onClick={this.handleRemoveAllImages}>Remove All Photos</button>
+        </div>
 
         {this.props.photos &&
           this.props.photos.map(photo => {
@@ -184,13 +193,13 @@ class AdminForm extends React.Component {
         </div>
         <br />
 
+        <div className="buttonsWrapper">
+          <button className="button" onClick={this.addDeal}>
+            Add new Deal
+          </button>
+          <input className="button" type="submit" value="Submit" />
+        </div>
         <div className="adminFlexContainer">
-          <div className="buttonsWrapper">
-            <button className="button" onClick={this.addDeal}>
-              Add new Deal
-            </button>
-            <input className="button" type="submit" value="Submit" />
-          </div>
           {deals.map((val, idx) => {
             let wdId = `wd-${idx}`,
               stId = `st-${idx}`,

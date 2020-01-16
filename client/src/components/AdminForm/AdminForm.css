@@ -1,3 +1,10 @@
+.detailsWrapperEdit{
+  margin: auto;
+  /* max-width: 800px; */
+  margin-top: 50px;
+  text-align: center;
+}
+
 .adminTitle {
   font-family: Circular-bold;
   font-size: 35px;
