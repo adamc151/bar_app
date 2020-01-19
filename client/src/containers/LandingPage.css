@@ -207,6 +207,23 @@
     font-size: 20px;
 }
 
+.instaFeed{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+.singleInsta{
+    flex-direction: row;
+    padding-top: 20px;
+}
+
 .donationWrapper{
     margin: auto;
     max-width: 1100px;
