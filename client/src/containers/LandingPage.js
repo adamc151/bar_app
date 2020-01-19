@@ -18,11 +18,33 @@ import instagramIcon from "./icons/instagram.png";
 import facebookIcon from "./icons/facebook.png";
 import { Route, Link } from "react-router-dom";
 import Image from "../components/Image/Image";
+import InstagramEmbed from 'react-instagram-embed';
 
 class LandingPage extends Component {
 
   componentDidMount() {
     this.props.actions.reset();
+  }
+
+  renderInsta() {
+
+    const instaUrls = ['https://www.instagram.com/p/B60vLc8HdVP', 'https://www.instagram.com/p/B503Ao6HeiZ', 'https://www.instagram.com/p/B7bUXu6HBSA' ];
+
+    return instaUrls.map((data, i) => {
+      return <InstagramEmbed
+                url= {data}
+                className="singleInsta"
+                maxWidth={400}
+                hideCaption={true}
+                containerTagName='div'
+                protocol=''
+                injectScript
+                onLoading={() => {}}
+                onSuccess={() => {}}
+                onAfterRender={() => {}}
+                onFailure={() => {}}
+              />
+    });
   }
 
   render() {
@@ -127,9 +149,13 @@ class LandingPage extends Component {
               </div>
             </div>
 
+            <div className="instaFeed">
+              {this.renderInsta()}
+            </div>
+
             <div className="donationWrapper">
               <div className="donationItem">
-                {/* {<div className="line">--</div>} */}
+                {<div className="line">--</div>}
                 <div className="">
                   <div className="donationItemTitle">BUY US A ROUND? :)</div>
                   <div className="donationItemDesc">
