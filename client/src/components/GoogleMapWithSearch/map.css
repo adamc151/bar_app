@@ -21,8 +21,29 @@
   display: none;
 }
 
+.mapNav{
+  font-size: 12px;
+  position:fixed;
+  top: 30px;
+  left: 520px;
+  padding: 5px 5px 2px 4px;
+  text-decoration: none;
+  text-align: center;
+  background-color: rgba(255, 188, 44, 0.945);
+  z-index: 100;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 3px rgb(46, 46, 46);
+  border-radius: 2px;
+  margin-top: 38px;
+}
+
 @media screen and (max-width: 1000px) {
   .searchBarWrapper {
     position: fixed;
+  }
+
+  .mapNav{
+    left: 15px;
   }
 }

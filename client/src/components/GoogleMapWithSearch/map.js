@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
+import { Route } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 import Place from "../Place/Place";
 import "./map.css";
 import GoogleMapReact from "google-map-react";
 import Marker from "./Marker";
+import navigate from "../../containers/icons/back.png";
 
 const keys = require("../../keys");
 const API_KEY = keys.googleAPIKey;
@@ -235,77 +237,85 @@ export class MyMap extends React.Component {
 
 
     return (
-      <Fragment >
-        <SearchBar
-          className={displaySearchBar ? '' : 'removeSearchBar'}
-          getNode={node => (this.searchBox = node)}
-          onChange={this.findPlace}
-          onClickButton={() => { this.getLocation(); displayCarousel(false); }}
-          onfocusin={() => displayCarousel(false)}
-          onfocusout={() =>
-            setTimeout(
-              () => {
-                //add slight delay for android so carousel doesnt flash
-                displayCarousel(true);
-              }, 100)}
-          fetchingUserLocation={fetchingUserLocation}
-        />
-        <div className="map" style={mapStyle}>
-          {this.state.showingInfoWindow && (
-            <Place
-              onClick={() => {
-                this.setState({ showingInfoWindow: false });
-                displayCarousel(true);
+      <Route render={({ history }) => (
+        <Fragment >
+          <SearchBar
+            className={displaySearchBar ? '' : 'removeSearchBar'}
+            getNode={node => (this.searchBox = node)}
+            onChange={this.findPlace}
+            onClickButton={() => { this.getLocation(); displayCarousel(false); }}
+            onfocusin={() => displayCarousel(false)}
+            onfocusout={() =>
+              setTimeout(
+                () => {
+                  //add slight delay for android so carousel doesnt flash
+                  displayCarousel(true);
+                }, 100)}
+            fetchingUserLocation={fetchingUserLocation}
+          />
+
+          <div className="mapNav">
+            <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => { history.push(`/`); }}/>
+          </div>
+
+
+          <div className="map" style={mapStyle}>
+            {this.state.showingInfoWindow && (
+              <Place
+                onClick={() => {
+                  this.setState({ showingInfoWindow: false });
+                  displayCarousel(true);
+                }}
+                place={this.state.searchedPlace}
+                onAdd={() => { this.props.fetchData(obj); }}
+              />
+            )}
+
+            <GoogleMapReact
+              zoom={15}
+              bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
+              center={this.state.center}
+              onReady={(a, map) => (this.map = map)}
+              onClick={this.onMapClicked}
+              options={{ disableDefaultUI: true , gestureHandling: 'greedy', clickableIcons: false }}
+              onGoogleApiLoaded={x => {
+                this.map = x.map;
+                this.props.onMapsLoaded();
+                window.places = new window.google.maps.places.PlacesService(x.map);
               }}
-              place={this.state.searchedPlace}
-              onAdd={() => { this.props.fetchData(obj); }}
-            />
-          )}
+              onChange={x => { this.setState({ currentZoom: x.zoom }); }} >
+              <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />
 
-          <GoogleMapReact
-            zoom={15}
-            bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
-            center={this.state.center}
-            onReady={(a, map) => (this.map = map)}
-            onClick={this.onMapClicked}
-            options={{ disableDefaultUI: true , gestureHandling: 'greedy', clickableIcons: false }}
-            onGoogleApiLoaded={x => {
-              this.map = x.map;
-              this.props.onMapsLoaded();
-              window.places = new window.google.maps.places.PlacesService(x.map);
-            }}
-            onChange={x => { this.setState({ currentZoom: x.zoom }); }} >
-            <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />
-
-            {this.props.data.map((marker, i) => {
-              const { coordinates } = marker.location;
-              const { deals } = marker;
-              const animate =
-                hoverCoordinates[0] === coordinates[0] &&
-                hoverCoordinates[1] === coordinates[1];
-              return (
-                <Marker
-                  className={animate ? "hovered" : "plainMarker"}
-                  onClick={() => {
-                    const position = {
-                      coords: {
-                        latitude: coordinates[0],
-                        longitude: coordinates[1]
+              {this.props.data.map((marker, i) => {
+                const { coordinates } = marker.location;
+                const { deals } = marker;
+                const animate =
+                  hoverCoordinates[0] === coordinates[0] &&
+                  hoverCoordinates[1] === coordinates[1];
+                return (
+                  <Marker
+                    className={animate ? "hovered" : "plainMarker"}
+                    onClick={() => {
+                      const position = {
+                        coords: {
+                          latitude: coordinates[0],
+                          longitude: coordinates[1]
+                        }
                       }
-                    }
-                    this.centerMap(position, false, false);
-                    setCarouselSlide(i)
-                  }}
-                  key={i}
-                  lat={coordinates[0]}
-                  lng={coordinates[1]}
-                  category={deals[0].category}
-                />
-              );
-            })}
-          </GoogleMapReact>
-        </div>
-      </Fragment>
+                      this.centerMap(position, false, false);
+                      setCarouselSlide(i)
+                    }}
+                    key={i}
+                    lat={coordinates[0]}
+                    lng={coordinates[1]}
+                    category={deals[0].category}
+                  />
+                );
+              })}
+            </GoogleMapReact>
+          </div>
+        </Fragment>
+      )} />
     );
   }
 }
