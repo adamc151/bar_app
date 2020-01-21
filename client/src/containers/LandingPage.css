@@ -318,7 +318,7 @@
     .descriptionLandingItemImg{
         width: 55px;
         height: 55px;
-        margin-bottom: 20px;
+        margin-top: 12px;
     }
 
     .descriptionLandingText{
@@ -409,8 +409,8 @@
     }
 
     .line{
-        border-width: 1px;
-        display: none;
+        border-width: 2px;
+        /* display: none; */
     }
 
 }
