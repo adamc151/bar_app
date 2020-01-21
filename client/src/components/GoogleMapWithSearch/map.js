@@ -258,7 +258,6 @@ export class MyMap extends React.Component {
             <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => { history.push(`/`); }}/>
           </div>
 
-
           <div className="map" style={mapStyle}>
             {this.state.showingInfoWindow && (
               <Place
