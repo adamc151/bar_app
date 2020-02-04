@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
 import location from "./icons/pin.png";
-import calendar from "./icons/monday.png";
+import calendar from "./icons/calendar2.png";
 import beers from "./icons/cheers.png";
 import bar1 from "./images/barImg111.jpg";
 import bar2 from "./images/barImg222.jpg";
@@ -16,6 +16,7 @@ import beerIcon from "./icons/beer.png";
 import fullLogo from "./icons/fullLogo.png";
 import instagramIcon from "./icons/instagram.png";
 import facebookIcon from "./icons/facebook.png";
+import discoverIcon from "./icons/discover.png";
 import { Route, Link } from "react-router-dom";
 import Image from "../components/Image/Image";
 import InstagramEmbed from 'react-instagram-embed';
@@ -108,8 +109,7 @@ class LandingPage extends Component {
                         FIND YOUR LOCATION
                       </div>
                       <div className="descriptionLandingItemDesc">
-                        Search for an area you want to see hapi hours for or
-                        provide your current location.
+                        Search for an area you want to see happy hour deals for, or provide your current location.
                       </div>
                     </div>
                   </div>
@@ -124,8 +124,7 @@ class LandingPage extends Component {
                         SEE TODAY'S HAPI HOURS
                       </div>
                       <div className="descriptionLandingItemDesc">
-                        See our active & upcoming hapi hours for today on the
-                        map.
+                        See active & upcoming happy hours for today on the map.
                       </div>
                     </div>
                   </div>
@@ -133,15 +132,14 @@ class LandingPage extends Component {
                     <img
                       className="descriptionLandingItemImg"
                       alt="beers"
-                      src={beers}
+                      src={discoverIcon}
                     />
                     <div className="descriptionLandingText">
                       <div className="descriptionLandingItemTitle">
-                        PLAN YOUR NIGHT
+                        DISCOVER NEW BARS
                       </div>
                       <div className="descriptionLandingItemDesc">
-                        See currently active happy hours as well as those about
-                        to start so you can plan your next move!
+                        Find out more about the bars offering great deals throughout the city.
                       </div>
                     </div>
                   </div>
