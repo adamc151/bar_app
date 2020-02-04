@@ -28,7 +28,7 @@ class LandingPage extends Component {
 
   renderInsta() {
 
-    const instaUrls = ['https://www.instagram.com/p/B60vLc8HdVP', 'https://www.instagram.com/p/B503Ao6HeiZ', 'https://www.instagram.com/p/B7bUXu6HBSA' ];
+    const instaUrls = ['https://www.instagram.com/p/B60vLc8HdVP', 'https://www.instagram.com/p/B8HM9pWHUN3', 'https://www.instagram.com/p/B7bUXu6HBSA' ];
 
     return instaUrls.map((data, i) => {
       return <InstagramEmbed
