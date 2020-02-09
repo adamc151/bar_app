@@ -25,6 +25,7 @@ class LandingPage extends Component {
 
   componentDidMount() {
     this.props.actions.reset();
+    this.props.actions.getJwt();
   }
 
   renderInsta() {

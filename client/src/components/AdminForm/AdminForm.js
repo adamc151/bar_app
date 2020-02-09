@@ -80,7 +80,7 @@ class AdminForm extends React.Component {
 
     this.props.singleBar.deals = tmpDealsArray;
 
-    const config = { headers: { "Content-Type": "application/json" } };
+    const config = { headers: { "Content-Type": "application/json", Authorization: 'jwt ' + this.props.jwt } };
 
     axios
       .put(
@@ -90,9 +90,11 @@ class AdminForm extends React.Component {
       )
       .then(function(response) {
         console.log("submitted");
+        window.alert('Update Submitted');
       })
       .catch(function(error) {
         console.log(`error: ${error}`);
+        window.alert('There was an error with the update');
       });
   };
 

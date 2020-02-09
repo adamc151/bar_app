@@ -209,6 +209,7 @@ class MainContainer extends Component {
                 singleBar={singleBar}
                 getPhotos={getPhotos}
                 photos={photos}
+                jwt={jwt}
               />
             ) : (
               <Bar
