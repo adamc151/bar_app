@@ -6,6 +6,9 @@ let barRoute = require('./routes/bar');
 let path = require('path');
 let bodyParser = require('body-parser');
 const cors = require('cors');
+const keys = require('./keys');
+
+let jwtSecret = keys.jwtSecret;
 
 app.use(cors());
 // configure the app to use bodyParser()
@@ -20,7 +23,7 @@ app.use((req, res, next) => {
 })
 
 app.get('/jwt', (req, res) => {
-    let token = jwt.sign({ "body": "stuff" }, "MySuperSecretPassPhrase", { algorithm: 'HS256'});
+    let token = jwt.sign({ "body": "stuff" }, jwtSecret, { algorithm: 'HS256'});
     res.send(token);
 })
 
@@ -32,7 +35,7 @@ function isAuthorized(req, res, next) {
         console.log('token: ' + token);
         // Here we validate that the JSON Web Token is valid and has been 
         // created using the same private pass phrase
-        jwt.verify(token, "MySuperSecretPassPhrase", { algorithm: "HS256" }, (err, user) => {
+        jwt.verify(token, jwtSecret, { algorithm: "HS256" }, (err, user) => {
             
             // if there has been an error...
             if (err) {  
