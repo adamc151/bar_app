@@ -88,7 +88,6 @@ export default function transactions(state = initialState, action) {
     case GET_JWT:
       return { ...state, jwt: action.payload }
     case RESET:
-      console.log('yooo RESET');
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:
       return state;

@@ -121,8 +121,6 @@ class MainContainer extends Component {
       photos
     } = this.props;
 
-    console.log('TOMMMMM: JWT: ' + jwt)
-
     const loadingModifier = loading ? "loading" : "";
 
     const getPhotos = () => {

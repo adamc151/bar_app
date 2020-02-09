@@ -112,7 +112,6 @@ export class MyMap extends React.Component {
     setCenterCoordinates([ lat, long ]);
     setHoverCoordinates([ lat, long ]);
 
-    console.log('TOMM ABOUT TO FETCH DATA JWT1: ' + jwt)
     doFetchData && fetchData({ lat, long, miles, timeFilter, jwt });
   }
 
@@ -271,7 +270,7 @@ export class MyMap extends React.Component {
                 }}
                 place={this.state.searchedPlace}
                 jwt={jwt}
-                onAdd={() => { console.log('TOMM ABOUT TO FETCH DATA JWT2: ' + jwt); this.props.fetchData(obj); }}
+                onAdd={() => { this.props.fetchData(obj); }}
               />
             )}
 

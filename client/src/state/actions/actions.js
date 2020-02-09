@@ -60,7 +60,6 @@ export function getGooglePlacePhotos(place_id) {
       details => {
         const photos =
           details.photos && details.photos.map(photo => photo.getUrl());
-          console.log('yooo photos', photos);
         return dispatch({
           type: GOOGLE_PHOTOS_FETCH_SUCCESS,
           payload: photos
@@ -164,7 +163,6 @@ export function categoriseData(data, returnAllDeals = false) {
           } else {
             deal.category = "Inactive";
           }
-          // console.log('yooo deal', deal);
           final.push(deal);
         } else {
           deal.category = "Inactive";

@@ -19,14 +19,6 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/secret', isAuthorized, (req, res) => {
-    res.json({ "message" : "THIS IS SUPER SECRET, DO NOT SHARE!" })
-})
-
-app.get('/readme', (req, res) => {
-    res.json({"message": "hello"})
-})
-
 app.get('/jwt', (req, res) => {
     let token = jwt.sign({ "body": "stuff" }, "MySuperSecretPassPhrase", { algorithm: 'HS256'});
     res.send(token);
