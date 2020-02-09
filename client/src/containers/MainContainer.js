@@ -53,14 +53,17 @@ class MainContainer extends Component {
       this.setState({ showLoader: true });
     }, 2000);
     const { singleBar } = this.props;
-    const { fetchOne } = this.props.actions;
+    const { fetchOne, getJwt } = this.props.actions;
+
+    getJwt();
 
     const url = window.location.pathname.split("/");
     if (url[1] === "details") {
       const googleId = url[2];
       const editBar = url[3] === "edit";
+      const { jwt } = this.props;
       !singleBar && this.routeAdmin() && this.setState({ editBar });
-      !singleBar && fetchOne(googleId);
+      !singleBar && fetchOne(googleId, jwt);
     } else {
       this.setState({ displaySearchBar: true });
     }
@@ -84,7 +87,8 @@ class MainContainer extends Component {
     } else if (url[1] === "details") {
       const googleId = url[2];
       const editBar = url[3] === "edit";
-      !this.props.singleBar && this.props.actions.fetchOne(googleId);
+      const { jwt } = this.props;
+      !this.props.singleBar && this.props.actions.fetchOne(googleId, jwt);
       !prevProps.singleBar &&
         this.props.singleBar &&
         this.routeAdmin() &&
@@ -108,6 +112,7 @@ class MainContainer extends Component {
       userCoordinates,
       miles,
       timeFilter,
+      jwt,
       hoverCoordinates,
       data,
       carouselSlide,
@@ -115,6 +120,8 @@ class MainContainer extends Component {
       singleBar,
       photos
     } = this.props;
+
+    console.log('TOMMMMM: JWT: ' + jwt)
 
     const loadingModifier = loading ? "loading" : "";
 
@@ -147,6 +154,7 @@ class MainContainer extends Component {
               centerCoordinates={centerCoordinates}
               setCenterCoordinates={setCenterCoordinates}
               fetchData={fetchData}
+              jwt={jwt}
               data={data}
               hoverCoordinates={hoverCoordinates}
               setHoverCoordinates={setHoverCoordinates}

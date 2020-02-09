@@ -20,6 +20,7 @@ export const SET_USER_COORDINATES = "SET_USER_COORDINATES";
 export const SET_HOVER_COORDINATES = "SET_HOVER_COORDINATES";
 export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
 export const SET_LOADING = "SET_LOADING";
+export const GET_JWT = "GET_JWT";
 export const RESET = "RESET";
 
 //ACTIONSSSS - these basically label the input argument
@@ -30,6 +31,14 @@ export function reset() {
 
 export function setLoading(isLoading) {
   return { type: SET_LOADING, payload: isLoading };
+}
+
+export function getJwt() {
+  return async (dispatch, getState) => {
+    dispatch({ type: GET_JWT });
+    const jwt = await axios.get("/api/jwt");
+    return dispatch({ type: GET_JWT, payload: jwt.data });
+  };
 }
 
 export function setSingleBar(bar) {
@@ -62,24 +71,26 @@ export function getGooglePlacePhotos(place_id) {
 }
 
 export function fetchData(obj) {
-  const { lat, long, miles } = obj;
+  const { lat, long, miles, jwt } = obj;
 
   return async (dispatch, getState) => {
     dispatch({ type: DATA_FETCH_REQUEST });
     const values = await axios.get("/api/locations", {
-      params: { long: long, lat: lat, miles: miles }
+      params: { long: long, lat: lat, miles: miles },
+      headers: {Authorization: 'jwt ' + jwt }
     });
     const filteredValues = await categoriseData(values.data);
     return dispatch({ type: DATA_FETCH_SUCCESS, payload: filteredValues });
   };
 }
 
-export function fetchOne(id) {
+export function fetchOne(id, jwt) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_FETCH_SINGLE_REQUEST });
 
     const value = await axios.get("/api/bar", {
-      params: { place_id: id }
+      params: { place_id: id },
+      headers: {Authorization: 'jwt ' + jwt }
     });
 
     let valueArray = [];
@@ -90,11 +101,13 @@ export function fetchOne(id) {
   };
 }
 
-export function postData(obj) {
+export function postData(obj, jwt) {
   return async (dispatch, getState) => {
     dispatch({ type: DATA_POST_REQUEST });
     await axios
-      .post("/api/bar", obj)
+      .post("/api/bar", obj, {
+        headers: {Authorization: 'jwt ' + jwt }
+      })
       .then(function(response) {
         return dispatch({ type: DATA_POST_SUCCESS });
       })

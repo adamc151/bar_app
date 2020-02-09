@@ -102,7 +102,7 @@ export class MyMap extends React.Component {
 
   centerMap(position, searchedPlace = false, doFetchData = true) {
 
-    const { setCenterCoordinates, setHoverCoordinates, fetchData, timeFilter, miles } = this.props;
+    const { setCenterCoordinates, setHoverCoordinates, fetchData, timeFilter, miles, jwt } = this.props;
     const { latitude: lat, longitude: long } = position.coords;
 
     if (!searchedPlace) {
@@ -111,7 +111,9 @@ export class MyMap extends React.Component {
 
     setCenterCoordinates([ lat, long ]);
     setHoverCoordinates([ lat, long ]);
-    doFetchData && fetchData({ lat, long, miles, timeFilter });
+
+    console.log('TOMM ABOUT TO FETCH DATA JWT1: ' + jwt)
+    doFetchData && fetchData({ lat, long, miles, timeFilter, jwt });
   }
 
   findPlace(e) {
@@ -221,6 +223,7 @@ export class MyMap extends React.Component {
       userCoordinates,
       miles,
       timeFilter,
+      jwt,
       displayCarousel,
       displaySearchBar
     } = this.props;
@@ -229,7 +232,8 @@ export class MyMap extends React.Component {
       lat: centerCoordinates[0],
       long: centerCoordinates[1],
       miles,
-      timeFilter
+      timeFilter,
+      jwt
     };
 
     const mapStyle = window.matchMedia("(max-width: 1000px)").matches ?
@@ -266,7 +270,8 @@ export class MyMap extends React.Component {
                   displayCarousel(true);
                 }}
                 place={this.state.searchedPlace}
-                onAdd={() => { this.props.fetchData(obj); }}
+                jwt={jwt}
+                onAdd={() => { console.log('TOMM ABOUT TO FETCH DATA JWT2: ' + jwt); this.props.fetchData(obj); }}
               />
             )}
 

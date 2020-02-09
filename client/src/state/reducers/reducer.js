@@ -15,6 +15,7 @@ import {
   SET_CAROUSEL_SLIDE,
   SET_LOADING,
   CLEAR_PHOTOS,
+  GET_JWT,
   RESET
 } from "../actions/actions";
 
@@ -25,6 +26,7 @@ let initialState = {
   loadingBar: false,
   miles: 10,
   timeFilter: "All",
+  jwt: '',
   userCoordinates: [null, null],
   centerCoordinates: [1, 1],
   hoverCoordinates: [null, null],
@@ -83,6 +85,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, loading: action.payload }
     case CLEAR_PHOTOS:
       return { ...state, photos: null }
+    case GET_JWT:
+      return { ...state, jwt: action.payload }
     case RESET:
       console.log('yooo RESET');
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
