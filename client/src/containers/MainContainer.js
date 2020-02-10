@@ -54,7 +54,6 @@ class MainContainer extends Component {
     }, 2000);
     const { singleBar } = this.props;
     const { fetchOne, getJwt } = this.props.actions;
-
     getJwt();
 
     const url = window.location.pathname.split("/");
@@ -103,6 +102,7 @@ class MainContainer extends Component {
       setHoverCoordinates,
       setCarouselSlide,
       fetchData,
+      getJwt,
       setSingleBar,
       getGooglePlacePhotos,
       clearPhotos
@@ -152,6 +152,7 @@ class MainContainer extends Component {
               centerCoordinates={centerCoordinates}
               setCenterCoordinates={setCenterCoordinates}
               fetchData={fetchData}
+              getJwt={getJwt}
               jwt={jwt}
               data={data}
               hoverCoordinates={hoverCoordinates}

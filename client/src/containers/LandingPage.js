@@ -5,7 +5,6 @@ import * as actions from "../state/actions/actions";
 import "./LandingPage.css";
 import location from "./icons/pin.png";
 import calendar from "./icons/calendar2.png";
-import beers from "./icons/cheers.png";
 import bar1 from "./images/barImg111.jpg";
 import bar2 from "./images/barImg222.jpg";
 import bar3 from "./images/barImg333.jpg";
@@ -25,7 +24,6 @@ class LandingPage extends Component {
 
   componentDidMount() {
     this.props.actions.reset();
-    this.props.actions.getJwt();
   }
 
   renderInsta() {
@@ -47,6 +45,10 @@ class LandingPage extends Component {
                 onFailure={() => {}}
               />
     });
+  }
+
+  requestJWT(){
+    this.props.actions.getJwt();
   }
 
   render() {
@@ -80,10 +82,10 @@ class LandingPage extends Component {
 
             <div className="locationWrapper">
               <div className="searchBarLandingWrapper">
-                <Link to={`/map`}>Search...</Link>
+                <Link to={`/map`} onClick={this.props.actions.getJwt()}>Search...</Link>
               </div>
               <div className="currentLocationLanding">
-                <Link to={`/map`}>
+                <Link to={`/map`} onClick={this.props.actions.getJwt()}>
                   <img alt="location icon" src={locationIcon} />
                 </Link>
               </div>
