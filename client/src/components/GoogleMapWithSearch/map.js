@@ -112,8 +112,6 @@ export class MyMap extends React.Component {
     setCenterCoordinates([ lat, long ]);
     setHoverCoordinates([ lat, long ]);
 
-    console.log('TOMMM jwt: ' + jwt);
-
     doFetchData && fetchData({ lat, long, miles, timeFilter, jwt });
   }
 
