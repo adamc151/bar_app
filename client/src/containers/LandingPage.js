@@ -24,6 +24,7 @@ class LandingPage extends Component {
 
   componentDidMount() {
     this.props.actions.reset();
+    this.props.actions.getJwt();
   }
 
   renderInsta() {
@@ -45,10 +46,6 @@ class LandingPage extends Component {
                 onFailure={() => {}}
               />
     });
-  }
-
-  requestJWT(){
-    this.props.actions.getJwt();
   }
 
   render() {
@@ -82,10 +79,10 @@ class LandingPage extends Component {
 
             <div className="locationWrapper">
               <div className="searchBarLandingWrapper">
-                <Link to={`/map`} onClick={this.props.actions.getJwt()}>Search...</Link>
+                <Link to={`/map`}>Search...</Link>
               </div>
               <div className="currentLocationLanding">
-                <Link to={`/map`} onClick={this.props.actions.getJwt()}>
+                <Link to={`/map`}>
                   <img alt="location icon" src={locationIcon} />
                 </Link>
               </div>
