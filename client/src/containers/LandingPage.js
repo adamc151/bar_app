@@ -18,33 +18,36 @@ import facebookIcon from "./icons/facebook.png";
 import discoverIcon from "./icons/discover.png";
 import { Route, Link } from "react-router-dom";
 import Image from "../components/Image/Image";
-import InstagramEmbed from 'react-instagram-embed';
+import InstagramEmbed from "react-instagram-embed";
 
 class LandingPage extends Component {
-
   componentDidMount() {
     this.props.actions.reset();
-    this.props.actions.getJwt();
   }
 
   renderInsta() {
-
-    const instaUrls = ['https://www.instagram.com/p/B60vLc8HdVP', 'https://www.instagram.com/p/B8HM9pWHUN3', 'https://www.instagram.com/p/B7bUXu6HBSA' ];
+    const instaUrls = [
+      "https://www.instagram.com/p/B60vLc8HdVP",
+      "https://www.instagram.com/p/B8HM9pWHUN3",
+      "https://www.instagram.com/p/B7bUXu6HBSA"
+    ];
 
     return instaUrls.map((data, i) => {
-      return <InstagramEmbed
-                url= {data}
-                className="singleInsta"
-                maxWidth={400}
-                hideCaption={true}
-                containerTagName='div'
-                protocol=''
-                injectScript
-                onLoading={() => {}}
-                onSuccess={() => {}}
-                onAfterRender={() => {}}
-                onFailure={() => {}}
-              />
+      return (
+        <InstagramEmbed
+          url={data}
+          className="singleInsta"
+          maxWidth={400}
+          hideCaption={true}
+          containerTagName="div"
+          protocol=""
+          injectScript
+          onLoading={() => {}}
+          onSuccess={() => {}}
+          onAfterRender={() => {}}
+          onFailure={() => {}}
+        />
+      );
     });
   }
 
@@ -60,7 +63,7 @@ class LandingPage extends Component {
             <div className="header">
               <div className="headerTextHapi">hapi</div>
               <div className="headerTextHour">hour</div>{" "}
-              <img alt='beer icon' src={beerIcon} className="beerIconLanding" />
+              <img alt="beer icon" src={beerIcon} className="beerIconLanding" />
             </div>
 
             <div className="photosLandingWrapper">
@@ -109,7 +112,8 @@ class LandingPage extends Component {
                         FIND YOUR LOCATION
                       </div>
                       <div className="descriptionLandingItemDesc">
-                        Search for an area you want to see happy hour deals for, or provide your current location.
+                        Search for an area you want to see happy hour deals for,
+                        or provide your current location.
                       </div>
                     </div>
                   </div>
@@ -139,7 +143,8 @@ class LandingPage extends Component {
                         DISCOVER NEW BARS
                       </div>
                       <div className="descriptionLandingItemDesc">
-                        Find out more about the bars offering great deals throughout the city.
+                        Find out more about the bars offering great deals
+                        throughout the city.
                       </div>
                     </div>
                   </div>
@@ -147,9 +152,7 @@ class LandingPage extends Component {
               </div>
             </div>
 
-            <div className="instaFeed">
-              {this.renderInsta()}
-            </div>
+            <div className="instaFeed">{this.renderInsta()}</div>
 
             <div className="donationWrapper">
               <div className="donationItem">

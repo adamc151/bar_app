@@ -87,9 +87,7 @@ class Place extends React.Component {
         deals: deals
       };
 
-      const { jwt } = this.props;
-
-      this.props.actions.postData(newPlace, jwt);
+      this.props.actions.postData(newPlace);
 
       ReactGA.event({
         category: 'DB',

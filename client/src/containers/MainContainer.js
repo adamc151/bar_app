@@ -53,16 +53,14 @@ class MainContainer extends Component {
       this.setState({ showLoader: true });
     }, 2000);
     const { singleBar } = this.props;
-    const { fetchOne, getJwt } = this.props.actions;
-    getJwt();
+    const { fetchOne } = this.props.actions;
 
     const url = window.location.pathname.split("/");
     if (url[1] === "details") {
       const googleId = url[2];
       const editBar = url[3] === "edit";
-      const { jwt } = this.props;
       !singleBar && this.routeAdmin() && this.setState({ editBar });
-      !singleBar && fetchOne(googleId, jwt);
+      !singleBar && fetchOne(googleId);
     } else {
       this.setState({ displaySearchBar: true });
     }
@@ -86,8 +84,7 @@ class MainContainer extends Component {
     } else if (url[1] === "details") {
       const googleId = url[2];
       const editBar = url[3] === "edit";
-      const { jwt } = this.props;
-      !this.props.singleBar && this.props.actions.fetchOne(googleId, jwt);
+      !this.props.singleBar && this.props.actions.fetchOne(googleId);
       !prevProps.singleBar &&
         this.props.singleBar &&
         this.routeAdmin() &&
@@ -102,7 +99,6 @@ class MainContainer extends Component {
       setHoverCoordinates,
       setCarouselSlide,
       fetchData,
-      getJwt,
       setSingleBar,
       getGooglePlacePhotos,
       clearPhotos
@@ -152,7 +148,6 @@ class MainContainer extends Component {
               centerCoordinates={centerCoordinates}
               setCenterCoordinates={setCenterCoordinates}
               fetchData={fetchData}
-              getJwt={getJwt}
               jwt={jwt}
               data={data}
               hoverCoordinates={hoverCoordinates}
