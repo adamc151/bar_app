@@ -15,7 +15,10 @@ const MONGO_DB = keys.mongoDatabase;
 const MONGO_PROD = keys.mongoProd;
 let url = '';
 
-if(MONGO_PROD == 'true'){
+if(MONGO_PROD == "Atlas"){
+    url = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}/${MONGO_DB}?retryWrites=true&w=majority`
+}
+else if(MONGO_PROD == "true"){
     url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 }
 else{
