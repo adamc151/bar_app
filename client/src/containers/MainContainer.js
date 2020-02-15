@@ -108,6 +108,7 @@ class MainContainer extends Component {
       userCoordinates,
       miles,
       timeFilter,
+      jwt,
       hoverCoordinates,
       data,
       carouselSlide,
@@ -147,6 +148,7 @@ class MainContainer extends Component {
               centerCoordinates={centerCoordinates}
               setCenterCoordinates={setCenterCoordinates}
               fetchData={fetchData}
+              jwt={jwt}
               data={data}
               hoverCoordinates={hoverCoordinates}
               setHoverCoordinates={setHoverCoordinates}
@@ -203,6 +205,7 @@ class MainContainer extends Component {
                 singleBar={singleBar}
                 getPhotos={getPhotos}
                 photos={photos}
+                jwt={jwt}
               />
             ) : (
               <Bar

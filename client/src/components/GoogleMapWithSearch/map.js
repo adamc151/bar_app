@@ -111,6 +111,7 @@ export class MyMap extends React.Component {
 
     setCenterCoordinates([ lat, long ]);
     setHoverCoordinates([ lat, long ]);
+
     doFetchData && fetchData({ lat, long, miles, timeFilter });
   }
 
@@ -221,6 +222,7 @@ export class MyMap extends React.Component {
       userCoordinates,
       miles,
       timeFilter,
+      jwt,
       displayCarousel,
       displaySearchBar
     } = this.props;
@@ -229,7 +231,8 @@ export class MyMap extends React.Component {
       lat: centerCoordinates[0],
       long: centerCoordinates[1],
       miles,
-      timeFilter
+      timeFilter,
+      jwt
     };
 
     const mapStyle = window.matchMedia("(max-width: 1000px)").matches ?

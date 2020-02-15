@@ -7,5 +7,6 @@ module.exports = {
   mongoHostname: process.env.MONGO_HOSTNAME,
   mongoPort: process.env.MONGO_PORT,
   mongoDatabase: process.env.MONGO_DB,
-  mongoProd: process.env.MONGO_PROD
+  mongoProd: process.env.MONGO_PROD,
+  jwtSecret: process.env.JWT_SECRET
 };
