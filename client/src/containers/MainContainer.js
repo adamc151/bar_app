@@ -120,6 +120,7 @@ class MainContainer extends Component {
     const loadingModifier = loading ? "loading" : "";
 
     const getPhotos = () => {
+      console.log("yoooo getPhotos");
       const url = window.location.pathname.split("/");
       getGooglePlacePhotos(url[2], API_KEY);
     };
@@ -195,11 +196,7 @@ class MainContainer extends Component {
         </div>
 
         {singleBar && (
-          <BarDetails
-            clearPhotos={clearPhotos}
-            photos={photos}
-            singleBar={singleBar}
-          >
+          <BarDetails clearPhotos={clearPhotos}>
             {this.state.editBar ? (
               <AdminForm
                 singleBar={singleBar}
