@@ -3,9 +3,9 @@ import "./Bar.css";
 import Deal from "./Deal";
 import Image from "../Image/Image";
 import Slider from "react-slick";
+import arrow from "../../containers/icons/back.png";
 
 class Bar extends React.Component {
-
   getSkeleton() {
     return (
       <div className="detailsTextWrapper">
@@ -18,7 +18,7 @@ class Bar extends React.Component {
   }
 
   renderBar() {
-    const { loading } = this.props;
+    const { loading, getPhotos, photos } = this.props;
     let details = this.props.singleBar;
 
     var settings = {
@@ -34,16 +34,26 @@ class Bar extends React.Component {
       initialSlide: 0
     };
 
-    const multipleImages = details.imgUrls && details.imgUrls.length > 0;
-    const images = multipleImages ? details.imgUrls : [details.imgUrl];
+    const multipleImages = photos && photos.length > 0;
+    const images = multipleImages ? photos : [details.imgUrl];
 
     return (
       <div className="detailsWrapper">
+        <div className="moreImages" onClick={getPhotos}>
+          <div className="arrow-top"></div>
+          <div className="arrow-bottom"></div>
+        </div>
+
         <Slider ref={node => (this.slick = node)} {...settings}>
           {images.map(image => {
             return <Image src={image} className="barDetailsImage" />;
           })}
         </Slider>
+        <div className="loading-dots">
+          <h1 className="dotone">.</h1>
+          <h1 className="dottwo">.</h1>
+          <h1 className="dotthree">.</h1>
+        </div>
         {loading && !details.name ? (
           this.getSkeleton()
         ) : (
