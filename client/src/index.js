@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-//import * as serviceWorker from './worker';
 import {Provider} from 'react-redux';
 import {createStore, compose, applyMiddleware} from 'redux';
 import reducer from './state/reducers/reducer';
@@ -33,4 +32,3 @@ render(
 //   </Provider>, document.getElementById('root'));
 
 registerServiceWorker();
-//serviceWorker.register();
