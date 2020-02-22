@@ -3,12 +3,12 @@
   "name": "hapihour",
   "icons": [
     {
-      "src": "./LOGO2.png",
-      "sizes": "512x512 64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "./LOGO.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
     },
     {
-      "src": "./LOGO2.png",
+      "src": "./LOGO.png",
       "sizes": "512x512",
       "type": "image/png"
     }
