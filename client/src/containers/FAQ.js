@@ -3,6 +3,8 @@ import "./FAQ.css";
 import { Route } from "react-router-dom";
 import beerIcon from "./icons/beer.png";
 import Helmet from 'react-helmet';
+import Image from "../components/Image/Image";
+import desktopHeader from "./images/jess_ash_2.jpg";
 
 import {
   Accordion,
@@ -43,6 +45,10 @@ class FAQ extends Component {
     };
   }
 
+  componentDidMount(){
+      window.scrollTo(0, 0)
+  }
+
   render() {
     // console.log("FAQ page");
 
@@ -58,6 +64,14 @@ class FAQ extends Component {
             </Helmet>
             <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} alt='icon' className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
+
+              <div className="photosLandingWrapper">
+                <Image
+                  className="photoLanding"
+                  imageLoadedStyle="photoLandingLoaded"
+                  src={desktopHeader}
+                />
+              </div>
 
               <div className="faqTitle">FREQUENTLY ASKED QUESTIONS</div>
 
