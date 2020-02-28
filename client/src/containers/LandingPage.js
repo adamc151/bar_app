@@ -8,6 +8,8 @@ import calendar from "./icons/calendar2.png";
 import bar1 from "./images/barImg111.jpg";
 import bar2 from "./images/barImg222.jpg";
 import bar3 from "./images/barImg333.jpg";
+import mobileHeader from "./images/tom_hh_2.jpg";
+import desktopHeader from "./images/group_3.jpg";
 import locationIcon from "./icons/placeholder.png";
 import twitterIcon from "./icons/twitter.png";
 import emailIcon from "./icons/email.png";
@@ -52,9 +54,14 @@ class LandingPage extends Component {
   }
 
   render() {
-    const barImgs = [bar1, bar2, bar3];
-    const num = Math.floor(Math.random() * Math.floor(barImgs.length));
-    const barImg = barImgs[num];
+    // const barImgs = [bar1, bar2, bar3];
+    // const num = Math.floor(Math.random() * Math.floor(barImgs.length));
+    // // const barImg = barImgs[num];
+    // const barImg = bar4;
+    let barImg = '';
+
+    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    vw < 650 ? barImg = mobileHeader : barImg = desktopHeader;
 
     return (
       <Route
