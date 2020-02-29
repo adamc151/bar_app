@@ -5,6 +5,10 @@ import beerIcon from "./icons/beer.png";
 import Helmet from 'react-helmet';
 import Image from "../components/Image/Image";
 import desktopHeader from "./images/jess_ash_2.jpg";
+import emailIcon from "./icons/email.png";
+import instagramIcon from "./icons/instagram.png";
+import twitterIcon from "./icons/twitter.png";
+import facebookIcon from "./icons/facebook.png";
 
 import {
   Accordion,
@@ -65,7 +69,7 @@ class FAQ extends Component {
             <div className="header"><div className="headerTextHapi" onClick={() => { history.push(`/`);}}>hapi</div><div className="headerTextHour" onClick={() => { history.push(`/`);}}>hour</div> <img src={beerIcon} alt='icon' className="beerIconLanding" onClick={() => { history.push(`/`);}}/></div>
             <div className="barContainer">
 
-              <div className="photosLandingWrapper">
+              <div className="photosFAQWrapper">
                 <Image
                   className="photoLanding"
                   imageLoadedStyle="photoLandingLoaded"
@@ -88,15 +92,35 @@ class FAQ extends Component {
                 ))}
               </Accordion>
 
-              {/* <div class="footerCenter">
-                  <div className="footerItemTitle">CONTACT US</div>
-                  <a href="https://twitter.com/hapihour_io" className="inline"><img src={twitterIcon}/></a>
-                  <a className="inline dot">•</a>
-                  <a href="https://www.instagram.com/hapihour.io/" className="inline"><img src={instagramIcon}/></a>
-                  <a className="inline dot">•</a>
-                  <a href="mailto:hapihour.io@gmail.com" className="inline" target="_top"><img src={emailIcon}/></a>
-              </div> */}
-
+              <div className="footerCenter">
+                <div
+                  className="faqFooter"
+                >
+                  <a>CONTACT US</a>
+                </div>
+                <a href="https://twitter.com/hapihour_io" className="inline">
+                  <img alt="twitter icon" src={twitterIcon} />
+                </a>
+                <a className="inline dot">•</a>
+                <a
+                  href="https://www.instagram.com/hapihour.io/"
+                  className="inline"
+                >
+                  <img alt="instagram icon" src={instagramIcon} />
+                </a>
+                <a className="inline dot">•</a>
+                <a href="https://www.facebook.com/hapihour.io" className="inline">
+                  <img alt="facebook icon" src={facebookIcon} />
+                </a>
+                <a className="inline dot">•</a>
+                <a
+                  href="mailto:hapihour.io@gmail.com"
+                  className="inline"
+                  target="_top"
+                >
+                  <img alt="email icon" src={emailIcon} />
+                </a>
+              </div>
             </div>
         </div>
       )} />
