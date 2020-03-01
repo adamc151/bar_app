@@ -7,12 +7,12 @@ import { withRouter } from "react-router";
 import Image from '../Image/Image';
 
 const ListItem = (props) => {
-  const { onHover = () => { }, onClick = () => { }, data } = props;
+  const { onHover = () => { }, onClick = () => { }, data, carouselSlide, index } = props;
   const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category}`}
+      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${carouselSlide==index}`}
       onClick={() => {
         props.history.push(`/details/${place_id}`);
         onClick();
