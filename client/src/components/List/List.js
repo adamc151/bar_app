@@ -6,16 +6,7 @@ const getList = (data, setSingleBar, onHover) => {
 
   if (data.length > 0) {
 
-    let tmpInactiveData =[];
-    let tmpActiveData =[];
-
-    data.map((item, i) =>{
-      item.deals[0] && item.deals[0].category=='Inactive' ? tmpInactiveData.push(item) : tmpActiveData.push(item);
-    });
-
-    const tmpFinalData = tmpActiveData.concat(tmpInactiveData);
-
-    return tmpFinalData.map((data, i) => {
+    return data.map((data, i) => {
       return <ListItem
         key={i}
         index={i}
