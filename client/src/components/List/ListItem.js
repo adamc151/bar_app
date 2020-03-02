@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
@@ -6,20 +6,33 @@ import bar from "./deafultBarImg.jpg";
 import { withRouter } from "react-router";
 import Image from '../Image/Image';
 
-const ListItem = (props) => {
-  const { onHover = () => { }, onClick = () => { }, data, carouselSlide, index } = props;
-  const { name, deals, imgUrl, imgUrls = [], place_id } = data;
+class ListItem extends PureComponent {
+
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.carouselSlide !== this.props.index && this.props.carouselSlide == this.props.index){
+      this.lineItem.scrollIntoView({behavior: "smooth" });
+    }
+  }
+
+  render(){
+    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, index } = this.props;
+    const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
       className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${carouselSlide==index}`}
       onClick={() => {
-        props.history.push(`/details/${place_id}`);
+        this.props.history.push(`/details/${place_id}`);
         onClick();
       }}
       onMouseEnter={() => {
-        onHover(props.data);
+        onHover(data);
       }}
+      ref={node => this.lineItem = node}
     >
       <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
       {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
@@ -40,6 +53,8 @@ const ListItem = (props) => {
         </div>
       </div>
     );
+  }
+ 
 }
 
 export default withRouter(ListItem);
