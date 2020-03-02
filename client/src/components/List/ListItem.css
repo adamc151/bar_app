@@ -224,6 +224,10 @@
 
   .itemDescription:after{
     left:280px;
+  }
 }
 
+.hoveredtrue{
+  border: 5px orange solid;
+  border-radius: 10px;
 }

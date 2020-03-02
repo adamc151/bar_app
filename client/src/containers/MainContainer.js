@@ -172,7 +172,7 @@ class MainContainer extends Component {
               {getList(data, setSingleBar, data => {
                 setCenterCoordinates(data.location.coordinates);
                 setHoverCoordinates(data.location.coordinates);
-              })}
+              }, carouselSlide)}
             </div>
           </div>
 
