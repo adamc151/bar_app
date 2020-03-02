@@ -84,7 +84,8 @@ export function fetchData(obj) {
       headers: { Authorization: "jwt " + token }
     });
     const filteredValues = await categoriseData(values.data);
-    return dispatch({ type: DATA_FETCH_SUCCESS, payload: filteredValues });
+    const reorderedValues = await reorderData(filteredValues);
+    return dispatch({ type: DATA_FETCH_SUCCESS, payload: reorderedValues });
   };
 }
 
@@ -188,6 +189,20 @@ export function categoriseData(data, returnAllDeals = false) {
   });
 
   return categorisedBlob;
+}
+
+export function reorderData(data){
+
+  console.log('reordering data');
+
+  let tmpInactiveData =[];
+  let tmpActiveData =[];
+
+  data.map((item, i) =>{
+    item.deals[0] && item.deals[0].category=='Inactive' ? tmpInactiveData.push(item) : tmpActiveData.push(item);
+  });
+
+  return tmpActiveData.concat(tmpInactiveData);
 }
 
 export function setUserCoordinates(coordinates) {

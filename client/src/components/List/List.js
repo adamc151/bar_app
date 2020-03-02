@@ -3,7 +3,9 @@ import ListItem from "./ListItem";
 import "./List.css";
 
 const getList = (data, setSingleBar, onHover) => {
+
   if (data.length > 0) {
+
     return data.map((data, i) => {
       return <ListItem
         key={i}
