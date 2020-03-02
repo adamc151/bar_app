@@ -114,7 +114,8 @@ class MainContainer extends Component {
       carouselSlide,
       loading,
       singleBar,
-      photos
+      photos,
+      loadingPhotos
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
@@ -210,6 +211,7 @@ class MainContainer extends Component {
                 loading={this.state.loadingBar}
                 getPhotos={getPhotos}
                 photos={photos}
+                loadingPhotos={loadingPhotos}
               />
             )}
           </BarDetails>

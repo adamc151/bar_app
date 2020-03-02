@@ -57,31 +57,22 @@ export function getGooglePlacePhotos(place_id) {
   return async (dispatch, getState) => {
     dispatch({ type: GOOGLE_PHOTOS_FETCH_REQUEST });
 
-    await window.places.getDetails(
-      {
-        placeId: place_id,
-        fields: ["place_id"]
-      },
-      response => {
-        console.log("yoo response", response);
-      }
-    );
-
-    await window.places.getDetails(
-      {
-        placeId: place_id
-      },
-      details => {
-        console.log("yooo details", details);
-        const photos =
-          details.photos && details.photos.map(photo => photo.getUrl());
-        console.log("yooo photos", photos);
-        return dispatch({
-          type: GOOGLE_PHOTOS_FETCH_SUCCESS,
-          payload: photos
-        });
-      }
-    );
+    setTimeout(async () => {
+      await window.places.getDetails(
+        {
+          placeId: place_id
+        },
+        details => {
+          const photos =
+            details.photos && details.photos.map(photo => photo.getUrl());
+            console.log('yooo details', details);
+          return dispatch({
+            type: GOOGLE_PHOTOS_FETCH_SUCCESS,
+            payload: photos
+          });
+        }
+      );
+    }, 1500);
   };
 }
 
