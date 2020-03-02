@@ -3,6 +3,7 @@ import {
   DATA_FETCH_SUCCESS,
   DATA_FETCH_SINGLE_REQUEST,
   DATA_FETCH_SINGLE_SUCCESS,
+  GOOGLE_PHOTOS_FETCH_REQUEST,
   GOOGLE_PHOTOS_FETCH_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
@@ -32,7 +33,8 @@ let initialState = {
   hoverCoordinates: [null, null],
   carouselSlide: 0,
   singleBar: null,
-  showMap: false
+  showMap: false,
+  loadingPhotos: false
 };
 
 //REDUCERRRR
@@ -51,8 +53,10 @@ export default function transactions(state = initialState, action) {
     case DATA_FETCH_SINGLE_SUCCESS:
       console.log("DATA_FETCH_SINGLE_SUCCESS Action");
       return { ...state, singleBar: action.payload, loadingBar: false };
+    case GOOGLE_PHOTOS_FETCH_REQUEST:
+      return { ...state, photos: null, loadingPhotos: true }
     case GOOGLE_PHOTOS_FETCH_SUCCESS:
-      return { ...state, photos: action.payload }
+      return { ...state, photos: action.payload, loadingPhotos: false }
     case DATA_POST_REQUEST:
       // console.log("DATA_POST_REQUEST Action");
       return { ...state };
@@ -84,7 +88,7 @@ export default function transactions(state = initialState, action) {
     case SET_LOADING:
       return { ...state, loading: action.payload }
     case CLEAR_PHOTOS:
-      return { ...state, photos: null }
+      return { ...state, photos: null, loadingPhotos: false }
     case SET_JWT:
       return { ...state, jwt: action.payload }
     case RESET:
