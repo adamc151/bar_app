@@ -291,9 +291,12 @@ export class MyMap extends React.Component {
               {this.props.data.map((marker, i) => {
                 const { coordinates } = marker.location;
                 const { deals } = marker;
-                const animate =
+                let animate =
                   hoverCoordinates[0] === coordinates[0] &&
                   hoverCoordinates[1] === coordinates[1];
+
+                // i = 0 ? animate = true : null;
+
                 return (
                   <Marker
                     className={animate ? "hovered" : "plainMarker"}

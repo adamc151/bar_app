@@ -2,7 +2,7 @@ import React from "react";
 import ListItem from "./ListItem";
 import "./List.css";
 
-const getList = (data, setSingleBar, onHover, carouselSlide) => {
+const getList = (data, setSingleBar, onHover, carouselSlide, setCarouselSlide) => {
   if (data.length > 0) {
 
     return data.map((data, i) => {
@@ -10,6 +10,7 @@ const getList = (data, setSingleBar, onHover, carouselSlide) => {
         key={i}
         index={i}
         carouselSlide={carouselSlide}
+        setCarouselSlide={setCarouselSlide}
         data={data}
         className="carouselCard"
         onClick={() => setSingleBar(data)}

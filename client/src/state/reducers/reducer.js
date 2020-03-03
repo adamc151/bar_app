@@ -30,7 +30,7 @@ let initialState = {
   userCoordinates: [null, null],
   centerCoordinates: [1, 1],
   hoverCoordinates: [null, null],
-  carouselSlide: 0,
+  carouselSlide: null,
   singleBar: null,
   showMap: false
 };
@@ -41,7 +41,7 @@ export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
       console.log("DATA_FETCH_REQUEST Action");
-      return { ...state, carouselSlide: 0, loadingBars: true };
+      return { ...state, carouselSlide: null, loadingBars: true };
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
       return { ...state, data: action.payload, loadingBars: false };
