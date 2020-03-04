@@ -215,7 +215,8 @@
 /* } */
 
 .hoveredtrue{
-  border: 5px orange solid;
+  border: 5px solid;
+  border-color: rgb(235, 171, 34);
   border-radius: 10px;
 }
 

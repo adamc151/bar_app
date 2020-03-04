@@ -48,7 +48,7 @@ class ListItem extends PureComponent {
         // this.setState({hovered:false})
       }}
       onMouseOver={() => {
-        // setCarouselSlide(index);
+        setCarouselSlide(index);
       }}
       ref={node => this.lineItem = node}
     >
