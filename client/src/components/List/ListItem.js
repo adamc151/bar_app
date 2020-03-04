@@ -12,6 +12,10 @@ class ListItem extends PureComponent {
     super(props);
   }
 
+  state = {
+    hovered: false
+  }
+
   componentDidUpdate(prevProps){
     if(prevProps.carouselSlide !== this.props.index && this.props.carouselSlide == this.props.index){
       this.isInViewport(this.lineItem) ? null : this.lineItem.scrollIntoView({behavior: "smooth" });
@@ -19,6 +23,7 @@ class ListItem extends PureComponent {
   }
 
   isInViewport(element, offset = 0) {
+    if (!element) return true;
     const top = element.getBoundingClientRect().top;
     return (top + offset) >= 0 && (top - offset) <= window.innerHeight - 50;
   }
@@ -29,15 +34,21 @@ class ListItem extends PureComponent {
 
   return !data == "" ? (
     <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${carouselSlide==index}`}
+      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${(carouselSlide==index || this.state.hovered)}`}
       onClick={() => {
         this.props.history.push(`/details/${place_id}`);
         onClick();
       }}
       onMouseEnter={() => {
         setCarouselSlide(index);
+        // this.setState({hovered:true})
         onHover(data);
-        console.log('Mouse Enter');
+      }}
+      onMouseLeave={() => {
+        // this.setState({hovered:false})
+      }}
+      onMouseOver={() => {
+        // setCarouselSlide(index);
       }}
       ref={node => this.lineItem = node}
     >
