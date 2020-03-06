@@ -18,15 +18,16 @@ class ListItem extends PureComponent {
 
   componentDidUpdate(prevProps){
     if(prevProps.carouselSlide !== this.props.index && this.props.carouselSlide == this.props.index){
-      this.isInViewport(this.lineItem) ? null : this.lineItem.scrollIntoView({behavior: "smooth" });
+      this.lineItem.scrollIntoView({behavior: "smooth" })
+      // this.isInViewport(this.lineItem) ? null : this.lineItem.scrollIntoView({behavior: "smooth" });
     }
   }
 
-  isInViewport(element, offset = 0) {
-    if (!element) return true;
-    const top = element.getBoundingClientRect().top;
-    return (top + offset) >= 0 && (top - offset) <= window.innerHeight - 50;
-  }
+  // isInViewport(element, offset = 0) {
+  //   if (!element) return true;
+  //   const top = element.getBoundingClientRect().top;
+  //   return (top + offset) >= 0 && (top - offset) <= window.innerHeight - 50;
+  // }
 
   render(){
     const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index } = this.props;
@@ -40,7 +41,7 @@ class ListItem extends PureComponent {
         onClick();
       }}
       onMouseEnter={() => {
-        setCarouselSlide(index);
+        //setCarouselSlide(index);
         // this.setState({hovered:true})
         onHover(data);
       }}
@@ -48,7 +49,7 @@ class ListItem extends PureComponent {
         // this.setState({hovered:false})
       }}
       onMouseOver={() => {
-        setCarouselSlide(index);
+        // setCarouselSlide(index);
       }}
       ref={node => this.lineItem = node}
     >
