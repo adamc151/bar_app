@@ -1,7 +1,7 @@
 import React from "react";
 import "./Bar.css";
 import Deal from "./Deal";
-import Image from "../Image/Image";
+import Image, { ImageWithBlur } from "../Image/Image";
 import Slider from "react-slick";
 import arrow from "../../containers/icons/back.png";
 import photosIcon from "../../containers/icons/photo.png";
@@ -75,13 +75,19 @@ class Bar extends React.Component {
 
         <Slider ref={node => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
-            const contain = i > 0 ? "barImageContain" : "";
-            return (
-              <Image
+            const blurImageClassNames = {
+              blurImage: "barBlurImage",
+              mainImage: "barMainiMage",
+              container: "barBlurImageContainer"
+            };
+            return i > 0 ? (
+              <ImageWithBlur
                 src={image}
-                className={`barDetailsImage ${contain}`}
-                imageClassName={contain}
+                className={`barDetailsImage`}
+                blurClassNames={blurImageClassNames}
               />
+            ) : (
+              <Image src={image} className={`barDetailsImage`} />
             );
           })}
         </Slider>
