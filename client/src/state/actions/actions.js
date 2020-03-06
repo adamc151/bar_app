@@ -53,26 +53,22 @@ export const getToken = async (dispatch, getState) => {
 };
 
 export function getGooglePlacePhotos(place_id) {
-  console.log("yooo getGooglePlacePhotos", place_id);
   return async (dispatch, getState) => {
     dispatch({ type: GOOGLE_PHOTOS_FETCH_REQUEST });
 
-    setTimeout(async () => {
-      await window.places.getDetails(
-        {
-          placeId: place_id
-        },
-        details => {
-          const photos =
-            details.photos && details.photos.map(photo => photo.getUrl());
-            console.log('yooo details', details);
-          return dispatch({
-            type: GOOGLE_PHOTOS_FETCH_SUCCESS,
-            payload: photos
-          });
-        }
-      );
-    }, 1500);
+    await window.places.getDetails(
+      {
+        placeId: place_id
+      },
+      details => {
+        const photos =
+          details.photos && details.photos.map(photo => photo.getUrl());
+        return dispatch({
+          type: GOOGLE_PHOTOS_FETCH_SUCCESS,
+          payload: photos
+        });
+      }
+    );
   };
 }
 
