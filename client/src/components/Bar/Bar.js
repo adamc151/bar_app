@@ -4,7 +4,7 @@ import Deal from "./Deal";
 import Image from "../Image/Image";
 import Slider from "react-slick";
 import arrow from "../../containers/icons/back.png";
-import photosIcon from "../../containers/icons/photos.png";
+import photosIcon from "../../containers/icons/photo.png";
 
 class Bar extends React.Component {
   constructor(props) {
