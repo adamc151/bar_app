@@ -158,6 +158,17 @@ export class MyMap extends React.Component {
         return;
       }
 
+      // if(!(place.types.includes("bar") || place.types.includes("restaurant") || place.types.includes("locality"))){
+      //   window.alert('Only Bars, Resturants & Localities are searchable in Hapihour');
+      //   return;
+      // }
+
+      const addressArray = place.formatted_address.split(',');
+
+      if(addressArray[addressArray.length-1].trim() != 'UK'){
+        window.alert('Only UK based searches are enabled for now :)');
+        return;
+      }
 
       var position = {
         coords: {
