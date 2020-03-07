@@ -27,12 +27,6 @@
 
 .sideNav::-webkit-scrollbar { width: 0 !important }
 
-.sideNavAnimaion {
-  animation-name: openSideNav;
-  animation-duration: 500ms;
-  animation-timing-function: linear;
-}
-
 @keyframes openSideNav {
     from {
         width: 0px;
@@ -85,7 +79,13 @@
   .wrapper {
     flex-direction: column;
   }
-
+  
+  .sideNavAnimaion {
+    animation-name: openSideNav;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+  }
+  
   .list {
     display: none;
   }

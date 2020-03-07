@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import sadFace from "./sad.png";
@@ -6,20 +6,52 @@ import bar from "./deafultBarImg.jpg";
 import { withRouter } from "react-router";
 import Image from '../Image/Image';
 
-const ListItem = (props) => {
-  const { onHover = () => { }, onClick = () => { }, data } = props;
-  const { name, deals, imgUrl, imgUrls = [], place_id } = data;
+class ListItem extends PureComponent {
+
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    hovered: false
+  }
+
+  componentDidUpdate(prevProps){
+    if(this.props.carouselSlide !== null && prevProps.carouselSlide !== this.props.index && this.props.carouselSlide == this.props.index){
+      // this.lineItem.scrollIntoView({behavior: "smooth" })
+      !this.props.isInViewport && this.lineItem.scrollIntoView({behavior: "smooth" });
+    }
+  }
+
+  isInViewport(element, offset = 0) {
+    if (!element) return true;
+    const top = element.getBoundingClientRect().top;
+    return (top + offset) >= 0 && (top - offset) <= window.innerHeight - 50;
+  }
+  
+
+  render(){
+    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index } = this.props;
+    const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category}`}
+      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${(carouselSlide==index || this.state.hovered)}`}
       onClick={() => {
-        props.history.push(`/details/${place_id}`);
+        this.props.history.push(`/details/${place_id}`);
         onClick();
       }}
       onMouseEnter={() => {
-        onHover(props.data);
+        setCarouselSlide(null);
+        onHover(data);
       }}
+      onMouseLeave={() => {
+
+      }}
+      onMouseOver={() => {
+        // setCarouselSlide(index);
+      }}
+      ref={node => this.lineItem = node}
     >
       <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
       {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
@@ -40,6 +72,8 @@ const ListItem = (props) => {
         </div>
       </div>
     );
+  }
+ 
 }
 
 export default withRouter(ListItem);
