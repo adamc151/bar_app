@@ -9,6 +9,151 @@
   font-weight: bold;
 }
 
+.moreImages {
+  cursor: pointer;
+  right: 10px;
+  position: absolute;
+  top: 140px;
+  width: 20px;
+  height: 40px;
+  z-index: 10;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.tagsWrapper {
+  position: relative;
+}
+
+.arrow-top,
+.arrow-bottom {
+  background-color: white;
+  height: 4px;
+  left: -5px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.arrow-top {
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+}
+
+.arrow-bottom {
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.slick-dots {
+  bottom: -40px;
+}
+
+.loading-dots {
+  text-align: center;
+  z-index: 5;
+  height: 25px;
+}
+
+.loadingdot {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  font-size: 34px;
+  line-height: 38px;
+  opacity: 0;
+  animation: showHideDot 2s ease-in-out infinite;
+}
+
+.dot1 {
+  animation-delay: 0s;
+}
+.dot2 {
+  animation-delay: 0.1s;
+}
+.dot3 {
+  animation-delay: 0.2s;
+}
+.dot4 {
+  animation-delay: 0.3s;
+}
+.dot5 {
+  animation-delay: 0.4s;
+}
+.dot6 {
+  animation-delay: 0.5s;
+}
+.dot7 {
+  animation-delay: 0.6s;
+}
+.dot8 {
+  animation-delay: 0.7s;
+}
+.dot9 {
+  animation-delay: 0.8s;
+}
+.dot10 {
+  animation-delay: 0.9s;
+}
+
+@keyframes showHideDot {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.detailsWebsite {
+  font-family: Circular-bold;
+  border: none;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 188, 44);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  margin-top: 32px;
+  font-size: 15px;
+  position: absolute;
+  right: 80px;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 3px rgb(165, 165, 165);
+}
+
+.morePhotos {
+  cursor: pointer;
+  border: none;
+  height: 26px;
+  padding: 2px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 188, 44);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  margin-top: 32px;
+  font-size: 15px;
+  position: absolute;
+  right: 40px;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 3px rgb(165, 165, 165);
+}
+
+.morePhotosPressed {
+  background-color: rgb(255, 255, 255);
+}
+
 .detailsWrapper {
   margin: auto;
   max-width: 800px;
@@ -36,6 +181,28 @@
   object-fit: cover;
 }
 
+.barImageContain {
+  object-fit: contain;
+  background-color: white;
+}
+
+.barBlurImage {
+  width: 100%;
+  height: 220px;
+  filter: blur(6px);
+  object-fit: cover;
+}
+.barMainiMage {
+  width: 100%;
+  height: 220px;
+  background: none;
+  object-fit: contain;
+}
+.barBlurImageContainer {
+  width: 100%;
+  height: 220px;
+}
+
 .detailsName {
   font-family: Circular-bold;
   margin-top: 0px;
@@ -52,25 +219,6 @@
 .line {
   color: rgba(255, 255, 255, 0);
   border-bottom: 1px solid rgb(202, 202, 202);
-}
-
-.detailsWebsite {
-  border: none;
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 188, 44);
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  /* display: inline-block; */
-  border-radius: 2px;
-  font-size: 15px;
-  /* position: absolute; */
-  /* top: 203px;
-    right: 40px; */
-  margin-left: 615px;
-  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-  box-shadow: 0px 1px 3px rgb(46, 46, 46);
 }
 
 .dealsTitle {
@@ -129,23 +277,10 @@
     font-size: 14px;
   }
 
-  .detailsWebsite {
-    border: none;
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 188, 44);
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 2px;
-    margin-top: 32px;
-    font-size: 15px;
+  .tagsWrapper {
     position: absolute;
     top: 218px;
-    right: 40px;
-    -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-    -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-    box-shadow: 0px 1px 3px rgb(46, 46, 46);
+    right: 0;
   }
 
   .dealsTitle {

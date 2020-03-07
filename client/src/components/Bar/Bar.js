@@ -1,10 +1,25 @@
 import React from "react";
 import "./Bar.css";
 import Deal from "./Deal";
-import Image from "../Image/Image";
+import Image, { ImageWithBlur } from "../Image/Image";
 import Slider from "react-slick";
+import arrow from "../../containers/icons/back.png";
+import photosIcon from "../../containers/icons/photo.png";
 
 class Bar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showMorePressed: false
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.photos !== this.props.photos) {
+      this.slick.slickGoTo(1);
+    }
+  }
 
   getSkeleton() {
     return (
@@ -18,7 +33,7 @@ class Bar extends React.Component {
   }
 
   renderBar() {
-    const { loading } = this.props;
+    const { loading, getPhotos, photos, loadingPhotos } = this.props;
     let details = this.props.singleBar;
 
     var settings = {
@@ -34,16 +49,65 @@ class Bar extends React.Component {
       initialSlide: 0
     };
 
-    const multipleImages = details.imgUrls && details.imgUrls.length > 0;
-    const images = multipleImages ? details.imgUrls : [details.imgUrl];
+    const multipleImages = photos && photos.length > 0;
+    let images;
+    if (multipleImages) {
+      const [first, ...rest] = photos;
+      images = [details.imgUrl, ...rest];
+    } else {
+      images = [details.imgUrl];
+    }
 
     return (
       <div className="detailsWrapper">
+        {false && (
+          <div
+            className="moreImages"
+            onClick={() => {
+              getPhotos();
+              this.setState({ showMorePressed: true });
+            }}
+          >
+            <div className="arrow-top"></div>
+            <div className="arrow-bottom"></div>
+          </div>
+        )}
+
         <Slider ref={node => (this.slick = node)} {...settings}>
-          {images.map(image => {
-            return <Image src={image} className="barDetailsImage" />;
+          {images.map((image, i) => {
+            const blurImageClassNames = {
+              blurImage: "barBlurImage",
+              mainImage: "barMainiMage",
+              container: "barBlurImageContainer"
+            };
+            return i > 0 ? (
+              <ImageWithBlur
+                src={image}
+                className={`barDetailsImage`}
+                blurClassNames={blurImageClassNames}
+              />
+            ) : (
+              <Image src={image} className={`barDetailsImage`} />
+            );
           })}
         </Slider>
+        {loadingPhotos ? (
+          <div className="loading-dots">
+            <div className="loadingdot dot1">.</div>
+            <div className="loadingdot dot2">.</div>
+            <div className="loadingdot dot3">.</div>
+            <div className="loadingdot dot4">.</div>
+            <div className="loadingdot dot5">.</div>
+            <div className="loadingdot dot6">.</div>
+            <div className="loadingdot dot7">.</div>
+            <div className="loadingdot dot8">.</div>
+            <div className="loadingdot dot9">.</div>
+            <div className="loadingdot dot10">.</div>
+          </div>
+        ) : (
+          <div className="loading-dots" />
+        )}
+
         {loading && !details.name ? (
           this.getSkeleton()
         ) : (
@@ -52,11 +116,24 @@ class Bar extends React.Component {
             {details.address && (
               <div className="detailsAddress">{details.address}</div>
             )}
-            {details.website && (
-              <a href={details.website} className="detailsWebsite">
-                Website
-              </a>
-            )}
+            <div className="tagsWrapper">
+              {details.website && (
+                <a href={details.website} className="detailsWebsite">
+                  Website
+                </a>
+              )}
+              <img
+                src={photosIcon}
+                className={`morePhotos ${
+                  this.state.showMorePressed ? "morePhotosPressed" : ""
+                }`}
+                onClick={() => {
+                  !this.state.showMorePressed && getPhotos();
+                  this.setState({ showMorePressed: true });
+                }}
+              />
+            </div>
+
             {<div className="dealsTitle">Today's Deals</div>}
             {this.renderTodayDeals()}
             {details.otherDeals && details.otherDeals[0] && (
