@@ -36,8 +36,18 @@ class Bar extends React.Component {
     const { loading, getPhotos, photos, loadingPhotos } = this.props;
     let details = this.props.singleBar;
 
+    const multipleImages = photos && photos.length > 0;
+    let images;
+    if (multipleImages) {
+      const [first, ...rest] = photos;
+      images = [details.imgUrl, ...rest];
+    } else {
+      images = new Array(10).fill()
+      images[0] = details.imgUrl;
+    }
+
     var settings = {
-      dots: true,
+      dots: multipleImages,
       infinite: false,
       speed: 500,
       slidesToShow: 1,
@@ -46,17 +56,10 @@ class Bar extends React.Component {
       className: "detailsCarousel",
       centerMode: true,
       centerPadding: "0px",
-      initialSlide: 0
+      initialSlide: 0,
+      swipe: multipleImages,
+      draggable: multipleImages
     };
-
-    const multipleImages = photos && photos.length > 0;
-    let images;
-    if (multipleImages) {
-      const [first, ...rest] = photos;
-      images = [details.imgUrl, ...rest];
-    } else {
-      images = [details.imgUrl];
-    }
 
     return (
       <div className="detailsWrapper">
@@ -73,7 +76,7 @@ class Bar extends React.Component {
           </div>
         )}
 
-        <Slider ref={node => (this.slick = node)} {...settings}>
+        <Slider ref={node => (this.slick = node)} {...settings} >
           {images.map((image, i) => {
             const blurImageClassNames = {
               blurImage: "barBlurImage",

@@ -31,12 +31,12 @@ class ListItem extends PureComponent {
   
 
   render(){
-    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index } = this.props;
+    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index, doHover } = this.props;
     const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${(carouselSlide==index || this.state.hovered)}`}
+      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${doHover && (carouselSlide==index || this.state.hovered)} ${doHover ? 'doHover' : ''}`}
       onClick={() => {
         this.props.history.push(`/details/${place_id}`);
         onClick();

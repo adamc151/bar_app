@@ -74,7 +74,7 @@
     border: none;
   }
 
-  .listItemWrapper:hover {   
+  .doHover:hover {   
     border: 5px solid;
     border-color: rgb(235, 171, 34);
     border-radius: 10px;
