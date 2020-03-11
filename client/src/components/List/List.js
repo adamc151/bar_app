@@ -8,7 +8,8 @@ const getList = (
   setSingleBar,
   onHover,
   carouselSlide,
-  setCarouselSlide
+  setCarouselSlide,
+  isMobile
 ) => {
   if (data.length > 0) {
     return data.map((data, i) => {
@@ -26,6 +27,7 @@ const getList = (
                 onClick={() => setSingleBar(data)}
                 onHover={onHover}
                 isInViewport={intersected}
+                isMobile={isMobile}
               />
             );
           }}

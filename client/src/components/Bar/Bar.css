@@ -56,12 +56,12 @@
 
 .loadingdot {
   display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 11px;
+  margin-right: 11px;
   position: relative;
-  font-size: 34px;
-  line-height: 38px;
-  opacity: 0;
+  font-size: 29px;
+  line-height: 44px;
+  opacity: 1;
   animation: showHideDot 2s ease-in-out infinite;
 }
 
@@ -98,7 +98,7 @@
 
 @keyframes showHideDot {
   0% {
-    opacity: 0;
+    opacity: 0.3;
   }
   50% {
     opacity: 1;
@@ -107,7 +107,7 @@
     opacity: 1;
   }
   100% {
-    opacity: 0;
+    opacity: 0.3;
   }
 }
 
@@ -179,6 +179,25 @@
   height: 220px;
   position: center;
   object-fit: cover;
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #e9e9e9 0%,
+    #f5f6fa 20%,
+    #e9e9e9 40%,
+    #e9e9e9 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
 }
 
 .barImageContain {
