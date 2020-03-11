@@ -45,7 +45,7 @@
 }
 
 .slick-dots {
-  bottom: -40px;
+  bottom: -30px;
 }
 
 .loading-dots {
@@ -112,22 +112,19 @@
 }
 
 .detailsWebsite {
-  font-family: Circular-bold;
-  border: none;
-  color: rgb(0, 0, 0);
   background-color: rgb(255, 188, 44);
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 2px;
-  margin-top: 32px;
-  font-size: 15px;
+  padding: 5px 8px 2px 8px;
+  border-radius: 10px;
+  margin-top: -10px;
   position: absolute;
-  right: 80px;
+  right: 15px;
   -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
   -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
   box-shadow: 0px 1px 3px rgb(165, 165, 165);
+}
+
+.websiteIcon{
+  width: 30px;
 }
 
 .morePhotos {
