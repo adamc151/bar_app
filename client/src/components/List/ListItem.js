@@ -17,7 +17,8 @@ class ListItem extends PureComponent {
   }
 
   componentDidUpdate(prevProps){
-    if(this.props.carouselSlide !== null && prevProps.carouselSlide !== this.props.index && this.props.carouselSlide == this.props.index){
+    const { isMobile, carouselSlide, index } = this.props;
+    if(!isMobile && carouselSlide !== null && prevProps.carouselSlide !== index && carouselSlide == index){
       // this.lineItem.scrollIntoView({behavior: "smooth" })
       !this.props.isInViewport && this.lineItem.scrollIntoView({behavior: "smooth" });
     }
@@ -31,12 +32,12 @@ class ListItem extends PureComponent {
   
 
   render(){
-    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index, doHover } = this.props;
+    const { onHover = () => { }, onClick = () => { }, data, carouselSlide, setCarouselSlide, index, isMobile } = this.props;
     const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
     <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${doHover && (carouselSlide==index || this.state.hovered)} ${doHover ? 'doHover' : ''}`}
+      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${!isMobile && (carouselSlide==index || this.state.hovered)} ${!isMobile ? 'doHover' : ''}`}
       onClick={() => {
         this.props.history.push(`/details/${place_id}`);
         onClick();

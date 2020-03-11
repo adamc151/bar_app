@@ -42,12 +42,12 @@ class Bar extends React.Component {
       const [first, ...rest] = photos;
       images = [details.imgUrl, ...rest];
     } else {
-      images = new Array(10).fill()
+      images = new Array(10).fill();
       images[0] = details.imgUrl;
     }
 
     var settings = {
-      dots: multipleImages,
+      dots: true,
       infinite: false,
       speed: 500,
       slidesToShow: 1,
@@ -57,26 +57,16 @@ class Bar extends React.Component {
       centerMode: true,
       centerPadding: "0px",
       initialSlide: 0,
-      swipe: multipleImages,
-      draggable: multipleImages
+      swipe: !loadingPhotos,
+      draggable: !loadingPhotos,
+      afterChange: () => {
+        !multipleImages && getPhotos();
+      }
     };
 
     return (
       <div className="detailsWrapper">
-        {false && (
-          <div
-            className="moreImages"
-            onClick={() => {
-              getPhotos();
-              this.setState({ showMorePressed: true });
-            }}
-          >
-            <div className="arrow-top"></div>
-            <div className="arrow-bottom"></div>
-          </div>
-        )}
-
-        <Slider ref={node => (this.slick = node)} {...settings} >
+        <Slider ref={node => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
               blurImage: "barBlurImage",
@@ -94,7 +84,7 @@ class Bar extends React.Component {
             );
           })}
         </Slider>
-        {loadingPhotos ? (
+        {loadingPhotos && false ? (
           <div className="loading-dots">
             <div className="loadingdot dot1">.</div>
             <div className="loadingdot dot2">.</div>
@@ -125,16 +115,6 @@ class Bar extends React.Component {
                   Website
                 </a>
               )}
-              <img
-                src={photosIcon}
-                className={`morePhotos ${
-                  this.state.showMorePressed ? "morePhotosPressed" : ""
-                }`}
-                onClick={() => {
-                  !this.state.showMorePressed && getPhotos();
-                  this.setState({ showMorePressed: true });
-                }}
-              />
             </div>
 
             {<div className="dealsTitle">Today's Deals</div>}

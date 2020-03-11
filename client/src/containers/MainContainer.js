@@ -174,7 +174,7 @@ class MainContainer extends Component {
               {getList(data, setSingleBar, data => {
                 setCenterCoordinates(data.location.coordinates);
                 setHoverCoordinates(data.location.coordinates);
-              }, carouselSlide, setCarouselSlide, true)}
+              }, carouselSlide, setCarouselSlide, false)}
             </div>
           </div>
 
@@ -193,7 +193,7 @@ class MainContainer extends Component {
                 {getList(data, setSingleBar, data => {
                 setCenterCoordinates(data.location.coordinates);
                 setHoverCoordinates(data.location.coordinates);
-                }, carouselSlide, setCarouselSlide, false)}
+                }, carouselSlide, setCarouselSlide, true)}
               </Carousel>
             </div>
           )}
