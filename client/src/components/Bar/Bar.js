@@ -5,6 +5,7 @@ import Image, { ImageWithBlur } from "../Image/Image";
 import Slider from "react-slick";
 import arrow from "../../containers/icons/back.png";
 import photosIcon from "../../containers/icons/photo.png";
+import website from "../../containers/icons/website.png";
 
 class Bar extends React.Component {
   constructor(props) {
@@ -112,7 +113,7 @@ class Bar extends React.Component {
             <div className="tagsWrapper">
               {details.website && (
                 <a href={details.website} className="detailsWebsite">
-                  Website
+                  <img className="websiteIcon" src={website}/>
                 </a>
               )}
             </div>
