@@ -136,7 +136,7 @@
 .currentLocationLanding{
     width: 30px;
     height: 30px;
-    background-color: white;
+    background-color: white; 
     border-radius: 30px;
     color: grey;
     /* font-size: 20px; */
@@ -243,7 +243,7 @@
 }
 
 .donationItemDesc{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: lighter;
     margin-top: 8px;
     margin-bottom: 10px;
@@ -252,7 +252,7 @@
 
 .donationItemTitle{
     font-size: 15px;
-    font-family: Circular-bold;
+    font-family: Circular-black;
     margin-top: 20px;
 }
 
@@ -329,12 +329,12 @@
     }
 
     .descriptionLandingItemDesc{
-        font-size: 15px;
+        font-size: 17px;
         margin-top: 0px;
     }
 
     .descriptionLandingItemTitle{
-        font-size: 16px;
+        font-size: 17px;
         font-family: Circular-bold;
         font-weight: bold;
         margin-top: 10px;
@@ -377,37 +377,7 @@
     }
 
     .faqFooter{
-        font-size: 18px;
-    }
-
-    .donationWrapper{
-        margin: auto;
-        margin-top: 15px;
-        max-width: 1100px;
-        color: rgb(72, 72, 72);
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .donationItem{
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-bottom: 30px;
-    }
-
-    .donationItemDesc{
-        font-size: 12px;
-        font-weight: lighter;
-        margin-top: 8px;
-        margin-bottom: 10px;
-    }
-
-    .donationItemTitle{
-        font-size: 15px;
-        font-family: Circular-bold;
-        margin-top: 20px;
+        font-size: 17px;
     }
 
     .line{
