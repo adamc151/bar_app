@@ -31,7 +31,7 @@ class LandingPage extends Component {
     const instaUrls = [
       "https://www.instagram.com/p/B60vLc8HdVP",
       "https://www.instagram.com/p/B8HM9pWHUN3",
-      "https://www.instagram.com/p/B7bUXu6HBSA"
+      "https://www.instagram.com/p/B9o0i_CHN3e"
     ];
 
     return instaUrls.map((data, i) => {
