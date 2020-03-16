@@ -17,7 +17,8 @@ import {
   SET_LOADING,
   CLEAR_PHOTOS,
   SET_JWT,
-  RESET
+  RESET,
+  SET_BOUNDS
 } from "../actions/actions";
 
 //the initial store (global app state)
@@ -34,7 +35,8 @@ let initialState = {
   carouselSlide: null,
   singleBar: null,
   showMap: false,
-  loadingPhotos: false
+  loadingPhotos: false,
+  toggle: false
 };
 
 //REDUCERRRR
@@ -91,6 +93,8 @@ export default function transactions(state = initialState, action) {
       return { ...state, photos: null, loadingPhotos: false }
     case SET_JWT:
       return { ...state, jwt: action.payload }
+    case SET_BOUNDS:
+      return { ...state, mapBounds: action.payload }
     case RESET:
       return { ...state, carouselSlide: 0, singleBar: null, data: [], loading: true }
     default:

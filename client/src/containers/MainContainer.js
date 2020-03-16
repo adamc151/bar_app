@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../state/actions/actions";
+import { isCoordinatesInView } from "../state/selectors";
 import getList from "../components/List/List";
 import MyMap from "../components/GoogleMapWithSearch/map";
 import "./MainContainer.css";
@@ -23,6 +24,7 @@ class MainContainer extends Component {
 
     this.state = {
       displayCarousel: false,
+      displaySideNav: false,
       displaySearchBar: false,
       showLoader: false,
       showMap: false,
@@ -67,6 +69,11 @@ class MainContainer extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (prevProps.loadingBars && !this.props.loadingBars) {
+      console.log("yoooo dta", this.props.data);
+      this.setState({ displaySideNav: true });
+    }
+
     if (prevProps.singleBar && !this.props.singleBar) {
       this.setState({ displayCarousel: true, displaySearchBar: true });
     }
@@ -101,7 +108,8 @@ class MainContainer extends Component {
       fetchData,
       setSingleBar,
       getGooglePlacePhotos,
-      clearPhotos
+      clearPhotos,
+      setBounds
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -115,13 +123,13 @@ class MainContainer extends Component {
       loading,
       singleBar,
       photos,
-      loadingPhotos
+      loadingPhotos,
+      mapBounds
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
 
     const getPhotos = () => {
-      console.log("yoooo getPhotos");
       const url = window.location.pathname.split("/");
       getGooglePlacePhotos(url[2], API_KEY);
     };
@@ -158,25 +166,43 @@ class MainContainer extends Component {
               displayCarousel={bool => {
                 this.setState({ displayCarousel: bool });
               }}
-              onMapsLoaded={() => {
+              onMapsLoaded={map => {
                 const location = window.location.pathname.split("/").pop();
-                setCenterCoordinates(getCityCoordinates(location));
+                const centerCoordinates = getCityCoordinates(location);
+                setCenterCoordinates(centerCoordinates);
               }}
+              setBounds={setBounds}
               miles={miles}
               timeFilter={timeFilter}
               displaySearchBar={this.state.displaySearchBar}
               loading={loading}
+              toggle={toggle}
             />
           </div>
 
-          <div className={"sideNav sideNavAnimaion"}>
-            <div className="list">
-              {getList(data, setSingleBar, data => {
-                setCenterCoordinates(data.location.coordinates);
-                setHoverCoordinates(data.location.coordinates);
-              }, carouselSlide, setCarouselSlide, false)}
+          {!loading && this.state.displaySideNav && (
+            <div className={"sideNav sideNavAnimaion"}>
+              <div className="list">
+                {getList(
+                  data,
+                  setSingleBar,
+                  data => {
+                    setHoverCoordinates(data.location.coordinates);
+                    const isInView = isCoordinatesInView(data.location.coordinates, mapBounds);
+                    if (!isInView) {
+                      setCenterCoordinates([
+                        data.location.coordinates[0] + Math.random() / 800,
+                        data.location.coordinates[1] + Math.random() / 800
+                      ]);
+                    }
+                  },
+                  carouselSlide,
+                  setCarouselSlide,
+                  hoverCoordinates
+                )}
+              </div>
             </div>
-          </div>
+          )}
 
           {!loading && this.state.displayCarousel && (
             <div className={"carousel carouselAnimaion"}>
@@ -190,10 +216,7 @@ class MainContainer extends Component {
                   setHoverCoordinates(data[index].location.coordinates);
                 }}
               >
-                {getList(data, setSingleBar, data => {
-                setCenterCoordinates(data.location.coordinates);
-                setHoverCoordinates(data.location.coordinates);
-                }, carouselSlide, setCarouselSlide, true)}
+                {getList(data, setSingleBar)}
               </Carousel>
             </div>
           )}

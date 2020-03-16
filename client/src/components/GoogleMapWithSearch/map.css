@@ -23,9 +23,9 @@
 
 .mapNav{
   font-size: 12px;
-  position:fixed;
+  position: absolute;
   top: 30px;
-  left: 520px;
+  left: 10px;
   padding: 5px 5px 2px 4px;
   text-decoration: none;
   text-align: center;
