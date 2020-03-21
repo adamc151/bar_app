@@ -317,6 +317,7 @@ export class MyMap extends React.Component {
                 this.props.onMapsLoaded();
                 window.places = new window.google.maps.places.PlacesService(x.map);
               }}
+              resetBoundsOnResize={true}
               onChange={x => { 
                 setBounds(x.bounds);
                 this.setState({ currentZoom: x.zoom }); 
