@@ -22,6 +22,7 @@ export const SET_CAROUSEL_SLIDE = "SET_CAROUSEL_SLIDE";
 export const SET_LOADING = "SET_LOADING";
 export const SET_JWT = "SET_JWT";
 export const RESET = "RESET";
+export const SET_BOUNDS = "SET_BOUNDS";
 
 //ACTIONSSSS - these basically label the input argument
 //Then the reducers can be like ...if(action.type == ADD_TRANSACTIONS){ do this }...else if(action.type == GET_TRANSACTIONS_IN_RANGE){ do this instead }...etc
@@ -39,6 +40,11 @@ export function setSingleBar(bar) {
 
 export function clearPhotos() {
   return { type: CLEAR_PHOTOS };
+}
+
+export function setBounds(bounds) {
+  console.log("yoooo bounds", bounds);
+  return { type: SET_BOUNDS, payload: bounds };
 }
 
 export const getToken = async (dispatch, getState) => {
@@ -127,6 +133,7 @@ export function postData(obj) {
 }
 
 export function setCenterCoordinates(coordinates) {
+  console.log('yooooo setCenterCoordinates', coordinates);
   return { type: SET_CENTER_COORDINATES, payload: coordinates };
 }
 
@@ -191,15 +198,16 @@ export function categoriseData(data, returnAllDeals = false) {
   return categorisedBlob;
 }
 
-export function reorderData(data){
+export function reorderData(data) {
+  console.log("reordering data");
 
-  console.log('reordering data');
+  let tmpInactiveData = [];
+  let tmpActiveData = [];
 
-  let tmpInactiveData =[];
-  let tmpActiveData =[];
-
-  data.map((item, i) =>{
-    item.deals[0] && item.deals[0].category=='Inactive' ? tmpInactiveData.push(item) : tmpActiveData.push(item);
+  data.map((item, i) => {
+    item.deals[0] && item.deals[0].category == "Inactive"
+      ? tmpInactiveData.push(item)
+      : tmpActiveData.push(item);
   });
 
   return tmpActiveData.concat(tmpInactiveData);

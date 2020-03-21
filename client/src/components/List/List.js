@@ -9,10 +9,15 @@ const getList = (
   onHover,
   carouselSlide,
   setCarouselSlide,
-  isMobile
+  hoverCoordinates
 ) => {
   if (data.length > 0) {
     return data.map((data, i) => {
+
+      const { location } = data;
+      const { coordinates } = location;
+      const isSelected = hoverCoordinates && hoverCoordinates[0] === coordinates[0] && hoverCoordinates[1] === coordinates[1];
+
       return (
         <ViewportObserver>
           {intersected => {
@@ -21,13 +26,12 @@ const getList = (
                 key={i}
                 index={i}
                 carouselSlide={carouselSlide}
-                setCarouselSlide={setCarouselSlide}
                 data={data}
                 className="carouselCard"
                 onClick={() => setSingleBar(data)}
                 onHover={onHover}
                 isInViewport={intersected}
-                isMobile={isMobile}
+                isSelected={isSelected}
               />
             );
           }}

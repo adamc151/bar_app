@@ -55,11 +55,29 @@ export class MyMap extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
+    const { lat: prevLat, lng: prevLng } = prevState.center;
+    const { lat, lng } = this.state.center;
+    const [ latitude, longitude ] = this.props.centerCoordinates;
+
     if(prevProps.loading && !this.props.loading){
-      const [ latitude, longitude ] = this.props.centerCoordinates;
       this.centerMap({ coords: { latitude, longitude } });
       this.getLocation(false);
     }
+
+    if(prevLat !== lat || prevLng !== lng){
+      const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+      if(!isMobile) {
+          const getNw = this.map.getBounds().getNorthEast();
+          const getSe = this.map.getBounds().getSouthWest();
+          const initialBounds = {
+            ne: { lat: getNw.lat(), lng: getNw.lng() },
+            sw: { lat: getSe.lat(), lng: getSe.lng() },
+          }
+          this.props.setBounds(initialBounds);
+      }
+
+    }
+    
   }
 
   setDefaultLocation(errorObj, centerMap) {
@@ -235,7 +253,8 @@ export class MyMap extends React.Component {
       timeFilter,
       jwt,
       displayCarousel,
-      displaySearchBar
+      displaySearchBar,
+      setBounds
     } = this.props;
 
     const obj = {
@@ -288,7 +307,9 @@ export class MyMap extends React.Component {
               zoom={15}
               bootstrapURLKeys={{ key: API_KEY, libraries: "places" }}
               center={this.state.center}
-              onReady={(a, map) => (this.map = map)}
+              onReady={(a, map) => {
+                this.map = map
+              }}
               onClick={this.onMapClicked}
               options={{ disableDefaultUI: true , gestureHandling: 'greedy', clickableIcons: false }}
               onGoogleApiLoaded={x => {
@@ -296,7 +317,10 @@ export class MyMap extends React.Component {
                 this.props.onMapsLoaded();
                 window.places = new window.google.maps.places.PlacesService(x.map);
               }}
-              onChange={x => { this.setState({ currentZoom: x.zoom }); }} >
+              onChange={x => { 
+                setBounds(x.bounds);
+                this.setState({ currentZoom: x.zoom }); 
+              }} >
               <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />
 
               {this.props.data.map((marker, i) => {
@@ -305,8 +329,6 @@ export class MyMap extends React.Component {
                 let animate =
                   hoverCoordinates[0] === coordinates[0] &&
                   hoverCoordinates[1] === coordinates[1];
-
-                // i = 0 ? animate = true : null;
 
                 return (
                   <Marker
@@ -335,5 +357,6 @@ export class MyMap extends React.Component {
     );
   }
 }
+
 
 export default MyMap;
