@@ -59,7 +59,7 @@ export class MyMap extends React.Component {
     const { lat, lng } = this.state.center;
     const [ latitude, longitude ] = this.props.centerCoordinates;
 
-    if(prevProps.loading && !this.props.loading || prevProps.toggle !== this.props.toggle){
+    if(prevProps.loading && !this.props.loading){
       this.centerMap({ coords: { latitude, longitude } });
       this.getLocation(false);
     }
@@ -73,7 +73,6 @@ export class MyMap extends React.Component {
             ne: { lat: getNw.lat(), lng: getNw.lng() },
             sw: { lat: getSe.lat(), lng: getSe.lng() },
           }
-          console.log('yoooo initialBounds', initialBounds);
           this.props.setBounds(initialBounds);
       }
 

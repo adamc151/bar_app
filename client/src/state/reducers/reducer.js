@@ -44,7 +44,7 @@ let initialState = {
 export default function transactions(state = initialState, action) {
   switch (action.type) {
     case DATA_FETCH_REQUEST:
-      console.log("DATA_FETCH_REQUEST Action");
+      // console.log("DATA_FETCH_REQUEST Action");
       return { ...state, carouselSlide: null, loadingBars: true };
     case DATA_FETCH_SUCCESS:
       // console.log("DATA_FETCH_SUCCESS Action");
@@ -53,7 +53,7 @@ export default function transactions(state = initialState, action) {
       // console.log("DATA_FETCH_SINGLE_REQUEST Action");
       return { ...state, photos: null, loadingBar: true };
     case DATA_FETCH_SINGLE_SUCCESS:
-      console.log("DATA_FETCH_SINGLE_SUCCESS Action");
+      // console.log("DATA_FETCH_SINGLE_SUCCESS Action");
       return { ...state, singleBar: action.payload, loadingBar: false };
     case GOOGLE_PHOTOS_FETCH_REQUEST:
       return { ...state, photos: null, loadingPhotos: true }

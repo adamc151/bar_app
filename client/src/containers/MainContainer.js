@@ -176,7 +176,6 @@ class MainContainer extends Component {
               timeFilter={timeFilter}
               displaySearchBar={this.state.displaySearchBar}
               loading={loading}
-              toggle={toggle}
             />
           </div>
 
