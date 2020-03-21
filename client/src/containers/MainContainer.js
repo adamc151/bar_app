@@ -190,8 +190,8 @@ class MainContainer extends Component {
                     const isInView = isCoordinatesInView(data.location.coordinates, mapBounds);
                     if (!isInView) {
                       setCenterCoordinates([
-                        data.location.coordinates[0] + Math.random() / 800,
-                        data.location.coordinates[1] + Math.random() / 800
+                        data.location.coordinates[0] + Math.random() / 400,
+                        data.location.coordinates[1] + Math.random() / 400
                       ]);
                     }
                   },
