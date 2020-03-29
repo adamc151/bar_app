@@ -5,6 +5,8 @@ import {
   DATA_FETCH_SINGLE_SUCCESS,
   GOOGLE_PHOTOS_FETCH_REQUEST,
   GOOGLE_PHOTOS_FETCH_SUCCESS,
+  GOOGLE_PLACE_FETCH_REQUEST,
+  GOOGLE_PLACE_FETCH_SUCCESS,
   DATA_POST_REQUEST,
   DATA_POST_SUCCESS,
   DATA_POST_FAILURE,
@@ -59,6 +61,10 @@ export default function transactions(state = initialState, action) {
       return { ...state, photos: null, loadingPhotos: true }
     case GOOGLE_PHOTOS_FETCH_SUCCESS:
       return { ...state, photos: action.payload, loadingPhotos: false }
+    case GOOGLE_PLACE_FETCH_REQUEST:
+      return { ...state, place: null }
+    case GOOGLE_PLACE_FETCH_SUCCESS:
+      return { ...state, place: action.payload }
     case DATA_POST_REQUEST:
       // console.log("DATA_POST_REQUEST Action");
       return { ...state };

@@ -70,7 +70,6 @@ class MainContainer extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.loadingBars && !this.props.loadingBars) {
-      console.log("yoooo dta", this.props.data);
       this.setState({ displaySideNav: true });
     }
 
@@ -108,6 +107,7 @@ class MainContainer extends Component {
       fetchData,
       setSingleBar,
       getGooglePlacePhotos,
+      getGooglePlace,
       clearPhotos,
       setBounds
     } = this.props.actions;
@@ -124,7 +124,8 @@ class MainContainer extends Component {
       singleBar,
       photos,
       loadingPhotos,
-      mapBounds
+      mapBounds,
+      place
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
@@ -133,6 +134,7 @@ class MainContainer extends Component {
       const url = window.location.pathname.split("/");
       getGooglePlacePhotos(url[2], API_KEY);
     };
+
 
     return (
       <Fragment>
@@ -227,8 +229,10 @@ class MainContainer extends Component {
               <AdminForm
                 singleBar={singleBar}
                 getPhotos={getPhotos}
+                getPlace={getGooglePlace}
                 photos={photos}
                 jwt={jwt}
+                place={place}
               />
             ) : (
               <Bar
