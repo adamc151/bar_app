@@ -10,6 +10,9 @@ export const GOOGLE_PHOTOS_FETCH_REQUEST = "GOOGLE_PHOTOS_FETCH_REQUEST";
 export const GOOGLE_PHOTOS_FETCH_SUCCESS = "GOOGLE_PHOTOS_FETCH_SUCCESS";
 export const CLEAR_PHOTOS = "CLEAR_PHOTOS";
 
+export const GOOGLE_PLACE_FETCH_REQUEST = "GOOGLE_PLACE_FETCH_REQUEST";
+export const GOOGLE_PLACE_FETCH_SUCCESS = "GOOGLE_PLACE_FETCH_SUCCESS";
+
 export const DATA_POST_REQUEST = "DATA_POST_REQUEST";
 export const DATA_POST_SUCCESS = "DATA_POST_SUCCESS";
 export const DATA_POST_FAILURE = "DATA_POST_FAILURE";
@@ -43,7 +46,6 @@ export function clearPhotos() {
 }
 
 export function setBounds(bounds) {
-  console.log("yoooo bounds", bounds);
   return { type: SET_BOUNDS, payload: bounds };
 }
 
@@ -72,6 +74,29 @@ export function getGooglePlacePhotos(place_id) {
         return dispatch({
           type: GOOGLE_PHOTOS_FETCH_SUCCESS,
           payload: photos
+        });
+      }
+    );
+  };
+}
+
+export function getGooglePlace() {
+  return async (dispatch, getState) => {
+    dispatch({ type: GOOGLE_PLACE_FETCH_REQUEST });
+
+    const url = window.location.pathname.split("/");
+    const place_id = url[2];
+    let detailsYo = null;
+
+    window.places.getDetails(
+      {
+        placeId: place_id
+      },
+      details => {
+        console.log("yoooo 222", details);
+        dispatch({
+          type: GOOGLE_PLACE_FETCH_SUCCESS,
+          payload: details
         });
       }
     );
@@ -133,7 +158,7 @@ export function postData(obj) {
 }
 
 export function setCenterCoordinates(coordinates) {
-  console.log('yooooo setCenterCoordinates', coordinates);
+  console.log("yooooo setCenterCoordinates", coordinates);
   return { type: SET_CENTER_COORDINATES, payload: coordinates };
 }
 

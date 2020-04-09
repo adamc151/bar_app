@@ -3,6 +3,7 @@ import "./AdminForm.css";
 import axios from "axios";
 import Image from "../Image/Image";
 import "../Bar/Bar.css";
+import TimeTable, { checkIsOpen } from "../TimeTable/TimeTable";
 
 class AdminForm extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class AdminForm extends React.Component {
     });
 
     this.state = {
+      submitOnPlaceLoad: false,
       deals: initialStateArray,
       Name: this.props.singleBar.name,
       Address: this.props.singleBar.address,
@@ -30,6 +32,17 @@ class AdminForm extends React.Component {
       URLs: this.props.singleBar.imgUrls,
       place_id: this.props.singleBar.place_id
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.place && this.props.place) {
+      if (this.state.submitOnPlaceLoad) {
+        this.setState({ submitOnPlaceLoad: false });
+        this.handleSubmit();
+      } else {
+        checkIsOpen(this.props.place.opening_hours.periods, this.state.deals);
+      }
+    }
   }
 
   handleChange = e => {
@@ -54,7 +67,18 @@ class AdminForm extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    e && e.preventDefault();
+
+    if (!this.props.place) {
+      this.setState({ submitOnPlaceLoad: true });
+      this.props.getPlace();
+      return;
+    } else {
+      if(!checkIsOpen(this.props.place.opening_hours.periods, this.state.deals)){
+        return;
+      }
+    }
+
     let tmpBar = this.props.singleBar;
     tmpBar.validated = this.state.Validated;
     tmpBar.imgUrls = this.state.URLs;
@@ -80,7 +104,12 @@ class AdminForm extends React.Component {
 
     this.props.singleBar.deals = tmpDealsArray;
 
-    const config = { headers: { "Content-Type": "application/json", Authorization: 'jwt ' + this.props.jwt } };
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "jwt " + this.props.jwt
+      }
+    };
 
     axios
       .put(
@@ -90,11 +119,11 @@ class AdminForm extends React.Component {
       )
       .then(function(response) {
         console.log("submitted");
-        window.alert('Update Submitted');
+        window.alert("Update Submitted");
       })
       .catch(function(error) {
         console.log(`error: ${error}`);
-        window.alert('There was an error with the update');
+        window.alert("There was an error with the update");
       });
   };
 
@@ -109,8 +138,8 @@ class AdminForm extends React.Component {
   };
 
   handleRemoveAllImages = e => {
-    this.setState({ URLs: []});
-    window.alert("Removed all images, click submit to confirm")
+    this.setState({ URLs: [] });
+    window.alert("Removed all images, click submit to confirm");
   };
 
   handleUrlChange = url => {
@@ -134,6 +163,8 @@ class AdminForm extends React.Component {
 
   render() {
     let { Name, deals, Validated, URLs, URL, place_id } = this.state;
+    const { place } = this.props;
+    console.log("yoooo place", place);
 
     return (
       <form
@@ -141,11 +172,33 @@ class AdminForm extends React.Component {
         onChange={this.handleChange}
         className={"detailsWrapperEdit"}
       >
-
         <div className="buttonsWrapper">
-          <button className="button" onClick={this.props.getPhotos}>Load photos</button>
-          <button className="button" onClick={this.handleRemoveAllImages}>Remove All Photos</button>
+          <button className="button" onClick={this.props.getPhotos}>
+            Get Photos
+          </button>
+          <div
+            className="button"
+            onClick={() => {
+              !place
+                ? this.props.getPlace()
+                : checkIsOpen(place.opening_hours.periods, this.state.deals);
+            }}
+          >
+            Check Times
+          </div>
+          <button className="button" onClick={this.handleRemoveAllImages}>
+            Remove All Photos
+          </button>
         </div>
+        <TimeTable
+          openingHours={place && place.opening_hours.periods}
+          deals={deals}
+        />
+
+        {place &&
+          place.opening_hours.weekday_text.map(text => {
+            return <div>{text}</div>;
+          })}
 
         {this.props.photos &&
           this.props.photos.map(photo => {
@@ -159,7 +212,7 @@ class AdminForm extends React.Component {
               </div>
             );
           })}
-          <div className="adminUrl">
+        <div className="adminUrl">
           Place ID:
           <input
             className="adminUrlInput"
@@ -211,11 +264,7 @@ class AdminForm extends React.Component {
               <div className="dealItem" key={idx}>
                 <label className="dealLabel">Deal {idx + 1}</label>
                 <br />
-                <a
-                  className="close"
-                  onClick={this.handleDelete}
-                  id={idx}
-                ></a>
+                <a className="close" onClick={this.handleDelete} id={idx}></a>
                 <br />
                 <label className="itemLabel" htmlFor={wdId}>
                   Week Days:
