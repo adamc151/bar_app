@@ -66,14 +66,14 @@ export function getGooglePlacePhotos(place_id) {
 
     await window.places.getDetails(
       {
-        placeId: place_id
+        placeId: place_id,
       },
-      details => {
+      (details) => {
         const photos =
-          details.photos && details.photos.map(photo => photo.getUrl());
+          details.photos && details.photos.map((photo) => photo.getUrl());
         return dispatch({
           type: GOOGLE_PHOTOS_FETCH_SUCCESS,
-          payload: photos
+          payload: photos,
         });
       }
     );
@@ -90,13 +90,12 @@ export function getGooglePlace() {
 
     window.places.getDetails(
       {
-        placeId: place_id
+        placeId: place_id,
       },
-      details => {
-        console.log("yoooo 222", details);
+      (details) => {
         dispatch({
           type: GOOGLE_PLACE_FETCH_SUCCESS,
-          payload: details
+          payload: details,
         });
       }
     );
@@ -112,10 +111,22 @@ export function fetchData(obj) {
     dispatch({ type: DATA_FETCH_REQUEST });
     const values = await axios.get("/api/locations", {
       params: { long: long, lat: lat, miles: miles },
-      headers: { Authorization: "jwt " + token }
+      headers: { Authorization: "jwt " + token },
     });
+
+    //quicK way to view all bars!
+    const url = window.location.pathname.split("/");
+    if (url.pop() === "all") {
+      values.data.map((bar) => {
+        bar.deals = [{ category: "inactive ", weekDays: [], description: [] }];
+      });
+
+      return dispatch({ type: DATA_FETCH_SUCCESS, payload: values.data });
+    }
+
     const filteredValues = await categoriseData(values.data);
     const reorderedValues = await reorderData(filteredValues);
+
     return dispatch({ type: DATA_FETCH_SUCCESS, payload: reorderedValues });
   };
 }
@@ -127,7 +138,7 @@ export function fetchOne(id) {
 
     const value = await axios.get("/api/bar", {
       params: { place_id: id },
-      headers: { Authorization: "jwt " + token }
+      headers: { Authorization: "jwt " + token },
     });
 
     let valueArray = [];
@@ -145,12 +156,12 @@ export function postData(obj) {
     dispatch({ type: DATA_POST_REQUEST });
     await axios
       .post("/api/bar", obj, {
-        headers: { Authorization: "jwt " + token }
+        headers: { Authorization: "jwt " + token },
       })
-      .then(function(response) {
+      .then(function (response) {
         return dispatch({ type: DATA_POST_SUCCESS });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // console.log(`error: ${error}`);
         return dispatch({ type: DATA_POST_FAILURE });
       });
@@ -187,12 +198,13 @@ export function categoriseData(data, returnAllDeals = false) {
 
   var time = parseInt(`${h}${m}`);
 
-  var categorisedBlob = data.filter(item => {
+  var categorisedBlob = data.filter((item) => {
     var final = [];
     var finalOther = [];
+    const url = window.location.pathname.split("/");
 
-    if (item.validated) {
-      item.deals.map(deal => {
+    if (item.validated || url.pop() === "edit") {
+      item.deals.map((deal) => {
         if (deal.weekDays.includes(day)) {
           var st = deal.startTime.replace(":", "");
           var et = deal.endTime.replace(":", "");

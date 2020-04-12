@@ -28,7 +28,7 @@ class MainContainer extends Component {
       displaySearchBar: false,
       showLoader: false,
       showMap: false,
-      editBar: false
+      editBar: false,
     };
 
     this.routeAdmin = this.routeAdmin.bind(this);
@@ -41,7 +41,7 @@ class MainContainer extends Component {
     var headers = req.getAllResponseHeaders().toLowerCase();
 
     var arr = headers.split("\r\n");
-    headers = arr.reduce(function(acc, current, i) {
+    headers = arr.reduce(function (acc, current, i) {
       var parts = current.split(": ");
       acc[parts[0]] = parts[1];
       return acc;
@@ -109,7 +109,7 @@ class MainContainer extends Component {
       getGooglePlacePhotos,
       getGooglePlace,
       clearPhotos,
-      setBounds
+      setBounds,
     } = this.props.actions;
     const {
       centerCoordinates,
@@ -125,7 +125,7 @@ class MainContainer extends Component {
       photos,
       loadingPhotos,
       mapBounds,
-      place
+      place,
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
@@ -135,6 +135,7 @@ class MainContainer extends Component {
       getGooglePlacePhotos(url[2], API_KEY);
     };
 
+    console.log("yooooo carouselSlide", carouselSlide);
 
     return (
       <Fragment>
@@ -165,12 +166,12 @@ class MainContainer extends Component {
               hoverCoordinates={hoverCoordinates}
               setHoverCoordinates={setHoverCoordinates}
               setCarouselSlide={setCarouselSlide}
-              displayCarousel={bool => {
+              displayCarousel={(bool) => {
                 this.setState({ displayCarousel: bool });
               }}
-              onMapsLoaded={map => {
-                const location = window.location.pathname.split("/").pop();
-                const centerCoordinates = getCityCoordinates(location);
+              onMapsLoaded={(map) => {
+                const location = window.location.pathname.split("/");
+                const centerCoordinates = getCityCoordinates(location[2]);
                 setCenterCoordinates(centerCoordinates);
               }}
               setBounds={setBounds}
@@ -187,13 +188,16 @@ class MainContainer extends Component {
                 {getList(
                   data,
                   setSingleBar,
-                  data => {
+                  (data) => {
                     setHoverCoordinates(data.location.coordinates);
-                    const isInView = isCoordinatesInView(data.location.coordinates, mapBounds);
+                    const isInView = isCoordinatesInView(
+                      data.location.coordinates,
+                      mapBounds
+                    );
                     if (!isInView) {
                       setCenterCoordinates([
                         data.location.coordinates[0] + Math.random() / 400,
-                        data.location.coordinates[1] + Math.random() / 400
+                        data.location.coordinates[1] + Math.random() / 400,
                       ]);
                     }
                   },
@@ -210,7 +214,7 @@ class MainContainer extends Component {
               <Carousel
                 controlledSlide={carouselSlide}
                 initialSlide={carouselSlide}
-                onSwipe={index => {
+                onSwipe={(index) => {
                   if (!data[index]) return;
                   setCarouselSlide(index);
                   setCenterCoordinates(data[index].location.coordinates);
@@ -256,7 +260,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions, dispatch),
   };
 }
 
