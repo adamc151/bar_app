@@ -1,4 +1,4 @@
-import '../../setupTests.js'
+import "../../setupTests.js";
 import React from "react";
 import Slider from "react-slick";
 import "./Carousel.css";
@@ -9,12 +9,15 @@ class Carousel extends React.Component {
 
     this.state = {
       slideIndex: 0,
-      controlledSlide: null
+      controlledSlide: null,
     };
   }
 
   componentDidUpdate() {
-    if (this.props.controlledSlide && this.props.controlledSlide !== this.state.controlledSlide) {
+    if (
+      this.props.controlledSlide !== null &&
+      this.props.controlledSlide !== this.state.controlledSlide
+    ) {
       this.slick.slickGoTo(this.props.controlledSlide);
       this.setState({ controlledSlide: this.props.controlledSlide });
     }
@@ -27,21 +30,17 @@ class Carousel extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      afterChange: () =>
-        this.props.onSwipe(this.state.slideIndex),
+      afterChange: () => this.props.onSwipe(this.state.slideIndex),
       beforeChange: (current, next) => this.setState({ slideIndex: next }),
       arrows: false,
       className: "center",
       centerMode: true,
       centerPadding: "20px",
-      initialSlide: this.props.initialSlide
+      initialSlide: this.props.initialSlide,
     };
     return (
-      <Slider
-        ref={node => (this.slick = node)}
-        {...settings}
-      >
-      {this.props.children}
+      <Slider ref={(node) => (this.slick = node)} {...settings}>
+        {this.props.children}
       </Slider>
     );
   }
