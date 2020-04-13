@@ -5,6 +5,8 @@ import sadFace from "./sad.png";
 import bar from "./deafultBarImg.jpg";
 import { withRouter } from "react-router";
 import Image from '../Image/Image';
+import { Link } from "react-router-dom";
+
 
 class ListItem extends PureComponent {
 
@@ -31,35 +33,30 @@ class ListItem extends PureComponent {
   
 
   render(){
-    const { onHover, onClick = () => { }, data, carouselSlide, setCarouselSlide, index, isSelected } = this.props;
+    const { onHover, onClick = () => { }, data, isSelected } = this.props;
     const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
-    <div
-      className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}
-      onClick={() => {
-        this.props.history.push(`/details/${place_id}`);
-        onClick();
-      }}
-      onMouseEnter={() => {
-        // setCarouselSlide && setCarouselSlide(null);
-        onHover && onHover(data);
-      }}
-      onMouseLeave={() => {
-
-      }}
-      onMouseOver={() => {
-        // setCarouselSlide(index);
-      }}
-      ref={node => this.lineItem = node}
-    >
-      <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
-      {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
-      {deals[0].category && <div className={`item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
-      {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
-      {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
-      {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
-      {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
+    <div ref={node => this.lineItem = node}>
+      <Link
+        className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}
+        to={`/details/${place_id}`}
+        onClick={() => {
+          onClick();
+        }}
+        onMouseEnter={() => {
+          onHover && onHover(data);
+        }}
+        
+      >
+        <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
+        {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
+        {deals[0].category && <div className={`item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
+        {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
+        {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
+        {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
+        {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
+      </Link>
     </div>
   ) : (
       <div className={`listItemWrapper carouselCard`}>

@@ -95,7 +95,7 @@
   .carousel {
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     height: auto;
     width: 100%;
   }
@@ -111,7 +111,7 @@
       bottom: -220px;
     }
     to {
-      bottom: 20px;
+      bottom: 10px;
     }
   }
 
