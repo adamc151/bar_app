@@ -17,7 +17,7 @@ class AdminForm extends React.Component {
         weekDays: val.weekDays.toString(),
         startTime: val.startTime,
         endTime: val.endTime,
-        deals: val.description.toString()
+        deals: val.description.toString(),
       };
       return initialStateArray.push(dealObj);
     });
@@ -30,7 +30,7 @@ class AdminForm extends React.Component {
       Validated: this.props.singleBar.validated,
       URL: this.props.singleBar.imgUrl,
       URLs: this.props.singleBar.imgUrls,
-      place_id: this.props.singleBar.place_id
+      place_id: this.props.singleBar.place_id,
     };
   }
 
@@ -45,7 +45,7 @@ class AdminForm extends React.Component {
     }
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     if (
       ["weekDays", "startTime", "endTime", "deals"].includes(e.target.className)
     ) {
@@ -57,16 +57,16 @@ class AdminForm extends React.Component {
     }
   };
 
-  addDeal = e => {
-    this.setState(prevState => ({
+  addDeal = (e) => {
+    this.setState((prevState) => ({
       deals: [
         ...prevState.deals,
-        { weekDays: "", startTime: "", endTime: "", deals: "" }
-      ]
+        { weekDays: "", startTime: "", endTime: "", deals: "" },
+      ],
     }));
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e && e.preventDefault();
 
     if (!this.props.place) {
@@ -74,7 +74,9 @@ class AdminForm extends React.Component {
       this.props.getPlace();
       return;
     } else {
-      if(!checkIsOpen(this.props.place.opening_hours.periods, this.state.deals)){
+      if (
+        !checkIsOpen(this.props.place.opening_hours.periods, this.state.deals)
+      ) {
         return;
       }
     }
@@ -92,7 +94,7 @@ class AdminForm extends React.Component {
         endTime: val.endTime.trim(),
         fullDescription: "placeholder description",
         startTime: val.startTime.trim(),
-        weekDays: val.weekDays.split(",").map(Number)
+        weekDays: val.weekDays.split(",").map(Number),
       };
 
       for (var i = 0; i < tmpDealsObj.description.length; i++) {
@@ -107,8 +109,8 @@ class AdminForm extends React.Component {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: "jwt " + this.props.jwt
-      }
+        Authorization: "jwt " + this.props.jwt,
+      },
     };
 
     axios
@@ -117,32 +119,32 @@ class AdminForm extends React.Component {
         this.props.singleBar,
         config
       )
-      .then(function(response) {
+      .then(function (response) {
         console.log("submitted");
         window.alert("Update Submitted");
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(`error: ${error}`);
         window.alert("There was an error with the update");
       });
   };
 
-  handleDelete = e => {
+  handleDelete = (e) => {
     console.log(`delete: ${e.target.id}`);
     let tmpArray = this.state.deals.splice(e.target.id, 1);
     this.forceUpdate();
   };
 
-  handleValidatedChange = e => {
+  handleValidatedChange = (e) => {
     this.setState({ Validated: !this.state.Validated });
   };
 
-  handleRemoveAllImages = e => {
+  handleRemoveAllImages = (e) => {
     this.setState({ URLs: [] });
     window.alert("Removed all images, click submit to confirm");
   };
 
-  handleUrlChange = url => {
+  handleUrlChange = (url) => {
     var array = [...this.state.URLs]; // make a separate copy of the array
     var index = array.indexOf(url);
     if (index !== -1) {
@@ -153,18 +155,35 @@ class AdminForm extends React.Component {
     }
   };
 
-  handleUrlChange1 = e => {
+  handleUrlChange1 = (e) => {
     this.setState({ URL: e.target.value });
   };
 
-  handlePlaceIdChange = e => {
+  handlePlaceIdChange = (e) => {
     this.setState({ place_id: e.target.value });
+  };
+
+  deleteBar = (e) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "jwt " + this.props.jwt,
+      },
+    };
+
+    axios
+      .delete("/api/bar?place_id=" + this.props.singleBar.place_id, config)
+      .then(function (response) {
+        window.alert("Bar Deleted");
+      })
+      .catch(function (error) {
+        window.alert("There was an error with the update");
+      });
   };
 
   render() {
     let { Name, deals, Validated, URLs, URL, place_id } = this.state;
     const { place } = this.props;
-    console.log("yoooo place", place);
 
     return (
       <form
@@ -186,6 +205,9 @@ class AdminForm extends React.Component {
           >
             Check Times
           </div>
+          <button className="button" onClick={this.deleteBar}>
+            Delete Bar
+          </button>
           <button className="button" onClick={this.handleRemoveAllImages}>
             Remove All Photos
           </button>
@@ -196,16 +218,17 @@ class AdminForm extends React.Component {
         />
 
         {place &&
-          place.opening_hours.weekday_text.map(text => {
+          place.opening_hours.weekday_text.map((text) => {
             return <div>{text}</div>;
           })}
 
         {this.props.photos &&
-          this.props.photos.map(photo => {
+          this.props.photos.map((photo) => {
             return (
               <div
-                className={`${URLs.includes(photo) &&
-                  "imageBorder"} googleImages`}
+                className={`${
+                  URLs.includes(photo) && "imageBorder"
+                } googleImages`}
                 onClick={() => this.handleUrlChange(photo)}
               >
                 <Image src={photo} className="barDetailsImage" />

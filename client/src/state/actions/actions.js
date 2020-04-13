@@ -86,7 +86,6 @@ export function getGooglePlace() {
 
     const url = window.location.pathname.split("/");
     const place_id = url[2];
-    let detailsYo = null;
 
     window.places.getDetails(
       {
@@ -115,13 +114,9 @@ export function fetchData(obj) {
     });
 
     //quicK way to view all bars!
-    const url = window.location.pathname.split("/");
-    if (url.pop() === "all") {
-      values.data.map((bar) => {
-        bar.deals = [{ category: "inactive ", weekDays: [], description: [] }];
-      });
-
-      return dispatch({ type: DATA_FETCH_SUCCESS, payload: values.data });
+    if (window.location.pathname.split("/").pop() === "all") {
+      const all = await categoriseData(values.data, true);
+      return dispatch({ type: DATA_FETCH_SUCCESS, payload: all });
     }
 
     const filteredValues = await categoriseData(values.data);
@@ -162,7 +157,6 @@ export function postData(obj) {
         return dispatch({ type: DATA_POST_SUCCESS });
       })
       .catch(function (error) {
-        // console.log(`error: ${error}`);
         return dispatch({ type: DATA_POST_FAILURE });
       });
   };
@@ -201,11 +195,21 @@ export function categoriseData(data, returnAllDeals = false) {
   var categorisedBlob = data.filter((item) => {
     var final = [];
     var finalOther = [];
-    const url = window.location.pathname.split("/");
 
-    if (item.validated || url.pop() === "edit") {
+    if (!item.deals.length) {
+      item.deals = [{ weekDays: [], startTime: "", endTime: "" , description: ""}];
+    }
+
+    if (
+      item.validated ||
+      window.location.pathname.split("/").pop() === "edit" ||
+      window.location.pathname.split("/").pop() === "all"
+    ) {
       item.deals.map((deal) => {
-        if (deal.weekDays.includes(day)) {
+        if (
+          deal.weekDays.includes(day) ||
+          window.location.pathname.split("/").pop() === "all"
+        ) {
           var st = deal.startTime.replace(":", "");
           var et = deal.endTime.replace(":", "");
 
@@ -216,6 +220,7 @@ export function categoriseData(data, returnAllDeals = false) {
           } else {
             deal.category = "Inactive";
           }
+
           final.push(deal);
         } else {
           deal.category = "Inactive";
@@ -236,8 +241,6 @@ export function categoriseData(data, returnAllDeals = false) {
 }
 
 export function reorderData(data) {
-  console.log("reordering data");
-
   let tmpInactiveData = [];
   let tmpActiveData = [];
 

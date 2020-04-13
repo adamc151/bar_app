@@ -6,7 +6,7 @@ class Deal extends React.Component {
 
   renderDeals(description){
 
-    return description.map((data, i) => {
+    return description.length && description.map((data, i) => {
         return (
           <div className="dealClass">{`• ${data}`}</div>
         );
