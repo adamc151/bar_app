@@ -1,7 +1,6 @@
 .detailsWrapperEdit{
   margin: auto;
-  /* max-width: 800px; */
-  margin-top: 50px;
+  background-color: white;
   text-align: center;
 }
 
@@ -223,6 +222,11 @@
 /* -------------------- */
 
 @media screen and (max-width: 700px) {
+
+  .detailsWrapperEdit {
+    margin-top: 50px;
+  }
+
   .adminFlexContainer {
     max-width: 100%;
   }

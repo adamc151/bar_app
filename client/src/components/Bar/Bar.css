@@ -154,8 +154,9 @@
 .detailsWrapper {
   margin: auto;
   max-width: 800px;
-  margin-top: 30px;
   background-color: white;
+  max-height: calc(100vh - 60px);
+  overflow: scroll;
 }
 
 .detailsCarousel {
@@ -272,12 +273,14 @@
 }
 
 @media screen and (max-width: 700px) {
-  .detailsWrapper {
-    margin-top: 0px;
-  }
 
   .detailsTextWrapper {
     padding: 5px 25px 25px 25px;
+  }
+
+  .detailsWrapper {
+    max-height: unset;
+    overflow: unset;
   }
 
   .barDetailsImage {

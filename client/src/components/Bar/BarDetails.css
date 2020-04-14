@@ -1,28 +1,29 @@
 .barContainer {
-  margin-top: 45px;
-  height: calc(100% - 45px);
+  margin-top: 0px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   width: 100%;
   text-align: left;
 }
 
-.barDetailsWrapper{
+.barDetailsWrapper {
   position: absolute;
   top: 0;
   z-index: 10;
   margin: auto;
-  background-color: white;
+  background-color: rgba(111, 110, 110, 0.8);
   width: 100%;
 }
 
 .barContainerGrow {
-  flex-grow: 1;
+  display: flex;
+  height: 100vh;
 }
 
-.navigationClass{
+.navigationClass {
   font-size: 12px;
-  position:fixed;
+  position: fixed;
   top: 30px;
   left: 15px;
   padding: 5px 5px 2px 4px;
@@ -37,12 +38,13 @@
   margin-top: 38px;
 }
 
-.bottomTextbackNavigation{
-    height: 20px;
-    width: 22px;
+.bottomTextbackNavigation {
+  height: 20px;
+  width: 22px;
 }
 
-.footerCenter{
+.footerCenter {
+  display: none;
   text-align: center;
   width: auto;
   left: 0;
@@ -54,22 +56,17 @@
   letter-spacing: 2px;
   text-decoration: none;
   color: white;
-  box-shadow:
-    inset 0px 11px 10px -10px rgb(145, 145, 145);
+  box-shadow: inset 0px 11px 10px -10px rgb(145, 145, 145);
 }
 
-.footerItemTitle{
+.footerItemTitle {
   font-size: 14px;
   display: block;
   padding-bottom: 3px;
-  /* border-bottom: white 2px solid;
-  width: 100px;
-  margin: auto;
-  margin-top: 5px; */
   margin-bottom: 7px;
 }
 
-.inline{
+.inline {
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
@@ -78,10 +75,13 @@
   padding: 0px 7px 0px 7px;
 }
 
-.dot{
+.dot {
   font-size: 26px;
 }
 
+.header {
+  display: none;
+}
 
 @media screen and (max-width: 1000px) {
   .wrapper {
@@ -89,19 +89,33 @@
   }
 
   .barContainer {
-    width: 100%;
+    margin-top: 45px;
+    height: calc(100% - 45px);
   }
 
-  .detailsTextWrapper{
+  .barDetailsWrapper {
+    background-color: white;
+  }
+
+  .barContainerGrow {
+    display: block;
+    height: unset;
+    flex-grow: 1;
+  }
+
+  .detailsTextWrapper {
     margin-bottom: 50px;
   }
 
-  .footerItemTitle{
+  .footerItemTitle {
     font-size: 12px;
   }
 
-  .footerCenter{
-    width: auto;
-    position: relative;
+  .footerCenter {
+    display: block;
+  }
+
+  .header {
+    display: block;
   }
 }
