@@ -1,26 +1,26 @@
-.slick-next,
-.slick-prev {
-}
+
 
 .slick-next {
   right: 25px;
+  z-index: 100;
 }
 
-.slick-next::before {
+/* .slick-next::before {
   color: blue;
-}
+} */
 
 .slick-prev {
   left: 25px;
+  z-index: 100;
 }
 
-.slick-track {
+/* .slick-track {
   margin: auto;
-}
+} */
 
-.slick-prev::before {
+/* .slick-prev::before {
   color: blue;
-}
+}  */
 
 .nextArrow {
   position: absolute;

@@ -12,7 +12,7 @@ class Bar extends React.Component {
     super(props);
 
     this.state = {
-      showMorePressed: false
+      showMorePressed: false,
     };
   }
 
@@ -53,7 +53,7 @@ class Bar extends React.Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      arrows: false,
+      arrows: true,
       className: "detailsCarousel",
       centerMode: true,
       centerPadding: "0px",
@@ -62,17 +62,25 @@ class Bar extends React.Component {
       draggable: !loadingPhotos,
       afterChange: () => {
         !multipleImages && getPhotos();
-      }
+      },
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            arrows: false,
+          },
+        },
+      ],
     };
 
     return (
       <div className="detailsWrapper">
-        <Slider ref={node => (this.slick = node)} {...settings}>
+        <Slider ref={(node) => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
               blurImage: "barBlurImage",
               mainImage: "barMainiMage",
-              container: "barBlurImageContainer"
+              container: "barBlurImageContainer",
             };
             return i > 0 ? (
               <ImageWithBlur
@@ -113,7 +121,7 @@ class Bar extends React.Component {
             <div className="tagsWrapper">
               {details.website && (
                 <a href={details.website} className="detailsWebsite">
-                  <img className="websiteIcon" src={website}/>
+                  <img className="websiteIcon" src={website} />
                 </a>
               )}
             </div>
