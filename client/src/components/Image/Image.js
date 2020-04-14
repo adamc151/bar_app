@@ -7,7 +7,7 @@ class Image extends React.Component {
     super(props);
 
     this.state = {
-      imageLoading: true
+      imageLoading: true,
     };
   }
 
@@ -20,7 +20,8 @@ class Image extends React.Component {
     return (
       <div className={`imgSkeleton ${className}`}>
         <ViewportObserver>
-          {intersected => {
+          {(intersected) => {
+            console.log("yoooo detailsWrapper intersected", intersected);
             return (
               intersected && (
                 <img
@@ -45,7 +46,7 @@ export class ImageWithBlur extends React.Component {
     super(props);
 
     this.state = {
-      imageLoading: true
+      imageLoading: true,
     };
   }
 
@@ -59,7 +60,7 @@ export class ImageWithBlur extends React.Component {
     return (
       <div className={`imgSkeleton ${className}`}>
         <ViewportObserver>
-          {intersected => {
+          {(intersected) => {
             return (
               intersected && (
                 <div className={`BlurImgContainer ${container}`}>
