@@ -13,23 +13,30 @@ class Bar extends React.Component {
 
     this.state = {
       showMorePressed: false,
-      loaded: false
+      loaded: false,
     };
 
     this.handleBodyClick = this.handleBodyClick.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleBodyClick, false);
-    //document.addEventListener("keydown", this.handleEscKey, false);
-    document.addEventListener("touchstart", this.handleBodyClick, false);
-    this.setState({loaded: true})
+    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+    if (!isMobile) {
+      document.addEventListener("mousedown", this.handleBodyClick, false);
+      //document.addEventListener("keydown", this.handleEscKey, false);
+      document.addEventListener("touchstart", this.handleBodyClick, false);
+    }
+
+    this.setState({ loaded: true });
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleBodyClick, false);
-    //document.removeEventListener("keydown", this.handleEscKey, false);
-    document.removeEventListener("touchstart", this.handleBodyClick, false);
+    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+    if (!isMobile) {
+      document.removeEventListener("mousedown", this.handleBodyClick, false);
+      //document.removeEventListener("keydown", this.handleEscKey, false);
+      document.removeEventListener("touchstart", this.handleBodyClick, false);
+    }
   }
 
   handleBodyClick = (e) => {
@@ -98,9 +105,13 @@ class Bar extends React.Component {
     };
 
     return (
-      <div className="detailsWrapper" ref={(node) => (this.node = node)} style={{
-        transform: this.state.loaded ? "scale(1)" : "scale(0)",
-      }}>
+      <div
+        className="detailsWrapper"
+        ref={(node) => (this.node = node)}
+        style={{
+          transform: this.state.loaded ? "scale(1)" : "scale(0)",
+        }}
+      >
         <Slider ref={(node) => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
