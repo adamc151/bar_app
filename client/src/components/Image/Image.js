@@ -21,7 +21,6 @@ class Image extends React.Component {
       <div className={`imgSkeleton ${className}`}>
         <ViewportObserver>
           {(intersected) => {
-            console.log("yoooo detailsWrapper intersected", intersected);
             return (
               intersected && (
                 <img

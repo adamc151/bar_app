@@ -246,10 +246,6 @@
   color: rgb(72, 72, 72);
 }
 
-.slick-prev:before,
-.slick-next:before {
-  color: red !important;
-}
 
 .titleSkeleton {
   width: 70%;
