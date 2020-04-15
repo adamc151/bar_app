@@ -13,7 +13,7 @@ class Bar extends React.Component {
 
     this.state = {
       showMorePressed: false,
-      loaded: false,
+      loaded: false
     };
 
     this.handleBodyClick = this.handleBodyClick.bind(this);
@@ -100,7 +100,6 @@ class Bar extends React.Component {
     return (
       <div className="detailsWrapper" ref={(node) => (this.node = node)} style={{
         transform: this.state.loaded ? "scale(1)" : "scale(0)",
-        opacity: this.state.loaded ? "1" : "0",
       }}>
         <Slider ref={(node) => (this.slick = node)} {...settings}>
           {images.map((image, i) => {

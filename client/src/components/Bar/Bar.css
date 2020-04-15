@@ -158,15 +158,15 @@
   max-height: calc(100vh - 60px);
   overflow: scroll;
   overflow-x: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-  /* transform: scale(1); */
   transition: transform 100ms ease;
-  -ms-overflow-style: none;
+  /* -ms-overflow-style: none; */
 }
 
-.detailsWrapper:in-range { 
-  
+@media (min-width: 1000px) {
+  .detailsWrapper {
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -309,7 +309,7 @@
 
   .tagsWrapper {
     position: absolute;
-    top: 218px;
+    top: 175px;
     right: 0;
   }
 
