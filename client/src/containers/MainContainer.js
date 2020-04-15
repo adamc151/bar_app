@@ -126,6 +126,7 @@ class MainContainer extends Component {
       loadingPhotos,
       mapBounds,
       place,
+      history,
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
@@ -134,8 +135,6 @@ class MainContainer extends Component {
       const url = window.location.pathname.split("/");
       getGooglePlacePhotos(url[2], API_KEY);
     };
-
-    console.log("yooooo carouselSlide", carouselSlide);
 
     return (
       <Fragment>
@@ -245,6 +244,7 @@ class MainContainer extends Component {
                 getPhotos={getPhotos}
                 photos={photos}
                 loadingPhotos={loadingPhotos}
+                history={history}
               />
             )}
           </BarDetails>

@@ -69,17 +69,17 @@ class AdminForm extends React.Component {
   handleSubmit = (e) => {
     e && e.preventDefault();
 
-    if (!this.props.place) {
-      this.setState({ submitOnPlaceLoad: true });
-      this.props.getPlace();
-      return;
-    } else {
-      if (
-        !checkIsOpen(this.props.place.opening_hours.periods, this.state.deals)
-      ) {
-        return;
-      }
-    }
+    // if (!this.props.place) {
+    //   this.setState({ submitOnPlaceLoad: true });
+    //   this.props.getPlace();
+    //   return;
+    // } else {
+    //   if (
+    //     !checkIsOpen(this.props.place.opening_hours.periods, this.state.deals)
+    //   ) {
+    //     return;
+    //   }
+    // }
 
     let tmpBar = this.props.singleBar;
     tmpBar.validated = this.state.Validated;

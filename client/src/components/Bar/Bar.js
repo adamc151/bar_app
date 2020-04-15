@@ -14,7 +14,29 @@ class Bar extends React.Component {
     this.state = {
       showMorePressed: false,
     };
+
+    this.handleBodyClick = this.handleBodyClick.bind(this);
   }
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleBodyClick, false);
+    //document.addEventListener("keydown", this.handleEscKey, false);
+    document.addEventListener("touchstart", this.handleBodyClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleBodyClick, false);
+    //document.removeEventListener("keydown", this.handleEscKey, false);
+    document.removeEventListener("touchstart", this.handleBodyClick, false);
+  }
+
+  handleBodyClick = (e) => {
+    if (this.node === null || this.node.contains(e.target)) {
+      return;
+    } else {
+      this.props.history.push(`/map`);
+    }
+  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.photos !== this.props.photos) {
@@ -74,7 +96,7 @@ class Bar extends React.Component {
     };
 
     return (
-      <div className="detailsWrapper">
+      <div className="detailsWrapper" ref={(node) => (this.node = node)}>
         <Slider ref={(node) => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
