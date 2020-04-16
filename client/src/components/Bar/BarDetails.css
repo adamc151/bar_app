@@ -12,8 +12,8 @@
   top: 0;
   z-index: 10;
   margin: auto;
-  background-color: rgba(0,0,0,0.5);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(1px);
   width: 100%;
 }
 
