@@ -152,6 +152,7 @@
 }
 
 .detailsWrapper {
+  position: relative;
   margin: auto;
   max-width: 800px;
   background-color: white;
@@ -306,14 +307,17 @@
 
   @keyframes slideupyo {
     0% {
-      transform: translateY(calc(100% - 20px));
+      transform: translateY(calc(100vh - 220px));
+      /* background-color: rgba(255, 255, 255, 0); */
     }
     100% {
       transform: translateY(0px);
+      /* background-color: rgba(255, 255, 255, 1); */
     }
   }
 
   .barDetailsImage {
+    margin: auto;
     max-height: 220px;
     height: 220px;
     animation: scale 500ms;
@@ -321,10 +325,14 @@
 
   @keyframes scale {
     0% {
-      transform: scale(0.95);
+      width: calc(100vw - 40px);
+      height: 200px;
+      border-radius: 5px;
     }
     100% {
-      transform: scale(1);
+      width: 100vw;
+      height: 220px;
+      border-radius: 0px;
     }
   }
 
@@ -338,7 +346,7 @@
 
   .tagsWrapper {
     position: absolute;
-    top: 218px;
+    top: 180px;
     right: 0;
   }
 
