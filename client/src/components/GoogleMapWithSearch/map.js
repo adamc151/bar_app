@@ -287,9 +287,9 @@ export class MyMap extends React.Component {
             fetchingUserLocation={fetchingUserLocation}
           />
 
-          <div className="mapNav">
+          {displaySearchBar && <div className="mapNav">
             <img src={navigate} className="bottomTextbackNavigation" alt="back" onClick={() => { history.push(`/`); }}/>
-          </div>
+          </div>}
 
           <div className="map" style={mapStyle}>
             {this.state.showingInfoWindow && (

@@ -13,21 +13,30 @@ class Bar extends React.Component {
 
     this.state = {
       showMorePressed: false,
+      loaded: false,
     };
 
     this.handleBodyClick = this.handleBodyClick.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleBodyClick, false);
-    //document.addEventListener("keydown", this.handleEscKey, false);
-    document.addEventListener("touchstart", this.handleBodyClick, false);
+    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+    if (!isMobile) {
+      document.addEventListener("mousedown", this.handleBodyClick, false);
+      //document.addEventListener("keydown", this.handleEscKey, false);
+      document.addEventListener("touchstart", this.handleBodyClick, false);
+    }
+
+    this.setState({ loaded: true });
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleBodyClick, false);
-    //document.removeEventListener("keydown", this.handleEscKey, false);
-    document.removeEventListener("touchstart", this.handleBodyClick, false);
+    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+    if (!isMobile) {
+      document.removeEventListener("mousedown", this.handleBodyClick, false);
+      //document.removeEventListener("keydown", this.handleEscKey, false);
+      document.removeEventListener("touchstart", this.handleBodyClick, false);
+    }
   }
 
   handleBodyClick = (e) => {
@@ -107,7 +116,7 @@ class Bar extends React.Component {
             return i > 0 ? (
               <ImageWithBlur
                 src={image}
-                className={`barDetailsImage`}
+                className={`barDetailsImage barDetailsImage2`}
                 blurClassNames={blurImageClassNames}
               />
             ) : (

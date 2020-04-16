@@ -167,7 +167,7 @@ class LandingPage extends Component {
                 <div className="">
                   <div className="donationItemTitle">BUY US A ROUND? :)</div>
                   <div className="donationItemDesc">
-                    Hapihour is a free, self-funded product. If you think
+                    Hapihour is a free, self-funded service. If you think
                     hapihour is useful, maybe buy us a coffee/beer to keep us
                     going?
                   </div>
