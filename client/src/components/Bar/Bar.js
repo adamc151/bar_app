@@ -109,7 +109,7 @@ class Bar extends React.Component {
         className="detailsWrapper"
         ref={(node) => (this.node = node)}
         style={{
-          transform: this.state.loaded ? "scale(1)" : "scale(0)",
+          transform: this.state.loaded ? "scale(1)" : "scale(0.8)",
         }}
       >
         <Slider ref={(node) => (this.slick = node)} {...settings}>

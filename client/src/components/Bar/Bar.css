@@ -158,7 +158,7 @@
   max-height: calc(100vh - 60px);
   overflow: scroll;
   overflow-x: hidden;
-  transition: transform 100ms ease;
+  transition: transform 30ms ease;
   /* -ms-overflow-style: none; */
 }
 
