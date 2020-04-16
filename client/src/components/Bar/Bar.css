@@ -123,7 +123,7 @@
   box-shadow: 0px 1px 3px rgb(165, 165, 165);
 }
 
-.websiteIcon{
+.websiteIcon {
   width: 30px;
 }
 
@@ -158,8 +158,16 @@
   max-height: calc(100vh - 60px);
   overflow: scroll;
   overflow-x: hidden;
-  transition: transform 30ms ease;
-  /* -ms-overflow-style: none; */
+  animation: popup 100ms;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 1000px) {
@@ -192,6 +200,9 @@
   height: 220px;
   position: center;
   object-fit: cover;
+}
+
+.barDetailsImage2 {
   animation: shimmer 2s infinite;
   background: linear-gradient(
     to right,
@@ -261,7 +272,6 @@
   color: rgb(72, 72, 72);
 }
 
-
 .titleSkeleton {
   width: 70%;
   height: 22px;
@@ -284,7 +294,6 @@
 }
 
 @media screen and (max-width: 700px) {
-
   .detailsTextWrapper {
     padding: 5px 25px 25px 25px;
   }
@@ -292,11 +301,31 @@
   .detailsWrapper {
     max-height: unset;
     overflow: unset;
+    animation: slideupyo 500ms;
+  }
+
+  @keyframes slideupyo {
+    0% {
+      transform: translateY(calc(100% - 20px));
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
   .barDetailsImage {
     max-height: 220px;
     height: 220px;
+    animation: scale 500ms;
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   .detailsName {

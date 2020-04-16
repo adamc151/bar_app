@@ -105,13 +105,7 @@ class Bar extends React.Component {
     };
 
     return (
-      <div
-        className="detailsWrapper"
-        ref={(node) => (this.node = node)}
-        style={{
-          transform: this.state.loaded ? "scale(1)" : "scale(0.8)",
-        }}
-      >
+      <div className="detailsWrapper" ref={(node) => (this.node = node)}>
         <Slider ref={(node) => (this.slick = node)} {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
@@ -122,7 +116,7 @@ class Bar extends React.Component {
             return i > 0 ? (
               <ImageWithBlur
                 src={image}
-                className={`barDetailsImage`}
+                className={`barDetailsImage barDetailsImage2`}
                 blurClassNames={blurImageClassNames}
               />
             ) : (
