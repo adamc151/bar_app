@@ -303,16 +303,15 @@
     max-height: unset;
     overflow: unset;
     animation: slideupyo 500ms;
+    height: 100%;
   }
 
   @keyframes slideupyo {
     0% {
       transform: translateY(calc(100vh - 220px));
-      /* background-color: rgba(255, 255, 255, 0); */
     }
     100% {
       transform: translateY(0px);
-      /* background-color: rgba(255, 255, 255, 1); */
     }
   }
 
