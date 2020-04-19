@@ -12,7 +12,7 @@ class Image extends React.Component {
   }
 
   render() {
-    const { src, className, imageLoadedStyle } = this.props;
+    const { src, className, imageLoadedStyle, noLazyLoad } = this.props;
     const imageLoaded = !this.state.imageLoading
       ? imageLoadedStyle || "imgLoaded"
       : "";
@@ -21,8 +21,9 @@ class Image extends React.Component {
       <div className={`imgSkeleton ${className}`}>
         <ViewportObserver>
           {(intersected) => {
+            const loadImage = intersected || noLazyLoad;
             return (
-              intersected && (
+              loadImage && (
                 <img
                   src={src}
                   className={`img ${imageLoaded} ${className}`}

@@ -120,7 +120,11 @@ class Bar extends React.Component {
                 blurClassNames={blurImageClassNames}
               />
             ) : (
-              <Image src={image} className={`barDetailsImage`} />
+              <Image
+                src={image}
+                className={`barDetailsImage`}
+                noLazyLoad={window.matchMedia("(max-width: 1000px)").matches}
+              />
             );
           })}
         </Slider>
