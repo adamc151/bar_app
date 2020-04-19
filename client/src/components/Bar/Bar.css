@@ -308,7 +308,7 @@
 
   @keyframes slideupyo {
     0% {
-      transform: translateY(calc(100vh - 220px));
+      transform: translateY(calc(100vh - 280px));
     }
     100% {
       transform: translateY(0px);
@@ -319,7 +319,7 @@
     margin: auto;
     max-height: 220px;
     height: 220px;
-    animation: scale 500ms;
+    animation: scale 500ms, shimmer 2s infinite;
   }
 
   @keyframes scale {
