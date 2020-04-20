@@ -90,13 +90,14 @@
   }
 
   .barContainer {
-    margin-top: 45px;
-    height: calc(100% - 45px);
+    margin-top: 42px;
+    height: calc(100% - 42px);
   }
 
   .barDetailsWrapper {
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: unset;
+    animation: fadeyooo 500ms;
   }
 
   @keyframes fadeyooo {
@@ -104,7 +105,7 @@
       background-color: rgba(255, 255, 255, 0);
     }
     100% {
-      background-color: rgba(255, 255, 255, 1);
+      background-color: rgba(255, 255, 255, 0.9);
     }
   }
 

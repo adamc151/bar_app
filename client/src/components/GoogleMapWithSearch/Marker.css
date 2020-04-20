@@ -101,6 +101,21 @@
   opacity: 0.9;
 }
 
+@keyframes pindrop {
+  0% {
+    transform: translate(-50%, calc(-50% - 200px));
+  }
+  70% {
+    transform: translate(-50%, calc(-50% - 30px));
+  }
+  75% {
+    transform: translate(-50%, calc(-50% - 60px));
+  }
+  100% {
+    transform: translate(-50%, calc(-50% - 30px));
+  }
+}
+
 .plainMarker::after {
   position: absolute;
   content: "";

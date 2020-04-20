@@ -25,7 +25,8 @@ export class MyMap extends React.Component {
         lng: -0.12
       },
       loading: true,
-      mapOffset: 15 * Math.pow(1.04, 14)
+      mapOffset: 15 * Math.pow(1.04, 14),
+      displayMarkers: false
     };
 
     this.getLocation = this.getLocation.bind(this);
@@ -242,7 +243,7 @@ export class MyMap extends React.Component {
 
   render() {
 
-    const { fetchingUserLocation } = this.state;
+    const { fetchingUserLocation, displayMarkers } = this.state;
 
     const {
       hoverCoordinates,
@@ -315,6 +316,9 @@ export class MyMap extends React.Component {
               onGoogleApiLoaded={x => {
                 this.map = x.map;
                 this.props.onMapsLoaded();
+                // setTimeout(() => {
+                //   this.setState({ displayMarkers: true });
+                // }, 1000);
                 window.places = new window.google.maps.places.PlacesService(x.map);
               }}
               resetBoundsOnResize={true}
