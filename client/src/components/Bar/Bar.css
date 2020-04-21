@@ -162,6 +162,13 @@
   animation: popup 100ms;
 }
 
+.pleaseNote {
+  color: rgb(72, 72, 72);
+  font-size: 12px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
 @keyframes popup {
   0% {
     transform: scale(0.8);
