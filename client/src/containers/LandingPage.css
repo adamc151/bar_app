@@ -1,426 +1,428 @@
 @font-face {
-    font-family: Circular;
-    src: url(./fonts/CircularStd-Book.otf);
+  font-family: Circular;
+  src: url(./fonts/CircularStd-Book.otf);
 }
 
 @font-face {
-    font-family: Circular-bold;
-    src: url(./fonts/CircularStd-Bold.otf);
-    font-weight: bold;
+  font-family: Circular-bold;
+  src: url(./fonts/CircularStd-Bold.otf);
+  font-weight: bold;
 }
 
 @font-face {
-    font-family: Circular-black;
-    src: url(./fonts/CircularStd-Black.otf);
-    font-weight: bolder;
+  font-family: Circular-black;
+  src: url(./fonts/CircularStd-Black.otf);
+  font-weight: bolder;
 }
 
-.wrapperLandingParent{
-    font-family: Circular;
-    height: 100vh;
+.wrapperLandingParent {
+  font-family: Circular;
+  height: 100vh;
 }
 
-.titleDescriptionLanding{
-    color: white;
-    font-size: 70px;
-    font-family: Circular-black;
-    /* font-weight: lighter; */
-    /* letter-spacing: -3px; */
-    text-align: center;
+.titleDescriptionLanding {
+  color: white;
+  font-size: 70px;
+  font-family: Circular-black;
+  /* font-weight: lighter; */
+  /* letter-spacing: -3px; */
+  text-align: center;
 }
 
-.descriptionColourWrapper{
-    background-color: rgba(255, 188, 44, 0.945);
-    box-shadow:
-    inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
+.descriptionColourWrapper {
+  background-color: rgba(255, 188, 44, 0.945);
+  box-shadow: inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
 }
 
-.descriptionAndTitleLandingWrapper{
-    margin: auto;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    padding-top: 30px;
-    max-width: 1100px;
-    color: rgb(72, 72, 72);
+.descriptionAndTitleLandingWrapper {
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  max-width: 1100px;
+  color: rgb(72, 72, 72);
 }
 
-.descriptionLandingWrapper{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+.descriptionLandingWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.descriptionLandingItemFullLogo{
-    width: 70%;
-    min-width: 300px;
-    max-width: 500px;
+.descriptionLandingItemFullLogo {
+  width: 70%;
+  height: 170px;
+  min-width: 300px;
+  max-width: 500px;
 }
 
-.descriptionLandingTitle{
-    width: 200px;
-    margin: auto;
-    font-size: 24px;
-    font-family: Circular-bold;
-    border-bottom: 2px solid rgb(72, 72, 72);;
-    padding-bottom: 10px;
-    
+.descriptionLandingTitle {
+  width: 200px;
+  margin: auto;
+  font-size: 24px;
+  font-family: Circular-bold;
+  border-bottom: 2px solid rgb(72, 72, 72);
+  padding-bottom: 10px;
 }
 
-.descriptionLandingItem{
-    width: 100%;
-    padding: 40px;
+.descriptionLandingItem {
+  width: 100%;
+  padding: 40px;
 }
 
-.descriptionLandingItemDesc{
-    font-family: Circular-bold;
-    font-size: 16px;
-    margin-top: 8px;
+.descriptionLandingItemDesc {
+  font-family: Circular-bold;
+  font-size: 16px;
+  margin-top: 8px;
 }
 
-.descriptionLandingItemImg{
-    width: 64px;
-    height: 64px;
+.descriptionLandingItemImg {
+  width: 64px;
+  height: 64px;
 }
 
-.descriptionLandingText{
-    margin-top: 20px;
-    max-width: 350px;
+.descriptionLandingText {
+  margin-top: 20px;
+  max-width: 350px;
 }
 
-.descriptionLandingItemTitle{
-    font-size: 20px;
-    font-family: Circular-black;
-    margin-top: 10px;
-    color: white;
+.descriptionLandingItemTitle {
+  font-size: 20px;
+  font-family: Circular-black;
+  margin-top: 10px;
+  color: white;
 }
 
-.titleDescriptionLandingWrapper{
-    margin: auto;
-    margin-top: 170px;
-    /* margin-left: 20px; */
-    max-width: 1000px;
+.titleDescriptionLandingWrapper {
+  margin: auto;
+  margin-top: 170px;
+  /* margin-left: 20px; */
+  max-width: 1000px;
 }
 
-.locationWrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 85%;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 240px;
-    max-width: 500px;
+.locationWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 85%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 240px;
+  max-width: 500px;
 }
 
-.searchBarLandingWrapper{
-    margin: auto;
-    width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    text-align: left;
-    padding: 5px 0px 5px 10px ;
-    -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
-    -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
-    box-shadow: 0px 3px 6px rgb(56, 56, 56);
-    border: solid 1px #ff981100;
+.searchBarLandingWrapper {
+  margin: auto;
+  width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+  -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
+  -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
+  box-shadow: 0px 3px 6px rgb(56, 56, 56);
+  border: solid 1px #ff981100;
 }
 
-.searchBarLandingWrapper > a { 
-    color: grey;
-    font-size: 20px;
-    text-decoration: unset;
-    width: 100%;
-    display: inline-block;
+.searchBarLandingWrapper > a {
+  color: grey;
+  font-size: 20px;
+  text-decoration: unset;
+  width: 100%;
+  display: inline-block;
 }
 
-.currentLocationLanding{
-    width: 30px;
-    height: 30px;
-    background-color: white; 
-    border-radius: 30px;
-    color: grey;
-    /* font-size: 20px; */
-    padding: 2px;
-    -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
-    -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
-    box-shadow: 0px 3px 6px rgb(56, 56, 56);
-    border: solid 1px #ff981100;
-    margin-left: 10px;
-
+.currentLocationLanding {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 30px;
+  color: grey;
+  /* font-size: 20px; */
+  padding: 2px;
+  -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
+  -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
+  box-shadow: 0px 3px 6px rgb(56, 56, 56);
+  border: solid 1px #ff981100;
+  margin-left: 10px;
 }
 
-.currentLocationLanding img{
-    width: 25px;
-    margin-top: 3px;
+.currentLocationLanding img {
+  width: 25px;
+  margin-top: 3px;
 }
 
-
-.photosLandingWrapper{
-    /* background-color: rgba(168, 129, 44, 0.945); */
-    width: 100%;
-    height: 550px;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    z-index: -100;
+.photosLandingWrapper {
+  /* background-color: rgba(168, 129, 44, 0.945); */
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: -100;
 }
 
-.photoLanding{
-    width: 100%;
-    object-fit: cover;
-    z-index: -100;
+.photoLanding {
+  width: 100%;
+  object-fit: cover;
+  z-index: -100;
 }
 
-.photoLandingLoaded{
+.photoLandingLoaded {
+  opacity: 0.9;
+  animation: landingFadeIn 1000ms;
+}
+
+@keyframes landingFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
     opacity: 0.9;
+  }
 }
 
 .header {
-    font-family: Circular;
+  font-family: Circular;
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: rgb(255, 188, 44);
+  padding: 8px 0px 8px 15px;
+  text-align: left;
+  font-size: 30px;
+  letter-spacing: -1px;
+  -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+  -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+  box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+  z-index: 200;
+  box-sizing: border-box;
+}
+
+.headerTextHapi {
+  float: left;
+  font-family: Circular-black;
+}
+
+.headerTextHour {
+  float: left;
+}
+
+.faqFooter {
+  display: block;
+  padding: 0px 0px 8px 0px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.instaFeed {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.singleInsta {
+  flex-direction: row;
+  padding-top: 20px;
+}
+
+.donationWrapper {
+  margin: auto;
+  max-width: 1100px;
+  color: rgb(72, 72, 72);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.donationItem {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.donationItemDesc {
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  max-width: 300px;
+}
+
+.donationItemTitle {
+  font-size: 15px;
+  font-family: Circular-black;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapperLandingParent {
+    height: 100%;
+  }
+
+  .locationWrapper {
+    margin-bottom: 170px;
+  }
+
+  .descriptionAndTitleLandingWrapper {
+    margin: auto;
+    max-width: 1100px;
+    color: rgb(72, 72, 72);
+    padding-top: 30px;
+    /* background-color: rgba(255, 188, 44, 0.945);
+        box-shadow:
+        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747); */
+  }
+
+  .titleDescriptionLanding {
+    color: white;
+    font-weight: bolder;
+    font-size: 70px;
+    width: 300px;
+    text-align: left;
+    margin-top: 8vh;
+    margin-left: 0px;
+  }
+
+  .titleDescriptionLandingWrapper {
+    margin-top: 130px;
+    margin-left: 20px;
+  }
+
+  .descriptionLandingTitle {
+    /* margin-top: 55vh; */
+    /* margin-top: 40px; */
+    margin-bottom: 10px;
+    width: 200px;
+    font-size: 20px;
+  }
+
+  .descriptionLandingWrapper {
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+
+  .descriptionLandingItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    padding: 30px;
+  }
+
+  .descriptionLandingText {
+    margin-left: 20px;
+  }
+
+  .descriptionLandingItemImg {
+    width: 55px;
+    height: 55px;
+    margin-top: 12px;
+  }
+
+  .descriptionLandingText {
+    margin-top: 0px;
+    max-width: 350px;
+  }
+
+  .descriptionLandingItemDesc {
+    font-size: 17px;
+    margin-top: 0px;
+  }
+
+  .descriptionLandingItemTitle {
+    font-size: 17px;
+    font-family: Circular-bold;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    /* color: rgba(255, 188, 44, 0.945); */
+  }
+
+  .photosLandingWrapper {
+    margin-top: 0px;
+    top: 0;
+    height: 600px;
+    max-height: 650px;
+  }
+
+  .photoLanding {
+    height: 600px;
+  }
+
+  .bottomTextLandingWrapper {
+    font-size: 12px;
+    font-weight: 200;
+    height: 50px;
+    padding-top: 20px;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(206, 206, 206);
+  }
+
+  .header {
     left: 0;
     top: 0;
     position: fixed;
     width: 100%;
     background-color: rgb(255, 188, 44);
-    padding: 8px 0px 8px 15px;
+    padding: 5px 0px 8px 15px;
     text-align: left;
-    font-size: 30px;
-    letter-spacing: -1px;
-    -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
-    -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
-    box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    font-size: 25px;
     z-index: 200;
-    box-sizing: border-box;
-}
+  }
 
-.headerTextHapi{
-    float: left;
-    font-family: Circular-black;
-}
+  .faqFooter {
+    font-size: 17px;
+  }
 
-.headerTextHour{
-    float: left;
-}
-
-.faqFooter{
-    display: block;
-    padding: 0px 0px 8px 0px;
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.instaFeed{
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: auto;
-    flex-wrap: wrap;
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-}
-
-.singleInsta{
-    flex-direction: row;
-    padding-top: 20px;
-}
-
-.donationWrapper{
-    margin: auto;
-    max-width: 1100px;
-    color: rgb(72, 72, 72);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.donationItem{
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-}
-
-.donationItemDesc{
-    font-size: 14px;
-    font-weight: lighter;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    max-width: 300px;
-}
-
-.donationItemTitle{
-    font-size: 15px;
-    font-family: Circular-black;
-    margin-top: 20px;
-}
-
-
-@media screen and (max-width: 1000px) {
-
-    .wrapperLandingParent{
-        height: 100%;
-    }
-
-    .locationWrapper{
-        margin-bottom: 170px;
-    }
-
-    .descriptionAndTitleLandingWrapper{
-        margin: auto;
-        max-width: 1100px;
-        color: rgb(72, 72, 72);
-        padding-top: 30px;
-        /* background-color: rgba(255, 188, 44, 0.945);
-        box-shadow:
-        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747); */
-    }
-
-    .titleDescriptionLanding{
-        color: white;
-        font-weight: bolder;
-        font-size: 70px;
-        width: 300px;
-        text-align: left;
-        margin-top: 8vh;
-        margin-left: 0px;
-    }
-
-    .titleDescriptionLandingWrapper{
-        margin-top: 130px;
-        margin-left: 20px;
-    }
-
-    .descriptionLandingTitle{
-        /* margin-top: 55vh; */
-        /* margin-top: 40px; */
-        margin-bottom: 10px;
-        width: 200px;
-        font-size: 20px;
-    }
-
-    .descriptionLandingWrapper{
-        flex-wrap: wrap;
-        padding-bottom: 20px;
-    }
-
-    .descriptionLandingItem{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        text-align: left;
-        padding: 30px;
-    }
-
-    .descriptionLandingText{
-        margin-left: 20px;
-    }
-
-    .descriptionLandingItemImg{
-        width: 55px;
-        height: 55px;
-        margin-top: 12px;
-    }
-
-    .descriptionLandingText{
-        margin-top: 0px;
-        max-width: 350px;
-    }
-
-    .descriptionLandingItemDesc{
-        font-size: 17px;
-        margin-top: 0px;
-    }
-
-    .descriptionLandingItemTitle{
-        font-size: 17px;
-        font-family: Circular-bold;
-        font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 5px;
-        /* color: rgba(255, 188, 44, 0.945); */
-    }
-
-    .photosLandingWrapper{
-        margin-top: 0px;
-        top: 0;
-        height: 600px;
-        max-height: 650px;
-    }
-
-    .photoLanding{
-        height: 600px;
-    }
-
-    .bottomTextLandingWrapper{
-        font-size: 12px;
-        font-weight: 200;
-        height: 50px;
-        padding-top: 20px;
-        bottom: 0px;
-        width: 100%;
-        text-align: center;
-        background-color: rgb(206, 206, 206);
-    }
-
-    .header {
-        left: 0;
-        top: 0;
-        position: fixed;
-        width: 100%;
-        background-color: rgb(255, 188, 44);
-        padding: 5px 0px 8px 15px;
-        text-align: left;
-        font-size: 25px;
-        z-index: 200;
-    }
-
-    .faqFooter{
-        font-size: 17px;
-    }
-
-    .line{
-        border-width: 2px;
-        /* display: none; */
-    }
-
+  .line {
+    border-width: 2px;
+    /* display: none; */
+  }
 }
 
 .footer {
-    left: 0;
-    bottom: 0;
-    background-color: rgba(255, 188, 44, 0.945);
-    text-align: left;
-    padding: 20px;
-    box-shadow:
-    inset 0px 11px 10px -10px rgb(145, 145, 145);
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 188, 44, 0.945);
+  text-align: left;
+  padding: 20px;
+  box-shadow: inset 0px 11px 10px -10px rgb(145, 145, 145);
 }
 
-.footerItem{
-    display: block;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-decoration: none;
-    color: white;
-    padding: 0px 0px 15px 0px;
+.footerItem {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: white;
+  padding: 0px 0px 15px 0px;
 }
 
-.faqFooter:hover{
-    color: black;
+.faqFooter:hover {
+  color: black;
 }
 
-.faq{
-    font-family: Circular-black;
-    font-size: 20px;
-    padding: 0px;
+.faq {
+  font-family: Circular-black;
+  font-size: 20px;
+  padding: 0px;
 }
 
-.beerIconLanding{
-    height: 25px;
-    margin-top: 4px;
-    float: right;
-    margin-right: 15px;
+.beerIconLanding {
+  height: 25px;
+  margin-top: 4px;
+  float: right;
+  margin-right: 15px;
 }

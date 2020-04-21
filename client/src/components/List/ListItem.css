@@ -51,10 +51,6 @@
   background-color: rgba(41, 179, 28, 0.925);
 }
 
-/* .barImg{
-  display: none;
-} */
-
 .itemCategory {
   border: none;
   color: rgb(255, 255, 255);
@@ -196,7 +192,7 @@
   /* border-radius: 3px 3px 0px 0px; */
   -webkit-filter: blur(0px); /* Safari 6.0 - 9.0 */
   filter: blur(0px);
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px;
 }
 
 .itemTime {
