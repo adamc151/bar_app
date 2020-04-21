@@ -93,6 +93,15 @@
   height: 210px;
 }
 
+.descriptionAndTime {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 5px 5px;
+  height: 70px;
+}
+
 .itemDescription {
   font-size: 14px;
   letter-spacing: 0.5px;
@@ -140,7 +149,7 @@
   margin: 2px 2px;
   border-radius: 16px;
   left: 12px;
-  top: 85px;
+  bottom: 85px;
   display: flex;
 }
 
@@ -179,8 +188,8 @@
   overflow: hidden;
   width: 100%;
   /* padding-top: 10px; */
-  height: 120px;
-  position: center;
+  height: 100%;
+  position: absolute;
   /* background-color: rgb(0, 0, 0); */
   object-fit: cover;
   /* margin:-15px; */

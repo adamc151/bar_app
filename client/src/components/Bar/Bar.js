@@ -148,27 +148,32 @@ class Bar extends React.Component {
         {loading && !details.name ? (
           this.getSkeleton()
         ) : (
-          <div className="detailsTextWrapper">
-            {details.name && <div className="detailsName">{details.name}</div>}
-            {details.address && (
-              <div className="detailsAddress">{details.address}</div>
-            )}
-            <div className="tagsWrapper">
-              {details.website && (
-                <a href={details.website} className="detailsWebsite">
-                  <img className="websiteIcon" src={website} />
-                </a>
+          <div>
+            <div className="detailsTextWrapper">
+              {details.name && (
+                <div className="detailsName">{details.name}</div>
               )}
-            </div>
+              {details.address && (
+                <div className="detailsAddress">{details.address}</div>
+              )}
+              <div className="tagsWrapper">
+                {details.website && (
+                  <a href={details.website} className="detailsWebsite">
+                    <img className="websiteIcon" src={website} />
+                  </a>
+                )}
+              </div>
 
-            {<div className="dealsTitle">Today's Deals</div>}
-            {this.renderTodayDeals()}
-            {details.otherDeals && details.otherDeals[0] && (
-              <div className="dealsTitle">Other Deals</div>
-            )}
-            {details.otherDeals &&
-              details.otherDeals[0] &&
-              this.renderOtherDeals()}
+              {<div className="dealsTitle">Today's Deals</div>}
+              {this.renderTodayDeals()}
+              {details.otherDeals && details.otherDeals[0] && (
+                <div className="dealsTitle">Other Deals</div>
+              )}
+              {details.otherDeals &&
+                details.otherDeals[0] &&
+                this.renderOtherDeals()}
+            </div>
+            <div className="pleaseNote"></div>
           </div>
         )}
       </div>
