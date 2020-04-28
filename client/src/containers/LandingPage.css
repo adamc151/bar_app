@@ -51,7 +51,7 @@
 
 .descriptionLandingItemFullLogo {
   width: 70%;
-  height: 170px;
+  /* height: 170px; */
   min-width: 300px;
   max-width: 500px;
 }

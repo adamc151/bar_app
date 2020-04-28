@@ -12,31 +12,14 @@
   top: 0;
   z-index: 10;
   margin: auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(1px);
+  background-color: rgba(0, 0, 0, 0.714);
+  /* backdrop-filter: blur(1px); */
   width: 100%;
 }
 
 .barContainerGrow {
   display: flex;
   height: 100vh;
-}
-
-.navigationClass {
-  font-size: 12px;
-  position: fixed;
-  top: 30px;
-  left: 15px;
-  padding: 5px 5px 2px 4px;
-  text-decoration: none;
-  text-align: center;
-  background-color: rgba(255, 188, 44, 0.945);
-  z-index: 100;
-  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
-  box-shadow: 0px 1px 3px rgb(46, 46, 46);
-  border-radius: 2px;
-  margin-top: 38px;
 }
 
 .bottomTextbackNavigation {
@@ -107,6 +90,28 @@
     100% {
       background-color: rgba(255, 255, 255, 0.9);
     }
+  }
+
+  .navigationClass {
+    font-size: 12px;
+    position: fixed;
+    top: 30px;
+    left: 15px;
+    padding: 5px 5px 2px 4px;
+    text-decoration: none;
+    text-align: center;
+    background-color: rgba(255, 188, 44, 0.945);
+    z-index: 100;
+    -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+    -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+    box-shadow: 0px 1px 3px rgb(46, 46, 46);
+    border-radius: 2px;
+    margin-top: 38px;
+  }
+
+  .bottomTextbackNavigation {
+    height: 20px;
+    width: 22px;
   }
 
   .barContainerGrow {
