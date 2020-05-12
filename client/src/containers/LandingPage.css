@@ -107,8 +107,24 @@
   width: 85%;
   margin: auto;
   margin-top: 10px;
-  margin-bottom: 240px;
+  margin-bottom: 190px;
   max-width: 500px;
+}
+
+.supportedAreas {
+  margin-bottom: 30px;
+  font-family: Circular-bold;
+  color: white;
+  font-size: 20px;
+}
+
+.supportedAreasLinks {
+  display: inline-block;
+}
+
+.supportedAreasLinks > a {
+  color: white;
+  padding: 10px;
 }
 
 .searchBarLandingWrapper {
@@ -269,7 +285,12 @@
   }
 
   .locationWrapper {
-    margin-bottom: 170px;
+    margin-bottom: 90px;
+  }
+
+  .supportedAreas {
+    margin-bottom: 30px;
+    font-size: 18px;
   }
 
   .descriptionAndTitleLandingWrapper {
