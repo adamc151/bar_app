@@ -201,7 +201,6 @@ class MainContainer extends Component {
                     }
                   },
                   carouselSlide,
-                  setCarouselSlide,
                   hoverCoordinates
                 )}
               </div>
