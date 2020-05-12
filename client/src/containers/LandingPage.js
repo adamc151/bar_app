@@ -98,6 +98,14 @@ class LandingPage extends Component {
               </div>
             </div>
 
+            <div className="supportedAreas">
+              Hapihour is currently available in:
+              <div className="supportedAreasLinks">
+                <Link to={`/map/leeds`}>Leeds</Link>
+                <Link to={`/map/clapham`}>London - Clapham</Link>
+              </div>
+            </div>
+
             <img
               className="descriptionLandingItemFullLogo"
               alt="icon"
