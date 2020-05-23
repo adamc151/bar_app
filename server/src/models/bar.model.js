@@ -1,12 +1,6 @@
 let mongoose = require('mongoose');
 const keys = require('../keys');
 
-// const server = keys.mongoDatabase;
-// const database = 'bars';
-// const PORT = keys.mongoPort;
-// const password = keys.mongoPassword;
-// const mongoString = `mongodb://${server}:${PORT}/${database}`;
-
 const MONGO_USERNAME = keys.mongoUsername;
 const MONGO_PASSWORD = keys.mongoPassword;
 const MONGO_HOSTNAME = keys.mongoHostname;
