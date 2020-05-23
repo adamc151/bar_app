@@ -93,4 +93,19 @@ router.delete('/bar', (req,res) => {
         })
 });
 
+router.get('/find', (req,res) => {
+
+    if(!req.query.name){
+        return res.status(400).send('missing URL params: name');
+    }
+
+    BarModel.find({ "name" : { $regex: req.query.name, $options: 'i' }}).select({ "name": 1, "place_id": 1, "_id": 0})
+        .then( doc => {
+            res.json(doc);
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        })
+});
+
 module.exports = router;

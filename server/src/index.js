@@ -1,5 +1,4 @@
 let express = require('express');
-let fs = require('fs');
 let jwt = require('jsonwebtoken');
 let app = express();
 let barRoute = require('./routes/bar');
@@ -11,10 +10,11 @@ const keys = require('./keys');
 let jwtSecret = keys.jwtSecret;
 
 app.use(cors());
-// configure the app to use bodyParser()
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
@@ -58,6 +58,7 @@ function isAuthorized(req, res, next) {
 }
 
 app.use(isAuthorized, barRoute);
+
 app.use(express.static('public'));
 
 app.use((req,res,next) =>{
