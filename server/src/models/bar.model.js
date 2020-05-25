@@ -70,6 +70,7 @@ let barsSchema = new mongoose.Schema({
                 required: false
             },
         }],
+        required: false
     },
     customPhotos:{
         type: Boolean,
