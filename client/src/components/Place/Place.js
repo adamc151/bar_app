@@ -80,6 +80,11 @@ class Place extends React.Component {
           coordinates:[place.lat, place.lng],
           type:"Point"
         },
+        // social: {
+        //   facebook: "",
+        //   instagram: "",
+        //   twitter: ""
+        // },
         place_id: place.place_id,
         validated: false,
         website: place.website,
