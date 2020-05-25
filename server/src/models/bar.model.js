@@ -55,6 +55,26 @@ let barsSchema = new mongoose.Schema({
         type: String,
         require: false
     },
+    social:{
+        type: [{
+            facebook:{
+                type: String,
+                require: false
+            },
+            instagram:{
+                type: String,
+                require: false
+            },
+            twitter:{
+                type: String,
+                required: false
+            },
+        }],
+    },
+    customPhotos:{
+        type: Boolean,
+        require: false
+    },
     imgUrl:{
         type: String,
         require: false
