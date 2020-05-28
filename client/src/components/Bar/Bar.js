@@ -158,39 +158,27 @@ class Bar extends React.Component {
               {details.address && (
                 <div className="detailsAddress">{details.address}</div>
               )}
-
-
-                <div className="socialWrapper">
-                  <a href={details.website}>
-                    <img className="websiteIcon" src={website} />
+              
+              <div className="socialWrapper">
+                <a href={details.website}>
+                  <img className="websiteIcon" src={website} />
+                </a>
+                {details.social && details.social.facebook !== "" ? (
+                  <a href={details.social.facebook}>
+                    <img className="facebook_icon" src={facebook_icon} />
                   </a>
-                  {details.social && details.social.facebook !== "" ? (
-                    <a href={details.social.facebook}>
-                      <img
-                        className="facebook_icon"
-                        src={facebook_icon}
-                      />
-                    </a>
-                  ) : null}
-                  {details.social && details.social.instagram !== "" ? (
-                    <a href={details.social.instagram}>
-                      <img src={instagram_icon} />
-                    </a>
-                  ) : null}
-                  {details.social && details.social.twitter !== "" ? (
-                    <a href={details.social.twitter}>
-                      <img src={twitter_icon} />
-                    </a>
-                  ) : null}
-                </div>
-
-              {/* <div className="tagsWrapper">
-                {details.website && (
-                  <a href={details.website} className="detailsWebsite">
-                    <img className="websiteIcon" src={website} />
+                ) : null}
+                {details.social && details.social.instagram !== "" ? (
+                  <a href={details.social.instagram}>
+                    <img src={instagram_icon} />
                   </a>
-                )}
-              </div> */}
+                ) : null}
+                {details.social && details.social.twitter !== "" ? (
+                  <a href={details.social.twitter}>
+                    <img src={twitter_icon} />
+                  </a>
+                ) : null}
+              </div>
 
               <div className="dealsTitle">Today's Deals</div>
               {this.renderTodayDeals()}
@@ -198,10 +186,9 @@ class Bar extends React.Component {
                 <div className="dealsTitle">Other Deals</div>
               )}
 
-              {details.otherDeals && details.otherDeals[0] && this.renderOtherDeals()}
-
-              
-
+              {details.otherDeals &&
+                details.otherDeals[0] &&
+                this.renderOtherDeals()}
             </div>
             <div className="pleaseNote"></div>
           </div>
