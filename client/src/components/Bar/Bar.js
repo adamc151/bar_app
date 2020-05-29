@@ -3,9 +3,10 @@ import "./Bar.css";
 import Deal from "./Deal";
 import Image, { ImageWithBlur } from "../Image/Image";
 import Slider from "react-slick";
-import arrow from "../../containers/icons/back.png";
-import photosIcon from "../../containers/icons/photo.png";
 import website from "../../containers/icons/website.png";
+import facebook_icon from "../../containers/icons/facebook2.png";
+import instagram_icon from "../../containers/icons/instagram2.png";
+import twitter_icon from "../../containers/icons/twitter2.png";
 
 class Bar extends React.Component {
   constructor(props) {
@@ -153,22 +154,38 @@ class Bar extends React.Component {
               {details.name && (
                 <div className="detailsName">{details.name}</div>
               )}
+
               {details.address && (
                 <div className="detailsAddress">{details.address}</div>
               )}
-              <div className="tagsWrapper">
-                {details.website && (
-                  <a href={details.website} className="detailsWebsite">
-                    <img className="websiteIcon" src={website} />
+              
+              <div className="socialWrapper">
+                <a href={details.website}>
+                  <img className="websiteIcon" src={website} />
+                </a>
+                {details.social && details.social.facebook !== "" ? (
+                  <a href={details.social.facebook}>
+                    <img className="facebook_icon" src={facebook_icon} />
                   </a>
-                )}
+                ) : null}
+                {details.social && details.social.instagram !== "" ? (
+                  <a href={details.social.instagram}>
+                    <img src={instagram_icon} />
+                  </a>
+                ) : null}
+                {details.social && details.social.twitter !== "" ? (
+                  <a href={details.social.twitter}>
+                    <img src={twitter_icon} />
+                  </a>
+                ) : null}
               </div>
 
-              {<div className="dealsTitle">Today's Deals</div>}
+              <div className="dealsTitle">Today's Deals</div>
               {this.renderTodayDeals()}
               {details.otherDeals && details.otherDeals[0] && (
                 <div className="dealsTitle">Other Deals</div>
               )}
+
               {details.otherDeals &&
                 details.otherDeals[0] &&
                 this.renderOtherDeals()}
