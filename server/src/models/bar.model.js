@@ -69,6 +69,38 @@ let barsSchema = new mongoose.Schema({
             required: false
         },
     },
+    openingTimes: [
+        {
+            mon: {
+                open: String,
+                close: String,
+            },
+            tue: {
+                open: String,
+                close: String,
+            },
+            wed: {
+                open: String,
+                close: String,
+            },
+            thu: {
+                open: String,
+                close: String,
+            },
+            fri: {
+                open: String,
+                close: String,
+            },
+            sat: {
+                open: String,
+                close: String,
+            },
+            sun: {
+                open: String,
+                close: String,
+            },
+        }
+    ],
     imgUrl:{
         type: String,
         require: false
