@@ -11,7 +11,7 @@ import LoadingPage from "../components/LoadingPage/LoadingPage";
 import Helmet from "react-helmet";
 import Bar from "../components/Bar/Bar";
 import AdminForm from "../components/AdminForm/AdminForm";
-import BarDetails from "../components/Bar/BarDetails";
+import BarWrapper from "../components/Bar/BarWrapper";
 import { getCityCoordinates } from "./getCityCoordinates";
 
 const keys = require("../keys");
@@ -29,6 +29,7 @@ class MainContainer extends Component {
       showLoader: false,
       showMap: false,
       editBar: false,
+      mapReady: false,
     };
 
     this.routeAdmin = this.routeAdmin.bind(this);
@@ -178,6 +179,8 @@ class MainContainer extends Component {
               timeFilter={timeFilter}
               displaySearchBar={this.state.displaySearchBar}
               loading={loading}
+              onMapReady={() => this.setState({ mapReady: true })}
+              history={history}
             />
           </div>
 
@@ -207,7 +210,7 @@ class MainContainer extends Component {
             </div>
           )}
 
-          {!loading && this.state.displayCarousel && (
+          {!loading && this.state.displayCarousel && this.state.mapReady && (
             <div className={"carousel carouselAnimaion"}>
               <Carousel
                 controlledSlide={carouselSlide}
@@ -226,7 +229,7 @@ class MainContainer extends Component {
         </div>
 
         {singleBar && (
-          <BarDetails clearPhotos={clearPhotos}>
+          <BarWrapper clearPhotos={clearPhotos}>
             {this.state.editBar ? (
               <AdminForm
                 singleBar={singleBar}
@@ -246,7 +249,7 @@ class MainContainer extends Component {
                 history={history}
               />
             )}
-          </BarDetails>
+          </BarWrapper>
         )}
       </Fragment>
     );

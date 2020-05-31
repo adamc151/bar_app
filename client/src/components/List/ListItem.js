@@ -37,9 +37,9 @@ class ListItem extends PureComponent {
     const { name, deals, imgUrl, imgUrls = [], place_id } = data;
 
   return !data == "" ? (
-    <div ref={node => this.lineItem = node}>
+    <div ref={node => this.lineItem = node} className={`hoverWrapper hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}>
       <Link
-        className={`listItemWrapper carouselCard toggle${deals[0].category} hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}
+        className={`listItemWrapper carouselCard toggle${deals[0].category} removeBorder${onHover && isSelected}`}
         to={`/details/${place_id}`}
         onClick={() => {
           onClick();

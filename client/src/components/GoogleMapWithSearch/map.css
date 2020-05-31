@@ -1,5 +1,5 @@
 .map {
-  height: 100vh;
+  height: 100%;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -21,7 +21,7 @@
   display: none;
 }
 
-.mapNav{
+.mapNav {
   font-size: 12px;
   position: absolute;
   top: 30px;
@@ -43,7 +43,7 @@
     position: fixed;
   }
 
-  .mapNav{
+  .mapNav {
     left: 15px;
   }
 }
