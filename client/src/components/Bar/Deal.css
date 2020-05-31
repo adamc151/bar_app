@@ -1,103 +1,93 @@
-.detailsCategory{
-    font-family: Circular-bold;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 2px;
-    font-size: 14px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+.detailsCategory {
+  font-family: Circular-bold;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
-.detailsInactive{
-    background-color: rgba(221, 221, 221, 0.966);
+.detailsInactive {
+  background-color: rgba(221, 221, 221, 0.966);
 }
 
-.detailsUpcoming{
-    background-color: rgba(255, 188, 44, 0.945);
+.detailsUpcoming {
+  background-color: rgba(255, 188, 44, 0.945);
 }
 
-.detailsNow{
-    background-color: rgba(41, 179, 28, 0.925);
+.detailsNow {
+  background-color: rgba(41, 179, 28, 0.925);
 }
 
-.detailsTime{
-    font-family: Circular-bold;
-    padding-bottom: 10px;
-    border: none;
-    background-color: rgba(221, 221, 221, 0.966);
-    padding: 5px 10px;
-    text-align: center;
-    display: inline-block;
-    border-radius: 2px;
-    margin-left: 10px;
-    font-size: 14px;
+.detailsTime {
+  font-family: Circular-bold;
+  padding-bottom: 10px;
+  border: none;
+  background-color: rgba(221, 221, 221, 0.966);
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 2px;
+  margin-left: 10px;
+  font-size: 14px;
 }
 
-.detailsDays{
-    font-family: Circular-bold;
-    padding-bottom: 10px;
-    border: none;
-    background-color: rgba(221, 221, 221, 0.966);
-    padding: 5px 10px;
-    text-align: center;
-    display: inline-block;
-    border-radius: 2px;
-    font-size: 14px;
-    font-family: Circular-bold;
+.detailsDays {
+  font-family: Circular-bold;
+  padding-bottom: 10px;
+  border: none;
+  background-color: rgba(221, 221, 221, 0.966);
+  padding: 5px 10px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: Circular-bold;
 }
 
-/* .detailsDescription{
-    margin-top: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
-    padding: 10px;
-} */
-
-
-.dealClass{
-    color: rgb(72, 72, 72);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    font-size: 16px;
-    font-weight: 200;
+.dealClass {
+  color: rgb(72, 72, 72);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 200;
 }
 
-.dealWrapper{
-    color: rgb(72, 72, 72);
-    padding-top: 20px;
-    border-top: 1px solid rgb(202, 202, 202);
-    margin-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 0px;
+.dealWrapper {
+  color: rgb(72, 72, 72);
+  padding-top: 20px;
+  border-top: 1px solid rgb(202, 202, 202);
+  margin-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 @media screen and (max-width: 700px) {
+  .dealWrapper {
+    padding-top: 10px;
+  }
 
-    .dealWrapper{
-        padding-top: 10px;
-    }
+  .detailsCategory {
+    font-size: 12px;
+  }
 
-    .detailsCategory{
-        font-size: 12px;
-    }
+  .detailsTime {
+    font-size: 12px;
+  }
 
-    .detailsTime{
-        font-size: 12px;
-    }
+  .detailsDays {
+    font-size: 12px;
+  }
 
-    .detailsDays{
-        font-size: 12px;
-    }
-
-    .dealClass{
-        font-size: 15px;
-        margin-top: 8px;
-        margin-bottom: 8px;
-    }
-    
+  .dealClass {
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
 }

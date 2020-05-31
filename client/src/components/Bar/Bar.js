@@ -24,7 +24,6 @@ class Bar extends React.Component {
     const isMobile = window.matchMedia("(max-width: 1000px)").matches;
     if (!isMobile) {
       document.addEventListener("mousedown", this.handleBodyClick, false);
-      //document.addEventListener("keydown", this.handleEscKey, false);
       document.addEventListener("touchstart", this.handleBodyClick, false);
     }
 
@@ -35,7 +34,6 @@ class Bar extends React.Component {
     const isMobile = window.matchMedia("(max-width: 1000px)").matches;
     if (!isMobile) {
       document.removeEventListener("mousedown", this.handleBodyClick, false);
-      //document.removeEventListener("keydown", this.handleEscKey, false);
       document.removeEventListener("touchstart", this.handleBodyClick, false);
     }
   }
@@ -129,22 +127,6 @@ class Bar extends React.Component {
             );
           })}
         </Slider>
-        {loadingPhotos && false ? (
-          <div className="loading-dots">
-            <div className="loadingdot dot1">.</div>
-            <div className="loadingdot dot2">.</div>
-            <div className="loadingdot dot3">.</div>
-            <div className="loadingdot dot4">.</div>
-            <div className="loadingdot dot5">.</div>
-            <div className="loadingdot dot6">.</div>
-            <div className="loadingdot dot7">.</div>
-            <div className="loadingdot dot8">.</div>
-            <div className="loadingdot dot9">.</div>
-            <div className="loadingdot dot10">.</div>
-          </div>
-        ) : (
-          <div className="loading-dots" />
-        )}
 
         {loading && !details.name ? (
           this.getSkeleton()

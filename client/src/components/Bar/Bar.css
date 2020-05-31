@@ -63,67 +63,20 @@
   bottom: -30px;
 }
 
-.loading-dots {
-  text-align: center;
-  z-index: 5;
-  height: 25px;
+.detailsWebsite {
+  background-color: rgb(255, 188, 44);
+  padding: 5px 8px 2px 8px;
+  border-radius: 10px;
+  margin-top: -10px;
+  position: absolute;
+  right: 15px;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 3px rgb(165, 165, 165);
 }
 
-.loadingdot {
-  display: inline;
-  margin-left: 11px;
-  margin-right: 11px;
-  position: relative;
-  font-size: 29px;
-  line-height: 44px;
-  opacity: 1;
-  animation: showHideDot 2s ease-in-out infinite;
-}
-
-.dot1 {
-  animation-delay: 0s;
-}
-.dot2 {
-  animation-delay: 0.1s;
-}
-.dot3 {
-  animation-delay: 0.2s;
-}
-.dot4 {
-  animation-delay: 0.3s;
-}
-.dot5 {
-  animation-delay: 0.4s;
-}
-.dot6 {
-  animation-delay: 0.5s;
-}
-.dot7 {
-  animation-delay: 0.6s;
-}
-.dot8 {
-  animation-delay: 0.7s;
-}
-.dot9 {
-  animation-delay: 0.8s;
-}
-.dot10 {
-  animation-delay: 0.9s;
-}
-
-@keyframes showHideDot {
-  0% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.3;
-  }
+.websiteIcon {
+  width: 30px;
 }
 
 .morePhotos {
@@ -191,6 +144,7 @@
 
 .detailsCarousel {
   height: 220px;
+  margin-bottom: 25px;
 }
 
 .detailsTextWrapper {

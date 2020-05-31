@@ -21,6 +21,7 @@ import discoverIcon from "./icons/discover.png";
 import { Route, Link } from "react-router-dom";
 import Image from "../components/Image/Image";
 import InstagramEmbed from "react-instagram-embed";
+import { Parallax, Background } from "react-parallax";
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -31,7 +32,7 @@ class LandingPage extends Component {
     const instaUrls = [
       "https://www.instagram.com/p/B60vLc8HdVP",
       "https://www.instagram.com/p/B8HM9pWHUN3",
-      "https://www.instagram.com/p/B9o0i_CHN3e"
+      "https://www.instagram.com/p/B9o0i_CHN3e",
     ];
 
     return instaUrls.map((data, i) => {
@@ -58,52 +59,54 @@ class LandingPage extends Component {
     // const num = Math.floor(Math.random() * Math.floor(barImgs.length));
     // // const barImg = barImgs[num];
     // const barImg = bar4;
-    let barImg = '';
+    let barImg = "";
 
-    const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    vw < 650 ? barImg = mobileHeader : barImg = desktopHeader;
+    const vw = Math.max(
+      document.documentElement.clientWidth,
+      window.innerWidth || 0
+    );
+    vw < 650 ? (barImg = mobileHeader) : (barImg = desktopHeader);
 
     return (
       <Route
         render={({ history }) => (
           <div className="wrapperLandingParent">
-            <div className="header">
-              <div className="headerTextHapi">hapi</div>
-              <div className="headerTextHour">hour</div>{" "}
-              <img alt="beer icon" src={beerIcon} className="beerIconLanding" />
-            </div>
-
             <div className="photosLandingWrapper">
-              <Image
-                className="photoLanding"
-                imageLoadedStyle="photoLandingLoaded"
-                src={barImg}
-              />
+              <Parallax strength={300}>
+                <Background className="custom-bg">
+                  <Image
+                    className="photoLanding"
+                    imageLoadedStyle="photoLandingLoaded"
+                    src={barImg}
+                  />
+                </Background>
+              </Parallax>
             </div>
 
-            <div className="titleDescriptionLandingWrapper">
-              <div className="titleDescriptionLanding">
-                Search for a location
+            <div className="photosLandingWrapper overlayWrapper">
+              <div className="titleDescriptionLandingWrapper">
+                <div className="titleDescriptionLanding">
+                  Search for a location
+                </div>
               </div>
-            </div>
 
-            <div className="locationWrapper">
-              <div className="searchBarLandingWrapper">
-                <Link to={`/map`}>Search...</Link>
+              <div className="locationWrapper">
+                <div className="searchBarLandingWrapper">
+                  <Link to={`/map`}>Search...</Link>
+                </div>
+                <div className="currentLocationLanding">
+                  <Link to={`/map`}>
+                    <img alt="location icon" src={locationIcon} />
+                  </Link>
+                </div>
               </div>
-              <div className="currentLocationLanding">
-                <Link to={`/map`}>
-                  <img alt="location icon" src={locationIcon} />
-                </Link>
-              </div>
-            </div>
 
-            <div className="supportedAreas">
-              Hapihour is currently available in:  
-              <div className="supportedAreasLinks">
-                <Link to={`/map/leeds`}>Leeds</Link>
-                | 
-                <Link to={`/map/clapham`}>London - Clapham</Link>
+              <div className="supportedAreas">
+                Hapihour is currently available in:
+                <div className="supportedAreasLinks">
+                  <Link to={`/map/leeds`}>Leeds</Link>|
+                  <Link to={`/map/clapham`}>London - Clapham</Link>
+                </div>
               </div>
             </div>
 
@@ -169,7 +172,6 @@ class LandingPage extends Component {
             </div>
 
             <div className="instaFeed">{this.renderInsta()}</div>
-
             <div className="donationWrapper">
               <div className="donationItem">
                 {<div className="line">--</div>}
@@ -225,6 +227,12 @@ class LandingPage extends Component {
                 <img alt="email icon" src={emailIcon} />
               </a>
             </div>
+
+            <div className="header">
+              <div className="headerTextHapi">hapi</div>
+              <div className="headerTextHour">hour</div>{" "}
+              <img alt="beer icon" src={beerIcon} className="beerIconLanding" />
+            </div>
           </div>
         )}
       />
@@ -234,13 +242,13 @@ class LandingPage extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.loading
+    loading: state.loading,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(actions, dispatch),
   };
 }
 
