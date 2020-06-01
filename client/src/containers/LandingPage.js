@@ -102,9 +102,9 @@ class LandingPage extends Component {
               </div>
 
               <div className="supportedAreas">
-                Hapihour is currently available in:
+                {/* Locations include: */}
                 <div className="supportedAreasLinks">
-                  <Link to={`/map/leeds`}>Leeds</Link>|
+                  <Link to={`/map/leeds`}>Leeds</Link>•
                   <Link to={`/map/clapham`}>London - Clapham</Link>
                 </div>
               </div>
