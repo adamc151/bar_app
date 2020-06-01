@@ -60,12 +60,18 @@ class LandingPage extends Component {
     // // const barImg = barImgs[num];
     // const barImg = bar4;
     let barImg = "";
+    let showMessage = true;
 
     const vw = Math.max(
       document.documentElement.clientWidth,
       window.innerWidth || 0
     );
-    vw < 650 ? (barImg = mobileHeader) : (barImg = desktopHeader);
+    if(vw < 650) {
+      barImg = mobileHeader;
+      showMessage= false;
+    } else {
+      barImg = desktopHeader;
+    }
 
     return (
       <Route
@@ -102,9 +108,9 @@ class LandingPage extends Component {
               </div>
 
               <div className="supportedAreas">
-                Hapihour is currently available in:
+                {showMessage && "Locations include:"}
                 <div className="supportedAreasLinks">
-                  <Link to={`/map/leeds`}>Leeds</Link>|
+                  <Link to={`/map/leeds`}>Leeds</Link>•
                   <Link to={`/map/clapham`}>London - Clapham</Link>
                 </div>
               </div>
