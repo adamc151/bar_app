@@ -17,7 +17,7 @@
 
 .wrapperLandingParent {
   font-family: Circular;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .titleDescriptionLanding {
@@ -36,11 +36,39 @@
 
 .react-parallax {
   margin-top: 0px;
+  height: 600px;
 }
 
 .custom-bg {
   width: 100vw;
-  height: 700px;
+  height: 600px;
+}
+
+.photosLandingWrapper {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photoLanding {
+  object-fit: cover;
+  z-index: -100;
+  /* margin-top: 50px; */
+}
+
+.photoLandingLoaded {
+  opacity: 0.9;
+  animation: landingFadeIn 1000ms;
+}
+
+@keyframes landingFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.9;
+  }
 }
 
 .descriptionColourWrapper {
@@ -192,34 +220,6 @@
   margin-top: 3px;
 }
 
-.photosLandingWrapper {
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  position: relative;
-}
-
-.photoLanding {
-  object-fit: cover;
-  z-index: -100;
-  min-height: 600px;
-  margin-top: 50px;
-}
-
-.photoLandingLoaded {
-  opacity: 0.9;
-  animation: landingFadeIn 1000ms;
-}
-
-@keyframes landingFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.9;
-  }
-}
-
 .header {
   font-family: Circular;
   left: 0;
@@ -330,6 +330,7 @@
   .photoLanding {
     /* height: calc(100vh - 170px); */
     height: 600px;
+    margin-top: 50px;
   }
 
   .wrapperLandingParent {
@@ -376,11 +377,6 @@
     top: 0;
     right: unset;
   }
-
-  .searchBarLandingWrapper{
-
-  }
-
 
   .descriptionLandingTitle {
     /* margin-top: 55vh; */
@@ -431,8 +427,6 @@
     margin-bottom: 5px;
     /* color: rgba(255, 188, 44, 0.945); */
   }
-
-  
 
   .descriptionLandingItemFullLogo {
     margin-top: 5px;
