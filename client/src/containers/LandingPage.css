@@ -22,7 +22,7 @@
 
 .titleDescriptionLanding {
   color: white;
-  font-size: 70px;
+  font-size: 90px;
   font-family: Circular-black;
   /* font-weight: lighter; */
   /* letter-spacing: -3px; */
@@ -50,7 +50,7 @@
 
 .descriptionAndTitleLandingWrapper {
   margin: auto;
-  margin-top: -40px;
+  margin-top: -30px;
   margin-bottom: 20px;
   padding-top: 30px;
   max-width: 1100px;
@@ -64,7 +64,7 @@
 }
 
 .descriptionLandingItemFullLogo {
-  margin-top: -10px;
+  margin-top: -0px;
   width: 70%;
   /* height: 170px; */
   min-width: 300px;
@@ -119,7 +119,7 @@
 
 .locationWrapper {
   position: absolute;
-  top: 250px;
+  top: 270px;
   left: 0;
   right: 0;
   display: flex;
