@@ -5,7 +5,7 @@ import * as actions from "../../state/actions/actions";
 import "./LandingPage.css";
 
 import mobileHeader from "../images/tom_hh_1.jpg";
-import desktopHeader from "../images/group_3.jpg";
+import desktopHeader from "../images/background_img2.jpg";
 import locationIcon from "../icons/placeholder.png";
 import twitterIcon from "../icons/twitter.png";
 import emailIcon from "../icons/email.png";
@@ -62,9 +62,17 @@ class LandingPage extends Component {
             <div className="photosLandingWrapper overlayWrapper">
               <div className="titleDescriptionLandingWrapper">
                 <div className="titleDescriptionLanding">
-                  Find the best happy hours
+                  Find the best happy hours happening right now.
                 </div>
                 {/* <p>cheap af</p> */}
+              </div>
+
+              <div className="supportedAreas">
+                {showMessage && "Locations include:"}
+                <div className="supportedAreasLinks">
+                  <Link to={`/map/leeds`}>Leeds</Link>•
+                  <Link to={`/map/clapham`}>London - Clapham</Link>
+                </div>
               </div>
 
               <div className="locationWrapper">
@@ -78,24 +86,18 @@ class LandingPage extends Component {
                 </div>
               </div>
 
-              <div className="supportedAreas">
-                {showMessage && "Locations include:"}
-                <div className="supportedAreasLinks">
-                  <Link to={`/map/leeds`}>Leeds</Link>•
-                  <Link to={`/map/clapham`}>London - Clapham</Link>
-                </div>
-              </div>
+              
             </div>
 
-            <img
+            {/* <img
               className="descriptionLandingItemFullLogo"
               alt="icon"
               src={fullLogo}
-            />
-
-            <HowItWorks />
+            /> */}
 
             <Preview />
+            <HowItWorks />
+
 
             <Link to={`/map`}><button className="CheckItOutButton">Check it Out</button></Link>
 
@@ -103,7 +105,7 @@ class LandingPage extends Component {
               <div className="donationItem">
                 {/* {<div className="line">--</div>} */}
                 <div className="">
-                  <div className="donationItemTitle">Buy us a round? :)</div>
+                  <div className="donationItemTitle">Buy us a round?</div>
                   <div className="donationItemDesc">
                     Hapihour is a free, self-funded service. If you think
                     hapihour is useful, maybe buy us a coffee/beer to keep us

@@ -22,8 +22,10 @@
 
 .titleDescriptionLanding {
   color: white;
-  font-size: 75px;
+  font-size: 65px;
   font-family: Circular-black;
+  max-width: 1100px;
+  margin: auto;
   /* font-weight: lighter; */
   /* letter-spacing: -3px; */
   text-align: center;
@@ -31,22 +33,22 @@
 }
 
 .react-parallax-content {
-  height: 500px;
+  height: 700px;
 }
 
 .react-parallax {
   margin-top: 0px;
-  height: 500px;
+  height: 700px;
 }
 
 .custom-bg {
   width: 100vw;
-  height: 500px;
+  height: 700px;
 }
 
 .photosLandingWrapper {
   width: 100%;
-  height: 500px;
+  height: 700px;
   overflow: hidden;
   position: relative;
 }
@@ -82,7 +84,7 @@
 
 .locationWrapper {
   position: absolute;
-  top: 270px;
+  top: 400px;
   left: 0;
   right: 0;
   display: flex;
@@ -95,18 +97,9 @@
   max-width: 500px;
 }
 
-.descriptionLandingItemFullLogo {
-  min-width: 300px;
-  max-width: 600px;
-  /* width: 100%; */
-  box-sizing: border-box;
-  padding: 36px;
-  margin: 0px 0px;
-}
-
 .supportedAreas {
   position: absolute;
-  top: 455px;
+  top: 300px;
   left: 0;
   right: 0;
   font-family: Circular-bold;
@@ -121,6 +114,16 @@
 .supportedAreasLinks > a {
   color: white;
   padding: 10px;
+}
+
+
+.descriptionLandingItemFullLogo {
+  min-width: 300px;
+  max-width: 600px;
+  /* width: 100%; */
+  box-sizing: border-box;
+  padding: 36px;
+  margin: 0px 0px;
 }
 
 .searchBarLandingWrapper {
@@ -223,14 +226,14 @@
 }
 
 .donationItemTitle {
-  font-size: 28px;
+  font-size: 26px;
   font-family: Circular-black;
   color: #212529;
   line-height: 140%;
 }
 
 .donationItemDesc {
-  font-size: 22px;
+  font-size: 20px;
   color: #495057;
   line-height: 140%;
   max-width: 600px;
@@ -240,6 +243,7 @@
 
 .overlayWrapper {
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.342);
   top: 0;
   left: 0;
 }
@@ -247,7 +251,8 @@
 .CheckItOutButton {
   padding: 16px 52px;
   text-align: center;
-  background-color: rgb(253, 184, 37);
+  /* background-color: rgb(253, 184, 37); */
+  background-color: rgb(6, 139, 139);
   border: none;
   color: white;
   border-radius: 16px;
@@ -260,7 +265,7 @@
 }
 
 .CheckItOutButton:hover {
-  opacity: 0.5;
+  background-color: rgb(0, 115, 115);
 }
 
 @media screen and (max-width: 1000px) {
@@ -277,7 +282,7 @@
     margin-top: 0px;
     top: 0;
     /* height: calc(100vh - 170px); */
-    height: 600px;
+    height: 585px;
   }
   .photoLanding {
     /* height: calc(100vh - 170px); */
@@ -290,7 +295,7 @@
   }
 
   .locationWrapper {
-    top: 390px;
+    top: 450px;
     margin-bottom: 50px;
   }
 
@@ -314,23 +319,22 @@
 
   .supportedAreas {
     font-size: 18px;
-    top: 540px;
+    top: 370px;
+    text-align: left;
+    padding-left: 22px;
   }
 
   .titleDescriptionLanding {
     color: white;
     font-weight: bolder;
-    font-size: 60px;
-    /* width: 300px; */
+    font-size: 45px;
     width: 80%;
     text-align: left;
-    /* margin-top: 8vh; */
     margin: auto;
     margin-top: 110px;
   }
   
   .titleDescriptionLandingWrapper {
-    /* margin-left: 30px; */
     margin: auto;
     width: 80%;
     top: 0;
@@ -356,9 +360,9 @@
   }
 
   .donationWrapper {
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom: 30px;
-    text-align: left;
+    text-align: right;
   }
   
   .donationItem img {
@@ -370,7 +374,7 @@
   }
   
   .donationItemDesc {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .header {
@@ -378,7 +382,7 @@
     top: 0;
     position: fixed;
     width: 100%;
-    background-color: rgb(255, 188, 44);
+    background-color: rgb(244, 191, 75);
     padding: 5px 0px 8px 15px;
     text-align: left;
     font-size: 25px;

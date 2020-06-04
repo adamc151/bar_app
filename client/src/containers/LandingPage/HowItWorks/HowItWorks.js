@@ -6,9 +6,12 @@ import "./HowItWorks.css";
 
 const howItWorks = () => {
   return (
+    <div>
+
+    
     <div className="HowItWorksColourWrapper">
       <div className="HowItWorks">
-        {/* <div className="HowItWorksTitle">How it works</div> */}
+        <div className="HowItWorksTitle">How to enjoy hapihour</div>
         <div className="HowItWorksWrapper">
           <div className="HowItWorksItem">
             <img
@@ -60,6 +63,9 @@ const howItWorks = () => {
         </div>
       </div>
     </div>
+    <div className="HowItWorksCurve"></div>
+    </div>
+
   );
 };
 

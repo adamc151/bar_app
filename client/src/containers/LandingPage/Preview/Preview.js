@@ -27,7 +27,7 @@ const preview = () => {
           </div>
         </div>
       </div>
-      <div className="PreviewCurve"></div>
+      {/* <div className="PreviewCurve"></div> */}
     </div>
   );
 };
