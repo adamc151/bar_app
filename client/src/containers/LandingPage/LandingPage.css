@@ -129,7 +129,7 @@
   background-color: white;
   border-radius: 5px;
   text-align: left;
-  padding: 5px 0px 5px 10px;
+  padding: 4px 0px 4px 10px;
   -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
   -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
   box-shadow: 0px 3px 6px rgb(56, 56, 56);
@@ -138,19 +138,18 @@
 
 .searchBarLandingWrapper > a {
   color: grey;
-  font-size: 20px;
+  font-size: 26px;
   text-decoration: unset;
   width: 100%;
   display: inline-block;
 }
 
 .currentLocationLanding {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   background-color: white;
   border-radius: 30px;
   color: grey;
-  /* font-size: 20px; */
   padding: 2px;
   -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
   -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
@@ -160,7 +159,7 @@
 }
 
 .currentLocationLanding img {
-  width: 25px;
+  width: 32px;
   margin-top: 3px;
 }
 
@@ -293,6 +292,24 @@
   .locationWrapper {
     top: 390px;
     margin-bottom: 50px;
+  }
+
+  .searchBarLandingWrapper {
+    padding: 5px 0px 5px 10px;
+  }
+  
+  .searchBarLandingWrapper > a {
+    font-size: 20px;
+  }
+
+  .currentLocationLanding {
+    width: 31px;
+    height: 31px;
+  }
+  
+  .currentLocationLanding img {
+    width: 31px;
+    margin-top: 1px;
   }
 
   .supportedAreas {
