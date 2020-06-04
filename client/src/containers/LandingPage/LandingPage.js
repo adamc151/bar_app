@@ -10,7 +10,7 @@ import locationIcon from "../icons/placeholder.png";
 import twitterIcon from "../icons/twitter.png";
 import emailIcon from "../icons/email.png";
 import beerIcon from "../icons/beer.png";
-import fullLogo from "../icons/fullLogo.png";
+import fullLogo from "../images/croppedLogo.png";
 import instagramIcon from "../icons/instagram.png";
 import facebookIcon from "../icons/facebook.png";
 import { Route, Link } from "react-router-dom";
@@ -62,8 +62,9 @@ class LandingPage extends Component {
             <div className="photosLandingWrapper overlayWrapper">
               <div className="titleDescriptionLandingWrapper">
                 <div className="titleDescriptionLanding">
-                  Search for a location
+                  Find the best happy hours
                 </div>
+                {/* <p>cheap af</p> */}
               </div>
 
               <div className="locationWrapper">
@@ -100,9 +101,9 @@ class LandingPage extends Component {
 
             <div className="donationWrapper">
               <div className="donationItem">
-                {<div className="line">--</div>}
+                {/* {<div className="line">--</div>} */}
                 <div className="">
-                  <div className="donationItemTitle">BUY US A ROUND? :)</div>
+                  <div className="donationItemTitle">Buy us a round? :)</div>
                   <div className="donationItemDesc">
                     Hapihour is a free, self-funded service. If you think
                     hapihour is useful, maybe buy us a coffee/beer to keep us

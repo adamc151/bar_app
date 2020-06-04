@@ -1,9 +1,16 @@
 .Preview {
-  /* background-color: teal; */
-  margin: auto;
-  margin-top: 50px;
-  /* width: 80%; */
-  max-width: 1500px;
+  background-color: rgb(248, 248, 248);
+  padding-top: 40px;
+}
+
+.PreviewCurve {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(248, 248, 248);
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  margin-top: -100px;
+  margin-bottom: -100px;
 }
 
 .PreviewTitle {
@@ -54,23 +61,26 @@
 @media(max-width: 800px) {
   .Preview {
     margin: auto;
+    padding-top: 10px;
     width: 100%;
   }
-
+  .PreviewCurve {
+    margin-top: -50px;
+    margin-bottom: -100px;
+    height: 150px;
+  }
   .PreviewText {
     width: 100%;
     box-sizing: border-box;
     margin: auto;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 0px 30px;
+    margin-top: 40px;
   }
-
   .ComboImage {
     width: 90%;
     margin: 10px;
   }
 }
-
 
 /*  flexbox grid styling */
 
@@ -79,6 +89,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  margin: auto;
+  max-width: 1500px;
 }
 
 .column {
@@ -97,7 +109,6 @@
   .column {
     flex: 1
   }
-
   .double-column {
     flex: 2
   }
