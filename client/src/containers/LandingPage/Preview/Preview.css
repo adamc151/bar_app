@@ -1,0 +1,102 @@
+.Preview {
+  /* background-color: teal; */
+  margin: auto;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.PreviewTitle {
+  font-size: 30px;
+  margin: auto;
+  padding: 20px;
+}
+
+.PreviewText {
+  /* background-color: thistle; */
+  font-size: 50px;
+  width: 75%;
+  text-align: left;
+  box-sizing: border-box;
+  margin: auto;
+  margin-left: 20%;
+}
+
+@font-face {
+  font-family: Circular-black;
+  src: url(../../fonts/CircularStd-Black.otf);
+  font-weight: bolder;
+}
+
+.PreviewText div {
+  font-size: 32px;
+  font-family: Circular-black;
+  color: #212529;
+  line-height: 140%;
+}
+
+.PreviewText p {
+  font-size: 24px;
+  color: #495057;
+  line-height: 140%;
+}
+
+.PreviewImages {
+  /* background-color: tomato; */
+  position: relative;
+}
+
+.ComboImage {
+  width: 80%;
+  margin: 20px;
+}
+
+@media(max-width: 800px) {
+  .Preview {
+    margin: auto;
+    width: 100%;
+  }
+
+  .PreviewText {
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .ComboImage {
+    width: 90%;
+    margin: 10px;
+  }
+}
+
+
+/*  flexbox grid styling */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.double-column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1
+  }
+
+  .double-column {
+    flex: 2
+  }
+}

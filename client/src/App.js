@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
 import FAQ from "./containers/FAQ";
 import ReactGA from "react-ga";
-import LandingPage from "./containers/LandingPage";
+import LandingPage from "./containers/LandingPage/LandingPage";
 import Helmet from "react-helmet";
 
 try {
