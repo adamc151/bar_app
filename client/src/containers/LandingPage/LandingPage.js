@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as actions from "../../state/actions/actions";
 import "./LandingPage.css";
-import location from "../icons/pin.png";
-import calendar from "../icons/calendar2.png";
+
 import mobileHeader from "../images/tom_hh_1.jpg";
 import desktopHeader from "../images/group_3.jpg";
 import locationIcon from "../icons/placeholder.png";
@@ -14,42 +13,15 @@ import beerIcon from "../icons/beer.png";
 import fullLogo from "../icons/fullLogo.png";
 import instagramIcon from "../icons/instagram.png";
 import facebookIcon from "../icons/facebook.png";
-import discoverIcon from "../icons/discover.png";
 import { Route, Link } from "react-router-dom";
 import Image from "../../components/Image/Image";
-import InstagramEmbed from "react-instagram-embed";
 import { Parallax, Background } from "react-parallax";
 import Preview from "./Preview/Preview";
+import HowItWorks from "./HowItWorks/HowItWorks";
 
 class LandingPage extends Component {
   componentDidMount() {
     this.props.actions.reset();
-  }
-
-  renderInsta() {
-    const instaUrls = [
-      "https://www.instagram.com/p/B60vLc8HdVP",
-      "https://www.instagram.com/p/B8HM9pWHUN3",
-      "https://www.instagram.com/p/B9o0i_CHN3e",
-    ];
-
-    return instaUrls.map((data, i) => {
-      return (
-        <InstagramEmbed
-          url={data}
-          className="singleInsta"
-          maxWidth={400}
-          hideCaption={true}
-          containerTagName="div"
-          protocol=""
-          injectScript
-          onLoading={() => {}}
-          onSuccess={() => {}}
-          onAfterRender={() => {}}
-          onFailure={() => {}}
-        />
-      );
-    });
   }
 
   render() {
@@ -120,66 +92,11 @@ class LandingPage extends Component {
               src={fullLogo}
             />
 
-            <div className="descriptionColourWrapper">
-              <div className="descriptionAndTitleLandingWrapper">
-                <div className="descriptionLandingTitle">HOW IT WORKS</div>
-                <div className="descriptionLandingWrapper">
-                  <div className="descriptionLandingItem">
-                    <img
-                      className="descriptionLandingItemImg"
-                      alt="location"
-                      src={location}
-                    />
-                    <div className="descriptionLandingText">
-                      <div className="descriptionLandingItemTitle">
-                        FIND YOUR LOCATION
-                      </div>
-                      <div className="descriptionLandingItemDesc">
-                        Search for an area you want to see happy hour deals for,
-                        or provide your current location.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="descriptionLandingItem">
-                    <img
-                      className="descriptionLandingItemImg"
-                      alt="calendar"
-                      src={calendar}
-                    />
-                    <div className="descriptionLandingText">
-                      <div className="descriptionLandingItemTitle">
-                        SEE TODAY'S HAPI HOURS
-                      </div>
-                      <div className="descriptionLandingItemDesc">
-                        See active & upcoming happy hours for today on the map.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="descriptionLandingItem">
-                    <img
-                      className="descriptionLandingItemImg"
-                      alt="beers"
-                      src={discoverIcon}
-                    />
-                    <div className="descriptionLandingText">
-                      <div className="descriptionLandingItemTitle">
-                        DISCOVER NEW BARS
-                      </div>
-                      <div className="descriptionLandingItemDesc">
-                        Find out more about the bars offering great deals
-                        throughout the city.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <HowItWorks />
 
             <Preview />
 
             <Link to={`/map`}><button className="CheckItOutButton">Check it Out</button></Link>
-
-            {/* <div className="instaFeed">{this.renderInsta()}</div> */}
 
             <div className="donationWrapper">
               <div className="donationItem">

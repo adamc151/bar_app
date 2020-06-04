@@ -2,7 +2,8 @@
   /* background-color: teal; */
   margin: auto;
   margin-top: 50px;
-  width: 80%;
+  /* width: 80%; */
+  max-width: 1500px;
 }
 
 .PreviewTitle {
@@ -61,6 +62,7 @@
     box-sizing: border-box;
     margin: auto;
     padding: 20px;
+    margin-top: 20px;
   }
 
   .ComboImage {
