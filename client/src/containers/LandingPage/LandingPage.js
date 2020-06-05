@@ -10,7 +10,6 @@ import locationIcon from "../icons/placeholder.png";
 import twitterIcon from "../icons/twitter.png";
 import emailIcon from "../icons/email.png";
 import beerIcon from "../icons/beer.png";
-import fullLogo from "../images/croppedLogo.png";
 import instagramIcon from "../icons/instagram.png";
 import facebookIcon from "../icons/facebook.png";
 import { Route, Link } from "react-router-dom";
@@ -32,9 +31,9 @@ class LandingPage extends Component {
       document.documentElement.clientWidth,
       window.innerWidth || 0
     );
-    if(vw < 650) {
+    if (vw < 650) {
       barImg = mobileHeader;
-      showMessage= false;
+      showMessage = false;
     } else {
       barImg = desktopHeader;
     }
@@ -60,7 +59,6 @@ class LandingPage extends Component {
                 <div className="titleDescriptionLanding">
                   Find the best happy hours happening right now.
                 </div>
-                {/* <p>cheap af</p> */}
               </div>
 
               <div className="supportedAreas">
@@ -81,25 +79,16 @@ class LandingPage extends Component {
                   </Link>
                 </div>
               </div>
-
-              
             </div>
-
-            {/* <img
-              className="descriptionLandingItemFullLogo"
-              alt="icon"
-              src={fullLogo}
-            /> */}
 
             <Preview />
             <HowItWorks />
-
-
-            <Link to={`/map`}><button className="CheckItOutButton">Check it Out</button></Link>
+            <Link to={`/map`}>
+              <button className="CheckItOutButton">Check it Out</button>
+            </Link>
 
             <div className="donationWrapper">
               <div className="donationItem">
-                {/* {<div className="line">--</div>} */}
                 <div className="">
                   <div className="donationItemTitle">Buy us a round?</div>
                   <div className="donationItemDesc">
@@ -121,14 +110,6 @@ class LandingPage extends Component {
             </div>
 
             <div className="footerCenter">
-              {/* <div
-                className="faqFooter"
-                onClick={() => {
-                  history.push(`/faq`);
-                }}
-              >
-                <a>FAQ</a>
-              </div> */}
               <a href="https://twitter.com/hapihour_io" className="inline">
                 <img alt="twitter icon" src={twitterIcon} />
               </a>

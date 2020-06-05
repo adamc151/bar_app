@@ -116,7 +116,6 @@ class MainContainer extends Component {
       centerCoordinates,
       userCoordinates,
       miles,
-      timeFilter,
       jwt,
       hoverCoordinates,
       data,
@@ -143,9 +142,9 @@ class MainContainer extends Component {
           <meta
             charSet="utf-8"
             name="description"
-            content="hapihour is an application that lets you
-            find great drinks deals that are happing right now near you. hapihour displays your available options on a map with the crucial
-            information you need to decide where to go next."
+            content="Hapihour is an application that lets you
+            find great drinks deals that are happing right now in Leeds and London. Hapihour displays your available options on a map with the crucial
+             information you need to decide where to go next."
           />
           <title>Hapihour | Map</title>
           <link rel="canonical" href="hapihour.io" />
@@ -176,7 +175,6 @@ class MainContainer extends Component {
               }}
               setBounds={setBounds}
               miles={miles}
-              timeFilter={timeFilter}
               displaySearchBar={this.state.displaySearchBar}
               loading={loading}
               onMapReady={() => this.setState({ mapReady: true })}

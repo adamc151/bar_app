@@ -7,7 +7,6 @@
   max-width: 1450px;
   text-align: center;
   padding-top: 20px;
-  /* padding: 60px 0; */
 }
 
 .HowItWorksCurve {
@@ -63,24 +62,18 @@
   margin-top: 30px;
 }
 
-
-
-
 /* Mobile only styling */
 
 @media screen and (max-width: 1000px) {
-
   .HowItWorks {
     padding: 30px;
   }
-
   .HowItWorksCurve {
     height: 70px;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     margin-bottom: -100px;
   }
-
   .HowItWorksTitle {
     font-size: 50px;
     line-height: 0.8;
@@ -88,37 +81,26 @@
     margin-bottom: 40px;
     text-align: right;
   }
-
   .HowItWorksItemTitle {
     font-size: 28px;
   }
-  
   .HowItWorksText p {
     font-size: 20px;
     margin-top: 10px;
-    /* text-align: justify; */
   }
-  
-
   .HowItWorksWrapper {
     flex-wrap: wrap;
   }
-
   .HowItWorksItem {
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center; */
     text-align: left;
     padding: 10px 0px;
   }
-
   .HowItWorksItemImg {
     width: 50px;
     height: 50px;
     margin: auto;
     margin-bottom: 10px;
   }
-
   .HowItWorksText {
     margin-top: 0px;
     max-width: 350px;
