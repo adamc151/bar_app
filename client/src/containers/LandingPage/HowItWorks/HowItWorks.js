@@ -18,10 +18,10 @@ const howItWorks = () => {
                 src={location}
               />
               <div className="HowItWorksText">
-                <div className="HowItWorksItemTitle">Find your location</div>
+                <div className="HowItWorksItemTitle">Find Your Location</div>
                 <p>
-                  Search for an area you want to see happy hour deals for, or
-                  provide your current location.
+                  Choose from Leeds and London or search for an area you want to
+                  see happy hour deals for
                 </p>
               </div>
             </div>
@@ -32,7 +32,7 @@ const howItWorks = () => {
                 src={calendar}
               />
               <div className="HowItWorksText">
-                <div className="HowItWorksItemTitle">See today's deals</div>
+                <div className="HowItWorksItemTitle">See Today's Deals</div>
                 <p>
                   See currently active happy hours & any upcoming deals you
                   might be interested in
@@ -46,10 +46,10 @@ const howItWorks = () => {
                 src={discoverIcon}
               />
               <div className="HowItWorksText">
-                <div className="HowItWorksItemTitle">Discover nearby bars</div>
+                <div className="HowItWorksItemTitle">Discover Nearby Bars</div>
                 <p>
-                  Find out more about the bars offering great deals throughout
-                  the city.
+                  Support local bars, pubs and resturants by discovering what
+                  they have to offer
                 </p>
               </div>
             </div>
