@@ -30,15 +30,9 @@
   margin-left: 20%;
 }
 
-@font-face {
-  font-family: Circular-black;
-  src: url(../../fonts/CircularStd-Black.otf);
-  font-weight: bolder;
-}
-
 .PreviewText div {
   font-size: 32px;
-  font-family: Circular-black;
+  font-family: Circular-Black;
   color: #212529;
   line-height: 140%;
 }

@@ -1,27 +1,10 @@
-@font-face {
-    font-family: Circular;
-    src: url(./fonts/CircularStd-Book.otf);
-}
-
-@font-face {
-    font-family: Circular-bold;
-    src: url(./fonts/CircularStd-Bold.otf);
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Circular-black;
-    src: url(./fonts/CircularStd-Black.otf);
-    font-weight: bolder;
-}
-
 .faqTitle{
     /* text-align: center; */
     /* max-width: 400px; */
     margin: auto;
     margin-top: 150px;
     /* font-size: 24px; */
-    font-family: Circular-bold;
+    font-family: Circular-Bold;
     margin-bottom: 300px;
     /* border-bottom: 3px solid rgb(202, 202, 202); */
     /* padding-bottom: 10px; */
