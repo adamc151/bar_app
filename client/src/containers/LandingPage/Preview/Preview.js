@@ -1,6 +1,6 @@
 import React from "react";
 import "./Preview.css";
-import LaptopMobileCombo from "../../images/laptop_iphone_combo.png";
+import LaptopMobileCombo from "../../images/laptop_iphone_combo-min.png";
 
 const preview = () => {
   return (

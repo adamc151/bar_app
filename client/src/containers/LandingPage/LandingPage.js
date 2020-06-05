@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../state/actions/actions";
 import "./LandingPage.css";
 
-import mobileHeader from "../images/tom_hh_1.jpg";
+import mobileHeader from "../images/tom_hh_2.jpg";
 import desktopHeader from "../images/background_img2.jpg";
 import locationIcon from "../icons/placeholder.png";
 import twitterIcon from "../icons/twitter.png";

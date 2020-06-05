@@ -269,7 +269,7 @@
   background-color: rgb(0, 115, 115);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   .react-parallax {
     margin-top: 45px;
     /* height: calc(100vh - 170px); */
