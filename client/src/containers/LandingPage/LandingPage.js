@@ -125,14 +125,14 @@ class LandingPage extends Component {
             </div>
 
             <div className="footerCenter">
-              <div
+              {/* <div
                 className="faqFooter"
                 onClick={() => {
                   history.push(`/faq`);
                 }}
               >
                 <a>FAQ</a>
-              </div>
+              </div> */}
               <a href="https://twitter.com/hapihour_io" className="inline">
                 <img alt="twitter icon" src={twitterIcon} />
               </a>
