@@ -1,29 +1,32 @@
 @font-face {
   font-family: Circular;
-  src: url(./fonts/CircularStd-Book.otf);
+  src: url(../fonts/CircularStd-Book.otf);
 }
 
 @font-face {
   font-family: Circular-bold;
-  src: url(./fonts/CircularStd-Bold.otf);
+  src: url(../fonts/CircularStd-Bold.otf);
   font-weight: bold;
 }
 
 @font-face {
   font-family: Circular-black;
-  src: url(./fonts/CircularStd-Black.otf);
+  src: url(../fonts/CircularStd-Black.otf);
   font-weight: bolder;
 }
 
 .wrapperLandingParent {
   font-family: Circular;
+  background-color: rgb(251, 251, 251);
   /* height: 100vh; */
 }
 
 .titleDescriptionLanding {
   color: white;
-  font-size: 90px;
+  font-size: 65px;
   font-family: Circular-black;
+  max-width: 1100px;
+  margin: auto;
   /* font-weight: lighter; */
   /* letter-spacing: -3px; */
   text-align: center;
@@ -31,22 +34,22 @@
 }
 
 .react-parallax-content {
-  height: 600px;
+  height: 700px;
 }
 
 .react-parallax {
   margin-top: 0px;
-  height: 600px;
+  height: 700px;
 }
 
 .custom-bg {
   width: 100vw;
-  height: 600px;
+  height: 700px;
 }
 
 .photosLandingWrapper {
   width: 100%;
-  height: 600px;
+  height: 700px;
   overflow: hidden;
   position: relative;
 }
@@ -71,83 +74,18 @@
   }
 }
 
-.descriptionColourWrapper {
-  background-color: rgba(255, 188, 44, 0.945);
-  box-shadow: inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747);
-}
-
-.descriptionAndTitleLandingWrapper {
-  margin: auto;
-  margin-top: -30px;
-  margin-bottom: 20px;
-  padding-top: 30px;
-  max-width: 1100px;
-  color: rgb(72, 72, 72);
-}
-
-.descriptionLandingWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
-.descriptionLandingItemFullLogo {
-  margin-top: -0px;
-  width: 70%;
-  /* height: 170px; */
-  min-width: 300px;
-  max-width: 500px;
-}
-
-.descriptionLandingTitle {
-  width: 200px;
-  margin: auto;
-  font-size: 24px;
-  font-family: Circular-bold;
-  border-bottom: 2px solid rgb(72, 72, 72);
-  padding-bottom: 10px;
-}
-
-.descriptionLandingItem {
-  width: 100%;
-  padding: 40px;
-}
-
-.descriptionLandingItemDesc {
-  font-family: Circular-bold;
-  font-size: 16px;
-  margin-top: 8px;
-}
-
-.descriptionLandingItemImg {
-  width: 64px;
-  height: 64px;
-}
-
-.descriptionLandingText {
-  margin-top: 20px;
-  max-width: 350px;
-}
-
-.descriptionLandingItemTitle {
-  font-size: 20px;
-  font-family: Circular-black;
-  margin-top: 10px;
-  color: white;
-}
-
 .titleDescriptionLandingWrapper {
   margin: auto;
   position: absolute;
   top: 150px;
   left: 0;
   right: 0;
-  max-width: 1000px;
+  /* max-width: 1000px; */
 }
 
 .locationWrapper {
   position: absolute;
-  top: 270px;
+  top: 400px;
   left: 0;
   right: 0;
   display: flex;
@@ -162,7 +100,7 @@
 
 .supportedAreas {
   position: absolute;
-  top: 555px;
+  top: 300px;
   left: 0;
   right: 0;
   font-family: Circular-bold;
@@ -179,13 +117,23 @@
   padding: 10px;
 }
 
+
+.descriptionLandingItemFullLogo {
+  min-width: 300px;
+  max-width: 600px;
+  /* width: 100%; */
+  box-sizing: border-box;
+  padding: 36px;
+  margin: 0px 0px;
+}
+
 .searchBarLandingWrapper {
   margin: auto;
   width: 80%;
   background-color: white;
   border-radius: 5px;
   text-align: left;
-  padding: 5px 0px 5px 10px;
+  padding: 4px 0px 4px 10px;
   -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
   -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
   box-shadow: 0px 3px 6px rgb(56, 56, 56);
@@ -194,19 +142,18 @@
 
 .searchBarLandingWrapper > a {
   color: grey;
-  font-size: 20px;
+  font-size: 26px;
   text-decoration: unset;
   width: 100%;
   display: inline-block;
 }
 
 .currentLocationLanding {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   background-color: white;
   border-radius: 30px;
   color: grey;
-  /* font-size: 20px; */
   padding: 2px;
   -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
   -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
@@ -216,7 +163,7 @@
 }
 
 .currentLocationLanding img {
-  width: 25px;
+  width: 32px;
   margin-top: 3px;
 }
 
@@ -258,31 +205,15 @@
   margin-bottom: 5px;
 }
 
-.instaFeed {
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  max-width: 1200px;
-  margin: auto;
-  flex-wrap: wrap;
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
-.singleInsta {
-  flex-direction: row;
-  padding-top: 20px;
-}
-
 .donationWrapper {
   margin: auto;
-  max-width: 1100px;
   color: rgb(72, 72, 72);
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-top: 80px;
+  margin-bottom: 30px;
 }
 
 .donationItem {
@@ -291,27 +222,54 @@
   padding-bottom: 30px;
 }
 
-.donationItemDesc {
-  font-size: 14px;
-  font-weight: lighter;
-  margin-top: 8px;
-  margin-bottom: 10px;
-  max-width: 300px;
+.donationItem img {
+  width: 150px;
 }
 
 .donationItemTitle {
-  font-size: 15px;
+  font-size: 26px;
   font-family: Circular-black;
-  margin-top: 20px;
+  color: #212529;
+  line-height: 140%;
+}
+
+.donationItemDesc {
+  font-size: 20px;
+  color: #495057;
+  line-height: 140%;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .overlayWrapper {
   position: absolute;
+  background-color: rgba(0, 0, 0, 0.342);
   top: 0;
   left: 0;
 }
 
-@media screen and (max-width: 1000px) {
+.CheckItOutButton {
+  padding: 16px 52px;
+  text-align: center;
+  /* background-color: rgb(253, 184, 37); */
+  background-color: rgb(6, 139, 139);
+  border: none;
+  color: white;
+  border-radius: 16px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  box-shadow: 0 4px 4px -2px rgba(0,0,0,.1), 0 8px 16px 0 rgba(0,0,0,.1);
+  cursor: pointer;
+}
+
+.CheckItOutButton:hover {
+  background-color: rgb(0, 115, 115);
+}
+
+@media screen and (max-width: 800px) {
   .react-parallax {
     margin-top: 45px;
     /* height: calc(100vh - 170px); */
@@ -325,7 +283,7 @@
     margin-top: 0px;
     top: 0;
     /* height: calc(100vh - 170px); */
-    height: 600px;
+    height: 585px;
   }
   .photoLanding {
     /* height: calc(100vh - 170px); */
@@ -338,98 +296,57 @@
   }
 
   .locationWrapper {
-    top: 360px;
+    top: 450px;
     margin-bottom: 50px;
+  }
+
+  .searchBarLandingWrapper {
+    padding: 5px 0px 5px 10px;
+  }
+  
+  .searchBarLandingWrapper > a {
+    font-size: 20px;
+  }
+
+  .currentLocationLanding {
+    width: 31px;
+    height: 31px;
+  }
+  
+  .currentLocationLanding img {
+    width: 26px;
+    margin-top: 3px;
   }
 
   .supportedAreas {
     font-size: 18px;
-    top: 540px;
-  }
-
-  .descriptionAndTitleLandingWrapper {
-    margin: auto;
-    max-width: 1100px;
-    margin-top: -12px;
-    color: rgb(72, 72, 72);
-    padding-top: 30px;
-    /* background-color: rgba(255, 188, 44, 0.945);
-        box-shadow:
-        inset 0px 11px 10px -10px rgba(192, 192, 192, 0.747); */
+    top: 370px;
+    text-align: left;
+    padding-left: 22px;
   }
 
   .titleDescriptionLanding {
     color: white;
     font-weight: bolder;
-    font-size: 70px;
-    /* width: 300px; */
+    font-size: 45px;
     width: 80%;
     text-align: left;
-    /* margin-top: 8vh; */
     margin: auto;
     margin-top: 110px;
   }
   
   .titleDescriptionLandingWrapper {
-    /* margin-left: 30px; */
     margin: auto;
     width: 80%;
     top: 0;
     right: unset;
   }
 
-  .descriptionLandingTitle {
-    /* margin-top: 55vh; */
-    /* margin-top: 40px; */
-    margin-bottom: 10px;
-    width: 200px;
-    font-size: 20px;
-  }
-
-  .descriptionLandingWrapper {
-    flex-wrap: wrap;
-    padding-bottom: 20px;
-  }
-
-  .descriptionLandingItem {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-align: left;
-    padding: 30px;
-  }
-
-  .descriptionLandingText {
-    margin-left: 20px;
-  }
-
-  .descriptionLandingItemImg {
-    width: 55px;
-    height: 55px;
-    margin-top: 12px;
-  }
-
-  .descriptionLandingText {
-    margin-top: 0px;
-    max-width: 350px;
-  }
-
-  .descriptionLandingItemDesc {
-    font-size: 17px;
-    margin-top: 0px;
-  }
-
-  .descriptionLandingItemTitle {
-    font-size: 17px;
-    font-family: Circular-bold;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    /* color: rgba(255, 188, 44, 0.945); */
-  }
-
   .descriptionLandingItemFullLogo {
-    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 36px;
+    margin: 0px 0px;
   }
 
   .bottomTextLandingWrapper {
@@ -443,44 +360,61 @@
     background-color: rgb(206, 206, 206);
   }
 
+  .CheckItOutButton {
+    padding: 14px 46px;
+  }
+  
+
+  .donationWrapper {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+  
+  .donationItem img {
+    width: 120px;
+  }
+  
+  .donationItemTitle {
+    font-size: 24px;
+  }
+  
+  .donationItemDesc {
+    font-size: 18px;
+  }
+
   .header {
     left: 0;
     top: 0;
     position: fixed;
     width: 100%;
-    background-color: rgb(255, 188, 44);
-    padding: 5px 0px 8px 15px;
+    background-color: rgb(244, 191, 75);
+    padding: 8px 10px 8px 20px;
     text-align: left;
-    font-size: 25px;
+    font-size: 30px;
     z-index: 200;
   }
 
   .faqFooter {
     font-size: 17px;
   }
-
-  .line {
-    border-width: 2px;
-    /* display: none; */
-  }
 }
 
-@media (max-width: 321px){
+@media (max-width: 361px){
   .titleDescriptionLanding {
-    font-size: 60px;
+    font-size: 40px;
   }
 }
 
-.footer {
+/* .footer {
   left: 0;
   bottom: 0;
   background-color: rgba(255, 188, 44, 0.945);
   text-align: left;
   padding: 20px;
   box-shadow: inset 0px 11px 10px -10px rgb(145, 145, 145);
-}
+} */
 
-.footerItem {
+/* .footerItem {
   display: block;
   font-size: 12px;
   font-weight: bold;
@@ -498,10 +432,10 @@
   font-family: Circular-black;
   font-size: 20px;
   padding: 0px;
-}
+} */
 
 .beerIconLanding {
-  height: 25px;
+  height: 30px;
   margin-top: 4px;
   float: right;
   margin-right: 15px;
