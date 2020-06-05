@@ -25,10 +25,6 @@ class LandingPage extends Component {
   }
 
   render() {
-    // const barImgs = [bar1, bar2, bar3];
-    // const num = Math.floor(Math.random() * Math.floor(barImgs.length));
-    // // const barImg = barImgs[num];
-    // const barImg = bar4;
     let barImg = "";
     let showMessage = true;
 
@@ -114,7 +110,7 @@ class LandingPage extends Component {
                 </div>
                 <a href={"https://paypal.me/hapihour/3.5"}>
                   <img
-                    alt="paypal"
+                    alt="Paypal Donation"
                     className=""
                     src={
                       "https://img.shields.io/badge/Donate-PayPal-orange.svg"

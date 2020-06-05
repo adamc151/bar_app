@@ -22,7 +22,7 @@ const preview = () => {
           </div>
           <div className="double-column">
             <div className="PreviewImages">
-              <img className="ComboImage" src={LaptopMobileCombo} />
+              <img className="ComboImage" src={LaptopMobileCombo} alt="Laptop and Mobile Application" />
             </div>
           </div>
         </div>

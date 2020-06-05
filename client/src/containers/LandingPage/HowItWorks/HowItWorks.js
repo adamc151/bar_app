@@ -16,7 +16,7 @@ const howItWorks = () => {
           <div className="HowItWorksItem">
             <img
               className="HowItWorksItemImg"
-              alt="location"
+              alt="Happy hour location"
               src={location}
             />
             <div className="HowItWorksText">
@@ -32,7 +32,7 @@ const howItWorks = () => {
           <div className="HowItWorksItem">
             <img
               className="HowItWorksItemImg"
-              alt="calendar"
+              alt="Calendar Days"
               src={calendar}
             />
             <div className="HowItWorksText">
@@ -47,7 +47,7 @@ const howItWorks = () => {
           <div className="HowItWorksItem">
             <img
               className="HowItWorksItemImg"
-              alt="beers"
+              alt="Discover Deals"
               src={discoverIcon}
             />
             <div className="HowItWorksText">
