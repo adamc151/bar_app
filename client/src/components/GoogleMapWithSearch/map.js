@@ -107,7 +107,6 @@ export class MyMap extends React.Component {
       setCenterCoordinates,
       setHoverCoordinates,
       fetchData,
-      timeFilter,
       miles,
     } = this.props;
     const { latitude: lat, longitude: long } = position.coords;
@@ -119,7 +118,7 @@ export class MyMap extends React.Component {
     setCenterCoordinates([lat, long]);
     setHoverCoordinates([lat, long]);
 
-    doFetchData && fetchData({ lat, long, miles, timeFilter });
+    doFetchData && fetchData({ lat, long, miles });
   }
 
   render() {
@@ -131,7 +130,6 @@ export class MyMap extends React.Component {
       centerCoordinates,
       userCoordinates,
       miles,
-      timeFilter,
       jwt,
       displayCarousel,
       displaySearchBar,
@@ -143,7 +141,6 @@ export class MyMap extends React.Component {
       lat: centerCoordinates[0],
       long: centerCoordinates[1],
       miles,
-      timeFilter,
       jwt,
     };
 

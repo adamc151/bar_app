@@ -1,14 +1,3 @@
-@font-face {
-  font-family: Circular;
-  src: url(../../containers/fonts/CircularStd-Book.otf);
-}
-
-@font-face {
-  font-family: Circular-bold;
-  src: url(../../containers/fonts/CircularStd-Bold.otf);
-  font-weight: bold;
-}
-
 .moreImages {
   cursor: pointer;
   right: 10px;
@@ -208,7 +197,7 @@
 }
 
 .detailsName {
-  font-family: Circular-bold;
+  font-family: Circular-Bold;
   margin-top: 0px;
   padding-top: 15px;
   font-size: 20px;
@@ -226,7 +215,7 @@
 }
 
 .dealsTitle {
-  font-family: Circular-bold;
+  font-family: Circular-Bold;
   margin-top: 40px;
   margin-bottom: 10px;
   font-size: 20px;

@@ -179,10 +179,6 @@ export function setMiles(miles) {
   return { type: SET_MILES, payload: { miles } };
 }
 
-export function setTimeFilter(timeFilter) {
-  return { type: SET_TIME_FILTER, payload: { timeFilter } };
-}
-
 export function categoriseData(data, returnAllDeals = false) {
   var d = new Date();
   var h = d.getHours();

@@ -29,7 +29,6 @@ let initialState = {
   loading: true,
   loadingBar: false,
   miles: 10,
-  timeFilter: "All",
   jwt: '',
   userCoordinates: [null, null],
   centerCoordinates: [1, 1],
@@ -81,9 +80,6 @@ export default function transactions(state = initialState, action) {
     case SET_MILES:
       // console.log("SET_MILES Action: " + action.payload.miles);
       return { ...state, miles: action.payload.miles };
-    case SET_TIME_FILTER:
-      // console.log("SET_TIME_FILTER Action: " + action.payload.timeFilter);
-      return { ...state, timeFilter: action.payload.timeFilter };
     case SET_USER_COORDINATES:
       // console.log("SET_USER_COORDINATES Action");
       return { ...state, userCoordinates: action.payload };
