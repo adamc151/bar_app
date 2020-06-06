@@ -16,9 +16,12 @@ class header extends Component {
     });
   };
 
+  
   render() {
+    const classes = ["Header"];
+    this.state.displayMobileHeader ? classes.push("ToggleActive") : null;
     return (
-      <div className="Header">
+      <div className={classes.join(" ")}>
         <img
           src={hh_logo}
           alt="Hapihour Logo"
@@ -29,6 +32,7 @@ class header extends Component {
         <Burger clicked={this.handleBurgerClick} />
         {this.state.displayMobileHeader ? (
           <div className="HeaderMobile">
+            <Link className="MobileItem" to={`/faq`}>Contact</Link>
             <Link className="MobileItem" to={`/faq`}>FAQ</Link>
             <div className="dropdown MobileItem">
               <button className="dropbtn">

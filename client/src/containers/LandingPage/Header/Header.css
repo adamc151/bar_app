@@ -13,7 +13,7 @@
   box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562); */
   z-index: 200;
   box-sizing: border-box;
-  font-family: Circular-Bold;
+  font-family: Circular;
 }
 
 .Header img {
@@ -23,6 +23,7 @@
 }
 
 /* Links inside the navbar */
+
 .Header a {
   float: right;
   text-align: center;
@@ -33,12 +34,14 @@
 }
 
 /* The dropdown container */
+
 .dropdown {
   float: right;
   overflow: hidden;
 }
 
 /* Dropdown button */
+
 .dropdown .dropbtn {
   font-size: 20px;
   color: #ffffff;
@@ -46,27 +49,32 @@
   outline: none;
   padding: 28px 30px;
   background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
 }
 
 /* Add a red background color to navbar links on hover */
+
 .Header a:hover, .dropdown:hover .dropbtn {
   background-color: rgba(255, 188, 44, 0.738);
 }
 
 /* Dropdown content (hidden by default) */
+
 .dropdown-content {
   font-family: Circular;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 /* Links inside the dropdown */
+
 .dropdown-content a {
   float: none;
   color: #212529;
@@ -77,11 +85,13 @@
 }
 
 /* Add a grey background color to dropdown links on hover */
+
 .dropdown-content a:hover {
   background-color: #ddd;
 }
 
 /* Show the dropdown menu on hover */
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -93,33 +103,55 @@
     height: 55px;
     padding: 10px 0px 6px 20px;
   }
-
+  /* Links inside the navbar */
+  .Header a {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 18px;
+    padding: 10px 10px 18px;
+    /* border-top: solid rgba(219, 219, 219, 0.608) 1px; */
+  }
+  .ToggleActive {
+    background-color: rgba(237, 179, 53, 0.957);
+  }
   .Header a {
     float: left;
   }
-
   .dropdown {
     text-align: center;
   }
-
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    display: block;
+    text-align: right;
+    border-top: solid rgba(219, 219, 219, 0.436) 1px;
+  }
+  /* Add a red background color to navbar links on hover */
+  .Header a:hover, .dropdown:hover .dropbtn {
+    background-color: rgba(237, 179, 53, 0.238);
+  }
   .HeaderItem {
     display: none;
   }
-
   .HeaderMobile {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(112, 112, 112);
+    background-color: rgba(237, 179, 53, 0.238);
+    -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    box-shadow: 0px 3px 4px rgba(84, 84, 84, 0.347);
+    /* transition: ease 0.5s; */
   }
-
-  .MobileItem {
-  }
+  .MobileItem {}
 }
 
 /* Only For Desktop */
 
 @media screen and (min-width: 801px) {
-  .HeaderMobile {
-  }
+  .HeaderMobile {}
 }
