@@ -110,7 +110,7 @@ class LandingPage extends Component {
               </div>
             </div>
 
-            <div className="footerCenter">
+            {/* <div className="footerCenter">
               <a href="https://twitter.com/hapihour_io" className="inline">
                 <img alt="twitter icon" src={twitterIcon} />
               </a>
@@ -133,7 +133,7 @@ class LandingPage extends Component {
               >
                 <img alt="email icon" src={emailIcon} />
               </a>
-            </div>
+            </div> */}
 
             
           </div>
