@@ -28,7 +28,7 @@ class BarWrapper extends Component {
           <title>Hapihour | Details</title>
           <link rel="canonical" href="hapihour.io" />
         </Helmet>
-        <div className="header">
+        {/* <div className="header">
           <Link className="headerTextHapi" to={"/"}>
             hapi
           </Link>
@@ -38,14 +38,14 @@ class BarWrapper extends Component {
           <Link className="beerIconLanding" to={"/"}>
             <img src={beerIcon} alt="icon" style={{ height: "100%" }} />
           </Link>
-        </div>
+        </div> */}
         <Link className="navigationClass" to={"/map"} alt="back">
           <img src={navigate} className="bottomTextbackNavigation" />
         </Link>
 
         <div className="barContainer">
           <div className="barContainerGrow">{this.props.children}</div>
-          <div className="footerCenter">
+          {/* <div className="footerCenter">
             <div className="footerItemTitle">SOMETHING WRONG? LET US KNOW</div>
             <a href="https://twitter.com/hapihour_io" className="inline">
               <img alt="twitter" src={twitterIcon} />
@@ -66,8 +66,9 @@ class BarWrapper extends Component {
             >
               <img alt="email" src={emailIcon} />
             </a>
-          </div>
+          </div> */}
         </div>
+      
       </div>
     );
   }
