@@ -16,7 +16,6 @@ class header extends Component {
     });
   };
 
-  
   render() {
     const classes = ["Header"];
     this.state.displayMobileHeader ? classes.push("ToggleActive") : null;
@@ -29,14 +28,20 @@ class header extends Component {
             this.props.history.push(`/`);
           }}
         />
-        <Burger clicked={this.handleBurgerClick} />
         {this.state.displayMobileHeader ? (
-          <div className="HeaderMobile">
-            <Link className="MobileItem" to={`/faq`}>Contact</Link>
-            <Link className="MobileItem" to={`/faq`}>FAQ</Link>
+          <div className="CloseButton" onClick={this.handleBurgerClick} />
+        ) : (
+          <Burger clicked={this.handleBurgerClick} />
+        )}
+        {this.state.displayMobileHeader ? (
+          <Aux>
+            {/* <Link className="MobileItem" to={`/faq`}>Contact</Link>
+            <Link className="MobileItem" to={`/faq`}>
+              Frequently Asked Questions
+            </Link> */}
             <div className="dropdown MobileItem">
               <button className="dropbtn">
-                Locations
+                Available Locations
                 <i className="fa fa-caret-down"></i>
               </button>
               <div className="dropdown-content">
@@ -44,13 +49,13 @@ class header extends Component {
                 <Link to={`/map/clapham`}>London Clapham</Link>
               </div>
             </div>
-          </div>
+          </Aux>
         ) : null}
 
         <Aux>
-          <Link className="HeaderItem" to={`/faq`}>
+          {/* <Link className="HeaderItem" to={`/faq`}>
             FAQ
-          </Link>
+          </Link> */}
           <div className="HeaderItem dropdown">
             <button className="dropbtn">
               Locations

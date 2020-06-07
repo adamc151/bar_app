@@ -103,32 +103,46 @@
     height: 55px;
     padding: 10px 0px 6px 20px;
   }
+
+  .Header {
+    transition: ease 0.4s;
+  }
   /* Links inside the navbar */
   .Header a {
     font-size: 18px;
-    padding: 10px 30px;
+    padding: 17px 10px;
+    box-sizing: border-box;
   }
   /* Dropdown button */
   .dropdown .dropbtn {
     font-size: 18px;
-    padding: 10px 10px 18px;
+    padding: 17px 10px;
     /* border-top: solid rgba(219, 219, 219, 0.608) 1px; */
   }
   .ToggleActive {
-    background-color: rgba(237, 179, 53, 0.957);
+    background-color: rgba(237, 179, 53, 0.984);
+    -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
+    box-shadow: 0px 3px 4px rgba(84, 84, 84, 0.347);
   }
-  .Header a {
+  /* .Header a {
     float: left;
-  }
+  } */
   .dropdown {
     text-align: center;
   }
+
+  .dropdown-content {
+    width: 100%;
+    background-color: rgba(236, 236, 236, 0.984);
+  }
   /* Links inside the dropdown */
   .dropdown-content a {
+    font-size: 16px;
     float: none;
     display: block;
-    text-align: right;
-    border-top: solid rgba(219, 219, 219, 0.436) 1px;
+    text-align: center;
+    border-top: solid rgba(176, 176, 176, 0.436) 1px;
   }
   /* Add a red background color to navbar links on hover */
   .Header a:hover, .dropdown:hover .dropbtn {
@@ -138,16 +152,44 @@
     display: none;
   }
   .HeaderMobile {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    width: 100%;
-    background-color: rgba(237, 179, 53, 0.238);
+    width: 50%;
+    float: right;
     -moz-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
     -webkit-box-shadow: 0px 3px 6px rgba(56, 56, 56, 0.562);
-    box-shadow: 0px 3px 4px rgba(84, 84, 84, 0.347);
+    box-shadow: 0px 3px 4px rgba(84, 84, 84, 0.347); */
     /* transition: ease 0.5s; */
   }
-  .MobileItem {}
+  .MobileItem {
+    border-top: solid 1px rgb(209, 152, 59);
+    width: 100%;
+  }
+
+  /* Close Button Styling */
+
+  .CloseButton {
+    position: absolute;
+    right: 28px;
+    top: 24px;
+    width: 32px;
+    height: 32px;
+  }
+  .CloseButton:before, .CloseButton:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 3px;
+    background-color: rgb(255, 255, 255);
+  }
+  .CloseButton:before {
+    transform: rotate(45deg);
+  }
+  .CloseButton:after {
+    transform: rotate(-45deg);
+  }
+  
 }
 
 /* Only For Desktop */
