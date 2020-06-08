@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainContainer from "./containers/MainContainer";
-// import FAQ from "./containers/FAQ";
+import FAQ from "./containers/FAQ";
 import ReactGA from "react-ga";
 import LandingPage from "./containers/LandingPage/LandingPage";
 import Helmet from "react-helmet";
@@ -36,7 +36,7 @@ class App extends Component {
           <div>
             <Switch>
               <Route path="/(map|details)/" component={MainContainer} />
-              {/* <Route exact path="/faq" component={FAQ} /> */}
+              <Route exact path="/faq" component={FAQ} />
               <Route path="/" component={LandingPage} />
               <Route component={LandingPage} />
             </Switch>

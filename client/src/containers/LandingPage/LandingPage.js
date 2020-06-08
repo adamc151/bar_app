@@ -9,7 +9,6 @@ import desktopHeader from "../images/background_img2.jpg";
 import locationIcon from "../icons/placeholder.png";
 import twitterIcon from "../icons/twitter.png";
 import emailIcon from "../icons/email.png";
-import beerIcon from "../icons/beer.png";
 import instagramIcon from "../icons/instagram.png";
 import facebookIcon from "../icons/facebook.png";
 import { Route, Link } from "react-router-dom";
@@ -17,6 +16,7 @@ import Image from "../../components/Image/Image";
 import { Parallax, Background } from "react-parallax";
 import Preview from "./Preview/Preview";
 import HowItWorks from "./HowItWorks/HowItWorks";
+import Header from './Header/Header';
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -42,6 +42,7 @@ class LandingPage extends Component {
       <Route
         render={({ history }) => (
           <div className="wrapperLandingParent">
+            <Header history={history}/>
             <div className="photosLandingWrapper">
               <Parallax strength={300}>
                 <Background className="custom-bg">
@@ -59,26 +60,26 @@ class LandingPage extends Component {
                 <div className="titleDescriptionLanding">
                   Find the best happy hours happening right now.
                 </div>
-              </div>
-
-              <div className="supportedAreas">
-                {showMessage && "Locations include:"}
-                <div className="supportedAreasLinks">
-                  <Link to={`/map/leeds`}>Leeds</Link>•
-                  <Link to={`/map/clapham`}>London - Clapham</Link>
+                <div className="supportedAreas">
+                  {showMessage && "Locations include:"}
+                  <div className="supportedAreasLinks">
+                    <Link to={`/map/leeds`}>Leeds</Link><a>•</a>
+                    <Link to={`/map/clapham`}>London - Clapham</Link>
+                  </div>
+                </div>
+                <div className="locationWrapper">
+                  <div className="searchBarLandingWrapper">
+                    <Link to={`/map`}>Search...</Link>
+                  </div>
+                  <div className="currentLocationLanding">
+                    <Link to={`/map`}>
+                      <img alt="location icon" src={locationIcon} />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
-              <div className="locationWrapper">
-                <div className="searchBarLandingWrapper">
-                  <Link to={`/map`}>Search...</Link>
-                </div>
-                <div className="currentLocationLanding">
-                  <Link to={`/map`}>
-                    <img alt="location icon" src={locationIcon} />
-                  </Link>
-                </div>
-              </div>
+
             </div>
 
             <Preview />
@@ -109,7 +110,7 @@ class LandingPage extends Component {
               </div>
             </div>
 
-            <div className="footerCenter">
+            {/* <div className="footerCenter">
               <a href="https://twitter.com/hapihour_io" className="inline">
                 <img alt="twitter icon" src={twitterIcon} />
               </a>
@@ -132,13 +133,9 @@ class LandingPage extends Component {
               >
                 <img alt="email icon" src={emailIcon} />
               </a>
-            </div>
+            </div> */}
 
-            <div className="header">
-              <div className="headerTextHapi">hapi</div>
-              <div className="headerTextHour">hour</div>{" "}
-              <img alt="beer icon" src={beerIcon} className="beerIconLanding" />
-            </div>
+            
           </div>
         )}
       />

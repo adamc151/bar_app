@@ -1,0 +1,25 @@
+.Burger {
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  float: right;
+  margin: 24px 24px;
+}
+
+.Burger div {
+  width: 90%;
+  height: 3px;
+  background-color: rgb(255, 255, 255);
+}
+
+@media (min-width: 800px) {
+  .Burger {
+      display: none;
+  }
+}
