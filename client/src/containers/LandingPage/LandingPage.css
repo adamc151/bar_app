@@ -1,6 +1,6 @@
 .wrapperLandingParent {
   font-family: Circular;
-  background-color: rgb(251, 251, 251);
+  background-color: rgb(245, 245, 245);
   /* margin-top: 80px; */
 }
 
@@ -202,8 +202,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 80px;
-  margin-bottom: 30px;
+  margin-top: 40px;
+  margin-bottom: 50px;
 }
 
 .donationItem {
@@ -213,18 +213,18 @@
 }
 
 .donationItem img {
-  width: 150px;
+  width: 120px;
 }
 
 .donationItemTitle {
-  font-size: 26px;
+  font-size: 24px;
   font-family: Circular-Black;
   color: #212529;
   line-height: 140%;
 }
 
 .donationItemDesc {
-  font-size: 20px;
+  font-size: 18px;
   color: #495057;
   line-height: 140%;
   max-width: 600px;
@@ -248,7 +248,7 @@
   border-radius: 16px;
   font-size: 30px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 65px;
   margin-bottom: 50px;
   box-shadow: 0 4px 4px -2px rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0, 0, .1);
   cursor: pointer;
@@ -318,12 +318,13 @@
   }
   .titleDescriptionLandingWrapper {
     margin: auto;
-    margin-top: 140px;
+    margin-top: 170px;
     width: 100%;
     /* top: 0;
     right: unset; */
   }
   .CheckItOutButton {
+    font-size: 27px;
     padding: 14px 46px;
   }
   .donationWrapper {

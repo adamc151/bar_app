@@ -16,7 +16,8 @@ import Image from "../../components/Image/Image";
 import { Parallax, Background } from "react-parallax";
 import Preview from "./Preview/Preview";
 import HowItWorks from "./HowItWorks/HowItWorks";
-import Header from './Header/Header';
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -42,7 +43,7 @@ class LandingPage extends Component {
       <Route
         render={({ history }) => (
           <div className="wrapperLandingParent">
-            <Header history={history}/>
+            <Header history={history} />
             <div className="photosLandingWrapper">
               <Parallax strength={300}>
                 <Background className="custom-bg">
@@ -63,7 +64,8 @@ class LandingPage extends Component {
                 <div className="supportedAreas">
                   {showMessage && "Locations include:"}
                   <div className="supportedAreasLinks">
-                    <Link to={`/map/leeds`}>Leeds</Link><a>•</a>
+                    <Link to={`/map/leeds`}>Leeds</Link>
+                    <a>•</a>
                     <Link to={`/map/clapham`}>London - Clapham</Link>
                   </div>
                 </div>
@@ -78,8 +80,6 @@ class LandingPage extends Component {
                   </div>
                 </div>
               </div>
-
-
             </div>
 
             <Preview />
@@ -110,32 +110,7 @@ class LandingPage extends Component {
               </div>
             </div>
 
-            {/* <div className="footerCenter">
-              <a href="https://twitter.com/hapihour_io" className="inline">
-                <img alt="twitter icon" src={twitterIcon} />
-              </a>
-              <a className="inline dot">•</a>
-              <a
-                href="https://www.instagram.com/hapihour.io/"
-                className="inline"
-              >
-                <img alt="instagram icon" src={instagramIcon} />
-              </a>
-              <a className="inline dot">•</a>
-              <a href="https://www.facebook.com/hapihour.io" className="inline">
-                <img alt="facebook icon" src={facebookIcon} />
-              </a>
-              <a className="inline dot">•</a>
-              <a
-                href="mailto:hapihour.io@gmail.com"
-                className="inline"
-                target="_top"
-              >
-                <img alt="email icon" src={emailIcon} />
-              </a>
-            </div> */}
-
-            
+            <Footer />
           </div>
         )}
       />
