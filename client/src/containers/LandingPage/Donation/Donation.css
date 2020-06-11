@@ -1,0 +1,52 @@
+.donationWrapper {
+  margin: auto;
+  color: rgb(72, 72, 72);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.donationItem {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.donationItem img {
+  width: 120px;
+}
+
+.donationItemTitle {
+  font-size: 24px;
+  font-family: Circular-Black;
+  color: #212529;
+  line-height: 140%;
+}
+
+.donationItemDesc {
+  font-size: 18px;
+  color: #495057;
+  line-height: 140%;
+  max-width: 600px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .donationWrapper {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+  .donationItem img {
+    width: 120px;
+  }
+  .donationItemTitle {
+    font-size: 24px;
+  }
+  .donationItemDesc {
+    font-size: 18px;
+  }
+}
