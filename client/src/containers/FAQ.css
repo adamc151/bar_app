@@ -19,7 +19,8 @@
 .FAQContact {
   margin: 0px 20px;
   margin-top: 0px;
-  padding: 10px;
+  padding: 25px;
+  box-sizing: border-box;
   border-radius: 5px;
   background-color: rgb(255, 255, 255);
   -moz-box-shadow: 0px 6px 8px rgb(85, 85, 85);
@@ -28,7 +29,7 @@
   border-left: rgb(255, 184, 71) solid 8px;
   /* width: 40%; */
   min-width: 280px;
-  max-width: 550px;
+  max-width: 510px;
   text-align: left;
 }
 
@@ -37,9 +38,26 @@
 }
 
 .FAQContactItem {
-  background-color: rgba(0, 128, 128, 0.152);
-  padding: 5px;
+  background-color: rgba(170, 170, 170, 0);
+  font-size: 18px;
   margin-top: 20px;
+  color: #495057;
+  display: flex;
+}
+
+.FAQContactItem:hover {
+  background-color: rgba(170, 170, 170, 0.39);
+}
+
+.FAQContactIcon {
+  height: 70px;
+  padding: 15px;
+}
+
+.FAQContactItem p {
+  font-size: 25px;
+  padding: 10px;
+  font-family: Circular-Bold;
 }
 
 .FAQQuestions {
@@ -66,6 +84,18 @@
     margin-right: 10px;
     height: 30px;
     fill: #212529;
+  }
+  .FAQContact {
+    min-width: 100%;
+    max-width: 510px;
+  }
+  .FAQContactIcon {
+    height: 55px;
+  }
+  .FAQContactItem p {
+    font-size: 22px;
+    padding: 5px;
+    /* text-align: center; */
   }
 }
 
