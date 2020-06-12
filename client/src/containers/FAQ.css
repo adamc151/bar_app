@@ -6,7 +6,7 @@
 
 .FAQBlock {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 80px;
   max-width: 1500px;
   margin-bottom: 100px;
   z-index: 100;
@@ -26,7 +26,9 @@
   -webkit-box-shadow: 6px 0px 8px rgb(71, 71, 71);
   box-shadow: 0px 3px 6px rgb(91, 91, 91);
   border-left: rgb(255, 184, 71) solid 8px;
-  max-width: 40%;
+  /* width: 40%; */
+  min-width: 280px;
+  max-width: 550px;
   text-align: left;
 }
 
@@ -42,7 +44,8 @@
 
 .FAQQuestions {
   margin-top: 40px;
-  max-width: 40%;
+  min-width: 280px;
+  /* width: 40%; */
 }
 
 .FAQQuestionsTitle {
