@@ -7,6 +7,7 @@ import Helmet from "react-helmet";
 import Image from "../components/Image/Image";
 import Header from "./LandingPage/Header/Header";
 import Footer from "./LandingPage/Footer/Footer";
+import MailIcon from "../containers/icons/mail.svg";
 
 import {
   Accordion,
@@ -91,7 +92,7 @@ class FAQ extends Component {
               <div className="FAQContact">
                 <div className="FAQContactTitle">
                   <svg
-                    className="FAQQuestionIcon"
+                    className="ContactIcon"
                     height="30pt"
                     width="30pt"
                     viewBox="0 0 477.867 477.867"
@@ -107,10 +108,12 @@ class FAQ extends Component {
                       </g>
                     </g>
                   </svg>
-                  Contact Us
+                  <div>Contact Us</div>
                 </div>
                 <div className="FAQContactItem">
-                  Please refer to our FAQs for any initial queries. If something
+                  Please refer to our FAQs for any initial queries.
+                  
+                  <br/><br/>If something
                   is still not clear please get in contact via any of the
                   following methods.
                 </div>
@@ -155,7 +158,8 @@ class FAQ extends Component {
 
                 <a href="mailto:hapihour.io@gmail.com" target="_top">
                   <div className="FAQContactItem">
-                    <p>hapihour.io@gmail.com</p>
+                    <img src={MailIcon} className="FAQContactIcon" />
+                    <p className="FAQEmail">hapihour.io@gmail.com</p>
                   </div>
                 </a>
               </div>

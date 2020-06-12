@@ -18,7 +18,7 @@
 
 .FAQContact {
   margin: 0px 20px;
-  margin-top: 0px;
+  margin-top: 35px;
   padding: 25px;
   box-sizing: border-box;
   border-radius: 5px;
@@ -29,28 +29,30 @@
   border-left: rgb(255, 184, 71) solid 8px;
   /* width: 40%; */
   min-width: 280px;
-  max-width: 510px;
+  max-width: 570px;
   text-align: left;
 }
 
 .FAQContactTitle {
   font-size: 35px;
+  display: flex;
+}
+
+.ContactIcon {
+  margin-right: 15px;
+  padding: 2px;
 }
 
 .FAQContactItem {
   background-color: rgba(170, 170, 170, 0);
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 20px;
   color: #495057;
   display: flex;
 }
 
-.FAQContactItem:hover {
-  background-color: rgba(170, 170, 170, 0.39);
-}
-
 .FAQContactIcon {
-  height: 70px;
+  width: 65px;
   padding: 15px;
 }
 
@@ -76,7 +78,10 @@
   fill: #212529;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
+  .FAQBlock{
+    margin-top: 0px;
+  }
   .FAQQuestionsTitle {
     font-size: 28px;
   }
@@ -90,12 +95,24 @@
     max-width: 510px;
   }
   .FAQContactIcon {
-    height: 55px;
+    height: 50px;
+    padding-left: 0px;
   }
   .FAQContactItem p {
-    font-size: 22px;
+    font-size: 20px;
     padding: 5px;
     /* text-align: center; */
+  }
+  .FAQEmail {
+    margin-top: 25px;
+    font-size: 17px !important;
+  }
+  .FAQQuestions {
+    margin-top: 40px;
+    min-width: 100%;
+  }
+  .accordion {
+    min-width: 100%;
   }
 }
 
