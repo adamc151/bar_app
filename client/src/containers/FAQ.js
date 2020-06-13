@@ -68,7 +68,7 @@ class FAQ extends Component {
             </Helmet>
 
             <Header history={history} />
-            <div className="photosLandingWrapper FAQPhoto">
+            <div className="FAQphotosLandingWrapper">
               <Parallax strength={300}>
                 <Background className="custom-bg">
                   <Image
@@ -80,8 +80,8 @@ class FAQ extends Component {
               </Parallax>
             </div>
 
-            <div className="photosLandingWrapper overlayWrapper FAQTitle">
-              <div className="titleDescriptionLandingWrapper">
+            <div className="FAQphotosLandingWrapper overlayWrapper">
+              <div className="FAQtitleDescriptionLandingWrapper">
                 <div className="titleDescriptionLanding">
                   Frequently Asked Questions/ Contact Details
                 </div>
