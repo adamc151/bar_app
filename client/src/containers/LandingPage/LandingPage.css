@@ -26,7 +26,7 @@
 
 .custom-bg {
   width: 100vw;
-  height: 750px;
+  height: 850px;
 }
 
 .photosLandingWrapper {
@@ -189,15 +189,15 @@
     height: 660px;
   }
   .custom-bg {
-    height: 660px;
+    height: 860px;
   }
   .photosLandingWrapper {
     margin-top: 0px;
     top: 0;
-    height: 600px;
+    height: 580px;
   }
   .photoLanding {
-    height: 660px;
+    height: 670px;
     margin-top: 50px;
   }
   .wrapperLandingParent {
