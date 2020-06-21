@@ -45,9 +45,14 @@ class SellingPage extends Component {
               </p>
             </div>
 
+            <div>Feature 1</div>
+            <div>Feature 2</div>
+            <div>Feature 3</div>
+
             <div className="SellingPageCallToAction">
-              <h1>Remind them why they came</h1>
-              <button className="">Request Featured Listing</button>
+              <h2>Get free access to these great features.</h2>
+              <button className="">Get Access To The Admin Centre</button>
+              <p>Free earlybird access • No credit card required</p>
             </div>
             <Footer />
           </div>
