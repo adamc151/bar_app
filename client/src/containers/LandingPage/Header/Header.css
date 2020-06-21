@@ -18,6 +18,7 @@
 .Header img {
   height: 60px;
   padding: 15px 0px 15px 0px;
+  cursor: pointer;
 }
 
 /* Links inside the navbar */
@@ -26,7 +27,7 @@
   float: right;
   text-align: center;
   font-size: 18px;
-  color: #ffffff;
+  /* color: #ffffff; */
   padding-top: 25px;
   padding-bottom: 35px;
   padding-left: 25px;
@@ -45,7 +46,7 @@
 
 .dropdown .dropbtn {
   font-size: 18px;
-  color: #ffffff;
+  /* color: #ffffff; */
   border: none;
   outline: none;
   padding-top: 25px;
@@ -55,6 +56,7 @@
   font-family: inherit;
   font-weight: bold;
   margin: 0;
+  cursor: pointer;
 }
 
 /* Dropdown content (hidden by default) */
@@ -103,7 +105,7 @@
   float: right;
   text-align: center;
   font-size: 20px;
-  color: #ffffff;
+  /* color: #ffffff; */
   padding: 27px 0px;
   margin-left: 15px;
   text-decoration: none;
@@ -228,4 +230,20 @@
   .CloseButton:after {
     transform: rotate(-45deg);
   }
+}
+
+.Black {
+  color: black;
+}
+
+.Black svg {
+  fill: black;
+}
+
+.White {
+  color: white;
+}
+
+.White svg {
+  fill: white;
 }
