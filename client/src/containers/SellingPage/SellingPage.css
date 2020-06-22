@@ -176,28 +176,41 @@
   position: fixed;
   top: 0;
   right: 0;
-  margin: 20px;
+  margin: 30px;
+  width: 28px;
+  cursor: pointer;
 }
+
+.SellingPageCloseButton:hover {
+  opacity: 0.5;
+}
+
 
 .SellingPageEmailInput {
   padding: 10px;
   border-radius: 6px;
   border: none;
-  width: 60%;
+  width: 300px;
   font-size: 18px;
   margin-right: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: 0px 1px 4px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192);
+  border: solid 2px rgb(209, 209, 209);
+  /* box-shadow: 0px 1px 4px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192); */
 }
 
 .SellingPageSendButton {
-  padding: 10px 20px;
+  padding: 11px 25px;
   font-size: 18px;
   font-weight: bold;
   border-radius: 6px;
   border: none;
-  box-shadow: 0px 1px 60px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192);
+  /* box-shadow: 0px 1px 60px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192); */
   background-color: rgb(255, 173, 59);
   color: white;
+  cursor: pointer;
+}
+
+.SellingPageSendButton:hover {
+  opacity: 0.7;
 }
