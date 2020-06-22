@@ -3,13 +3,26 @@ import "./SellingPage.css";
 import { Route, Link } from "react-router-dom";
 import Header from "../LandingPage/Header/Header";
 import Footer from "../LandingPage/Footer/Footer";
+import Modal from "./Modal/Modal";
 import AdminPreview from "../images/admin_preview.png";
-import FeatureIcon from "../images/example.png";
 import TopOfList from "../icons/top_of_list.svg";
 import Verified from "../icons/verified.svg";
 import UploadPhoto from "../icons/photo_upload.svg";
 
 class SellingPage extends Component {
+
+  state = {
+    showModal: true,
+  }
+
+  handleCloseModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  handleOpenModal = () => {
+    this.setState({ showModal: true });
+  };
+
   render() {
     return (
       <Route
@@ -34,7 +47,7 @@ class SellingPage extends Component {
                 </b>{" "}
                 have to offer.
               </div>
-              <button className="">Get Access To The Admin Centre</button>
+              <button onClick={this.handleOpenModal}>Get Access To The Admin Centre</button>
               <p>Free earlybird access • No credit card required</p>
             </div>
 
@@ -95,10 +108,18 @@ class SellingPage extends Component {
 
             <div className="SellingPageCallToAction">
               <h2>Get free access to these great features.</h2>
-              <button className="">Get Access To The Admin Centre</button>
+              <button onClick={this.handleOpenModal}>Get Access To The Admin Centre</button>
               <p>Free earlybird access • No credit card required</p>
             </div>
             <Footer />
+
+            <Modal show={this.state.showModal} modalClosed={this.handleCloseModal}>
+              <button className="SellingPageCloseButton" onClick={this.handleCloseModal}>x</button>
+              <h2>Great news!</h2>
+              <p>Input your email address and we will contact you to get you set up.</p>
+              <input className="SellingPageEmailInput" type="email"/>
+              <button className="SellingPageSendButton">Send</button>
+            </Modal>
           </div>
         )}
       />
