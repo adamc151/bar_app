@@ -36,6 +36,21 @@ class LandingPage extends Component {
       barImg = desktopHeader;
     }
 
+    const barSellingBanner = (
+      <div
+        className="SellingPageCallToAction"
+        style={{ marginTop: "-30px", opacity: "0.95" }}
+      >
+        <h2>Own a bar or resturant and want to get your deals seen?</h2>
+        <Link to={`/bar-info`}>
+          <button onClick={this.handleOpenModal}>
+            See our premium features
+          </button>
+        </Link>
+        <p>Free earlybird access • No credit card required</p>
+      </div>
+    );
+
     return (
       <Route
         render={({ history }) => (
@@ -81,7 +96,12 @@ class LandingPage extends Component {
 
             <Preview />
             <HowItWorks />
-            <Link to={`/map`}> <button className="CheckItOutButton">Try For Free</button></Link>
+            <Link to={`/map`}>
+              {" "}
+              <button className="CheckItOutButton">Try For Free</button>
+            </Link>
+            <Preview />
+            {barSellingBanner}
             {/* <Donation /> */}
             <Footer />
           </div>

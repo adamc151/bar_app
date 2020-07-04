@@ -207,6 +207,8 @@
   .MobileItem {
     border-top: solid 1px rgb(209, 152, 59);
     width: 100%;
+    color: black;
+    letter-spacing: -1px;
   }
   /* Close Button Styling */
   .CloseButton {
@@ -234,6 +236,10 @@
 
 .Black {
   color: black;
+}
+
+.Black:before, .Black::after {
+  background-color: black;
 }
 
 .Black svg {

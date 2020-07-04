@@ -29,10 +29,12 @@ class header extends Component {
   state = {
     displayMobileHeader: false,
     displayHeader: true,
+    theme: 'White',
   };
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll, false);
+    this.props.theme == "Black" ? this.setState({theme: 'Black'}) : null;
   }
 
   handleScroll = () => {
@@ -53,10 +55,10 @@ class header extends Component {
 
   render() {
     const classes = ["Header"];
-    let themeColour = "White";
-    !this.state.displayHeader ? classes.push("HideHeader") : null;
+    let themeColour = this.state.theme;
+    !this.state.displayHeader && this.state.theme == 'White' ? classes.push("HideHeader") : null;
     this.state.displayMobileHeader ? classes.push("ToggleActive") : null;
-    this.props.theme == "Black" ? (themeColour = "Black") : null;
+    this.state.displayMobileHeader ? themeColour = 'Black' : null;    
 
     return (
       <div className={classes.join(" ")}>
@@ -70,9 +72,9 @@ class header extends Component {
           />
 
           {this.state.displayMobileHeader ? (
-            <div className="CloseButton" onClick={this.handleBurgerClick} />
+            <div className={"CloseButton " + themeColour} onClick={this.handleBurgerClick} />
           ) : (
-            <Burger clicked={this.handleBurgerClick} />
+            <Burger clicked={this.handleBurgerClick} themeColour={themeColour} />
           )}
 
           {this.state.displayMobileHeader ? (
@@ -82,6 +84,9 @@ class header extends Component {
               </Link>
               <Link className="MobileItem MiscLink" to={`/faq`}>
                 Contact Details
+              </Link>
+              <Link className="MobileItem MiscLink" to={`/bar-info`}>
+                Own a bar?
               </Link>
               <div className="dropdown MobileItem">
                 <button className="dropbtn">
@@ -117,6 +122,10 @@ class header extends Component {
               {FacebookIcon}
             </a>
             <div className={"HeaderItem MiscLink " + themeColour}>|</div>
+
+            <Link className={"HeaderItem MiscLink " + themeColour} to={`/bar-info`}>
+              Own a bar?
+            </Link>
 
             <Link className={"HeaderItem MiscLink " + themeColour} to={`/faq`}>
               FAQs

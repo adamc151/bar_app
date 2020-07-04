@@ -12,9 +12,13 @@ import CloseIcon from "../icons/close.svg";
 
 class SellingPage extends Component {
   state = {
-    showModal: true,
+    showModal: false,
     emailInputVal: '',
   };
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   handleCloseModal = () => {
     this.setState({ showModal: false });
@@ -29,7 +33,8 @@ class SellingPage extends Component {
   }
 
   handleEmailSubmitted = () => {
-    alert(this.state.emailInputVal);
+    alert('Thanks for your interest, we will get back to you ASAP. ' + this.state.emailInputVal);
+    this.setState({showModal: false});
   };
 
   render() {
@@ -40,18 +45,18 @@ class SellingPage extends Component {
             <Header history={history} theme="Black" />
             <div className="SellingPageTopBlock">
               <div className="SellingPageTopBlockTitle">
-                Make your happy hour deals stand out amoungst the noise.
+                Make your happy hour deals stand out from the noise.
               </div>
               <div className="SellingPageTopBlockMicroTitle">
-                <b style={{ fontFamily: "Circular-Black", fontSize: "26px" }}>
+                <b>
                   Sign up
                 </b>{" "}
                 to manage your details and we will feature{" "}
-                <b style={{ fontFamily: "Circular-Black", fontSize: "26px" }}>
+                <b>
                   your
                 </b>{" "}
                 deals so that customers can see what{" "}
-                <b style={{ fontFamily: "Circular-Black", fontSize: "26px" }}>
+                <b>
                   you
                 </b>{" "}
                 have to offer.
@@ -79,7 +84,7 @@ class SellingPage extends Component {
                 <h4># First in line</h4>
                 <h2>Move to the top of the list</h2>
                 <p>
-                  When you sign up your happy hour offering will jump to the top
+                  When you sign up, your happy hour offering will jump to the top
                   of the list so customers will instantly see you.
                 </p>
               </div>
@@ -111,7 +116,7 @@ class SellingPage extends Component {
                 <h2>Choose your own photographs and descriptions</h2>
                 <p>
                   Upload your own stunning photographs & add appealing
-                  descriptions to make the customers excited to try your deals.
+                  descriptions to get your customers excited about your deals.
                   No more generic listings.
                 </p>
               </div>
@@ -140,7 +145,7 @@ class SellingPage extends Component {
               />
               <h2>Great news! Let's sign you up.</h2>
               <p>
-                Input your email address and we will contact you to get you set
+                Input your email address and we will be in contact to get you set
                 up.
               </p>
               <input className="SellingPageEmailInput" type="email" onChange={this.handleEmailInput} />
