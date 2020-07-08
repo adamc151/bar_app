@@ -36,6 +36,13 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "dev": "nodemon src/index.js",
-    "updownting": "docker-compose down && docker-compose build --no-cache && docker-compose up"
+    "updownting": "docker-compose down && docker-compose build --no-cache && docker-compose up",
+    "sitemap": "babel-node --presets @babel/preset-env src/sitemap-generator.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "react-router-sitemap": "^1.2.0"
   }
 }
