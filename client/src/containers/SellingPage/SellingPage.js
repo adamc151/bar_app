@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import "./SellingPage.css";
 import { Route, Link } from "react-router-dom";
 import Header from "../LandingPage/Header/Header";
@@ -33,9 +34,27 @@ class SellingPage extends Component {
   }
 
   handleEmailSubmitted = () => {
-    alert('Thanks for your interest, we will get back to you ASAP. ' + this.state.emailInputVal);
+    alert('Thanks for your interest, we will get back to you ASAP.');
+    this.postToSignUpDB(this.state.emailInputVal);
     this.setState({showModal: false});
   };
+
+  postToSignUpDB = (email) => {
+    axios
+      .post("https://hapihour-sign-up.firebaseio.com/sign_up.json", {email: email})
+      .then((res) => {
+        const fetchedUsers = [];
+        for (let key in res.data) {
+          fetchedUsers.push({
+            ...res.data[key],
+            id: key,
+          });
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (

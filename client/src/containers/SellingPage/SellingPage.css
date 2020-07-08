@@ -221,7 +221,7 @@
 
 @media screen and (max-width: 1000px) {
   .SellingPage{
-    letter-spacing: -0.5px;
+    letter-spacing: -0.8px;
   }
   .SellingPageTopBlock {
     height: 700px;
@@ -291,10 +291,10 @@
   }
   .SellingPageCallToAction h2 {
     margin-top: 15px;
-    font-family: Circular;
+    font-family: Circular-Bold;
     font-size: 38px;
     text-align: left;
-    letter-spacing: -0.5px;
+    letter-spacing: -2px;
   }
   .SellingPageCallToAction button {
     padding: 20px 18px;
