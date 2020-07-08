@@ -54,14 +54,14 @@ class header extends Component {
   };
 
   render() {
-    const classes = ["Header"];
+    const TopLevelClasses = ["Header"];
     let themeColour = this.state.theme;
-    !this.state.displayHeader && this.state.theme == 'White' ? classes.push("HideHeader") : null;
-    this.state.displayMobileHeader ? classes.push("ToggleActive") : null;
+    !this.state.displayHeader ? TopLevelClasses.push("HideHeader") : null;
+    this.state.displayMobileHeader ? TopLevelClasses.push("ToggleActive") : null;
     this.state.displayMobileHeader ? themeColour = 'Black' : null;    
 
     return (
-      <div className={classes.join(" ")}>
+      <div className={TopLevelClasses.join(" ")}>
         <div className="HeaderMaxWidth">
           <img
             src={themeColour == "Black" ? hh_logo_black : hh_logo_white}

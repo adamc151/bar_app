@@ -39,7 +39,7 @@ class LandingPage extends Component {
     const barSellingBanner = (
       <div
         className="SellingPageCallToAction"
-        style={{ marginTop: "-30px", opacity: "0.95" }}
+        style={{ marginTop: "-0px", opacity: "0.95" }}
       >
         <h2>Own a bar or resturant and want to get your deals seen?</h2>
         <Link to={`/bar-info`}>
@@ -96,12 +96,9 @@ class LandingPage extends Component {
 
             <Preview />
             <HowItWorks />
-            <Link to={`/map`}>
-              {" "}
-              <button className="CheckItOutButton">Try For Free</button>
-            </Link>
-            <Preview />
+            {/* <Preview /> */}
             {barSellingBanner}
+            {/* <Link to={`/map`}>{" "}<button className="CheckItOutButton">Try For Free</button></Link> */}
             {/* <Donation /> */}
             <Footer />
           </div>
