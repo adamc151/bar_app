@@ -56,7 +56,7 @@ const howItWorks = () => {
           </div>
         </div>
       </div>
-      <div className="HowItWorksCurve"></div>
+      {/* <div className="HowItWorksCurve"></div> */}
     </div>
   );
 };

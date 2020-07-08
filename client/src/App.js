@@ -6,6 +6,7 @@ import FAQ from "./containers/FAQ";
 import ReactGA from "react-ga";
 import LandingPage from "./containers/LandingPage/LandingPage";
 import Helmet from "react-helmet";
+import SellingPage from "./containers/SellingPage/SellingPage";
 
 try {
   ReactGA.initialize("UA-144974904-1");
@@ -37,6 +38,7 @@ class App extends Component {
             <Switch>
               <Route path="/(map|details)/" component={MainContainer} />
               <Route exact path="/faq" component={FAQ} />
+              <Route exact path="/bar-info" component={SellingPage} />
               <Route path="/" component={LandingPage} />
               <Route component={LandingPage} />
             </Switch>

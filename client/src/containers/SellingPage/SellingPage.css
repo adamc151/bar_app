@@ -1,0 +1,334 @@
+.SellingPage {}
+
+.SellingPageTopBlock {
+  width: 100%;
+  height: 880px;
+  /* z-index: 1; */
+  position: relative;
+  overflow: hidden;
+}
+
+.SellingPageTopBlock:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 900px;
+  z-index: -1;
+  /* background-color: rgb(255, 216, 153); */
+  background-color: rgba(6, 139, 139, 0.375);
+  /* background: linear-gradient(rgb(255, 179, 57), rgb(255, 212, 142)); */
+  border-radius: 0 0 50% 50%/0 0 100% 100%;
+  transform: scaleX(1.8);
+}
+
+.SellingPageTopBlock button {
+  padding: 30px 52px;
+  text-align: center;
+  background-color: rgb(6, 139, 139);
+  border: none;
+  color: white;
+  border-radius: 16px;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0px;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: ease 0.5s;
+  border: none;
+  outline: none;
+}
+
+.SellingPageTopBlock button:hover {
+  background-color: rgb(0, 115, 115);
+  transform: translateY(-5px);
+}
+
+.SellingPageTopBlockTitle {
+  padding-top: 200px;
+  margin: auto;
+  /* color: white; */
+  color: #212529;
+  font-size: 70px;
+  font-family: Circular-Bold;
+  max-width: 1200px;
+}
+
+.SellingPageTopBlockMicroTitle {
+  padding-top: 10px;
+  margin: auto;
+  margin-bottom: 40px;
+  /* color: white; */
+  color: #495057;
+  font-size: 22px;
+  max-width: 800px;
+}
+
+.SellingPageTopBlockMicroTitle b {
+  font-family: "Circular-Black";
+  font-size: 26px;
+}
+
+.SellingPageTopBlock p {
+  color: #495057;
+  font-size: 18px;
+}
+
+.SellingPagePreviewImage {
+  width: 800px;
+  margin-top: -180px;
+  transition: ease 0.5s;
+}
+
+.SellingPageProblem h1 {
+  font-size: 34px;
+  font-family: Circular-Bold;
+  color: #212529;
+}
+
+.SellingPageProblem p {
+  font-size: 22px;
+  color: #495057;
+  font-weight: lighter;
+  margin: auto;
+  max-width: 900px;
+}
+
+.SellingPageProblem {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.SellingPageFeature {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 1400px;
+  margin: auto;
+  margin-bottom: 120px;
+}
+
+.SellingPageFeature div {
+  max-width: 540px;
+  text-align: left;
+}
+
+.SellingPageFeature h2 {
+  font-family: Circular-Bold;
+  line-height: 1.1;
+  color: #212529;
+  font-size: 30px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.SellingPageFeature p {
+  font-size: 22px;
+  line-height: 1.4;
+  color: #495057;
+  text-align: left;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.SellingPageFeature img {
+  width: 260px;
+  margin-bottom: -78px;
+}
+
+.SellingPageCallToAction {
+  background-color: rgba(6, 139, 139, 0.747);
+  color: white;
+  font-size: 30px;
+  padding: 50px;
+  margin-top: 200px;
+}
+
+.SellingPageCallToAction h2 {
+  max-width: 800px;
+  margin: auto;
+  font-size: 55px;
+}
+
+.SellingPageCallToAction button {
+  padding: 28px 52px;
+  text-align: center;
+  color: rgb(6, 139, 139);
+  background-color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 26px;
+  font-weight: bold;
+  margin-top: 0px;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, .1), 0 8px 16px 0 rgba(0, 0, 0, .1);
+  cursor: pointer;
+  transition: ease 0.5s;
+  margin-top: 30px;
+  border: none;
+  outline: none;
+}
+
+.SellingPageCallToAction button:hover {
+  transform: translateY(-5px);
+}
+
+.SellingPageCallToAction p {
+  font-size: 18px;
+}
+
+.SellingPageCloseButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 30px;
+  width: 28px;
+  cursor: pointer;
+}
+
+.SellingPageCloseButton:hover {
+  opacity: 0.5;
+}
+
+.SellingPageEmailInput {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 300px;
+  font-size: 18px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: solid 2px rgb(209, 209, 209);
+  /* box-shadow: 0px 1px 4px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192); */
+}
+
+.SellingPageSendButton {
+  padding: 11px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  /* box-shadow: 0px 1px 60px -2px rgba(0, 0, 0, 0.123), 0 8px 16px 0 rgba(0, 0, 0, 0.192); */
+  background-color: rgb(255, 173, 59);
+  color: white;
+  cursor: pointer;
+}
+
+.SellingPageSendButton:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 1000px) {
+  .SellingPage{
+    letter-spacing: -0.8px;
+  }
+  .SellingPageTopBlock {
+    height: 700px;
+  }
+  .SellingPageTopBlock:before {
+    height: 700px;
+    transform: scaleX(4);
+  }
+  .SellingPageTopBlock button {
+    padding: 20px 20px;
+    border-radius: 16px;
+    font-size: 20px;
+    margin-top: 0px;
+    width: 80%;
+  }
+  .SellingPageTopBlockTitle {
+    padding: 20px;
+    padding-top: 80px;
+    font-size: 44px;
+  }
+  .SellingPageTopBlockMicroTitle {
+    padding: 20px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .SellingPageTopBlockMicroTitle b {
+    font-size: 20px;
+  }
+  .SellingPageTopBlock p {
+    font-size: 15px;
+  }
+  .SellingPagePreviewImage {
+    width: 90%;
+    margin-top: -80px;
+  }
+  .SellingPageProblem h1 {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+  .SellingPageProblem p {
+    font-size: 22px;
+    padding: 0 20px;
+  }
+  .SellingPageProblem {
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+  .SellingPageFeature {
+    flex-direction: column;
+    margin-bottom: 0px;
+    padding: 20px;
+  }
+  .SellingPageFeature h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+  .SellingPageFeature p {
+    font-size: 22px;
+  }
+  .SellingPageFeature img {
+    display: none;
+  }
+  .SellingPageCallToAction {
+    padding: 35px;
+    margin-top: 60px;
+  }
+  .SellingPageCallToAction h2 {
+    margin-top: 15px;
+    font-family: Circular-Bold;
+    font-size: 38px;
+    text-align: left;
+    letter-spacing: -2px;
+  }
+  .SellingPageCallToAction button {
+    padding: 20px 18px;
+    width: 100%;
+    font-size: 20px;
+  }
+  .SellingPageCallToAction p {
+    font-size: 14px;
+  }
+  .SellingPageCloseButton {
+    margin: 20px;
+    width: 20px;
+  }
+  .SellingPageEmailInput {
+    padding: 10px;
+    width: 91%;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  .SellingPageSendButton {
+    padding: 10px 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .SellingPageTopBlockTitle {
+    font-size: 42px;
+  }
+  .SellingPageTopBlock button {
+    padding: 15px 15px;
+    font-size: 18px;
+  } 
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import classes from './Burger.css';
+import './Burger.css';
 
 const burger = (props) => (
-  <div onClick={props.clicked} className="Burger">
+  <div onClick={props.clicked} className={"Burger " + props.themeColour}>
     <div></div>
     <div></div>
     <div></div>
