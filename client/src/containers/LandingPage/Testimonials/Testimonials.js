@@ -75,8 +75,9 @@ const Testimonials = () => {
 
   const testimonials = getTestimonials();
 
-  return testimonials.length && false ? (
+  return testimonials.length ? (
     <div className="TestimonialsBackground">
+      <h2 className="TestimonialsTitle">See what our users say.</h2>
       <div className="TestimonialsWrapper">
         <Slider {...settings}>{testimonials}</Slider>
       </div>
