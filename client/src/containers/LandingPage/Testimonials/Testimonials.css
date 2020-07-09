@@ -1,5 +1,6 @@
 .TestimonialsBackground {
   background-color: rgba(252, 252, 252, 0.888);
+  margin-bottom: 50px;
 }
 
 .TestimonialsWrapper {
@@ -8,6 +9,14 @@
   width: 70%;
   max-width: 1024px;
   margin: auto;
+}
+
+.TestimonialsTitle {
+  font-size: 45px;
+  font-family: Circular-Black;
+  color: #212529;
+  margin-top: 60px;
+  margin-bottom: 0px;
 }
 
 .slick-next {
@@ -40,10 +49,12 @@
 
 .testimonialItemName {
   margin-top: 30px;
+  color: #212529;
 }
 
 .testimonialItemText {
   padding: 20px;
+  color: #495057;
 }
 
 .testimonialItemWrapper {
@@ -111,6 +122,15 @@
 @media (max-width: 600px) {
   .TestimonialsWrapper {
     width: 95%;
+  }
+  .TestimonialsTitle {
+    letter-spacing: -1.8px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    padding: 0px 40px;
+    font-size: 40px;
+    line-height: 0.8;
+    text-align: left;
   }
   .testimonialItemWrapper {
     /* width: 80% !important; */
