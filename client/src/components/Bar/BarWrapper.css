@@ -13,7 +13,17 @@
   z-index: 10;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.714);
+  animation: desktopBackground 500ms;
   width: 100%;
+}
+
+@keyframes desktopBackground {
+  0% {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    background-color: rgba(0, 0, 0, 0.714);
+  }
 }
 
 .barContainerGrow {
@@ -25,7 +35,6 @@
   height: 20px;
   width: 22px;
 }
-
 
 .dot {
   font-size: 26px;

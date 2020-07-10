@@ -147,7 +147,7 @@
 
 .placeDetailsDays {
   display: block;
-  height: 50px;
+  height: 160px;
   width: 200px;
   margin-bottom: 10px;
   width: 100%;
@@ -222,4 +222,10 @@
 
 .state-2 {
   margin-top: -76px;
+}
+
+@media screen and (max-width: 1000px) {
+  .placeDetailsDays {
+    height: 50px;
+  }
 }

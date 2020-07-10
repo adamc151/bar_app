@@ -100,7 +100,7 @@
   max-height: calc(100vh - 60px);
   overflow: scroll;
   overflow-x: hidden;
-  animation: popup 100ms;
+  animation: popup 500ms;
   will-change: tranform;
 }
 

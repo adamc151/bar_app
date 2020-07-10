@@ -6,8 +6,8 @@ import "./LandingPage.css";
 import { Route, Link } from "react-router-dom";
 import { Parallax, Background } from "react-parallax";
 
-import mobileHeader from "../images/tom_hh_2.jpg";
-import desktopHeader from "../images/group_1.jpg";
+import mobileHeader from "../images/tom_hh_2.webp";
+import desktopHeader from "../images/group_1.webp";
 import locationIcon from "../icons/placeholder.png";
 import Image from "../../components/Image/Image";
 import Preview from "./Preview/Preview";
@@ -63,6 +63,7 @@ class LandingPage extends Component {
                     className="photoLanding"
                     imageLoadedStyle="photoLandingLoaded"
                     src={barImg}
+                    alt={"Bar"}
                   />
                 </Background>
               </Parallax>
