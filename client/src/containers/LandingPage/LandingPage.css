@@ -157,7 +157,7 @@
 
 .overlayWrapper {
   position: absolute;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.699), rgba(0, 0, 0, 0.169));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.169));
   top: 0;
   left: 0;
 }

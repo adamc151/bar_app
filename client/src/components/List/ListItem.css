@@ -73,18 +73,18 @@
 }
 
 .doHover:hover {
-  border-color: rgb(235, 171, 34);
+  border-color: rgba(255, 188, 44, 0.738);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgb(235, 171, 34);
+  box-shadow: 0 0 10px rgba(255, 188, 44, 0.738);
 }
 
 .hoveredtrue {
   padding: 0px;
 
   border: 3px solid;
-  border-color: rgb(235, 171, 34);
+  border-color: rgba(255, 188, 44, 0.738);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgb(235, 171, 34);
+  box-shadow: 0 0 10px rgba(255, 188, 44, 0.738);
 }
 
 .listItemWrapper::after {
@@ -250,5 +250,11 @@
 
   .hoveredtrue {
     border: none;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .barImg {
+    animation: unset !important;
   }
 }

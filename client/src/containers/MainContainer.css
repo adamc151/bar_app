@@ -70,20 +70,22 @@
     bottom: 10px;
     height: auto;
     width: 100%;
+    transform: translateY(10px);
   }
 
   .carouselAnimaion {
     animation-name: open;
     animation-duration: 500ms;
     animation-timing-function: linear;
+    will-change: transform;
   }
 
   @keyframes open {
     from {
-      bottom: -220px;
+      transform: translateY(220px);
     }
     to {
-      bottom: 10px;
+      transform: translateY(10px);
     }
   }
 
