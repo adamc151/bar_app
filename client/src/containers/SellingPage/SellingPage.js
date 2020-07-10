@@ -81,7 +81,7 @@ class SellingPage extends Component {
                 have to offer.
               </div>
               <button onClick={this.handleOpenModal}>
-                Get Access To The Admin Centre
+                Sign Up For An Account 
               </button>
               <p>Free earlybird access • No credit card required</p>
             </div>
@@ -147,7 +147,7 @@ class SellingPage extends Component {
             <div className="SellingPageCallToAction">
               <h2>Get free access to these great features.</h2>
               <button onClick={this.handleOpenModal}>
-                Get Access To The Admin Centre
+              Sign Up For An Account
               </button>
               <p>Free earlybird access • No credit card required</p>
             </div>
