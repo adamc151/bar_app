@@ -236,15 +236,14 @@
   .titleDescriptionLanding {
     color: white;
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 50px;
+    letter-spacing: -1.5px;
     width: 82%;
     text-align: left;
-    /* margin: auto; */
-    /* margin-top: 110px; */
   }
   .titleDescriptionLandingWrapper {
     margin: auto;
-    margin-top: 170px;
+    margin-top: 120px;
     width: 100%;
     /* top: 0;
     right: unset; */
