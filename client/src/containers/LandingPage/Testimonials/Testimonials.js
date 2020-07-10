@@ -22,11 +22,12 @@ function SamplePrevArrow(props) {
 }
 
 const getTestimonials = () => {
-  return testimonials.map(({ name, image, text }) => {
+  return testimonials.map(({ name, image, city, text }) => {
     return (
       <div className="testimonialItemWrapper">
         <img className="testimonialItemImage" src={image} />
         <div className="testimonialItemName">{name}</div>
+        <div className="testimonialItemCity">{city}</div>
         <div className="testimonialItemText">{text}</div>
       </div>
     );
