@@ -100,7 +100,8 @@
   max-height: calc(100vh - 60px);
   overflow: scroll;
   overflow-x: hidden;
-  animation: popup 100ms;
+  animation: popup 500ms;
+  will-change: tranform;
 }
 
 .pleaseNote {
@@ -253,6 +254,7 @@
     overflow: unset;
     animation: slideupyo 500ms;
     height: 100%;
+    will-change: transform;
   }
 
   @keyframes slideupyo {

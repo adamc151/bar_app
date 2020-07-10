@@ -121,6 +121,7 @@
   min-height: 30px;
   margin-bottom: 10px;
   border-radius: 5px;
+  font-size: 20px;
 }
 
 .placeTimeWrapper {
@@ -140,6 +141,8 @@
   text-align: center;
   border-radius: 5px;
   width: 90%;
+  background-color: white;
+  font-size: 20px;
 }
 
 .placeDetailsDays {
@@ -153,6 +156,7 @@
   text-align: center;
   font-size: 15px;
   margin: auto;
+  background-color: white;
 }
 
 /*Submit button */
@@ -218,4 +222,10 @@
 
 .state-2 {
   margin-top: -76px;
+}
+
+@media screen and (max-width: 1000px) {
+  .placeDetailsDays {
+    height: 50px;
+  }
 }

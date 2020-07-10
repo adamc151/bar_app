@@ -73,18 +73,18 @@
 }
 
 .doHover:hover {
-  border-color: rgb(235, 171, 34);
+  border-color: rgba(255, 188, 44, 0.738);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgb(235, 171, 34);
+  box-shadow: 0 0 10px rgba(255, 188, 44, 0.738);
 }
 
 .hoveredtrue {
   padding: 0px;
 
   border: 3px solid;
-  border-color: rgb(235, 171, 34);
+  border-color: rgba(255, 188, 44, 0.738);
   border-radius: 5px;
-  box-shadow: 0 0 10px rgb(235, 171, 34);
+  box-shadow: 0 0 10px rgba(255, 188, 44, 0.738);
 }
 
 .listItemWrapper::after {
@@ -189,7 +189,7 @@
   object-fit: cover;
   -webkit-filter: blur(0px); /* Safari 6.0 - 9.0 */
   filter: blur(0px);
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 2px 2px 0px 0px;
   animation: unset;
 }
 
@@ -250,5 +250,11 @@
 
   .hoveredtrue {
     border: none;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  .barImg {
+    animation: unset !important;
   }
 }

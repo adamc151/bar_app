@@ -163,7 +163,6 @@ export function postData(obj) {
 }
 
 export function setCenterCoordinates(coordinates) {
-  console.log("yooooo setCenterCoordinates", coordinates);
   return { type: SET_CENTER_COORDINATES, payload: coordinates };
 }
 

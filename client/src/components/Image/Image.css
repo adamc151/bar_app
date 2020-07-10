@@ -5,6 +5,11 @@
 
 .imgLoaded {
   opacity: 1;
+  /* animation: fade-in 1000ms; */
+  -webkit-animation: fade-in 1000ms;
+  -moz-animation: fade-in 1000ms;
+  -ms-animation: fade-in 1000ms;
+  -o-animation: fade-in 1000ms;
   animation: fade-in 1000ms;
 }
 

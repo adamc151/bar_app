@@ -50,9 +50,9 @@ class ListItem extends PureComponent {
         
       >
         <div className="barImg">
-        <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt="" />
+        <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt={name} />
         </div>
-        {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="" />{name}</div>}
+        {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="location icon" />{name}</div>}
         {deals[0].category && <div className={`item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
 
         <div className="descriptionAndTime">

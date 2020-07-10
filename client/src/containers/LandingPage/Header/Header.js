@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 
-import hh_logo_white from "../../images/WhiteLogo.png";
+import hh_logo_white from "../../images/WhiteLogo.webp";
 import hh_logo_black from "../../images/BlackLogo.png";
 import Burger from "./Burger/Burger";
 import Aux from "../../../hoc/Aux/Aux";

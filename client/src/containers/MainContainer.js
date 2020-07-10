@@ -10,13 +10,11 @@ import Carousel from "../components/Carousel/Carousel";
 import LoadingPage from "../components/LoadingPage/LoadingPage";
 import Helmet from "react-helmet";
 import Bar from "../components/Bar/Bar";
-import AdminForm from "../components/AdminForm/AdminForm";
 import BarWrapper from "../components/Bar/BarWrapper";
 import { getCityCoordinates } from "./getCityCoordinates";
 
 const keys = require("../keys");
 const API_KEY = keys.googleAPIKey;
-const HH_HEADER = keys.hhHeader;
 
 class MainContainer extends Component {
   constructor(props) {
@@ -31,24 +29,6 @@ class MainContainer extends Component {
       editBar: false,
       mapReady: false,
     };
-
-    this.routeAdmin = this.routeAdmin.bind(this);
-  }
-
-  routeAdmin() {
-    var req = new XMLHttpRequest();
-    req.open("GET", document.location, false);
-    req.send(null);
-    var headers = req.getAllResponseHeaders().toLowerCase();
-
-    var arr = headers.split("\r\n");
-    headers = arr.reduce(function (acc, current, i) {
-      var parts = current.split(": ");
-      acc[parts[0]] = parts[1];
-      return acc;
-    }, {});
-
-    return headers.hh_header === HH_HEADER ? true : false;
   }
 
   componentDidMount() {
@@ -61,8 +41,6 @@ class MainContainer extends Component {
     const url = window.location.pathname.split("/");
     if (url[1] === "details") {
       const googleId = url[2];
-      const editBar = url[3] === "edit";
-      !singleBar && this.routeAdmin() && this.setState({ editBar });
       !singleBar && fetchOne(googleId);
     } else {
       this.setState({ displaySearchBar: true });
@@ -90,12 +68,7 @@ class MainContainer extends Component {
       }
     } else if (url[1] === "details") {
       const googleId = url[2];
-      const editBar = url[3] === "edit";
       !this.props.singleBar && this.props.actions.fetchOne(googleId);
-      !prevProps.singleBar &&
-        this.props.singleBar &&
-        this.routeAdmin() &&
-        this.setState({ editBar });
     }
   }
 
@@ -108,7 +81,6 @@ class MainContainer extends Component {
       fetchData,
       setSingleBar,
       getGooglePlacePhotos,
-      getGooglePlace,
       clearPhotos,
       setBounds,
     } = this.props.actions;
@@ -125,16 +97,10 @@ class MainContainer extends Component {
       photos,
       loadingPhotos,
       mapBounds,
-      place,
       history,
     } = this.props;
 
     const loadingModifier = loading ? "loading" : "";
-
-    const getPhotos = () => {
-      const url = window.location.pathname.split("/");
-      getGooglePlacePhotos(url[2], API_KEY);
-    };
 
     return (
       <Fragment>
@@ -228,25 +194,17 @@ class MainContainer extends Component {
 
         {singleBar && (
           <BarWrapper clearPhotos={clearPhotos}>
-            {this.state.editBar ? (
-              <AdminForm
-                singleBar={singleBar}
-                getPhotos={getPhotos}
-                getPlace={getGooglePlace}
-                photos={photos}
-                jwt={jwt}
-                place={place}
-              />
-            ) : (
-              <Bar
-                singleBar={singleBar}
-                loading={this.state.loadingBar}
-                getPhotos={getPhotos}
-                photos={photos}
-                loadingPhotos={loadingPhotos}
-                history={history}
-              />
-            )}
+            <Bar
+              singleBar={singleBar}
+              loading={this.state.loadingBar}
+              getPhotos={() => {
+                const url = window.location.pathname.split("/");
+                getGooglePlacePhotos(url[2], API_KEY);
+              }}
+              photos={photos}
+              loadingPhotos={loadingPhotos}
+              history={history}
+            />
           </BarWrapper>
         )}
       </Fragment>
