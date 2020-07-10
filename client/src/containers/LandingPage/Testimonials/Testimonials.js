@@ -78,7 +78,7 @@ const Testimonials = () => {
 
   return testimonials.length ? (
     <div className="TestimonialsBackground">
-      <h2 className="TestimonialsTitle">See what our users say.</h2>
+      <h2 className="TestimonialsTitle">See what our users have to say.</h2>
       <div className="TestimonialsWrapper">
         <Slider {...settings}>{testimonials}</Slider>
       </div>
