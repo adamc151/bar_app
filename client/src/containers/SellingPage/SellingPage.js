@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./SellingPage.css";
 import { Route, Link } from "react-router-dom";
 import Header from "../LandingPage/Header/Header";
@@ -14,7 +14,7 @@ import CloseIcon from "../icons/close.svg";
 class SellingPage extends Component {
   state = {
     showModal: false,
-    emailInputVal: '',
+    emailInputVal: "",
   };
 
   componentDidMount() {
@@ -31,17 +31,19 @@ class SellingPage extends Component {
 
   handleEmailInput = (e) => {
     this.setState({ emailInputVal: e.target.value });
-  }
+  };
 
   handleEmailSubmitted = () => {
-    alert('Thanks for your interest, we will get back to you ASAP.');
+    alert("Thanks for your interest, we will get back to you ASAP.");
     this.postToSignUpDB(this.state.emailInputVal);
-    this.setState({showModal: false});
+    this.setState({ showModal: false });
   };
 
   postToSignUpDB = (email) => {
     axios
-      .post("https://hapihour-sign-up.firebaseio.com/sign_up.json", {email: email})
+      .post("https://hapihour-sign-up.firebaseio.com/sign_up.json", {
+        email: email,
+      })
       .then((res) => {
         const fetchedUsers = [];
         for (let key in res.data) {
@@ -54,7 +56,7 @@ class SellingPage extends Component {
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     return (
@@ -67,21 +69,12 @@ class SellingPage extends Component {
                 Make your happy hour deals stand out from the noise.
               </div>
               <div className="SellingPageTopBlockMicroTitle">
-                <b>
-                  Sign up
-                </b>{" "}
-                to manage your details and we will feature{" "}
-                <b>
-                  your
-                </b>{" "}
-                deals so that customers can see what{" "}
-                <b>
-                  you
-                </b>{" "}
-                have to offer.
+                <b>Sign up</b> to manage your details and we will feature{" "}
+                <b>your</b> deals so that customers can see what <b>you</b> have
+                to offer.
               </div>
               <button onClick={this.handleOpenModal}>
-                Get Access To The Admin Centre
+                Sign up for a free account
               </button>
               <p>Free earlybird access • No credit card required</p>
             </div>
@@ -103,8 +96,8 @@ class SellingPage extends Component {
                 <h4># First in line</h4>
                 <h2>Move to the top of the list</h2>
                 <p>
-                  When you sign up, your happy hour offering will jump to the top
-                  of the list so customers will instantly see you.
+                  When you sign up, your happy hour offering will jump to the
+                  top of the list so customers will instantly see you.
                 </p>
               </div>
               <div>
@@ -147,7 +140,7 @@ class SellingPage extends Component {
             <div className="SellingPageCallToAction">
               <h2>Get free access to these great features.</h2>
               <button onClick={this.handleOpenModal}>
-                Get Access To The Admin Centre
+                Sign up for a free account
               </button>
               <p>Free earlybird access • No credit card required</p>
             </div>
@@ -164,12 +157,21 @@ class SellingPage extends Component {
               />
               <h2>Great news! Let's sign you up.</h2>
               <p>
-                Input your email address and we will be in contact to get you set
-                up.
+                Input your email address and we will be in contact to get you
+                set up.
               </p>
-              <input className="SellingPageEmailInput" type="email" onChange={this.handleEmailInput} />
-              <button className="SellingPageSendButton" onClick={this.handleEmailSubmitted}>Send</button>
-              <p style={{marginBottom: '30px'}}>
+              <input
+                className="SellingPageEmailInput"
+                type="email"
+                onChange={this.handleEmailInput}
+              />
+              <button
+                className="SellingPageSendButton"
+                onClick={this.handleEmailSubmitted}
+              >
+                Send
+              </button>
+              <p style={{ marginBottom: "30px" }}>
                 Alternatively, you can contact us via any of the following
                 social media platforms:
               </p>

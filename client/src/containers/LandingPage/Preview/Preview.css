@@ -49,10 +49,10 @@
 .ComboImage {
   width: 80%;
   margin: 20px;
-  max-width: 740px;
+  max-width: 650px;
 }
 
-@media(max-width: 1300px) {
+@media(max-width: 1000px) {
   .Preview {
     margin: auto;
     padding-top: 10px;

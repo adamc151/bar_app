@@ -15,6 +15,7 @@ import HowItWorks from "./HowItWorks/HowItWorks";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import Donation from "./Donation/Donation";
+import Testimonials from "./Testimonials/Testimonials";
 
 class LandingPage extends Component {
   componentDidMount() {
@@ -97,9 +98,9 @@ class LandingPage extends Component {
 
             <Preview />
             <HowItWorks />
-            {/* <Preview /> */}
+            <Link to={`/map`}>{" "}<button className="CheckItOutButton">Try For Free</button></Link>
+            <Testimonials />
             {barSellingBanner}
-            {/* <Link to={`/map`}>{" "}<button className="CheckItOutButton">Try For Free</button></Link> */}
             {/* <Donation /> */}
             <Footer />
           </div>
