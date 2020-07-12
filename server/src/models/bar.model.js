@@ -110,7 +110,7 @@ let barsSchema = new mongoose.Schema({
         require: false
     },
     lastUpdated:{
-        type: [String],
+        type: String,
         require: false
     },
     validated:{
