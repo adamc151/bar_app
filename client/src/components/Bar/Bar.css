@@ -105,10 +105,11 @@
 }
 
 .pleaseNote {
-  color: rgb(72, 72, 72);
+  color: rgb(150, 150, 150);
   font-size: 12px;
-  margin-left: 25px;
   margin-bottom: 10px;
+  margin-top: 10px;
+  text-align: right;
 }
 
 @keyframes popup {
@@ -247,6 +248,10 @@
 @media screen and (max-width: 700px) {
   .detailsTextWrapper {
     padding: 5px 25px 25px 25px;
+  }
+
+  .pleaseNote {
+    text-align: left;
   }
 
   .detailsWrapper {

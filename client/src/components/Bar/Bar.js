@@ -171,8 +171,10 @@ class Bar extends React.Component {
               {details.otherDeals &&
                 details.otherDeals[0] &&
                 this.renderOtherDeals()}
+              
+              {<div className="pleaseNote">Last updated: {details.lastUpdated || "1st March 2020"}</div>}
             </div>
-            <div className="pleaseNote"></div>
+            
           </div>
         )}
       </div>
