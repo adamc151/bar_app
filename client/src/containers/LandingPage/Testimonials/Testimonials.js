@@ -5,6 +5,8 @@ import tom from '../../images/tom.jpg';
 import becki from '../../images/becki.jpg';
 import adam from '../../images/adam.jpg';
 import ria from '../../images/ria.jpg';
+import dan from '../../images/dan.jpg';
+import jess from '../../images/jess.jpg';
 
 const testimonials = [
   {
@@ -20,17 +22,29 @@ const testimonials = [
     "text": "\"I discovered 3 new bars in Leeds because of this website.\""
   },
   {
+    "image": becki,
+    "name": "Becki",
+    "city": "Leeds",
+    "text": "\"Finally, local bars and happy hours all in one place! ...and without having to sign up or install anything.\""
+  },
+  {
     "image": ria,
     "name": "Ria",
     "city": "London",
     "text": "\"When I finish work I often want to grab a drink somewhere near the office. This website is great for finding the happy hours that are on now or will be starting soon close by.\""
   },
   {
-    "image": becki,
-    "name": "Becki",
+    "image": dan,
+    "name": "Dan",
     "city": "Leeds",
-    "text": "\"I like how easy the website is to navigate and how they keep up to date information on all the bars in my city. \""
-  }
+    "text": "\"I like how easy the website is to navigate and how they keep up to date information on all the bars in my city.\""
+  },
+  {
+    "image": jess,
+    "name": "Jess",
+    "city": "Leeds",
+    "text": "\"I travel to Leeds a lot to visit friends and hapihour is an absolute lifesaver. Every city needs this app.\""
+  },
 ];
 
 function SampleNextArrow(props) {
