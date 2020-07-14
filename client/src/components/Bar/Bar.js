@@ -130,7 +130,7 @@ class Bar extends React.Component {
         </Slider>
 
         <div className="BarAnnouncement">
-          <img src={announcement_icon} />
+          <img src={announcement_icon} alt="Announcement Icon"/>
           <div className="BarAnnouncementMessages">
             <div className="BarAnnouncementMessage">
               "Come drink with us please"

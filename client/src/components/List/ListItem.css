@@ -210,6 +210,18 @@
   color: rgb(65, 65, 65);
 }
 
+.ListItemAnnouncement {
+  width: 20px;
+  height: 20px;
+  background-color: #ddd;
+  padding: 6px;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+}
+
 .emptyListContainer-mobile {
   margin-top: 10px;
   display: flex;
