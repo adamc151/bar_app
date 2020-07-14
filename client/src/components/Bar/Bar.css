@@ -344,4 +344,31 @@
   .dealsTitle {
     font-size: 20px;
   }
+
+  .BarAnnouncement{
+    border-radius: 30px;
+    margin: 15px 18px;
+  }
+  
+  .BarAnnouncement img {
+    width: 26px;
+    height: 26px;
+    padding: 7px;
+    border-radius: 50px;
+  }
+  
+  .BarAnnouncementMessages {
+    padding-left: 6px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  .BarAnnouncementMessage {
+    font-size: 13px;
+  }
+  
+  .BarAnnouncementTime {
+    font-size: 11px;
+  }
 }
