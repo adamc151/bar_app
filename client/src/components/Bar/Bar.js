@@ -7,6 +7,7 @@ import website from "../../containers/icons/website.png";
 import facebook_icon from "../../containers/icons/facebook2.png";
 import instagram_icon from "../../containers/icons/instagram2.png";
 import twitter_icon from "../../containers/icons/twitter2.png";
+import announcement_icon from "../../containers/icons/announcement.png";
 
 class Bar extends React.Component {
   constructor(props) {
@@ -128,6 +129,18 @@ class Bar extends React.Component {
           })}
         </Slider>
 
+        <div className="BarAnnouncement">
+          <img src={announcement_icon} />
+          <div className="BarAnnouncementMessages">
+            <div className="BarAnnouncementMessage">
+              "Come drink with us please"
+            </div>
+            <div className="BarAnnouncementTime">
+              Posted 2 hours ago
+            </div>
+          </div>
+        </div>
+
         {loading && !details.name ? (
           this.getSkeleton()
         ) : (
@@ -140,7 +153,7 @@ class Bar extends React.Component {
               {details.address && (
                 <div className="detailsAddress">{details.address}</div>
               )}
-              
+
               <div className="socialWrapper">
                 <a href={details.website}>
                   <img className="websiteIcon" src={website} />
@@ -171,10 +184,13 @@ class Bar extends React.Component {
               {details.otherDeals &&
                 details.otherDeals[0] &&
                 this.renderOtherDeals()}
-              
-              {<div className="pleaseNote">Last updated: {details.lastUpdated || "1st March 2020"}</div>}
+
+              {
+                <div className="pleaseNote">
+                  Last updated: {details.lastUpdated || "1st March 2020"}
+                </div>
+              }
             </div>
-            
           </div>
         )}
       </div>

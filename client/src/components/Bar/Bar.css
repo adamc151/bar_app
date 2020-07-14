@@ -198,6 +198,48 @@
   height: 220px;
 }
 
+.BarAnnouncement{
+  background-color: rgb(215, 215, 215);
+  border-radius: 30px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 25px 30px;
+  -moz-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  -webkit-box-shadow: 0px 0px 6px rgb(170, 170, 170);
+  box-shadow: 0px 1px 30px rgb(28, 28, 28);
+}
+
+.BarAnnouncement img {
+  width: 30px;
+  height: 30px;
+  padding: 9px;
+  border-radius: 50px;
+  background-color: rgb(184, 184, 184);
+}
+
+.BarAnnouncementMessages {
+  padding-left: 8px;
+  padding-right: 22px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.BarAnnouncementMessage {
+  font-size: 15px;
+  font-family: Circular-Bold;
+  text-align: center;
+  margin: auto;
+}
+
+.BarAnnouncementTime {
+  font-size: 13px;
+  margin: auto;
+  text-align: center;
+  color: rgb(106, 106, 106);
+}
+
 .detailsName {
   font-family: Circular-Bold;
   margin-top: 0px;
