@@ -68,6 +68,8 @@ class Bar extends React.Component {
     const { loading, getPhotos, photos, loadingPhotos } = this.props;
     let details = this.props.singleBar;
 
+    const { post, time } = details.announcement || {};
+
     const multipleImages = photos && photos.length > 0;
     let images;
     if (multipleImages) {
@@ -129,17 +131,15 @@ class Bar extends React.Component {
           })}
         </Slider>
 
-        <div className="BarAnnouncement">
-          <img src={announcement_icon} alt="Announcement Icon"/>
-          <div className="BarAnnouncementMessages">
-            <div className="BarAnnouncementMessage">
-              "Come drink with us please"
-            </div>
-            <div className="BarAnnouncementTime">
-              Posted 2 hours ago
+        {post && (
+          <div className="BarAnnouncement">
+            <img src={announcement_icon} alt="Announcement Icon" />
+            <div className="BarAnnouncementMessages">
+              <div className="BarAnnouncementMessage">{post}</div>
+              <div className="BarAnnouncementTime">{time}</div>
             </div>
           </div>
-        </div>
+        )}
 
         {loading && !details.name ? (
           this.getSkeleton()

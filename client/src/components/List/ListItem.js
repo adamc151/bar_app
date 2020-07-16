@@ -35,7 +35,7 @@ class ListItem extends PureComponent {
 
   render(){
     const { onHover, onClick = () => { }, data, isSelected } = this.props;
-    const { name, deals, imgUrl, imgUrls = [], place_id } = data;
+    const { name, deals, imgUrl, imgUrls = [], place_id, announcement } = data;
 
   return !data == "" ? (
     <div ref={node => this.lineItem = node} className={`hoverWrapper hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}>
@@ -64,7 +64,7 @@ class ListItem extends PureComponent {
           {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
         </div>
         
-        <img className="ListItemAnnouncement" src={announcementIcon} alt="Announcement Icon"/>
+        {announcement && <img className="ListItemAnnouncement" src={announcementIcon} alt="Announcement Icon"/>}
         
       </Link>
     </div>
