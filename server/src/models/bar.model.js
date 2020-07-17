@@ -113,6 +113,19 @@ let barsSchema = new mongoose.Schema({
         type: String,
         require: false
     },
+    announcement: {
+        type: {
+            post: { 
+                type: String,
+                required: true
+            },
+            time: { 
+                type: String,
+                required: true
+            }
+        },
+        required:false
+    },
     validated:{
         type: Boolean,
         require: true
