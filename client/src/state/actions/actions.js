@@ -153,10 +153,10 @@ export function postData(obj) {
       .post("/api/bar", obj, {
         headers: { Authorization: "jwt " + token },
       })
-      .then(function (response) {
+      .then(function(response) {
         return dispatch({ type: DATA_POST_SUCCESS });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         return dispatch({ type: DATA_POST_FAILURE });
       });
   };
@@ -192,7 +192,9 @@ export function categoriseData(data, returnAllDeals = false) {
     var finalOther = [];
 
     if (!item.deals.length) {
-      item.deals = [{ weekDays: [], startTime: "", endTime: "" , description: ""}];
+      item.deals = [
+        { weekDays: [], startTime: "", endTime: "", description: "" },
+      ];
     }
 
     if (
@@ -226,6 +228,7 @@ export function categoriseData(data, returnAllDeals = false) {
 
     item.deals = final;
     item["otherDeals"] = finalOther;
+    item.announcement = getAnnoucement(item);
 
     if (item.deals[0] || returnAllDeals) {
       return item;
@@ -250,4 +253,34 @@ export function reorderData(data) {
 
 export function setUserCoordinates(coordinates) {
   return { type: SET_USER_COORDINATES, payload: coordinates };
+}
+
+function getAnnoucement(item) {
+  const { post, time } = item.announcement || {};
+  if (post) {
+    const now = new Date();
+    const then = new Date(time);
+    const millisecondsAgo = now - then;
+    const secondsAgo = Math.floor(millisecondsAgo / 1000);
+    const minutesAgo = Math.floor(secondsAgo / 60);
+    const hoursAgo = Math.floor(minutesAgo / 60);
+
+    let timePosted;
+    if (hoursAgo === 0) {
+      timePosted = `posted ${minutesAgo} minute${
+        minutesAgo === 1 ? "" : "s"
+      } ago`;
+    } else {
+      timePosted = `posted ${hoursAgo} hour${hoursAgo === 1 ? "" : "s"} ago`;
+    }
+
+    if (hoursAgo < 24) {
+      return {
+        post,
+        time: timePosted,
+      };
+    }
+  }
+
+  return null;
 }

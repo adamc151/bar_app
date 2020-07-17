@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
+import announcementIcon from "../../containers/icons/announcement.png";
 import sadFace from "./sad.png";
 import bar from "./deafultBarImg.jpg";
 import { withRouter } from "react-router";
@@ -34,7 +35,7 @@ class ListItem extends PureComponent {
 
   render(){
     const { onHover, onClick = () => { }, data, isSelected } = this.props;
-    const { name, deals, imgUrl, imgUrls = [], place_id } = data;
+    const { name, deals, imgUrl, imgUrls = [], place_id, announcement } = data;
 
   return !data == "" ? (
     <div ref={node => this.lineItem = node} className={`hoverWrapper hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}>
@@ -50,18 +51,20 @@ class ListItem extends PureComponent {
         
       >
         <div className="barImg">
-        <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt={name} />
+          <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt={name} />
         </div>
+
         {name && <div className="itemName"><img src={locationIcon} className="titleIconInside" alt="location icon" />{name}</div>}
         {deals[0].category && <div className={`item${deals[0].category} itemCategory`}>{deals[0].category}</div>}
 
         <div className="descriptionAndTime">
-        {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
-        {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
-        {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
-        {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
-        
+          {deals[0].description && (<div className="itemDescription">{deals[0].description.join(' • ')}</div>)}
+          {deals[0].category == "Now" && deals[0].endTime && (<div className="itemTime">Ends at {deals[0].endTime}</div>)}
+          {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
+          {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
         </div>
+        
+        {announcement && <img className="ListItemAnnouncement" src={announcementIcon} alt="Announcement Icon"/>}
         
       </Link>
     </div>
