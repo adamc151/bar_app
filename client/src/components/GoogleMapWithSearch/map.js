@@ -103,12 +103,7 @@ export class MyMap extends React.Component {
   }
 
   centerMap(position, searchedPlace = false, doFetchData = true) {
-    const {
-      setCenterCoordinates,
-      setHoverCoordinates,
-      fetchData,
-      miles,
-    } = this.props;
+    const { setCenterCoordinates, setHoverCoordinates, fetchData, miles } = this.props;
     const { latitude: lat, longitude: long } = position.coords;
 
     if (!searchedPlace) {
@@ -155,31 +150,31 @@ export class MyMap extends React.Component {
 
     return (
       <Fragment>
-        {displaySearchBar && (
-          <SearchBar
-            map={this.map}
-            getNode={(node) => (this.searchBox = node)}
-            displayCarousel={displayCarousel}
-            onClickButton={() => {
-              this.getLocation();
-              displayCarousel(false);
-            }}
-            setSearchedPlace={(searchedPlace) => this.setState(searchedPlace)}
-            fetchingUserLocation={fetchingUserLocation}
-            data={this.props.data}
-            centerMap={this.centerMap}
-            setCarouselSlide={setCarouselSlide}
-            history={history}
-          />
-        )}
-
-        {displaySearchBar && (
-          <div className="mapNav">
-            <Link to={`/`} alt="back">
-              <img src={navigate} className="bottomTextbackNavigation" />
-            </Link>
-          </div>
-        )}
+        {displaySearchBar &&
+          (
+            <Fragment>
+              <SearchBar
+                map={this.map}
+                getNode={(node) => (this.searchBox = node)}
+                displayCarousel={displayCarousel}
+                onClickButton={() => {
+                  this.getLocation();
+                  displayCarousel(false);
+                }}
+                setSearchedPlace={(searchedPlace) => this.setState(searchedPlace)}
+                fetchingUserLocation={fetchingUserLocation}
+                data={this.props.data}
+                centerMap={this.centerMap}
+                setCarouselSlide={setCarouselSlide}
+                history={history}
+              />
+              <div className="mapNav">
+                <Link to={`/`} alt="back">
+                  <img src={navigate} className="bottomTextbackNavigation" />
+                </Link>
+              </div>
+            </Fragment>
+          )}
 
         <div className="map">
           {this.state.showingInfoWindow && (
@@ -207,10 +202,9 @@ export class MyMap extends React.Component {
             }}
             onGoogleApiLoaded={(x) => {
               this.map = x.map;
+              window.map = x.map;
               this.props.onMapsLoaded();
-              window.places = new window.google.maps.places.PlacesService(
-                x.map
-              );
+              window.places = new window.google.maps.places.PlacesService(x.map);
             }}
             resetBoundsOnResize={true}
             onChange={(x) => {
@@ -228,11 +222,7 @@ export class MyMap extends React.Component {
               }
             }}
           >
-            <Marker
-              className="currentLocation"
-              lat={userCoordinates[0]}
-              lng={userCoordinates[1]}
-            />
+            <Marker className="currentLocation" lat={userCoordinates[0]} lng={userCoordinates[1]} />
 
             {displayMarkers &&
               this.props.data.map((marker, i) => {
@@ -255,7 +245,7 @@ export class MyMap extends React.Component {
                       this.centerMap(position, false, false);
                       setCarouselSlide(i);
                     }}
-                    key={i}
+                    coordinates={coordinates}
                     lat={coordinates[0]}
                     lng={coordinates[1]}
                     category={deals[0].category}

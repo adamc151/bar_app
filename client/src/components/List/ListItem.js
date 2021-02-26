@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ListItem.css";
 import locationIcon from "./placeholder.png";
 import announcementIcon from "../../containers/icons/announcement.png";
@@ -8,37 +8,37 @@ import { withRouter } from "react-router";
 import Image from '../Image/Image';
 import { Link } from "react-router-dom";
 
+// Hook
+function usePrevious(value) {
+  const ref = useRef();
 
-class ListItem extends PureComponent {
+  // Store current value in ref
+  useEffect(() => {
+    ref.current = value;
+  }, [value]); // Only re-run if value changes
 
-  constructor(props) {
-    super(props);
-  }
+  // Return previous value (happens before update in useEffect above)
+  return ref.current;
+}
 
-  state = {
-    hovered: false
-  }
 
-  componentDidUpdate(prevProps){
-    const { onHover, carouselSlide, index } = this.props;
-    if(onHover && carouselSlide !== null && prevProps.carouselSlide !== index && carouselSlide == index){
-      !this.props.isInViewport && this.lineItem.scrollIntoView({behavior: "smooth" });
+const ListItem = (props) => {
+
+  const lineItem = useRef(null);
+
+  const { onHover, onClick = () => { }, data, isSelected, carouselSlide, index } = props;
+  const { name, deals, imgUrl, imgUrls = [], place_id, announcement } = data;
+
+  const prevCarouselSlide = usePrevious(carouselSlide);
+
+  useEffect(() => {
+    if (onHover && carouselSlide !== null && prevCarouselSlide !== index && carouselSlide == index) {
+      !props.isInViewport && lineItem.current && lineItem.current.scrollIntoView({ behavior: "smooth" });
     }
-  }
-
-  isInViewport(element, offset = 0) {
-    if (!element) return true;
-    const top = element.getBoundingClientRect().top;
-    return (top + offset) >= 0 && (top - offset) <= window.innerHeight - 50;
-  }
-  
-
-  render(){
-    const { onHover, onClick = () => { }, data, isSelected } = this.props;
-    const { name, deals, imgUrl, imgUrls = [], place_id, announcement } = data;
+  }, [props.onHover])
 
   return !data == "" ? (
-    <div ref={node => this.lineItem = node} className={`hoverWrapper hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}>
+    <div ref={lineItem} className={`hoverWrapper hovered${onHover && isSelected} ${onHover ? 'doHover' : ''}`}>
       <Link
         className={`listItemWrapper carouselCard toggle${deals[0].category} removeBorder${onHover && isSelected}`}
         to={`/details/${place_id}`}
@@ -48,7 +48,7 @@ class ListItem extends PureComponent {
         onMouseEnter={() => {
           onHover && onHover(data);
         }}
-        
+
       >
         <div className="barImg">
           <Image src={imgUrls[0] || imgUrl || bar} className="barImg" alt={name} />
@@ -63,9 +63,9 @@ class ListItem extends PureComponent {
           {deals[0].category == "Upcoming" && deals[0].endTime && (<div className="itemTime">Starts at {deals[0].startTime}</div>)}
           {deals[0].category == "Inactive" && deals[0].endTime && (<div className="itemTime">Finished at {deals[0].endTime}</div>)}
         </div>
-        
-        {announcement && <img className="ListItemAnnouncement" src={announcementIcon} alt="Announcement Icon"/>}
-        
+
+        {announcement && <img className="ListItemAnnouncement" src={announcementIcon} alt="Announcement Icon" />}
+
       </Link>
     </div>
   ) : (
@@ -79,8 +79,8 @@ class ListItem extends PureComponent {
         </div>
       </div>
     );
-  }
- 
+
+
 }
 
 export default withRouter(ListItem);

@@ -1,93 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Image.css";
 import ViewportObserver from "../ViewportObserver/ViewportObserver";
 
-class Image extends React.Component {
-  constructor(props) {
-    super(props);
+const Image = (props) => {
 
-    this.state = {
-      imageLoading: true,
-    };
-  }
+  const [imageLoading, setImageLoading] = useState(true);
+  const { src, className, imageLoadedStyle, noLazyLoad, alt } = props;
+  const imageLoaded = !imageLoading ? imageLoadedStyle || "imgLoaded" : "";
 
-  render() {
-    const { src, className, imageLoadedStyle, noLazyLoad, alt } = this.props;
-    const imageLoaded = !this.state.imageLoading
-      ? imageLoadedStyle || "imgLoaded"
-      : "";
-
-    return (
-      <div className={`imgSkeleton ${className}`}>
-        <ViewportObserver>
-          {(intersected) => {
-            const loadImage = intersected || noLazyLoad;
-            return (
-              loadImage && (
-                <img
-                  src={src}
-                  className={`img ${imageLoaded} ${className}`}
-                  alt={alt || ""}
-                  onLoad={() => {
-                    this.setState({ imageLoading: false });
-                  }}
-                />
-              )
-            );
-          }}
-        </ViewportObserver>
-      </div>
-    );
-  }
+  return (
+    <div className={`imgSkeleton ${className}`}>
+      <ViewportObserver>
+        {(intersected) => {
+          const loadImage = intersected || noLazyLoad;
+          return (
+            loadImage && (
+              <img
+                src={src}
+                className={`img ${imageLoaded} ${className}`}
+                alt={alt || ""}
+                onLoad={() => {
+                  setImageLoading(false);
+                }}
+              />
+            )
+          );
+        }}
+      </ViewportObserver>
+    </div>
+  );
 }
 
-export class ImageWithBlur extends React.Component {
-  constructor(props) {
-    super(props);
+export const ImageWithBlur = (props) => {
 
-    this.state = {
-      imageLoading: true,
-    };
-  }
+  const [imageLoading, setImageLoading] = useState(true);
 
-  render() {
-    const { src, className, imageLoadedStyle, blurClassNames } = this.props;
-    const imageLoaded = !this.state.imageLoading
-      ? imageLoadedStyle || "imgLoaded"
-      : "";
-    const { blurImage, mainImage, container } = blurClassNames || {};
+  const { src, className, imageLoadedStyle, blurClassNames } = props;
+  const imageLoaded = !imageLoading ? imageLoadedStyle || "imgLoaded" : "";
+  const { blurImage, mainImage, container } = blurClassNames || {};
 
-    return (
-      <div className={`imgSkeleton ${className}`}>
-        <ViewportObserver>
-          {(intersected) => {
-            return (
-              intersected && (
-                <div className={`BlurImgContainer ${container}`}>
-                  <img
-                    src={src}
-                    className={`img ${imageLoaded} blurImage ${blurImage}`}
-                    alt=""
-                    onLoad={() => {
-                      this.setState({ imageLoading: false });
-                    }}
-                  />
-                  <img
-                    src={src}
-                    className={`img ${imageLoaded} blurMainImage ${mainImage}`}
-                    alt=""
-                    onLoad={() => {
-                      this.setState({ imageLoading: false });
-                    }}
-                  />
-                </div>
-              )
-            );
-          }}
-        </ViewportObserver>
-      </div>
-    );
-  }
+  return (
+    <div className={`imgSkeleton ${className}`}>
+      <ViewportObserver>
+        {(intersected) => {
+          return (
+            intersected && (
+              <div className={`BlurImgContainer ${container}`}>
+                <img
+                  src={src}
+                  className={`img ${imageLoaded} blurImage ${blurImage}`}
+                  alt=""
+                  onLoad={() => {
+                    setImageLoading(false);
+                  }}
+                />
+                <img
+                  src={src}
+                  className={`img ${imageLoaded} blurMainImage ${mainImage}`}
+                  alt=""
+                  onLoad={() => {
+                    setImageLoading(false)
+                  }}
+                />
+              </div>
+            )
+          );
+        }}
+      </ViewportObserver>
+    </div>
+  );
+
 }
 
 export default Image;

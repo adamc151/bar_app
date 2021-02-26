@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Bar.css";
 import Deal from "./Deal";
 import Image, { ImageWithBlur } from "../Image/Image";
@@ -9,51 +9,36 @@ import instagram_icon from "../../containers/icons/instagram2.png";
 import twitter_icon from "../../containers/icons/twitter2.png";
 import announcement_icon from "../../containers/icons/announcement.png";
 
-class Bar extends React.Component {
-  constructor(props) {
-    super(props);
+const Bar = (props) => {
+  const wrapperEl = useRef(null);
 
-    this.state = {
-      showMorePressed: false,
-      loaded: false,
-    };
+  useEffect(() => {
 
-    this.handleBodyClick = this.handleBodyClick.bind(this);
-  }
-
-  componentDidMount() {
     const isMobile = window.matchMedia("(max-width: 1000px)").matches;
     if (!isMobile) {
-      document.addEventListener("mousedown", this.handleBodyClick, false);
-      document.addEventListener("touchstart", this.handleBodyClick, false);
+      document.addEventListener("mousedown", (e) => handleBodyClick(e, props), false);
+      document.addEventListener("touchstart", (e) => handleBodyClick(e, props), false);
     }
 
-    this.setState({ loaded: true });
-  }
-
-  componentWillUnmount() {
-    const isMobile = window.matchMedia("(max-width: 1000px)").matches;
-    if (!isMobile) {
-      document.removeEventListener("mousedown", this.handleBodyClick, false);
-      document.removeEventListener("touchstart", this.handleBodyClick, false);
+    return () => {
+      const isMobile = window.matchMedia("(max-width: 1000px)").matches;
+      if (!isMobile) {
+        document.removeEventListener("mousedown", (e) => handleBodyClick(e, props), false);
+        document.removeEventListener("touchstart", (e) => handleBodyClick(e, props), false);
+      }
     }
-  }
+  }, [props.photos])
 
-  handleBodyClick = (e) => {
-    if (this.node === null || this.node.contains(e.target)) {
+
+  const handleBodyClick = (e, props) => {
+    if (wrapperEl.current === null || wrapperEl.current.contains(e.target)) {
       return;
     } else {
-      this.props.history.push(`/map`);
+      props.history.push(`/map`);
     }
   };
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.photos !== this.props.photos) {
-      this.slick.slickGoTo(1);
-    }
-  }
-
-  getSkeleton() {
+  const getSkeleton = () => {
     return (
       <div className="detailsTextWrapper">
         <div className="titleSkeleton"></div>
@@ -64,9 +49,9 @@ class Bar extends React.Component {
     );
   }
 
-  renderBar() {
-    const { loading, getPhotos, photos, loadingPhotos } = this.props;
-    let details = this.props.singleBar;
+  const renderBar = (props) => {
+    const { loading, getPhotos, photos, loadingPhotos } = props;
+    let details = props.singleBar;
 
     const { post, time } = details.announcement || {};
 
@@ -107,8 +92,8 @@ class Bar extends React.Component {
     };
 
     return (
-      <div className="detailsWrapper" ref={(node) => (this.node = node)}>
-        <Slider ref={(node) => (this.slick = node)} {...settings}>
+      <div className="detailsWrapper" ref={wrapperEl}>
+        <Slider {...settings}>
           {images.map((image, i) => {
             const blurImageClassNames = {
               blurImage: "barBlurImage",
@@ -122,12 +107,12 @@ class Bar extends React.Component {
                 blurClassNames={blurImageClassNames}
               />
             ) : (
-              <Image
-                src={image}
-                className={`barDetailsImage`}
-                noLazyLoad={window.matchMedia("(max-width: 1000px)").matches}
-              />
-            );
+                <Image
+                  src={image}
+                  className={`barDetailsImage`}
+                  noLazyLoad={window.matchMedia("(max-width: 1000px)").matches}
+                />
+              );
           })}
         </Slider>
 
@@ -142,63 +127,63 @@ class Bar extends React.Component {
         )}
 
         {loading && !details.name ? (
-          this.getSkeleton()
+          getSkeleton()
         ) : (
-          <div>
-            <div className="detailsTextWrapper">
-              {details.name && (
-                <div className="detailsName">{details.name}</div>
-              )}
+            <div>
+              <div className="detailsTextWrapper">
+                {details.name && (
+                  <div className="detailsName">{details.name}</div>
+                )}
 
-              {details.address && (
-                <div className="detailsAddress">{details.address}</div>
-              )}
+                {details.address && (
+                  <div className="detailsAddress">{details.address}</div>
+                )}
 
-              <div className="socialWrapper">
-                <a href={details.website}>
-                  <img className="websiteIcon" src={website} />
-                </a>
-                {details.social && details.social.facebook !== "" ? (
-                  <a href={details.social.facebook}>
-                    <img className="facebook_icon" src={facebook_icon} />
+                <div className="socialWrapper">
+                  <a href={details.website}>
+                    <img className="websiteIcon" src={website} />
                   </a>
-                ) : null}
-                {details.social && details.social.instagram !== "" ? (
-                  <a href={details.social.instagram}>
-                    <img src={instagram_icon} />
-                  </a>
-                ) : null}
-                {details.social && details.social.twitter !== "" ? (
-                  <a href={details.social.twitter}>
-                    <img src={twitter_icon} />
-                  </a>
-                ) : null}
-              </div>
-
-              <div className="dealsTitle">Today's Deals</div>
-              {this.renderTodayDeals()}
-              {details.otherDeals && details.otherDeals[0] && (
-                <div className="dealsTitle">Other Deals</div>
-              )}
-
-              {details.otherDeals &&
-                details.otherDeals[0] &&
-                this.renderOtherDeals()}
-
-              {
-                <div className="pleaseNote">
-                  Last updated: {details.lastUpdated || "1st March 2020"}
+                  {details.social && details.social.facebook !== "" ? (
+                    <a href={details.social.facebook}>
+                      <img className="facebook_icon" src={facebook_icon} />
+                    </a>
+                  ) : null}
+                  {details.social && details.social.instagram !== "" ? (
+                    <a href={details.social.instagram}>
+                      <img src={instagram_icon} />
+                    </a>
+                  ) : null}
+                  {details.social && details.social.twitter !== "" ? (
+                    <a href={details.social.twitter}>
+                      <img src={twitter_icon} />
+                    </a>
+                  ) : null}
                 </div>
-              }
+
+                <div className="dealsTitle">Today's Deals</div>
+                {renderTodayDeals(props)}
+                {details.otherDeals && details.otherDeals[0] && (
+                  <div className="dealsTitle">Other Deals</div>
+                )}
+
+                {details.otherDeals &&
+                  details.otherDeals[0] &&
+                  renderOtherDeals(props)}
+
+                {
+                  <div className="pleaseNote">
+                    Last updated: {details.lastUpdated || "1st March 2020"}
+                  </div>
+                }
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </div>
     );
   }
 
-  renderTodayDeals() {
-    let details = this.props.singleBar;
+  const renderTodayDeals = (props) => {
+    let details = props.singleBar;
     if (details.name === undefined || !details.name || details.name === "")
       return null;
 
@@ -207,8 +192,8 @@ class Bar extends React.Component {
     });
   }
 
-  renderOtherDeals() {
-    let details = this.props.singleBar;
+  const renderOtherDeals = (props) => {
+    let details = props.singleBar;
     if (details.name === undefined || !details.name || details.name === "")
       return null;
 
@@ -217,9 +202,9 @@ class Bar extends React.Component {
     });
   }
 
-  render() {
-    return this.renderBar();
-  }
+
+  return renderBar(props);
+
 }
 
 export default Bar;
